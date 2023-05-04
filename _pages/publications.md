@@ -5,12 +5,21 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
+<strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [`PDF`](https://arxiv.org/abs/2203.01437)\\
+Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Angel Tena, Rémi Kazmierczak, Séverine Dubuisson, Emanuel Aldea, David Filliat\\
+<em>British Machine Vision Conference (BMVC), 2022</em>
 
-{% include base_path %}
+<strong>Latent Discriminant deterministic Uncertainty</strong> [`PDF`](https://link.springer.com/chapter/10.1007/978-3-031-19775-8_15)\\
+Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Emanuel Aldea, Severine Dubuisson, David Filliat\\
+<em>European Conference on Computer Vision (ECCV), 2022</em>
 
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<strong>On Monocular Depth Estimation and Uncertainty Quantification using Classification Approaches for Regression</strong> [`PDF`](https://arxiv.org/abs/2202.12369)\\
+<strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea\\
+<em>IEEE International Conference on Image Processing (ICIP), 2022<em> (Oral)
+
+<strong>SLURP: Side Learning Uncertainty for Regression Problems</strong> [`PDF`](https://arxiv.org/abs/2110.11182)\\
+<strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea\\
+<em>British Machine Vision Conference (BMVC), 2021<em>
+
+
+ \*equal contribution
