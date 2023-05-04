@@ -15,16 +15,16 @@ I am especially interested in uncertainty quantification for deep learning, with
 Recent News
 ======
 `05-2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
-`04-05-2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [PDF](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
+`04-05-2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [`PDF`](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
 `03-2023 - 04-2023` One-month pleasant visit at Leiden University.
 
 Publications
 ======
-<strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [`PDF`](https://arxiv.org/abs/2203.01437)\\
+<strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [`PDF`](https://arxiv.org/abs/2203.01437) [`website`](https://muad-dataset.github.io/)\\
 Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Angel Tena, Rémi Kazmierczak, Séverine Dubuisson, Emanuel Aldea, David Filliat\\
 <em>British Machine Vision Conference (BMVC), 2022</em>
 
-<strong>Latent Discriminant deterministic Uncertainty</strong> [`PDF`](https://link.springer.com/chapter/10.1007/978-3-031-19775-8_15)\\
+<strong>Latent Discriminant deterministic Uncertainty</strong> [`PDF`](https://link.springer.com/chapter/10.1007/978-3-031-19775-8_15) [`github`](https://github.com/ENSTA-U2IS/LDU)\\
 Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Emanuel Aldea, Severine Dubuisson, David Filliat\\
 <em>European Conference on Computer Vision (ECCV), 2022</em>
 
@@ -32,7 +32,7 @@ Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Emanuel Aldea, 
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea\\
 <em>IEEE International Conference on Image Processing (ICIP), 2022<em> (Oral)
 
-<strong>SLURP: Side Learning Uncertainty for Regression Problems</strong> [`PDF`](https://arxiv.org/abs/2110.11182)\\
+<strong>SLURP: Side Learning Uncertainty for Regression Problems</strong> [`PDF`](https://arxiv.org/abs/2110.11182) [`github`](https://github.com/xuanlongORZ/SLURP_uncertainty_estimate)\\
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea\\
 <em>British Machine Vision Conference (BMVC), 2021<em>
 
