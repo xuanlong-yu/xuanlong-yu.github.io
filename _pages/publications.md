@@ -9,7 +9,7 @@ author_profile: true
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
 <em>arxiv, 2023</em>
 
-<strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [`on the way`]\\
+<strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> `on the way`\\
 <strong>Xuanlong Yu</strong>, Yi Zuo, Zitao Wang, Xiaowen Zhang, Jiaxuan Zhao, Yuting Yang, Licheng Jiao,
 Rui Peng, Xinyi Wang, Junpei Zhang, Kexin Zhang, Fang Liu, Roberto Alcover-Couso, Juan C. SanMiguel,
 Marcos Escudero-Vinolo, Hanlin Tian, Kenta Matsui, Tianhao Wang, Fahmy Adan,

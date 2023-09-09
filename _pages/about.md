@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am currenly a PhD student in Deep learning at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris). Prior to it, I obtained my B.Eng. in telecommunication from Xidian University in 2018.
+I am currenly a PhD student in Deep learning at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris). Prior to it, I obtained my B.Eng. in telecommunication from Xidian University, China, in 2018.
 I am especially interested in uncertainty quantification for deep learning, with applications to computer vision tasks.
 
 
@@ -24,8 +24,8 @@ Publications and pre-prints
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
 <em>arxiv, 2023</em>
 
-<strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [`on the way`]\\
-<strong>Xuanlong Yu</strong>, et al. (full author list is provided in the [publications and pre-prints] page)\\
+<strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> `on the way`\\
+<strong>Xuanlong Yu</strong>, et al. (full author list is provided in the [publications] page)\\
 <em>International Conference on Computer Vision Workshop (ICCVW), 2023</em>
 
 <strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [`PDF`](https://arxiv.org/abs/2203.01437) [`website`](https://muad-dataset.github.io/)\\
