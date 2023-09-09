@@ -1,9 +1,22 @@
 ---
 layout: archive
-title: "Publications"
+title: "Publications and pre-prints"
 permalink: /publications/
 author_profile: true
 ---
+
+<strong>Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression</strong> [`PDF`](https://arxiv.org/abs/2308.09065)\\
+<strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
+<em>arxiv, 2023</em>
+
+<strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [`on the way`]\\
+<strong>Xuanlong Yu</strong>, Yi Zuo, Zitao Wang, Xiaowen Zhang, Jiaxuan Zhao, Yuting Yang, Licheng Jiao,
+Rui Peng, Xinyi Wang, Junpei Zhang, Kexin Zhang, Fang Liu, Roberto Alcover-Couso, Juan C. SanMiguel,
+Marcos Escudero-Vinolo, Hanlin Tian, Kenta Matsui, Tianhao Wang, Fahmy Adan,
+Zhitong Gao, Xuming He, Quentin Bouniot, Hossein Moghaddam, Shyam Nandan Rai, Fabio Cermelli, 
+Carlo Masone, Andrea Pilzer, Elisa Ricci, Andrei Bursuc, Arno Solin, Martin Trapp, 
+Rui Li, Angela Yao, Wenlong Chen, Ivor Simpson, Neill D. F. Campbell, and Gianni Franchi\\
+<em>International Conference on Computer Vision Workshop (ICCVW), 2023</em>
 
 <strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [`PDF`](https://arxiv.org/abs/2203.01437) [`website`](https://muad-dataset.github.io/)\\
 Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Angel Tena, Rémi Kazmierczak, Séverine Dubuisson, Emanuel Aldea, David Filliat\\

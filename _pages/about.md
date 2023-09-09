@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a PhD student in Deep learning at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris).
+I am currenly a PhD student in Deep learning at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris). Prior to it, I obtained my B.Eng. in telecommunication from Xidian University in 2018.
 I am especially interested in uncertainty quantification for deep learning, with applications to computer vision tasks.
 
 
@@ -18,8 +18,16 @@ Recent News
 `04-05-2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [`PDF`](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
 `03-2023 - 04-2023` One-month pleasant visit at Leiden University.
 
-Publications
+Publications and pre-prints
 ======
+<strong>Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression</strong> [`PDF`](https://arxiv.org/abs/2308.09065)\\
+<strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
+<em>arxiv, 2023</em>
+
+<strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [`on the way`]\\
+<strong>Xuanlong Yu</strong>, et al. (full author list is provided in the [publications and pre-prints] page)\\
+<em>International Conference on Computer Vision Workshop (ICCVW), 2023</em>
+
 <strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [`PDF`](https://arxiv.org/abs/2203.01437) [`website`](https://muad-dataset.github.io/)\\
 Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Angel Tena, Rémi Kazmierczak, Séverine Dubuisson, Emanuel Aldea, David Filliat\\
 <em>British Machine Vision Conference (BMVC), 2022</em>
@@ -40,4 +48,4 @@ Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Emanuel Aldea, 
 
 Academic services
 ======
-MVA 2023, IEEE TPAMI, IEEE TMM
+ICCVW 2023, MVA 2023, IEEE TPAMI, IEEE TMM
