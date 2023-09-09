@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am currenly a PhD student in Deep learning at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris). Prior to it, I obtained my B.Eng. in telecommunication from Xidian University, China, in 2018.
+I am currenly a PhD student at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris). Prior to it, I obtained my B.Eng. in telecommunication engineering from Xidian University, China, in 2018.
 I am especially interested in uncertainty quantification for deep learning, with applications to computer vision tasks.
 
 
