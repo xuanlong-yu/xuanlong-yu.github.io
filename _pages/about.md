@@ -48,4 +48,5 @@ Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Emanuel Aldea, 
 
 Academic services
 ======
-ICCVW 2023, MVA 2023, IEEE TPAMI, IEEE TMM
+Reviewer: ICCVW 2023, MVA 2023, IEEE TPAMI, IEEE TMM\\
+Organizer: MUAD challenge at UNCV workshop, ICCV 2023.
