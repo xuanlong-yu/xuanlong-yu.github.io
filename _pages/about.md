@@ -24,6 +24,10 @@ Publications and pre-prints
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
 <em>arxiv, 2023</em>
 
+<strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> `on the way`\\
+Gianni Franchi, Marwane Hariat, <strong>Xuanlong Yu</strong>, Nacim Belkhir, Antoine Manzanera, David Filliat\\
+<em>arxiv, 2023</em>
+
 <strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> `on the way`\\
 <strong>Xuanlong Yu</strong>, et al. (full author list is provided in the [publications] page)\\
 <em>International Conference on Computer Vision Workshop (ICCVW), 2023</em>
