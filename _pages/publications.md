@@ -9,10 +9,9 @@ author_profile: true
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
 <em>arxiv, 2023</em>
 
-
 <strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> [`PDF`](https://arxiv.org/abs/2309.15751)\\
 Gianni Franchi, Marwane Hariat, <strong>Xuanlong Yu</strong>, Nacim Belkhir, Antoine Manzanera, David Filliat\\
-<em>arxiv, 2023</em>
+<em>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2023</em>
 
 <strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [`PDF`](https://arxiv.org/abs/2309.15478)\\
 <strong>Xuanlong Yu</strong>, Yi Zuo, Zitao Wang, Xiaowen Zhang, Jiaxuan Zhao, Yuting Yang, Licheng Jiao,
