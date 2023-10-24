@@ -14,7 +14,7 @@ I am especially interested in uncertainty quantification for deep learning, with
 
 Recent News
 ======
-`10-2023` Happy to announce that our new outdoor dataset [InfraParis](https://arxiv.org/abs/2309.15751) is accpeted by WACV 2023. The dataset is contains RGB, Depth and Infrared images with manual semantic segmentation annotations. The project website and the download link will be provided in short term.
+`10-2023` Happy to announce that our new dataset [InfraParis](https://arxiv.org/abs/2309.15751) has been accepted at WACV 2023. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. The project website and the download link will be provided in the short term.\\
 `05-2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
 `04-05-2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [`PDF`](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
 `03-2023 - 04-2023` One-month pleasant visit at Leiden University.
