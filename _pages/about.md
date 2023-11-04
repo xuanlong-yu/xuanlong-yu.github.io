@@ -9,12 +9,13 @@ redirect_from:
 ---
 
 I am currenly a PhD student at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris). Prior to it, I obtained my B.Eng. in telecommunication engineering from Xidian University, China, in 2018.
-I am especially interested in uncertainty quantification for deep learning, with applications to computer vision tasks.
+I am especially interested in uncertainty quantification for deep learning, with applications to computer vision tasks, as well as multimodal learning.\\
+My defense is going to be placed in December, and if everything goes well I can finish my PhD career before this year. Thus, I am looking for an R&D position in industry or a postdoc position in any area over the world (but R/D position is better :D). If you pass by here and are interested in my research, don't hesitate to contact me if you have such an opportunity by chance.
 
 
 Recent News
 ======
-`10-2023` Happy to announce that our new dataset [InfraParis](https://arxiv.org/abs/2309.15751) has been accepted at WACV 2024. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. The project website and the download link will be provided in the short term.\\
+`10-2023` Happy to announce that our new dataset [InfraParis](https://arxiv.org/abs/2309.15751) has been accepted at WACV 2024. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. The project website is [here](https://ensta-u2is.github.io/infraParis/).\\
 `05-2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
 `04-05-2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [`PDF`](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
 `03-2023 - 04-2023` One-month pleasant visit at Leiden University.
@@ -25,7 +26,7 @@ Publications and pre-prints
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
 <em>arxiv, 2023</em>
 
-<strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> [`PDF`](https://arxiv.org/abs/2309.15751)\\
+<strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> [`PDF`](https://arxiv.org/abs/2309.15751) [`website`](https://ensta-u2is.github.io/infraParis/)\\
 Gianni Franchi, Marwane Hariat, <strong>Xuanlong Yu</strong>, Nacim Belkhir, Antoine Manzanera, David Filliat\\
 <em>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024</em>
 
