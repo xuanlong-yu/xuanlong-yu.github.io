@@ -11,7 +11,7 @@ redirect_from:
 I am currenly a PhD student at Université Paris-Saclay, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi) (ENSTA Paris, Institut Polytechnique de Paris). Prior to it, I obtained my B.Eng. in telecommunication engineering from Xidian University, China, in 2018.
 I am especially interested in uncertainty quantification for deep learning, with applications to computer vision tasks, as well as multimodal learning.
 
-My defense is going to be placed in December, and if everything goes well I can finish my PhD career at the end of this year. Thus, <strong>I am looking for an R&D position in industry or a postdoc position (but R/D position is better :D) in any area over the world</strong>. If you pass by and are interested in my research, don't hesitate to contact me if you have such an opportunity by chance.
+My defense is going to be placed in December 2023, and if everything goes well I can finish my PhD career at the end of this year. Thus, <strong>I am looking for an R&D position in industry or a postdoc position (but R/D position is better :D) in any area over the world</strong>. If you pass by and are interested in my research, don't hesitate to contact me if you have such an opportunity by chance.
 
 
 Recent News
