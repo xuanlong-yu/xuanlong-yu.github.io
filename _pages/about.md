@@ -16,7 +16,7 @@ My defense is going to be placed in December 2023, and if everything goes well, 
 
 Recent News
 ======
-`12-2023` Happy to annouce that our paper [DIDO]((https://arxiv.org/abs/2308.09065)) has been accepted at AAAI 2024. This paper proposed a novel solution using auxliary networks for more effective uncertianty quantification for regression tasks. Code will be released at the beginning of the next year.\\
+`12-2023` Happy to annouce that our paper [DIDO](https://arxiv.org/abs/2308.09065) has been accepted at AAAI 2024. This paper proposed a novel solution using auxliary networks for more effective uncertianty quantification for regression tasks. Code will be released at the beginning of the next year.\\
 `10-2023` Happy to announce that our new dataset [InfraParis](https://arxiv.org/abs/2309.15751) has been accepted as Oral presentation at WACV 2024. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details [here](https://ensta-u2is.github.io/infraParis/).\\
 `05-2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
 `04-05-2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [`PDF`](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
