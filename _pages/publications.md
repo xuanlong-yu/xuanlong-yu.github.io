@@ -7,7 +7,7 @@ author_profile: true
 
 <strong>Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression</strong> [`PDF`](https://arxiv.org/abs/2308.09065) [`github`](https://github.com/ENSTA-U2IS/DIDO)\\
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
-<em>arxiv, 2023</em>
+<em>The 38th Annual AAAI Conference on Artificial Intelligence (AAAI), 2024</em>
 
 <strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> [`PDF`](https://arxiv.org/abs/2309.15751)\\
 Gianni Franchi, Marwane Hariat, <strong>Xuanlong Yu</strong>, Nacim Belkhir, Antoine Manzanera, David Filliat\\
