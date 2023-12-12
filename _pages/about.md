@@ -11,11 +11,12 @@ redirect_from:
 I am currently a PhD student at Université Paris-Saclay, and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi). Prior to it, I obtained my M.Eng in image processing from Télécom Saint-Etienne, France, and B.Eng. in telecommunication engineering from Xidian University, China.
 I am especially interested in uncertainty quantification for deep learning, with applications to computer vision tasks, as well as multimodal learning.
 
-My defense is going to be placed in December 2023, and if everything goes well, I can finish my PhD career at the end of this year. Thus, <strong>I am looking for an R&D position in industry or a postdoc position (but an R/D position is better :D) in any area over the world</strong>. If you pass by and are interested in my research, don't hesitate to contact me if you have such an opportunity by chance.
+I successfully defended my PhD dissertation. on 11th December 2023. <strong>I am looking for an R&D position in industry or a postdoc position (but an R/D position is better :D) in any area over the world</strong>. If you pass by and are interested in my research, don't hesitate to contact me if you have such an opportunity.
 
 
 Recent News
 ======
+`11-12-2023` I successfully defended my PhD dissertation. Thank all the members of the jury, my dear supervisors, colleagues, and my parents.
 `12-2023` Happy to annouce that our paper [DIDO](https://arxiv.org/abs/2308.09065) has been accepted at AAAI 2024. This paper proposed a novel solution using auxliary networks for more effective uncertianty quantification for regression tasks. Code will be released at the beginning of the next year.\\
 `10-2023` Happy to announce that our new dataset [InfraParis](https://arxiv.org/abs/2309.15751) has been accepted as Oral presentation at WACV 2024. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details [here](https://ensta-u2is.github.io/infraParis/).\\
 `05-2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
