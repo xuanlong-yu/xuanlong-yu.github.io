@@ -26,7 +26,7 @@ Education
 ======
 `2020-2023` PhD in signal and image processing sciences at Université Paris-Saclay, France\\
 `2017-2020` M.Eng. in image processing at Télécom Saint-Etienne, France\\
-`2014-2018` B.Eng. in telecommunication engineering at Xidian University, China\\
+`2014-2018` B.Eng. in telecommunication engineering at Xidian University, China
 
 
 Publications and pre-prints
