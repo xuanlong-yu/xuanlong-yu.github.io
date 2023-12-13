@@ -8,9 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-Xuanlong Yu completed his PhD in 2023 at Université Paris-Saclay, and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of [Emanuel Aldea](http://hebergement.u-psud.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as multimodal learning.
+Xuanlong Yu completed his PhD in 2023 at Université Paris-Saclay, and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as multimodal learning.
 
-<strong>Xuanlong is looking for an R&D position in industry or a postdoc position (but an R/D position is better :D) in any area over the world.</strong>
+<strong>Xuanlong is looking for an R&D position in industry or a postdoc position in any area over the world.</strong>
 
 
 Recent News
