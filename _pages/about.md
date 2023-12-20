@@ -8,14 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-Xuanlong Yu completed his PhD in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as multimodal learning.
+Xuanlong Yu completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as multimodal learning.
 
 <strong>Xuanlong is looking for an R&D position in industry or a postdoc position in any area over the world.</strong>
 
 
 Recent News
 ======
-`11/12/2023` I successfully defended my PhD dissertation "Uncertainty quantification for vision regression tasks" [`PDF`](https://xuanlong-yu.github.io/files/phd_defense.pdf). Thank all the members of the jury, my dear supervisors, colleagues, friends and my parents.\\
+`11/12/2023` I successfully defended my Ph.D. dissertation "Uncertainty quantification for vision regression tasks" [`PDF`](https://xuanlong-yu.github.io/files/phd_defense.pdf). Thank all the members of the jury, my dear supervisors, colleagues, friends and my parents.\\
 `09/12/2023` Happy to annouce that our paper [DIDO](https://arxiv.org/abs/2308.09065) has been accepted at AAAI 2024. This paper proposed a novel solution using auxliary networks for more effective uncertianty quantification for regression tasks. Code will be released at the beginning of the next year.\\
 `10/2023` Happy to announce that our new dataset [InfraParis](https://arxiv.org/abs/2309.15751) has been accepted as Oral presentation at WACV 2024. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details [here](https://ensta-u2is.github.io/infraParis/).\\
 `05/2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
@@ -24,7 +24,7 @@ Recent News
 
 Education
 ======
-`2020-2023` PhD in signal and image processing sciences at Université Paris-Saclay, France\\
+`2020-2023` Ph.D. in signal and image processing sciences at Université Paris-Saclay, France\\
 `2017-2020` M.Eng. in image processing at Télécom Saint-Etienne, France\\
 `2014-2018` B.Eng. in telecommunication engineering at Xidian University, China
 
@@ -63,5 +63,5 @@ Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Emanuel Aldea, 
 
 Academic services
 ======
-Reviewer: CVPR2024, ICPR2024, ICCVW 2023, MVA 2023, IEEE TPAMI, IEEE TMM\\
+Reviewer: CVPR 2024, ICPR 2024, ICCVW 2023, MVA 2023, IEEE TPAMI, IEEE TMM\\
 Organizer: MUAD challenge at UNCV workshop, ICCV 2023.
