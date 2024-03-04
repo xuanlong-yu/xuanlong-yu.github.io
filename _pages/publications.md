@@ -5,6 +5,10 @@ permalink: /publications/
 author_profile: true
 ---
 
+<strong>SURE: SUrvey REcipes for building reliable and robust deep networks</strong> [`PDF`](https://arxiv.org/abs/2403.00543) [`github`](https://github.com/YutingLi0606/SURE)\\
+Yuting Li, Yingyi Chen, <strong>Xuanlong Yu</strong>, Dexiong Chen, Xi Shen\\
+<em>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024</em>
+
 <strong>Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression</strong> [`PDF`](https://arxiv.org/abs/2308.09065) [`github`](https://github.com/ENSTA-U2IS/DIDO)\\
 <strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
 <em>The 38th Annual AAAI Conference on Artificial Intelligence (AAAI), 2024</em>
