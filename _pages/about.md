@@ -15,10 +15,10 @@ Xuanlong Yu completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Pa
 
 Recent News
 ======
-`03/2024` one paper ([`PDF`](https://arxiv.org/abs/2403.00543)) is accepted by CVPR 2024, thanks to all the co-authors!\\
+`03/2024` One paper ([SURE](https://arxiv.org/abs/2403.00543)) is accepted at CVPR 2024, thanks to all the co-authors!\\
 `11/12/2023` I successfully defended my Ph.D. dissertation "Uncertainty quantification for vision regression tasks" [`PDF`](https://xuanlong-yu.github.io/files/phd_defense.pdf). Thank all the members of the jury, my dear supervisors, colleagues, friends and my parents.\\
-`09/12/2023` Happy to annouce that our paper [DIDO](https://arxiv.org/abs/2308.09065) has been accepted at AAAI 2024. This paper proposed a novel solution using auxliary networks for more effective uncertianty quantification for regression tasks. Code will be released at the beginning of the next year.\\
-`10/2023` Happy to announce that our new dataset [InfraParis](https://arxiv.org/abs/2309.15751) has been accepted as Oral presentation at WACV 2024. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details [here](https://ensta-u2is.github.io/infraParis/).\\
+`09/12/2023` One paper ([DIDO](https://arxiv.org/abs/2308.09065)) is accepted at AAAI 2024, thanks to all the co-authors!\\
+`10/2023` Our dataset paper [InfraParis](https://arxiv.org/abs/2309.15751) is accepted as Oral presentation at WACV 2024, thanks to all the co-authors! The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details [here](https://ensta-u2is.github.io/infraParis/).\\
 `05/2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
 `04/05/2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [`PDF`](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
 `03/2023 - 04/2023` One-month pleasant visit at Leiden University.
