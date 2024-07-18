@@ -8,9 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-Xuanlong Yu will join Intellindust (Shenzhen, China) in Aug 2024 as a senior computer vision engineer working with Dr. [Xi Shen](https://xishen0220.github.io/). 
-
-Xuanlong Yu completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of Prof. [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and Prof. [Gianni Franchi](https://giannifranchi.github.io/). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as 2D animation video generation and multimodal learning.
+Xuanlong Yu will join Intellindust, China in Aug 2024 as a senior computer vision engineer working with Dr. [Xi Shen](https://xishen0220.github.io/). 
+Previously, Xuanlong Yu completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of Prof. [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and Prof. [Gianni Franchi](https://giannifranchi.github.io/). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as 2D animation video generation and multimodal learning.
 
 Recent News
 ======
