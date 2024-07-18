@@ -5,6 +5,10 @@ permalink: /publications/
 author_profile: true
 ---
 
+<strong>On the Calibration of Human Pose Estimation</strong> [`PDF`](https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf)\\
+Kerui Gu\*, Rongyu Chen\*, <strong>Xuanlong Yu</strong>, Angela Yao\\
+<em>The International Conference on Machine Learning (ICML), 2024</em>
+
 <strong>SURE: SUrvey REcipes for building reliable and robust deep networks</strong> [`PDF`](https://arxiv.org/abs/2403.00543) [`github`](https://github.com/YutingLi0606/SURE)\\
 Yuting Li, Yingyi Chen, <strong>Xuanlong Yu</strong>, Dexiong Chen, Xi Shen\\
 <em>The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024</em>

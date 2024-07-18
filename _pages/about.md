@@ -8,15 +8,17 @@ redirect_from:
   - /about.html
 ---
 
-Xuanlong Yu will join Intellindust in Aug 2024 as a senior computer vision engineer working with [Xi Shen](https://xishen0220.github.io/). Xuanlong completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and [Gianni Franchi](https://www.ensta-paris.fr/fr/gianni-franchi). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as 2D animation video generation and multimodal learning.
+Xuanlong Yu will join Intellindust (Shenzhen, China) in Aug 2024 as a senior computer vision engineer working with Dr. [Xi Shen](https://xishen0220.github.io/). 
+
+Xuanlong Yu completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of Prof. [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and Prof. [Gianni Franchi](https://giannifranchi.github.io/). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as 2D animation video generation and multimodal learning.
 
 Recent News
 ======
-`06/2024` One paper ([CCNet](https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf)) for human pose calibration is accepted at ICML 2024, thanks to all the co-authors!\\
-`03/2024` One paper ([SURE](https://arxiv.org/abs/2403.00543)) for robust image classification is accepted at CVPR 2024, thanks to all the co-authors!\\
+`06/2024` [[CCNet](https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf)] for human pose calibration is accepted at ICML 2024, thanks to all the co-authors!\\
+`03/2024` [[SURE](https://arxiv.org/abs/2403.00543)] for robust image classification is accepted at CVPR 2024, thanks to all the co-authors!\\
 `12/2023` I successfully defended my Ph.D. dissertation "Uncertainty quantification for vision regression tasks" [`PDF`](https://xuanlong-yu.github.io/files/phd_defense.pdf). Thank all the members of the jury, my dear supervisors, colleagues, friends and my parents.\\
-`12/2023` One paper ([DIDO](https://arxiv.org/abs/2308.09065)) for uncertainty estimation is accepted at AAAI 2024, thanks to all the co-authors!\\
-`10/2023` Our dataset paper [InfraParis](https://arxiv.org/abs/2309.15751) is accepted as Oral presentation at WACV 2024, thanks to all the co-authors! The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details [Website](https://ensta-u2is-ai.github.io/infraParis/).\\
+`12/2023` [[DIDO](https://arxiv.org/abs/2308.09065)] for uncertainty estimation is accepted at AAAI 2024, thanks to all the co-authors!\\
+`10/2023` [InfraParis](https://arxiv.org/abs/2309.15751) is accepted as Oral presentation at WACV 2024, thanks to all the co-authors! The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details [Website](https://ensta-u2is-ai.github.io/infraParis/).\\
 `05/2023` Happy to announce that the [MUAD challenge](https://codalab.lisn.upsaclay.fr/competitions/8007) is now on board at [UNCV Workshop](https://uncv2023.github.io/), [ICCV 2023](https://iccv2023.thecvf.com/).\\
 `05/2023` Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" [`PDF`](https://xuanlong-yu.github.io/files/sorbonne_talk.pdf).\\
 `03/2023 - 04/2023` One-month pleasant visit at Leiden University.
