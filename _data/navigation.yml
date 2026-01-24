@@ -1,10 +1,10 @@
 # main links links
 main:
-  - title: "Publications"
-    url: /publications/
-
   - title: "CV News Record"
     url: /cv-news-record/
+
+  - title: "Publications"
+    url: /publications/
 
   # - title: "Talks"
   #   url: /talks/    

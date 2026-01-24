@@ -1,11 +1,8 @@
 ---
 layout: single
-title: "CV News Record"
 permalink: /cv-news-record/
 author_profile: true
 ---
-
-本页面按周展示整理的 CV 相关资讯与笔记，内容来自 `news_record` 目录下按日期命名的文件夹。
 
 {% if site.data.news_record and site.data.news_record.entries %}
 {% for entry in site.data.news_record.entries reversed %}
