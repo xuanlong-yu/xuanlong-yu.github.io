@@ -8,8 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-Xuanlong Yu will join Intellindust, China in Aug 2024 as a senior computer vision engineer working with Dr. [Xi Shen](https://xishen0220.github.io/). 
-Previously, Xuanlong Yu completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of Prof. [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and Prof. [Gianni Franchi](https://giannifranchi.github.io/). His research interests lie in AI safety, specifically uncertainty quantification in deep learning, as well as 2D animation video generation and multimodal learning.
+Xuanlong Yu joined Intellindust, China in Aug 2024 as a senior computer vision engineer working with Dr. [Xi Shen](https://xishen0220.github.io/). 
+Previously, Xuanlong Yu completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA Paris, Institut Polytechnique de Paris, France, under the supervision of Prof. [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and Prof. [Gianni Franchi](https://giannifranchi.github.io/). His research interests lie in AI safety and computer vision applications, specifically uncertainty quantification in deep learning, as well as low-shot learning, multimodal learning and 2D animation video generation.
 
 Recent News
 ======
@@ -29,39 +29,33 @@ Education
 `2014-2018` B.Eng. in telecommunication engineering at Xidian University, China
 
 
-Publications
-======
-<strong>Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression</strong> [`PDF`](https://arxiv.org/abs/2308.09065) [`github`](https://github.com/ENSTA-U2IS/DIDO)\\
-<strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea\\
-<em>The 38th Annual AAAI Conference on Artificial Intelligence (AAAI), 2024</em>
+<style>
+.home-publications-details { margin: 1em 0; border: 1px solid #eaecef; border-radius: 6px; overflow: hidden; }
+.home-publications-summary { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; cursor: pointer; list-style: none; font-weight: 600; background: #f6f8fa; font-size: 1.1rem; }
+.home-publications-summary:hover { background: #eceff2; }
+.home-publications-summary::-webkit-details-marker { display: none; }
+.home-publications-summary::before { content: '▶'; margin-right: 0.5rem; font-size: 0.75em; color: #57606a; transition: transform 0.2s; }
+.home-publications-details[open] .home-publications-summary::before { transform: rotate(90deg); }
+.home-publications-more { font-size: 0.9rem; color: #0969da; text-decoration: none; }
+.home-publications-more:hover { text-decoration: underline; }
+.home-publications-content { padding: 1rem; border-top: 1px solid #eaecef; background: #fff; }
+</style>
 
-<strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> [`PDF`](https://arxiv.org/abs/2309.15751) [`website`](https://ensta-u2is.github.io/infraParis/)\\
-Gianni Franchi, Marwane Hariat, <strong>Xuanlong Yu</strong>, Nacim Belkhir, Antoine Manzanera, David Filliat\\
-<em>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024</em> (Oral)
-
-<strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [`PDF`](https://arxiv.org/abs/2309.15478)\\
-<strong>Xuanlong Yu</strong>, et al. (full author list is provided in the [publications] page)\\
-<em>International Conference on Computer Vision Workshop (ICCVW), 2023</em>
-
-<strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [`PDF`](https://arxiv.org/abs/2203.01437) [`website`](https://muad-dataset.github.io/)\\
-Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Angel Tena, Rémi Kazmierczak, Séverine Dubuisson, Emanuel Aldea, David Filliat\\
-<em>British Machine Vision Conference (BMVC), 2022</em>
-
-<strong>Latent Discriminant deterministic Uncertainty</strong> [`PDF`](https://link.springer.com/chapter/10.1007/978-3-031-19775-8_15) [`github`](https://github.com/ENSTA-U2IS/LDU)\\
-Gianni Franchi\*, <strong>Xuanlong Yu</strong>\*, Andrei Bursuc, Emanuel Aldea, Severine Dubuisson, David Filliat\\
-<em>European Conference on Computer Vision (ECCV), 2022</em>
-
-<strong>On Monocular Depth Estimation and Uncertainty Quantification using Classification Approaches for Regression</strong> [`PDF`](https://arxiv.org/abs/2202.12369)\\
-<strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea\\
-<em>IEEE International Conference on Image Processing (ICIP), 2022<em> (Oral)
-
-<strong>SLURP: Side Learning Uncertainty for Regression Problems</strong> [`PDF`](https://arxiv.org/abs/2110.11182) [`github`](https://github.com/xuanlongORZ/SLURP_uncertainty_estimate)\\
-<strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea\\
-<em>British Machine Vision Conference (BMVC), 2021<em>
-
-\*equal contribution
+<!-- <details class="home-publications-details">
+<summary class="home-publications-summary">Publications <a href="/publications/" onclick="event.stopPropagation()" class="home-publications-more">查看全部</a></summary>
+<div class="home-publications-content">
+<p><strong>Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression</strong> [<a href="https://arxiv.org/abs/2308.09065">PDF</a>] [<a href="https://github.com/ENSTA-U2IS/DIDO">github</a>]<br><strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea<br><em>The 38th Annual AAAI Conference on Artificial Intelligence (AAAI), 2024</em></p>
+<p><strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> [<a href="https://arxiv.org/abs/2309.15751">PDF</a>] [<a href="https://ensta-u2is.github.io/infraParis/">website</a>]<br>Gianni Franchi, Marwane Hariat, <strong>Xuanlong Yu</strong>, Nacim Belkhir, Antoine Manzanera, David Filliat<br><em>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024</em> (Oral)</p>
+<p><strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [<a href="https://arxiv.org/abs/2309.15478">PDF</a>]<br><strong>Xuanlong Yu</strong>, et al. (full author list is provided in the <a href="/publications/">publications</a> page)<br><em>International Conference on Computer Vision Workshop (ICCVW), 2023</em></p>
+<p><strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [<a href="https://arxiv.org/abs/2203.01437">PDF</a>] [<a href="https://muad-dataset.github.io/">website</a>]<br>Gianni Franchi*, <strong>Xuanlong Yu</strong>*, Andrei Bursuc, Angel Tena, Rémi Kazmierczak, Séverine Dubuisson, Emanuel Aldea, David Filliat<br><em>British Machine Vision Conference (BMVC), 2022</em></p>
+<p><strong>Latent Discriminant deterministic Uncertainty</strong> [<a href="https://link.springer.com/chapter/10.1007/978-3-031-19775-8_15">PDF</a>] [<a href="https://github.com/ENSTA-U2IS/LDU">github</a>]<br>Gianni Franchi*, <strong>Xuanlong Yu</strong>*, Andrei Bursuc, Emanuel Aldea, Severine Dubuisson, David Filliat<br><em>European Conference on Computer Vision (ECCV), 2022</em></p>
+<p><strong>On Monocular Depth Estimation and Uncertainty Quantification using Classification Approaches for Regression</strong> [<a href="https://arxiv.org/abs/2202.12369">PDF</a>]<br><strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea<br><em>IEEE International Conference on Image Processing (ICIP), 2022</em> (Oral)</p>
+<p><strong>SLURP: Side Learning Uncertainty for Regression Problems</strong> [<a href="https://arxiv.org/abs/2110.11182">PDF</a>] [<a href="https://github.com/xuanlongORZ/SLURP_uncertainty_estimate">github</a>]<br><strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea<br><em>British Machine Vision Conference (BMVC), 2021</em></p>
+<p>*equal contribution</p>
+</div>
+</details> -->
 
 Academic services
 ======
-Reviewer: CVPR 2024, ICPR 2024, ICCVW 2023, MVA 2023, IEEE TPAMI, IEEE TMM\\
+Reviewer: AAAI, CVPR, ICPR, ICCVW, MVA, IEEE TPAMI, IEEE TMM\\
 Organizer: MUAD challenge at UNCV workshop, ICCV 2023.
