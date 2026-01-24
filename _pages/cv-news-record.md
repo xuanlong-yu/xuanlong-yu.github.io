@@ -62,7 +62,7 @@ author_profile: true
 <details class="news-record-details">
   <summary class="news-record-summary">
     <span>{{ entry.label }}</span>
-    <a href="{{ html_url }}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="news-record-enter">进入</a>
+    <a href="{{ html_url }}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="news-record-enter">Enter</a>
   </summary>
   <div class="news-record-content">
     <iframe data-src="{{ html_url }}" title="{{ entry.label }}" loading="lazy"></iframe>
@@ -86,5 +86,5 @@ author_profile: true
 })();
 </script>
 {% else %}
-<p>暂无记录。请在 <code>_data/news_record.yml</code> 中配置条目，并在 <code>news_record/</code> 下放置对应文件夹与 HTML 文件。</p>
+<p>No record yet. Please add configs in <code>_data/news_record.yml</code> ，then add HTML file under <code>news_record/</code> </p>
 {% endif %}
