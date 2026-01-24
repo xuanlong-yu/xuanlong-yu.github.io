@@ -1,0 +1,718 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>1.18-1.24</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2f0a9512-614c-80ec-89b7-eed39bf9384a" class="page sans"><header><h1 class="page-title" dir="auto">1.18-1.24</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2f0a9512-614c-8040-9406-d66b42950af3" class="">Motion - Video - 3D</h2></div><div style="display:contents" dir="auto"><ul id="2f0a9512-614c-8008-ab8d-de1d6d5fd6c0" class="bulleted-list"><li style="list-style-type:disc"><strong>FrankenMotion<br/></strong><a href="https://coral79.github.io/frankenmotion/">https://coral79.github.io/frankenmotion/</a></li></ul></div><div style="display:contents" dir="auto"><p id="2f0a9512-614c-8096-bf62-cbb3d2cb05de" class="">TL;DR：我们引入了第一个原子级、部件级运动控制框架，该框架由我们通过 LLM 构建的新的分层 Frankenstein 数据集(39h) 提供支持。</p></div><div style="display:contents" dir="auto"><p id="2f0a9512-614c-805e-a841-e118d4926335" class="">近年来，基于文本提示的人体动作生成技术取得了显著进展。然而，由于缺乏细粒度的、部位级的动作标注，现有方法主要依赖于序列级或动作级的描述，这限制了它们对单个身体部位动作的控制能力。</p></div><div style="display:contents" dir="auto"><p id="2f0a9512-614c-8092-8817-f7453872cb46" class="">本文利用大型语言模型（LLM）的推理能力，构建了一个高质量的运动数据集，该数据集包含原子级、时间感知的部件级文本标注。与以往要么提供具有固定时间间隔的同步部件描述，要么仅依赖全局序列标签的数据集不同，我们的数据集以精细的时间分辨率捕捉异步且语义不同的部件运动。</p></div><div style="display:contents" dir="auto"><p id="2f0a9512-614c-80de-9380-d7baf877e43a" class="">基于此数据集，我们提出了一种基于扩散的、感知身体部位的运动生成框架，即FrankenMotion。在该框架中，每个身体部位都由其自身的、具有时间结构的文本提示引导。据我们所知，这是首个提供原子级、时间感知的、部位级运动标注，并拥有一个能够同时实现空间（身体部位）和时间（原子动作）控制的运动生成模型的研究。</p></div><div style="display:contents" dir="auto"><p id="2f0a9512-614c-804e-8c77-f04b6c714706" class="">实验表明，FrankenMotion 的性能优于所有先前针对我们的设置进行调整和重新训练的基线模型，并且我们的模型可以合成训练期间未见过的运动。</p></div><div style="display:contents" dir="ltr"><figure id="2f0a9512-614c-80c5-8fcc-fc3f11c2d497" class="image"><a href="1%2018-1%2024/image.png"><img style="width:480px" src="1%2018-1%2024/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-80de-8cc2-ecd8bcebfb13" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-8087-853e-c1672d9dbea1" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-8048-83bd-c4e29059d0c1" class="bulleted-list"><li style="list-style-type:disc"><strong>D4RT: Teaching AI to see the world in four dimensions<br/> </strong><a href="https://d4rt-paper.github.io/">https://d4rt-paper.github.io/</a> （没开源）</li></ul></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-8025-82e6-c066b5cfa902" class="">功能：快速、准确的 4D 理解</p></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-80e6-b6c9-f141e6742143" class="">凭借这种灵活的公式，该模型现在可以解决各种各样的 4D 问题，包括：<div class="indented"><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-803e-8ec7-d865584f1638" class="bulleted-list"><li style="list-style-type:disc"><strong>点跟踪</strong>：D4RT 通过查询像素在不同时间步长中的位置，可以预测其 3D 轨迹。重要的是，即使物体在视频的其他帧中不可见，模型也能做出预测。</li></ul></div><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-8052-8ba2-c5ad9a8c1661" class="bulleted-list"><li style="list-style-type:disc"><strong>点云重建</strong>：通过冻结时间和相机视角，D4RT 可以直接生成场景的完整 3D 结构，无需额外的步骤，例如单独的相机估计或逐个视频的迭代优化。</li></ul></div><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-8063-b059-c6c71b298d83" class="bulleted-list"><li style="list-style-type:disc"><strong>相机姿态估计</strong>：通过生成和对齐来自不同视角的同一时刻的 3D 快照，D4RT 可以轻松恢复相机的轨迹。</li></ul></div></div></p></div><div style="display:contents" dir="ltr"><figure id="2f1a9512-614c-80c3-a5e9-c9436db7774c" class="image"><a href="1%2018-1%2024/image%201.png"><img style="width:2588px" src="1%2018-1%2024/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2f0a9512-614c-809d-af3b-dd19954285d1" class="">Base CV tasks</h2></div><div style="display:contents" dir="auto"><ul id="2f2a9512-614c-80f9-ad72-c05c9224a644" class="bulleted-list"><li style="list-style-type:disc"><strong>New RF-DETR Segmentation Checkpoints from Nano to 2XLarge</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2f2a9512-614c-80b1-b713-ee773253104a" class=""><a href="https://blog.roboflow.com/rf-detr-segmentation/">https://blog.roboflow.com/rf-detr-segmentation/</a></p></div><div style="display:contents" dir="ltr"><figure id="2f2a9512-614c-80e3-ac14-f26541698893" class="image"><a href="1%2018-1%2024/image%202.png"><img style="width:709.9921875px" src="1%2018-1%2024/image%202.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2f2a9512-614c-80ee-af3e-cf294b0f9cb2" class="image"><a href="1%2018-1%2024/image%203.png"><img style="width:709.9921875px" src="1%2018-1%2024/image%203.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2f2a9512-614c-80cd-b70e-c07f07dd97fb" class="image"><a href="1%2018-1%2024/image%204.png"><img style="width:709.9921875px" src="1%2018-1%2024/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2f2a9512-614c-8049-99a5-e843161f4ada" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-8014-a587-f2d4d194c2b5" class="bulleted-list"><li style="list-style-type:disc"><strong>BBoxMaskPosev2</strong><br/><a href="https://arxiv.org/pdf/2601.15200">https://arxiv.org/pdf/2601.15200</a></li></ul></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-8008-b75a-f867de849db8" class="">除了拥挤场景外，大多数二维人体姿态估计基准测试已接近饱和。我们提出了一种自顶向下的二维姿态估计器 PMPose，它融合了概率公式和掩码条件化。PMPose 能够在不牺牲标准场景性能的前提下，提升拥挤场景下的姿态估计精度。在此基础上，我们提出了 BBoxMaskPose v2 (BMPv2)，它集成了 PMPose 和一个增强的基于 SAM 的掩码细化模块。BMPv2 在 COCO 数据集上的平均精度 (AP) 比现有最佳方法提高了 1.5 个点，在 OCHuman 数据集上提高了 6 个点，成为首个在 OCHuman 数据集上 AP 超过 50 的方法。我们证明，BMP 对三维模型的二维提示能够提升拥挤场景下的三维姿态估计精度，并且二维姿态质量的提升能够直接促进三维姿态估计。在新的 OCHuman-Pose 数据集上的结果表明，多人场景下的性能更多地受到姿态预测精度的影响，而非人物检测精度的影响。</p></div><div style="display:contents" dir="ltr"><figure id="2f1a9512-614c-80b5-97f7-e4aed401ab4d" class="image"><a href="1%2018-1%2024/image%205.png"><img style="width:710px" src="1%2018-1%2024/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-80c1-ba0a-f999114307da" class="">OCHuman：<a href="https://github.com/liruilong940607/OCHumanApi">https://github.com/liruilong940607/OCHumanApi</a> （occluded human bbox, seg mask and pose）</p></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-801a-804b-f8c16b884248" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-806f-9ab0-ee91830e6587" class="bulleted-list"><li style="list-style-type:disc"><strong>Fast-FoundationStereo: Real-Time Zero-Shot Stereo Matching </strong><a href="https://nvlabs.github.io/Fast-FoundationStereo/">https://nvlabs.github.io/Fast-FoundationStereo/</a><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-8079-8f34-c0f38e9fa1ff" class="bulleted-list"><li style="list-style-type:circle"><em><strong>pervious work 《</strong></em><strong>FoundationStereo: Zero-Shot Stereo Matching</strong><em><strong>》 是 CVPR25 的 best paper Nomination  </strong></em><a href="https://arxiv.org/abs/2501.09898">https://arxiv.org/abs/2501.09898</a> 2.5K stars</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-80ba-84d0-eb755b7a6f1f" class="">Stereo foundation models 虽然能够实现强大的零样本泛化能力，但其计算量仍然过大，难以应用于实时应用。另一方面，高效的立体架构为了追求速度而牺牲了鲁棒性，并且需要进行代价高昂的域微调。为了弥合这一差距，我们提出了 Fast-FoundationStereo，这是一系列架构，首次实现了在实时帧速率下强大的零样本泛化能力。我们采用了一种分而治之的加速策略，该策略包含三个组成部分：（1）知识蒸馏，将混合骨干网络压缩成一个高效的单一学生模型；（2）分块神经网络架构搜索，用于在延迟预算范围内自动发现最优的成本滤波设计，从而指数级降低搜索复杂度；（3）结构化剪枝，用于消除迭代细化模块中的冗余。此外，我们还引入了一个自动伪标签流程，用于收集 140 万个真实场景下的立体图像对，以补充合成训练数据并促进知识蒸馏。由此得到的模型运行速度比 FoundationStereo 快 10 倍以上，同时还能达到与其零样本精度非常接近的水平，从而在实时方法中树立了新的最先进水平。</p></div><div style="display:contents" dir="ltr"><figure id="2f1a9512-614c-80cc-b9cc-e0e131286371" class="image"><a href="1%2018-1%2024/image%206.png"><img style="width:480px" src="1%2018-1%2024/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-808d-b894-c8593fe3ef64" class="bulleted-list"><li style="list-style-type:disc"><strong>MatAnyone 2 Scaling Video Matting via a Learned Quality Evaluator <br/></strong><a href="https://pq-yang.github.io/projects/MatAnyone2/">https://pq-yang.github.io/projects/MatAnyone2/</a> （暂时没开源）</li></ul></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-8073-9032-dcc38c4022d5" class="">视频抠图仍然受限于现有数据集的规模和真实性。虽然利用分割数据可以增强语义稳定性，但缺乏有效的边界监督往往会导致类似分割的抠图缺乏精细细节。为此，我们引入了一种<strong>学习型抠图质量评估器（MQE）</strong>，用于评估无真实标签的Alpha抠图的语义和边界质量。它生成像素级的评估图，识别可靠区域和错误区域，从而实现细粒度的质量评估。MQE从两个方面扩展了视频抠图的规模：（1）在训练过程中作为<em>在线抠图质量反馈，</em>抑制错误区域，提供全面的监督；（2）作为<em>离线</em>数据筛选模块，结合主流视频和图像抠图模型的优势，提高标注质量。这一过程使我们能够构建一个包含2.8万个视频片段和240万帧的大规模真实世界视频抠图数据集<em><strong>VMReal</strong></em>。为了处理长视频中较大的画面变化，我们引入了一种参考帧训练策略，该策略结合了局部窗口之外的远距离帧，从而实现高效训练。我们的<strong>MatAnyone 2</strong>在合成基准测试和真实世界基准测试中均取得了最先进的性能，在所有指标上都超越了以往的方法。</p></div><div style="display:contents" dir="ltr"><figure id="2f1a9512-614c-80a9-8391-ec788131a43d" class="image"><a href="1%2018-1%2024/image%207.png"><img style="width:9331px" src="1%2018-1%2024/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-8007-8065-c7e6b3a452fa" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2f1a9512-614c-800a-8100-f1d8051b8893" class="bulleted-list"><li style="list-style-type:disc"><strong>3AM: 3egment Anything with Geometric Consistency in Videos<br/></strong><a href="https://jayisaking.github.io/3AM-Page/">https://jayisaking.github.io/3AM-Page/</a></li></ul></div><div style="display:contents" dir="auto"><p id="2f1a9512-614c-80ef-a72a-c02e6023ebd5" class="">诸如SAM2之类的视频对象分割方法通过基于内存的架构实现了优异的性能，但由于依赖外观特征，在视角变化较大的情况下表现不佳。传统的3D实例分割方法虽然解决了视角一致性问题，但需要相机姿态、深度图和昂贵的预处理数据。<br/>我们提出了<strong>3AM ，这是一种训练时增强方法，它将MUSt3R</strong>中的 3D 感知特征集成到 SAM2 中。我们轻量级的<strong>特征合并器</strong>融合了编码隐式几何对应关系的多级 MUSt3R 特征。结合 SAM2 的外观特征，该模型实现了基于空间位置和视觉相似性的几何一致性识别。我们提出了一种<strong>视场感知采样策略，</strong>确保帧能够观察到空间一致的对象区域，从而实现可靠的 3D 对应关系学习。<br/>关键在于，我们的方法<strong>在推理阶段仅需RGB输入</strong>，无需相机位姿或预处理。在具有宽基线运动的挑战性数据集（ScanNet++、Replica）上，3AM的性能显著优于SAM2及其扩展方法，在ScanNet++的选定子集上达到了<strong>90.6%的IoU</strong>，比目前最先进的VOS方法提高了15.9个百分点</p></div><div style="display:contents" dir="ltr"><figure id="2f1a9512-614c-8098-9073-eddcd0c5e28c" class="image"><a href="1%2018-1%2024/image%208.png"><img style="width:709.9921875px" src="1%2018-1%2024/image%208.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2f1a9512-614c-805f-826c-ce39fb4c7df1" class="image"><a href="https://jayisaking.github.io/3AM-Page/assets/img/vis_comp.jpg"><img src="https://jayisaking.github.io/3AM-Page/assets/img/vis_comp.jpg"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -3,6 +3,9 @@ main:
   - title: "Publications"
     url: /publications/
 
+  - title: "CV News Record"
+    url: /cv-news-record/
+
   # - title: "Talks"
   #   url: /talks/    
 
