@@ -1,0 +1,718 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>1.25-1.31</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2f5a9512-614c-8015-934b-dc73a649de64" class="page sans"><header><h1 class="page-title" dir="auto">1.25-1.31</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2faa9512-614c-80ce-a6c2-d50d9cfdbf2d" class=""><strong>首先希望各位拥抱 vibe coding: cursor，trae（字节），kiro (amazon), Opencode，Claudecode …）希望多多补充多多尝试～！</strong></p></div><div style="display:contents" dir="auto"><h1 id="2faa9512-614c-802c-9df5-c740cb33b5f4" class="">目录：</h1></div><div style="display:contents" dir="auto"><ol type="1" id="2faa9512-614c-805b-9607-c3daa6b1b34d" class="numbered-list" start="1"><li>CVPR26 NTIRE challenges:<a href="https://www.cvlai.net/ntire/2026/">https://www.cvlai.net/ntire/2026/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2faa9512-614c-8093-a72a-e4b6affc5eb0" class="numbered-list" start="2"><li><strong>VLMs：</strong><div style="display:contents" dir="auto"><ol type="a" id="2faa9512-614c-80d6-999f-fcf29084d034" class="numbered-list" start="1"><li><strong>PaddleOCR-VL 1.5: </strong><strong><a href="https://arxiv.org/abs/2601.21957">https://arxiv.org/abs/2601.21957</a></strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2faa9512-614c-80fe-aac2-feeba205c7d5" class="numbered-list" start="2"><li><strong>YouTu-VL: </strong><strong><a href="https://arxiv.org/abs/2601.19798">https://arxiv.org/abs/2601.19798</a></strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2faa9512-614c-8083-965e-ebdf3e191861" class="numbered-list" start="3"><li><strong>SimpleSeg-KimiVL: </strong><strong><a href="https://simpleseg.github.io/">https://simpleseg.github.io/</a></strong></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2faa9512-614c-8073-b629-c6017c9e85af" class="numbered-list" start="3"><li><strong>BaseCV</strong><div style="display:contents" dir="auto"><ol type="a" id="2faa9512-614c-8035-86c3-ef899aa5ac3a" class="numbered-list" start="1"><li><strong>C-RADIOv4: </strong><strong><a href="https://arxiv.org/abs/2601.17237">https://arxiv.org/abs/2601.17237</a></strong></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2faa9512-614c-8021-9748-ee7ba4b1edb6" class="numbered-list" start="4"><li><strong>Low level</strong><div style="display:contents" dir="auto"><ol type="a" id="2faa9512-614c-8037-bae0-e139ec13a535" class="numbered-list" start="1"><li><strong>Revisiting Lightweight Low-Light Image Enhancement: From a YUV Color Space Perspective </strong><strong><a href="https://www.arxiv.org/abs/2601.17349">https://www.arxiv.org/abs/2601.17349</a></strong></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><h2 id="2faa9512-614c-80ac-b327-ff38b0dbfd5e" class="">CVPR26 NTIRE challenges:<a href="https://www.cvlai.net/ntire/2026/">https://www.cvlai.net/ntire/2026/</a></h2></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8098-b3e6-f76354152634" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12703/">Ambient Light Normalization - Track White Lighting</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-805a-950a-d3f9596c543c" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12792/">Ambient Light Normalization - Track Color Lighting</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8076-9aef-e13017a8c87d" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12730/">Rip Current Detection and Segmentation</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8011-a544-d427f6deef99" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12777/">HR Depth from Images of Specular and Transparent Surfaces - Track Stereo</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8022-84db-e0bdb6b3fe84" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12778/">HR Depth from Images of Specular and Transparent Surfaces - Track Metric Mono</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-807f-9096-dcfacde0dbe3" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12808/">Day and Night Raindrop Removal for Dual-Focused Images</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8096-8608-c2141a699cb9" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12932/">Learned Smartphone ISP with Unpaired Data</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8005-b1d9-fc14cdf9539b" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12855/">NightTime Image Dehazing</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8019-892b-e2639f6e5199" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12971/">Reflection Removal in the Wild</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80ec-a07d-dc354cd1f959" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12978/">Efficient Under Display Camera Restoration</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-800e-8be1-f0af2e857db7" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12935/">Image Shadow Removal</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8002-b9ce-e5f346c17400" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12856/">Bitstream-corrupted Video Restoration</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-801d-adbd-ecfac0dfa443" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12922/">Efficient Burst HDR and Restoration</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-808b-aca7-d7ddf5f3ff6e" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12761/">Robust AI-Generated Image Detection in the Wild</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80d2-beb6-ff25f6c40856" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12891/">3D Content Super-Resolution - Track 1 Bicubic Degradation</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8024-992e-d97ada2d52a7" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12894/">3D Content Super-Resolution - Track 2 Realistic Degradation</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8078-97a0-cd7e8aa7adf7" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12928/">Light Field Image Super-Resolution - Track 1 Classic</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80e3-938f-d58ac5f46496" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12927/">Light Field Image Super-Resolution - Track 2 Efficiency</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-807e-ab33-c824bd596527" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12929/">Light Field Image Super-Resolution - Track 3 Large Model</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80e6-b63a-ebc1ee10166a" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/11864/">Low Light Image Enhancement</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8069-863f-e7068b477f35" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12994/">Joint Denoising and Low Light Image Enhancement</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8095-8b03-cab86dfebbf5" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12905/">Image Denoising</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80c7-a526-d03c4389a77a" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12918/">Event-Based Image Deblurring</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8044-b0c2-def374e13655" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12818/">Blind Computational Aberration Correction</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80f8-9960-e4cf3b3c8dd8" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12795/">Robust Deepfake Detection</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80e4-b436-e2d4a504d68a" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12917/">Photography Retouching Transfer</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80e8-be66-f9e3c328e24b" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12764/">Controllable Aperture Bokeh Rendering</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8026-a2fb-d8a9b2becbaf" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12842">Video Saliency Prediction</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8060-9201-d412751b888b" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12789">Restore Any Image Model (RAIM) - Track 1: Professional Image Quality Assessment</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-803b-aa38-e461abb9c65d" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12728">Restore Any Image Model (RAIM) - Track 2: Multi-Exposure Image Fusion in Dynamic Scenes</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8084-8846-e06080d6939e" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12885">Restore Any Image Model (RAIM) - Track 3: AI Flash Portrait</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8047-910b-fc89fedaac8b" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/13079/">High FPS Video Frame Interpolation - Track 1</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-809c-bfd2-e8b82fed29b1" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/13104/">High FPS Video Frame Interpolation - Track 2</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-803c-ae0d-f4ff26ab57ef" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12873/">Cross-Domain Few-Shot Object Detection </a></strong><strong>started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8096-9b9c-c4faef563a4b" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/12732/">X-AIGC Quality Assessment - Track 1: Text-to-3D</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80ed-a42f-cb505a88d720" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/13031/">X-AIGC Quality Assessment - Track 2: Image Editing</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-808a-b239-fdbc29196739" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.codabench.org/competitions/13256/">Short-form UGC Video Restoration in the Wild with Generative Models</a></strong><strong> started!</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8091-8178-f12c949e4158" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cvlai.net/ntire/2026/">Night Photography Rendering</a></strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80d0-b8e5-f3fb39eae1ca" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cvlai.net/ntire/2026/">Low Light Video Enhancement</a></strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80d7-992b-c4f0dfe2a367" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cvlai.net/ntire/2026/">Image Super-Resolution</a></strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-809a-91bf-c23c1cc2989a" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cvlai.net/ntire/2026/">Efficient Image Super-Resolution</a></strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-802b-a826-ec205c315e11" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cvlai.net/ntire/2026/">Anomaly Detection of Face Enhancement for UGC</a></strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80f9-bdc3-da54dacd9631" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cvlai.net/ntire/2026/">Multi-frame HDR Denoising in Low Light</a></strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8005-9228-d1f1a6b5b64d" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.cvlai.net/ntire/2026/">Deblurring</a></strong></li></ul></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-801a-b63a-cbb22696acda" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2f8a9512-614c-8035-9248-daf1572e2380" class="">VLMs</h2></div><div style="display:contents" dir="auto"><h3 id="2faa9512-614c-80fc-9c8f-fe35e0db7ed5" class="">PaddleOCR-VL 1.5: <a href="https://arxiv.org/abs/2601.21957">https://arxiv.org/abs/2601.21957</a></h3></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80e2-8dbb-cd9581c80049" class=""><strong>机构：</strong> 百度</p></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80e5-9ef7-e2271b401b5a" class=""><strong>内容简介：</strong> 这是一个参数规模仅为 <strong>0.9B</strong> 的超紧凑型视觉语言模型，专门用于处理复杂的真实场景文档解析任务</p></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-8055-857d-f0df44310891" class=""><strong>核心亮点：</strong></p></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8003-bc1a-d0286313eb9e" class="bulleted-list"><li style="list-style-type:disc"><strong>SOTA 性能：</strong> 在 <strong>OmniDocBench v1.5</strong> 基准测试中达到了 <strong>94.5%</strong> 的准确率。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8022-8665-d44e45bc6e13" class="bulleted-list"><li style="list-style-type:disc"><strong>鲁棒性增强：</strong> 引入了 <strong>Real5-OmniDocBench</strong> 评测集，针对扫描伪影、偏斜、弯曲、屏幕拍摄和光照等物理畸变进行了优化。在报纸类、繁体字杂志、竖排文本、PPT类、复杂公式、含公式表格、化学方程式、多栏文本、手写文字、中文公式复杂排版、日文小说等场景的OCR识别效果表现优异。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8044-9892-e631d0b5d784" class="bulleted-list"><li style="list-style-type:disc"><strong>全能解析：</strong> 支持 irregular-shaped localization (不规则形状定位)、印章识别及多页表格合并</li></ul></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-8064-bc68-cb822e8e0b53" class="image"><a href="1%2025-1%2031/image.png"><img style="width:663.984375px" src="1%2025-1%2031/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-8017-a98d-e808299ecafb" class="image"><a href="1%2025-1%2031/image%201.png"><img style="width:663.9921875px" src="1%2025-1%2031/image%201.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-806f-8852-e881ecca7ce4" class="image"><a href="1%2025-1%2031/image%202.png"><img style="width:663.9921875px" src="1%2025-1%2031/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-8044-9506-c5d166a48422" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2faa9512-614c-8001-aed4-cf273c220946" class="">YouTu-VL: <a href="https://arxiv.org/abs/2601.19798">https://arxiv.org/abs/2601.19798</a></h3></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-800c-b6c0-fecf2df95798" class=""><strong>机构：</strong> 腾讯优图实验室 (Tencent Youtu Lab)</p></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80bc-ab34-c358d445a261" class="bulleted-list"><li style="list-style-type:disc"><strong>内容简介：</strong> 提出了一种 <strong>Vision-Language Unified Autoregressive Supervision (VLUAS)</strong> 范式，将视觉信号从“输入条件”转变为“监督目标”：现有架构在保留细粒度视觉信息方面往往存在局限性，导致多模态理解粒度较粗。我们认为这种缺陷源于现有VLM固有的次优训练范式，该范式将视觉信号仅仅视为被动的条件输入而非监督目标，从而表现出以文本为主导的优化偏差。为了缓解这一问题，我们提出了Youtu-VL，一个利用视觉语言统一自回归监督（VLUAS）范式的框架，该范式从根本上将优化目标从“视觉作为输入”转变为“视觉作为目标”。通过将视觉标记直接集成到预测流中，Youtu-VL将统一的自回归监督应用于视觉细节和语言内容。此外，我们将此范式扩展到以视觉为中心的任务，使标准的VLM无需添加特定任务即可执行以视觉为中心的任务。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8094-acad-c3a90cfefe28" class="bulleted-list"><li style="list-style-type:disc"><strong>核心亮点：</strong><div style="display:contents" dir="auto"><ul id="2faa9512-614c-804b-bac0-e453e5c4a5a4" class="bulleted-list"><li style="list-style-type:circle"><strong>视觉即目标 (Vision-as-Target)：</strong> 通过视觉分词器 (Vision Tokenizer) 将视觉细节集成到预测流中，保留细粒度特征。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-808a-a913-ccc35b8ab5da" class="bulleted-list"><li style="list-style-type:circle"><strong>架构统一：</strong> 无需任务特定组件，即可在标准 VLM 架构上完成视觉定位 (Grounding)、物体检测及像素级密集预测 (Dense Prediction)。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8088-a121-e0e3ee19a4a0" class="bulleted-list"><li style="list-style-type:circle"><strong>密集预测新机制：</strong> 引入 <strong>NTP-M (多标签下文预测)</strong> 损失函数，支持语义分割和深度估计任务</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80ca-9de9-fd0e951a1a00" class="">所以一共可以直接进行：目标检测，指代检测，GUI Agent，OCR，VQA，多模态推理，目标记数，图像分类，姿态检测，深度估计，指代分割，语义分割 12 个 task</p></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-8007-89dd-d94301a8b7a9" class="image"><a href="1%2025-1%2031/image%203.png"><img style="width:2412px" src="1%2025-1%2031/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80db-b415-edf0e4bda009" class="">性能在一些benchmark上优于对应的Qwen3-VL模型（4B）</p></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80a6-950a-e7a25af1724e" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2faa9512-614c-8084-919c-d011674aef9f" class="">SimpleSeg-KimiVL: <a href="https://simpleseg.github.io/">https://simpleseg.github.io/</a></h3></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-803f-8546-eb9af07dd28c" class=""><strong>机构：</strong> 月之暗面</p></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80aa-be19-c280efcbc710" class="bulleted-list"><li style="list-style-type:disc"><strong>内容简介：</strong> 该工作探索了标准 MLLM 在不依赖专门解码器 (Decoder-free) 的情况下，仅通过预测坐标点序列来实现高精度图像分割的可能性：模型直接在其语言空间内预测描绘对象边界<strong>的点序列</strong>（文本坐标）。为了实现高保真度，我们引入了一个两阶段的<strong>SFT→RL训练流程，其中基于IoU 奖励的</strong>强化学习 ( RL ) 会优化点序列，使其与真实轮廓精确匹配。我们发现，<strong>标准的 MLLM 架构本身就具有强大的底层感知</strong>能力，无需任何专门的架构即可将其释放出来。在分割基准测试中，<strong>SimpleSeg 的</strong>性能与依赖复杂、特定任务设计的方法相当，甚至常常更胜一筹。这项工作表明，精确的空间理解可以从简单的点预测中涌现，挑战了目前对辅助组件的需求，并为更统一、更强大的虚拟语言模型 (VLM) 铺平了道路。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-806c-b6c7-e9c31c545ceb" class="bulleted-list"><li style="list-style-type:disc"><strong>核心亮点：</strong><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8018-8f1f-e070b942354e" class="bulleted-list"><li style="list-style-type:circle"><strong>极简主义：</strong> 将分割重构为 <strong>序列生成 (sequence generation)</strong> 问题，模型在语言空间内直接输出轮廓点坐标。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80f1-bd12-db5114ec7102" class="bulleted-list"><li style="list-style-type:circle"><strong>强化学习优化：</strong> 提出了 <strong>SFT </strong>→<strong> RL</strong> 训练流水线，利用基于 <strong>IoU (交并比)</strong> 的奖励机制来精细化点序列质量。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80af-ab86-d1eed291bd79" class="bulleted-list"><li style="list-style-type:circle"><strong>泛化能力：</strong> 在 refCOCO 等基准测试上超越了许多拥有复杂任务特定设计的模型</li></ul></div></li></ul></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-80ea-b5ef-f2f50454bace" class="image"><a href="1%2025-1%2031/image%204.png"><img style="width:663.984375px" src="1%2025-1%2031/image%204.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-80a0-8424-df23228ad328" class="image"><a href="1%2025-1%2031/image%205.png"><img style="width:663.9921875px" src="1%2025-1%2031/image%205.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-80a1-8e02-fe9025dc178c" class="image"><a href="1%2025-1%2031/image%206.png"><img style="width:663.984375px" src="1%2025-1%2031/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-8070-aeac-d159750eb587" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2faa9512-614c-807d-af41-d8078e7ea9a1" class="">BaseCV</h2></div><div style="display:contents" dir="auto"><h3 id="2faa9512-614c-80bb-a2f2-c4d5a803f780" class="">C-RADIOv4: <a href="https://arxiv.org/abs/2601.17237">https://arxiv.org/abs/2601.17237</a></h3></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80d6-90f4-d751838bc2f7" class=""><strong>机构：</strong> Nvidia</p></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80af-a8bc-cc1c26842f9b" class="">C-RADIOv4最大的变化在于<strong>教师阵容的全面升级</strong>。相比前代使用的DFN CLIP、DINOv2和SAM，本次采用了当前各领域的最强模型：<div class="indented"><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8036-a9ef-e87cada95abe" class="bulleted-list"><li style="list-style-type:disc"><strong>SigLIP2-g-384</strong>：取代DFN CLIP，成为文本对齐的新标杆</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-803c-afd4-d48b86338058" class="bulleted-list"><li style="list-style-type:disc"><strong>DINOv3-7B</strong>：自监督学习的巅峰之作，密集表征能力大幅提升</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8041-b716-cf05db532f6b" class="bulleted-list"><li style="list-style-type:disc"><strong>SAM3</strong>：分割模型的最新版本，在复杂场景理解上更进一步</li></ul></div></div></p></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-803f-9782-e66dfb7ad1a5" class="">主要技术：<div class="indented"><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8025-af60-c7b111a19661" class="bulleted-list"><li style="list-style-type:disc">采用随机分辨率训练</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80b6-98bb-eea465b8c2f4" class="bulleted-list"><li style="list-style-type:disc">平移等变损失：应该是对于输入图像进行patch为大小的移动，同时老师和学生需要看同一个裁剪区域（在学生和老师共见的空间位置中，将学生特征和老师特征空间进行对齐映射）</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-804f-ab4f-eeb8a6def642" class="bulleted-list"><li style="list-style-type:disc">损失权重平衡</li></ul></div></div></p></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-80a4-858d-c52e8f9940c2" class="image"><a href="1%2025-1%2031/image%207.png"><img style="width:336px" src="1%2025-1%2031/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="2faa9512-614c-80d4-9d7e-e1df5af668d4" class="">Low-Level</h2></div><div style="display:contents" dir="auto"><h3 id="2faa9512-614c-80c8-949c-e6def214b6c7" class=""><strong>Revisiting Lightweight Low-Light Image Enhancement: From a YUV Color Space Perspective </strong><a href="https://www.arxiv.org/abs/2601.17349">https://www.arxiv.org/abs/2601.17349</a></h3></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80b4-9a01-c3c560d28705" class=""><strong>机构：</strong> Vivo</p></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-809f-aaae-e34e68f00910" class="bulleted-list"><li style="list-style-type:disc"><strong>内容简介：</strong> 该研究从 <strong>YUV 颜色空间</strong> 的频域视角重新审视了微光增强任务 (L3IE)，旨在解决移动设备上的性能与体积平衡问题：在当今移动互联网时代，轻量级低光图像增强（L3IE）对于移动设备至关重要，因为移动设备始终面临着视觉质量和模型紧凑性之间的权衡。尽管近期的方法采用解耦策略来简化轻量级架构设计，例如 Retinex 理论和 YUV 色彩空间变换，但它们的性能从根本上受到限制，因为它们忽略了特定通道的退化模式和跨通道交互作用。为了弥补这一不足，我们进行了频域分析，证实了 YUV 色彩空间在 L3IE 中的优越性。我们发现了一个关键洞察：Y 通道主要丢失低频内容，而 UV 通道则受到高频噪声的干扰。基于这一发现，我们提出了一种新颖的基于 YUV 的范式，该范式策略性地使用以下模块恢复通道：Y 通道采用双流全局-局部注意力模块，UV 通道采用 Y 通道引导的局部感知频率注意力模块，以及用于最终特征融合的引导交互模块。大量实验验证了我们的模型在多个基准测试中达到了新的最先进水平，以显著减少的参数数量提供了卓越的视觉质量。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8057-9019-c2207f0474bf" class="bulleted-list"><li style="list-style-type:disc"><strong>核心亮点：</strong><div style="display:contents" dir="auto"><ul id="2faa9512-614c-808f-983d-c41dfd94af99" class="bulleted-list"><li style="list-style-type:circle"><strong>极度轻量：</strong> 模型参数量仅为 <strong>30K</strong>，设置了新的效率基准。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-8070-9ec4-fca7f501cffa" class="bulleted-list"><li style="list-style-type:circle"><strong>频域解耦：</strong> 发现 Y 通道主要丢失低频能量，而 UV 通道受高频噪声干扰，据此设计了特定的处理模块。</li></ul></div><div style="display:contents" dir="auto"><ul id="2faa9512-614c-80d3-a550-fc731270822f" class="bulleted-list"><li style="list-style-type:circle"><strong>性能优异：</strong> 在 GPU 上延迟仅为 <strong>6.5ms</strong>，并在多个微光增强基准测试中刷新了 SOTA 记录</li></ul></div></li></ul></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-8014-8ad4-c250cc0dd986" class="image"><a href="1%2025-1%2031/image%208.png"><img style="width:663.9765625px" src="1%2025-1%2031/image%208.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2faa9512-614c-8036-aa4a-efd2bede4d12" class="image"><a href="1%2025-1%2031/image%209.png"><img style="width:663.96875px" src="1%2025-1%2031/image%209.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2faa9512-614c-80e0-a056-dec3dfc9db16" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
