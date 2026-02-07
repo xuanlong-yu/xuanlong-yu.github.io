@@ -1,0 +1,793 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.2-2.8</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2fba9512-614c-80ac-a249-c26b2fe7bead" class="page sans"><header><h1 class="page-title" dir="auto">2.2-2.8</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="2fba9512-614c-8041-a301-c828a76b93aa" class="">目录：</h1></div><div style="display:contents" dir="auto"><ol type="1" id="2fba9512-614c-80a8-a80d-c2e64b0c94cf" class="numbered-list" start="1"><li><strong>VLMs / LLMs</strong><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-8033-8abb-cf48a9d4db1b" class="numbered-list" start="1"><li><strong>Qwen3-VL-Embedding + Reranker</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2fca9512-614c-80cf-bd69-d3a35abd4950" class="numbered-list" start="2"><li><strong>Andew Karpathy </strong><strong><a href="https://github.com/karpathy/nanochat">https://github.com/karpathy/nanochat</a></strong><strong> update</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-80f8-a4c1-d64db4faf093" class="numbered-list" start="3"><li><strong>ObjEmbed</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-80d4-8515-e04b35c9fe39" class="numbered-list" start="4"><li><strong>A Unified View of Attention and Residual Sinks: Outlier-Driven Rescaling is Essential for Transformer Training</strong></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="300a9512-614c-80dd-af0f-e93f3c49055d" class="numbered-list" start="2"><li><strong>BaseCV</strong><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-8027-a045-d120862f84fd" class="numbered-list" start="1"><li><strong>CoWTracker: Tracking by Warping instead of Correlation</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-80f3-a3ea-cf44e335b9d5" class="numbered-list" start="2"><li><strong>Mining Generalizable Activation Functions</strong></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ffa9512-614c-8035-9838-e901759660f6" class="numbered-list" start="3"><li><strong>Other things (won’t provide any comments but just an announcement)</strong><div style="display:contents" dir="auto"><ol type="a" id="2ffa9512-614c-8050-9467-f5d44339c723" class="numbered-list" start="1"><li><strong>OCR 的新 SOTA：GLM-OCR</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2ffa9512-614c-8020-abfe-e7f3da1fa449" class="numbered-list" start="2"><li><strong>边端侧多模态的新 SOTA：MiniCPM-o 4.5</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-803a-9b85-c63dd818ad5e" class="numbered-list" start="3"><li><strong>Personal AI assistant: </strong><strong><a href="https://openclaw.ai/">openclaw.ai</a></strong><strong> 在10天内涨了14W的star</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-80aa-bc4a-c57414f431a3" class="numbered-list" start="4"><li><strong>KIMI K-2.5: multimodal agentic model </strong> <a href="https://github.com/MoonshotAI/Kimi-K2.5">https://github.com/MoonshotAI/Kimi-K2.5</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-8025-bce3-fc484675cab3" class="numbered-list" start="5"><li><strong>Step-3.5 Flash: Stepfun’s most capable open-source foundation model  </strong><a href="https://github.com/stepfun-ai/Step-3.5-Flash">https://github.com/stepfun-ai/Step-3.5-Flash</a></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><h1 id="2fba9512-614c-80e6-a20c-f3342ce24f86" class="">VLMs:</h1></div><div style="display:contents" dir="auto"><h3 id="2fba9512-614c-8013-8051-fed0b6e1ed30" class="">a. Qwen3-VL-Embedding + Reranker: <a href="https://github.com/QwenLM/Qwen3-VL-Embedding/blob/main/assets/qwen3vlembedding_technical_report.pdf">https://github.com/QwenLM/Qwen3-VL-Embedding/blob/main/assets/qwen3vlembedding_technical_report.pdf</a></h3></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-8042-bbf3-d9f99d77cb98" class=""><strong>机构：</strong> 阿里</p></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-80c6-8eab-fa9f9baffd86" class="">这些模型基于我们最近开源的Qwen3-VL模型构建，专为多模态信息检索和跨模态理解场景设计。</p></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-8063-bfd5-f4219fc52773" class=""><strong>核心特性</strong></p></div><div style="display:contents" dir="auto"><ul id="2fba9512-614c-80a4-8a44-ddd0608b13f8" class="bulleted-list"><li style="list-style-type:disc"><strong>多模态通用性</strong> 两个模型系列均可在统一框架内处理包含文本、图像、截图和视频的输入。它们在图文检索、视频文本匹配、视觉问答（VQA）以及多模态内容聚类等多样化任务中达到了业界领先水平。</li></ul></div><div style="display:contents" dir="auto"><ul id="2fba9512-614c-8022-affb-de15e50067c6" class="bulleted-list"><li style="list-style-type:disc"><strong>统一表示学习（Embedding）</strong> 通过充分利用Qwen3-VL基础模型的优势，Qwen3-VL-Embedding模型能够生成语义丰富的向量表示，在共享空间中同时捕获视觉和文本信息，从而实现高效的跨模态相似度计算和检索。</li></ul></div><div style="display:contents" dir="auto"><ul id="2fba9512-614c-801c-a0b3-e1537f103271" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://zhida.zhihu.com/search?content_id=268762023&amp;content_type=Article&amp;match_order=1&amp;q=%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%87%8D%E6%8E%92%E5%BA%8F&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NzAxODY3MzYsInEiOiLpq5jnsr7luqbph43mjpLluo8iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNjg3NjIwMjMsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.mDGJLVxrunxomCNNfCLY3DWcueg85_Ophg24qVtTRTY&amp;zhida_source=entity">高精度重排序</a></strong><strong>（Reranker）</strong> 我们同步提供Qwen3-VL-Reranker系列作为 Embedding模型的补充。Qwen3-VL-Reranker接收输入对(Query, Document), 其中查询和文档均可包含任意单一或混合模态——并输出精确的相关性分数。在实际检索场景中，Embedding和Reranker模型通常协同工作：Embedding模型负责初始召回阶段，Reranker模型负责重排序阶段，这种两阶段流程显著提升了最终检索精度。</li></ul></div><div style="display:contents" dir="auto"><ul id="2fba9512-614c-8007-b6b1-fedb775c893e" class="bulleted-list"><li style="list-style-type:disc"><strong>卓越的实用性</strong> 继承Qwen3-VL的多语言能力，该系列支持超过30种语言，适合全球化应用。模型提供灵活的向量维度选择、可定制的任务指令，以及向量量化后的强劲性能。这些特性使开发者能够轻松将两个模型集成到现有流程中，用于需要强大跨语言和跨模态理解能力的应用场景。</li></ul></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-8051-aed0-e5202489f1b3" class=""><strong>使用指南</strong></p></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-8001-814f-fbb3097e5d7f" class="">Embedding 和 Reranking 模型通常在检索系统中协同使用，形成高效的<strong>两阶段检索流程</strong>： </p></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-80d5-9cb3-d7ead8f63444" class="">1). <strong>召回阶段</strong>：Embedding 模型执行初始召回，从海量数据中快速检索出大量候选结果。embedding 可以存下来，然后进行快速的相似度比对，类似于clip。这一步是将recall拉高。</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2fba9512-614c-8034-a789-e30915ec987a" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">from scripts.qwen3_vl_embedding import Qwen3VLEmbedder
+import numpy as np
+import torch
+
+# Define a list of query texts
+queries = [
+    {&quot;text&quot;: &quot;A woman playing with her dog on a beach at sunset.&quot;},
+    {&quot;text&quot;: &quot;Pet owner training dog outdoors near water.&quot;},
+    {&quot;text&quot;: &quot;Woman surfing on waves during a sunny day.&quot;},
+    {&quot;text&quot;: &quot;City skyline view from a high-rise building at night.&quot;}
+]
+
+# Define a list of document texts and images
+documents = [
+    {&quot;text&quot;: &quot;A woman shares a joyful moment with her golden retriever on a sun-drenched beach at sunset, as the dog offers its paw in a heartwarming display of companionship and trust.&quot;},
+    {&quot;image&quot;: &quot;https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg&quot;},
+    {&quot;text&quot;: &quot;A woman shares a joyful moment with her golden retriever on a sun-drenched beach at sunset, as the dog offers its paw in a heartwarming display of companionship and trust.&quot;, &quot;image&quot;: &quot;https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg&quot;}
+]
+
+# Specify the model path
+model_name_or_path = &quot;Qwen/qwen3-vl-embedding-2B&quot;
+
+# Initialize the Qwen3VLEmbedder model
+model = Qwen3VLEmbedder(model_name_or_path=model_name_or_path)
+# We recommend enabling flash_attention_2 for better acceleration and memory saving,
+# model = Qwen3VLEmbedder(model_name_or_path=model_name_or_path, dtype=torch.float16, attn_implementation=&quot;flash_attention_2&quot;)
+
+# Combine queries and documents into a single input list
+inputs = queries + documents
+
+embeddings = model.process(inputs)
+
+# Compute similarity scores between query embeddings and document embeddings
+similarity_scores = (embeddings[:4] @ embeddings[4:].T)
+
+# Print out the similarity scores in a list format
+print(similarity_scores.tolist())
+
+# [[0.83203125, 0.74609375, 0.73046875], [0.5390625, 0.373046875, 0.48046875], [0.404296875, 0.326171875, 0.357421875], [0.1298828125, 0.06884765625, 0.10595703125]]</code></pre></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-8084-8fd3-f75f8fa96ec3" class="">2). <strong>重排序阶段</strong>：Reranking 模型对候选结果进行精细化排序，基于重新计算的相关性分数为用户查询呈现最精确的结果。这一步是将上一步筛出来的结果进行细致比对，将precision拉高。</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2fba9512-614c-80ee-83d3-c6cf6dd7c47c" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">from scripts.qwen3_vl_reranker import Qwen3VLReranker
+import numpy as np
+import torch
+
+# Specify the model path
+model_name_or_path = &quot;Qwen/Qwen3-VL-Reranker-2B&quot;
+
+# Initialize the Qwen3VLEmbedder model
+model = Qwen3VLReranker(model_name_or_path=model_name_or_path)
+# We recommend enabling flash_attention_2 for better acceleration and memory saving,
+# model = Qwen3VLReranker(model_name_or_path=model_name_or_path, dtype=torch.float16, attn_implementation=&quot;flash_attention_2&quot;)
+
+# Combine queries and documents into a single input list
+
+inputs = {
+    &quot;instruction&quot;: &quot;Retrieval relevant image or text with user&#x27;s query&quot;,
+    &quot;query&quot;: {&quot;text&quot;: &quot;A woman playing with her dog on a beach at sunset.&quot;},
+    &quot;documents&quot;: [
+        {&quot;text&quot;: &quot;A woman shares a joyful moment with her golden retriever on a sun-drenched beach at sunset, as the dog offers its paw in a heartwarming display of companionship and trust.&quot;},
+        {&quot;image&quot;: &quot;https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg&quot;},
+        {&quot;text&quot;: &quot;A woman shares a joyful moment with her golden retriever on a sun-drenched beach at sunset, as the dog offers its paw in a heartwarming display of companionship and trust.&quot;, &quot;image&quot;: &quot;https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg&quot;}
+    ],
+    &quot;fps&quot;: 1.0
+}
+
+scores = model.process(inputs)
+print(scores)
+# [0.8408790826797485, 0.6197134852409363, 0.7778129577636719]</code></pre></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-80ff-9673-f0d40af18473" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2fba9512-614c-8013-bb74-f33dd2f77e59" class="">b. Andew Karpathy <a href="https://github.com/karpathy/nanochat">https://github.com/karpathy/nanochat</a></h3></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-806f-b237-dd0714ce68a2" class=""><strong>单节点 8xH100，耗时 3.04 小时，成本约 73 美元，即可复现 1.5B 参数的 GPT-2 。成本降低约 600 倍。</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="2fba9512-614c-8017-bf86-f1ecda87aa7d" class="numbered-list" start="1"><li><strong>架构细节：做减法与关键增量</strong><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-80d4-80b4-cfc1adc53fe8" class="numbered-list" start="1"><li>激活与归一化的极简主义：<div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-800c-95b0-cae961fd3519" class="numbered-list" start="1"><li>ReLU² 激活：放弃了常用的 GELU，转而使用 F.relu(x).square()。这种激活函数更加稀疏，计算成本更低。</li></ol></div><div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-8062-8b1e-cb7741f284a3" class="numbered-list" start="2"><li>无参数 RMSNorm：移除了所有可学习的 gamma/beta 参数，仅保留归一化操作。既减少了参数量，性能也无负面影响。</li></ol></div><div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-80c8-971a-f58bb386ed0a" class="numbered-list" start="3"><li>QK Normalization：在 RoPE 之后对 Q 和 K 进行归一化（q, k = norm(q), norm(k)）。这一步彻底稳住了注意力机制的数值，不再需要 Attention Softcapping。</li></ol></div><div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-801d-bba5-d00bf15a58bf" class="numbered-list" start="4"><li>Logit Softcapping：为防止数值溢出，Logits 被限制在 [-15, 15] 区间内（15 * tanh(logits / 15)），且始终以 float32 计算。</li></ol></div></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fba9512-614c-804d-9ece-f70952d650ec" class="numbered-list" start="2"><li><strong>Attention 效率优化</strong><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-80be-be75-c0d0d58ac226" class="numbered-list" start="1"><li><strong>Flash Attention 3：</strong>采用 Native layout (B, T, H, D)。相比 PyTorch 的 SDPA，在 H100 上带来了约 9% 的吞吐提升。</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-8071-a890-c44673c294f5" class="numbered-list" start="2"><li><strong>Sliding Window Attention (SSSL)：</strong>采用“3层短窗口 (1024 tokens) + 1层全窗口 (2048 tokens)”的平铺模式。实验证明，这种混合模式在大幅节省计算量的同时，几乎不损失长上下文能力。</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-80ac-b437-dfcd9bf4ef21" class="numbered-list" start="3"><li><strong>Value Embeddings：</strong>模型在<strong>交替层（Alternating layers）</strong>引入了 Gated Value Embeddings。这一设计为 d24 模型增加了约 <strong>150M</strong> 的参数量（约占总参数量的 10%），但几乎没有增加 FLOPs。此外，模型采用了<strong>输入输出层参数不共享</strong>（Untied Embeddings）以及<strong>每层引入可学习标量</strong>，初始化为 1.0 和 0.1，这些微小改动的叠加带来了一致的性能提升。</li></ol></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2fba9512-614c-8057-a63a-e5610e917e6c" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># 伪代码逻辑展示 Value Embeddings 实现
+ve = value_embeds[layer_idx](token_ids) # (B, T, kv_dim)
+gate = 2 * sigmoid(ve_gate(x[:, :, :32])) # range (0, 2)
+v = v + gate * ve</code></pre></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fba9512-614c-806a-b25a-cddfce5a347a" class="numbered-list" start="3"><li><strong>Muon 优化器</strong><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-80bb-8881-e0358eecbca2" class="numbered-list" start="1"><li>分层策略<div style="display:contents" dir="auto"><p id="2fba9512-614c-80f9-852d-f8bcb7488daa" class="">Karpathy 设定了一组极端的超参数值得注意：</p></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-8032-b1cb-e7c319db8fc3" class="">AdamW：仅用于 Embeddings 和标量参数。<div class="indented"><div style="display:contents" dir="auto"><ul id="2fba9512-614c-8033-b8a2-de51c29d5146" class="bulleted-list"><li style="list-style-type:disc">lm_head：Learning Rate = 0.004</li></ul></div><div style="display:contents" dir="auto"><ul id="2fba9512-614c-800a-b93a-c533e80281b7" class="bulleted-list"><li style="list-style-type:disc">wte + value_embeds：Learning Rate 高达 0.3</li></ul></div><div style="display:contents" dir="auto"><ul id="2fba9512-614c-8077-9c48-d43459ef9dc5" class="bulleted-list"><li style="list-style-type:disc">x0_lambdas：设置了 beta1=0.96（通常默认 0.9），增加了动量惯性</li></ul></div></div></p></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-803d-8e45-c9f9d6d1df17" class="">Muon：专门用于处理所有的 2D 矩阵权重（Attention Projections, MLP weights）。</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="2fba9512-614c-802a-95b8-eab51d47105a" class="numbered-list" start="2"><li>Muon 的核心在于通过正交化更新来优化矩阵参数，主要包含以下特性：<div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-80bd-97ba-cab60092d279" class="numbered-list" start="1"><li>Polar Express 正交化：使用迭代 5 次的 Polar Express 算法替代传统的 Newton-Schulz 算法，强制更新量保持正交。</li></ol></div><div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-803c-8924-dbeb7654698c" class="numbered-list" start="2"><li>动量预热：采用了 Nesterov momentum，并在前 300 步内将动量参数从 0.85 线性增加至 0.95。</li></ol></div><div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-80ae-8d79-c4e6d0605490" class="numbered-list" start="3"><li>Factored Variance Reduction：采用了类似 Adafactor 的方差缩减技术。</li></ol></div><div style="display:contents" dir="auto"><ol type="i" id="2fba9512-614c-8077-af8b-d863da01317e" class="numbered-list" start="4"><li>Cautious Weight Decay：这是一个“Clear Win”。仅在梯度与参数方向一致（grad * param &gt;= 0）时才应用权重衰减。</li></ol></div><div style="display:contents" dir="auto"><p id="2fba9512-614c-8075-b624-c9302ada07fc" class="">Karpathy 试图切回纯 AdamW，结果并不理想——大规模训练离不开 Muon。</p></div></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="2fca9512-614c-805f-9748-cbf6b451a088" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2fba9512-614c-809c-a354-c3341159f252" class="">c. ObjEmbed <a href="https://github.com/WeChatCV/ObjEmbed/blob/main/README_zh.md">https://github.com/WeChatCV/ObjEmbed/blob/main/README_zh.md</a> <a href="https://arxiv.org/pdf/2602.01753">https://arxiv.org/pdf/2602.01753</a></h3></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-80ed-bb15-faa186e81b26" class=""><strong>机构：中山大学，微信</strong></p></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-8062-b6f5-c21802922b9f" class=""><strong>要点：</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-8082-be33-cc705828d0f6" class="numbered-list" start="1"><li>研究团队发现，如果强行让一个 Token 同时学习分类和定位，会引发“优化冲突”。为此，他们巧妙地将物体拆解为两个互补的 Token：<strong>物体 Token (Object Token)</strong> 用于捕捉语义细节，<strong>IoU Token</strong> 则专门负责预测边界框的定位质量。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-8068-b58d-e2dee0083f2a" class="numbered-list" start="2"><li>ObjEmbed 具有<strong>极高效率</strong>。它并不需要像老牌模型那样对每个区域重复扫描，而是通过一种“全家桶”式的模板，将整张图像的全局信息和所有感兴趣区域（RoIs）组织成一个序列，仅需<strong>一次前向传播 (Single Forward Pass)</strong>，就能同时导出全局图像嵌入、多个物体嵌入及其定位质量评分。即使一张图里有 100 个物体，总序列长度也通常在 2000 个 Token 以内，这意味着它可以在极小的显存占用下，利用 FlashAttention-2 等技术实现飞速计算</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-8097-bd06-cc15b9327805" class="numbered-list" start="3"><li><strong>局部图像检索 (Local Image Retrieval)</strong> 任务中——即根据一段描述（如“一个穿着 8 号球衣的球员”）在成千上万张图中找到正确的那张——ObjEmbed 的表现比传统的全局嵌入模型足足高出了 <strong>20 个百分点，而且还支持I2I</strong>（即使没有针对性地进行训练）</li></ol></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-80b5-a7b2-e7e2be730f11" class=""><strong>结果：</strong>检测上效果比WeDetect有提升，但是ref上和WeDetect-Ref对应的参数量模型来比，优势并不明显。在global image retrieval上，4B略胜 Qwen3Embedding2B一筹，2B不如Qwen3Embedding2B。但是Qwen3Embedding没有4B，只有2B 8B。在 local image retrieval人物上，效果要比Qwen3-VL-Embedding-8B还要高20个点。</p></div><div style="display:contents" dir="ltr"><figure id="2fca9512-614c-8073-a8fb-e75f99b4ce68" class="image"><a href="2%202-2%208/image.png"><img style="width:709.9921875px" src="2%202-2%208/image.png"/></a></figure></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2fca9512-614c-80bd-8211-c91627263a79" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all"># 实例：
+python infer_objembed.py --objembed_checkpoint /PATH/TO/OBJEMBED \
+												 --wedetect_uni_checkpoint /PATH/TO/WEDETECT_UNI \
+												 --image assets/demo.jpg \
+												 --query &quot;The car&#x27;s license plate in HAWAII&quot; \
+												 --task rec \
+												 --visualize</code></pre></div><div style="display:contents" dir="ltr"><figure id="2fca9512-614c-80f1-9b2b-cf116550d180" class="image"><a href="2%202-2%208/image%201.png"><img style="width:512px" src="2%202-2%208/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-80b8-96a3-d64317db8b68" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2fca9512-614c-80c0-82d2-e3d92a0ebe07" class=""><strong>总结：</strong>虽然它目前仍受限于前端提议网络 (Proposal Generator) 的质量，但这种“物体导向”的表征逻辑无疑为多模态 AI 指明了方向</p></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-8054-b5ba-e956d279ee0c" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2fca9512-614c-8067-9757-d0774f6234fa" class="">d. A Unified View of Attention and Residual Sinks: Outlier-Driven Rescaling is Essential for Transformer Training</h3></div><div style="display:contents" dir="auto"><p id="2fca9512-614c-8092-802f-ff150dd65dc8" class=""><strong>机构：</strong>阿里</p></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-8024-80a6-dcb151edf1e6" class=""><strong>重点：</strong>提出了 GatedNorm来优化RMSNorm。动机是发现网络中会有很多极大的激活（原因是来自于RMSNorm的机制）。GatedNorm可以一定程度上稳定激活，提升量化精度（因为极大的激活就会造成量化的困难）同时侧面解释了为什么SwiGLU的表现通常要比GLU好。<div class="indented"><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-80c6-950b-f162bce057ee" class="numbered-list" start="1"><li><strong>异常激活很普遍，但是对于量化就很不友好了，例如下面的deepseekv3</strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="2fda9512-614c-8050-88c9-f83589ab2edb" class="image"><a href="2%202-2%208/image%202.png"><img style="width:685.9921875px" src="2%202-2%208/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-801e-8709-d47d46318bfc" class="numbered-list" start="2"><li><strong>RMSNorm 的数学本质：</strong><div style="display:contents" dir="auto"><p id="2fda9512-614c-80ff-89e2-de0c654ee8d6" class="">将token的除以它的能量（平方和），所以为了让整体norm，模型学会了让某几个激活值很大，这样分母就可以很大了，导致整体被除了之后，就比较小</p></div><div style="display:contents" dir="ltr"><figure id="2fda9512-614c-8083-a4a0-ed71e6ae65e6" class="image"><a href="2%202-2%208/image%203.png"><img style="width:657.9921875px" src="2%202-2%208/image%203.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-8051-89d0-e5307d05139d" class="numbered-list" start="3"><li>同时这也可能解释了SwiGLU的优势来源：</li></ol></div><div style="display:contents" dir="ltr"><figure id="2fda9512-614c-8077-a883-c07b50dc94f3" class="image"><a href="2%202-2%208/image%204.png"><img style="width:685.9765625px" src="2%202-2%208/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-80f7-86e9-f8a4e2241e63" class="">        由于SwiGLU 使用的 Swish 激活函数在正半轴无上界，允许模型轻松生成巨大的异常值来触发 Rescaling。而标准 GLU 使用 Sigmoid，值域受限于 (0, 1)，限制了这种自适应缩放的能力。</p></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-80b7-8bb4-f9fc5703cde2" class="numbered-list" start="4"><li><strong>实验证明：Clipping，移除 RMSNorm，都会导致性能显著下降</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-8046-859f-ef8ca9d8d448" class="numbered-list" start="5"><li><strong>解决方案：GatedNorm：</strong><div style="display:contents" dir="ltr"><figure id="2fda9512-614c-8031-bebb-fc614175d5d3" class="image"><a href="2%202-2%208/image%205.png"><img style="width:672px" src="2%202-2%208/image%205.png"/></a></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2fda9512-614c-8005-98c0-f7f48ad3ce90" class="numbered-list" start="6"><li><strong>结果：</strong><div style="display:contents" dir="auto"><ol type="a" id="2fda9512-614c-80b2-a8e3-dcd6966528cf" class="numbered-list" start="1"><li><strong>使用 GLU + GA + GatedNorm 的时候 要比 SwiGLU + GA + GatedNorm 好，loss更低，outlier也更少</strong></li></ol></div></li></ol></div></div></p></div><div style="display:contents" dir="auto"><div id="300a9512-614c-800b-a160-c66529dbe5f4" class="column-list"><div style="display:contents" dir="auto"><div id="300a9512-614c-80de-84c5-d0af22ff10eb" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2fda9512-614c-80f2-a353-fc4c202ce4e2" class="image"><a href="2%202-2%208/image%206.png"><img style="width:480px" src="2%202-2%208/image%206.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="300a9512-614c-809c-86d8-e88a4c0baec3" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2fda9512-614c-809b-998a-d8a02026d476" class="image"><a href="2%202-2%208/image%207.png"><img style="width:480px" src="2%202-2%208/image%207.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2fda9512-614c-8077-956b-da26392defb7" class=""><strong>       同时，在低比特量化的时候，+ GatedNorm 表现也更好：</strong></p></div><div style="display:contents" dir="ltr"><figure id="2fda9512-614c-80df-b398-c96ffa0ed6c3" class="image"><a href="2%202-2%208/image%208.png"><img style="width:864px" src="2%202-2%208/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><h1 id="300a9512-614c-80a0-8550-cf043ddfb7aa" class="">BaseCV</h1></div><div style="display:contents" dir="auto"><h3 id="300a9512-614c-8020-ad50-ed78082067a2" class=""><strong>a. CoWTracker: Tracking by Warping instead of Correlation </strong><a href="https://cowtracker.github.io/">https://cowtracker.github.io/</a></h3></div><div style="display:contents" dir="auto"><p id="300a9512-614c-808a-b30c-f54b6add4533" class=""><strong>机构：VGG</strong></p></div><div style="display:contents" dir="auto"><p id="300a9512-614c-80a8-b2cb-e406aee0cff4" class=""><strong>TLDR：舍弃了Cost Volumes，采用了Iterative Warping机制。不再全局搜索，而是根据当前的运动估计，直接在目标帧提取一个匹配点，然后不断微调。省去了昂贵的代价体积，可以处理极高分辨率的特征。</strong></p></div><div style="display:contents" dir="auto"><p id="300a9512-614c-8007-8a7b-f8be4993f9b1" class=""><strong>具体一点：</strong></p></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-8081-89dc-f509ab829be8" class="numbered-list" start="1"><li><strong>Cost Volumes：第一帧中的某个点，在第二帧移动到了哪里？</strong><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-80b4-8063-f8cd0f5f0f45" class="numbered-list" start="1"><li>代价体积是一个存储了“相似度分数”的巨大仓库。模型会提取两个图像帧的特征，然后计算一帧中每个像素与另一帧中候选区域内所有像素的相似度。</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-8003-8a62-ceddb3015f9f" class="numbered-list" start="2"><li>这种“暴力匹配”在数学上具有二次方复杂度。如果你想提高图像分辨率，计算量和内存占用会呈指数级爆炸。</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-807a-9891-d6acaeb36477" class="numbered-list" start="2"><li><strong>位移场（Displacement Field）：描述运动的语言</strong><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-8093-a557-f176fd6fc6ce" class="numbered-list" start="1"><li>在 CoWTracker 中，追踪任务被定义为寻找一个<strong>位移场 </strong><em>u</em></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-80c4-9acb-c5d950fa9b38" class="numbered-list" start="2"><li>假设视频中有一个查询帧  <em><strong>I0 </strong></em>和目标帧 <em><strong>It。</strong></em>对于查询帧中的任意一点 <em>p</em>，它在 <em>t</em> 时刻的新位置 <em>xt</em>(<em>p</em>) 可以表示为：<em>xt</em>(<em>p</em>)=<em>p</em>+<em>ut</em>(<em>p</em>)  <em>p </em>是该点最初的坐标，<em>ut</em>(<em>p</em>) 就是它这段时间的“移动向量”。</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-8082-b000-ebb30c1892f0" class="numbered-list" start="3"><li><strong>Iterative Warping</strong><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-805d-97f2-d58995929655" class="numbered-list" start="1"><li>不再去计算所有像素的相似度，而是基于当前的位移估计，直接从目标帧中“采样”特征，生成所谓的“扭曲特征图” <em>Gt</em>(<em>p</em>)</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-802f-a751-f465073cd71a" class="numbered-list" start="2"><li><em>Gt</em>(<em>p</em>)=sample(<em>Ft</em>, <em>p</em>+<em>ut</em>(<em>p</em>)). Ft 是目标帧的原始特征，我们根据当前的位移估计 ut(p), 直接去那个位置提取特征<div style="display:contents" dir="auto"><ol type="a" id="300a9512-614c-8072-ad40-e518b90f34cd" class="numbered-list" start="1"><li>你不再对比人群里的每一个人，而是根据你的直觉（当前的位移估计）看向朋友可能出现的方向。如果你看歪了，模型会发现提取到的特征不对劲，然后通过迭代（反复微调）直到视野中心精准对准你的朋友。</li></ol></div></li></ol></div></li></ol></div><div style="display:contents" dir="ltr"><figure id="300a9512-614c-803a-b07a-d7c7ab7aa6d3" class="image"><a href="2%202-2%208/image%209.png"><img style="width:709.9921875px" src="2%202-2%208/image%209.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="300a9512-614c-80fd-bf87-d6d2297a4c76" class="image"><a href="2%202-2%208/image%2010.png"><img style="width:709.984375px" src="2%202-2%208/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="300a9512-614c-8075-a78c-d16df56553ef" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="300a9512-614c-8080-898a-d36cbed5781a" class="">b. Mining Generalizable Activation Functions <a href="https://arxiv.org/abs/2602.05688">https://arxiv.org/abs/2602.05688</a></h3></div><div style="display:contents" dir="auto"><p id="300a9512-614c-80f6-801c-eb60ed5ebc19" class=""><strong>机构：DeepMind</strong></p></div><div style="display:contents" dir="auto"><p id="300a9512-614c-800e-a1bb-d5fc01d7fc45" class=""><strong>TLDR：由 LLM 驱动的进化编码系统 AlphaEvolve 来搜索激活函数，在视觉任务上超过现有的激活函数</strong></p></div><div style="display:contents" dir="ltr"><figure id="300a9512-614c-8093-b97c-dd1a2307a6e5" class="image"><a href="2%202-2%208/image%2011.png"><img style="width:709.984375px" src="2%202-2%208/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="300a9512-614c-8062-b746-c1b79dbbfe47" class="">实验发现，表现好的函数往往遵循一个公式：</p></div><div style="display:contents" dir="ltr"><figure id="300a9512-614c-805f-97e3-fc6dd46e2a84" class="image"><a href="2%202-2%208/image%2012.png"><img style="width:709.953125px" src="2%202-2%208/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="300a9512-614c-80ee-975a-c159107f4c4b" class="">例如：</p></div><div style="display:contents" dir="ltr"><figure id="300a9512-614c-802c-b651-c4101ee287ad" class="image"><a href="2%202-2%208/image%2013.png"><img style="width:709.9375px" src="2%202-2%208/image%2013.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="300a9512-614c-8043-9881-dafb0628cea4" class="image"><a href="2%202-2%208/image%2014.png"><img style="width:652px" src="2%202-2%208/image%2014.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="300a9512-614c-8081-b3db-fb0c07aee1a4" class=""><strong>验证：</strong></p></div><div style="display:contents" dir="ltr"><figure id="300a9512-614c-80ad-911a-dcf7c4940563" class="image"><a href="2%202-2%208/image%2015.png"><img style="width:816px" src="2%202-2%208/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="300a9512-614c-804d-99e1-edb10c095128" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
