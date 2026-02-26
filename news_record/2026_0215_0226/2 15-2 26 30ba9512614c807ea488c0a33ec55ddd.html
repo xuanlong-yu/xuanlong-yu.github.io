@@ -1,0 +1,721 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.15-2.26</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="30ba9512-614c-807e-a488-c0a33ec55ddd" class="page sans"><header><h1 class="page-title" dir="auto">2.15-2.26</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="30ba9512-614c-8002-a3cd-fe5cdc7dd2c8" class=""><strong>恭祝大家马年吉祥，万事如意！</strong></p></div><div style="display:contents" dir="auto"><h1 id="30ba9512-614c-80f6-8706-e560e6047525" class="">目录：</h1></div><div style="display:contents" dir="auto"><ol type="1" id="30ba9512-614c-8028-8372-c1d5495c248f" class="numbered-list" start="1"><li><strong>BaseCV</strong><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-80ee-a203-dd4b02d46940" class="numbered-list" start="1"><li>Le-DETR: Revisiting Real-Time Detection Transformer with Efficient Encoder Design <a href="https://arxiv.org/pdf/2602.21010">https://arxiv.org/pdf/2602.21010</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="312a9512-614c-80b9-a291-d3c00857f749" class="numbered-list" start="2"><li>RaCo: Ranking and Covariance for Practical Learned Keypoints <a href="https://arxiv.org/pdf/2602.15755">https://arxiv.org/pdf/2602.15755</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="30ba9512-614c-807c-9f67-ee8a1bfa1439" class="numbered-list" start="3"><li>On Surprising Effectiveness of Masking Updates in Adaptive Optimizers <a href="https://arxiv.org/pdf/2602.15322v1">https://arxiv.org/pdf/2602.15322v1</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-8054-a989-e69305aaacf1" class="numbered-list" start="4"><li>Taming SAM3 in the Wild: A Concept Bank for Open-Vocabulary Segmentation <a href="https://arxiv.org/pdf/2602.06333">https://arxiv.org/pdf/2602.06333</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="311a9512-614c-804c-8ac4-f1eff8c87898" class="numbered-list" start="5"><li>SAM 3D Body  <a href="https://arxiv.org/abs/2602.15989">https://arxiv.org/abs/2602.15989</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-8064-8f3c-f8aaed3753e0" class="numbered-list" start="6"><li>Xray-Visual Models: Scaling Vision models on Industry Scale Data <a href="https://arxiv.org/pdf/2602.16918v1">https://arxiv.org/pdf/2602.16918v1</a></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30ba9512-614c-804e-81ea-d193f52c6121" class="numbered-list" start="2"><li><strong>VLM / LLM / GenAI</strong><div style="display:contents" dir="auto"><ol type="a" id="30ba9512-614c-8068-8292-f3a5c060a33f" class="numbered-list" start="1"><li>BitDance: Scaling Autoregressive Generative Models with Binary Tokens <a href="https://arxiv.org/abs/2602.14041">https://arxiv.org/abs/2602.14041</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="30fa9512-614c-807d-9add-d2a5dddb0207" class="numbered-list" start="2"><li>Pailitao-VL <a href="https://arxiv.org/abs/2602.13704v1">https://arxiv.org/abs/2602.13704v1</a></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="30ba9512-614c-8095-8a7b-df0bb6fa2629" class="numbered-list" start="3"><li><strong>Other things (won’t provide any comments but just an announcement)</strong><div style="display:contents" dir="auto"><ol type="a" id="30ba9512-614c-8089-96f6-fd47b98bbc37" class="numbered-list" start="1"><li>阿里发布 <strong>Qwen3.5</strong> 系列模型</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="30ba9512-614c-8082-8d41-ef065644aab0" class="numbered-list" start="2"><li>Kimi 上线 <strong>Kimi Claw</strong>（但仅限高级付费用户使用）</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-8082-9b06-d36adefaed68" class="numbered-list" start="3"><li>Minimax 上线 <strong>MaxClaw</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="30ba9512-614c-8047-9bff-cdb9677b5887" class="numbered-list" start="4"><li><strong>Lyria 3 </strong>（by Google）released：30-second tracks using text or images 音乐生成</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="30ba9512-614c-804f-ab1f-d33b398bc5a4" class="numbered-list" start="5"><li>Adobe release <strong>Object-WIPER </strong>（很炫酷demo的 video object removal 工作）<a href="https://sakshamsingh1.github.io/object_wiper_webpage/">https://sakshamsingh1.github.io/object_wiper_webpage/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-80bd-9f21-cd379a9b9091" class="numbered-list" start="6"><li>小红书发布的视频创作智能体框架 <strong>OpenStoryLine</strong>  <a href="https://fireredteam.github.io/demos/firered_openstoryline/">https://fireredteam.github.io/demos/firered_openstoryline/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-8095-9306-fc0964e049e5" class="numbered-list" start="7"><li>小红书开源 SOTA OCR 模型 <strong>dots.ocr-1.5 </strong>，并能将图表和示意图直接转换为 SVG 代码 <a href="https://github.com/rednote-hilab/dots.ocr">https://github.com/rednote-hilab/dots.ocr</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-807c-b593-cf3e0427ce6a" class="numbered-list" start="8"><li>阿里开源全新的原生多平台 GUI 代理基础模型系列 <strong>GUI-Owl 1.5</strong> （2B/4B/8B/32B/235B；指令与思考）。该新一代原生 GUI 代理模型系列基于 Qwen3-VL 构建，支持桌面/移动/浏览器自动化，并在 20 多个 GUI 基准测试中取得了SOTA 性能</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><h1 id="311a9512-614c-80a9-a28a-e3991710620a" class="">BaseCV</h1></div><div style="display:contents" dir="auto"><h3 id="313a9512-614c-80aa-aee6-c01509f1b7e0" class="">a. Le-DETR: Revisiting Real-Time Detection Transformer with Efficient Encoder Design <a href="https://arxiv.org/pdf/2602.21010">https://arxiv.org/pdf/2602.21010</a></h3></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8069-a91e-e9b61e0c2b71" class="">机构：SHI Labs @ Georgia Tech</p></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8040-8e72-caad51c0725e" class=""><strong>TLDR：</strong>Le-DETR 是一个在latency上比较有优势的模型，主要的 contribution 是提出了一个新的backbone 来替代 hgnetv2。可以用更少的公开数据（ImageNet1K）进行预训练，得到更好的结果</p></div><div style="display:contents" dir="ltr"><figure id="313a9512-614c-80c4-a1f7-ceaa4c2cce6f" class="image"><a href="2%2015-2%2026/image.png"><img style="width:335px" src="2%2015-2%2026/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80fa-b116-d9a28d32f29f" class=""><strong>方法：</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-8091-9fab-dfc9383b1dbc" class="numbered-list" start="1"><li><strong>backbone：</strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="313a9512-614c-80d3-bbde-e1c969ab48e3" class="image"><a href="2%2015-2%2026/image%201.png"><img style="width:709.9765625px" src="2%2015-2%2026/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8043-9e46-fbff2f3a078b" class="">EfficientNAT = Conv +  depthwise separable convolutions (DSConv) + Fused Mobile Convolution  (FusedMBConv) +  Mobile Convolution (MBConv) + EfficientNATBlock + NAIFI</p></div><div style="display:contents" dir="ltr"><figure id="313a9512-614c-80ac-a291-dc448a956e37" class="image"><a href="2%2015-2%2026/image%202.png"><img style="width:400px" src="2%2015-2%2026/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80b8-9984-dffb1441ef98" class="">其中，NAIFI 就是 NAT+FFN，EfficientNATBlock 就是 residual NAT + residual MBConv</p></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-80c7-bc50-d52328c6e727" class="numbered-list" start="2"><li>Detector</li></ol></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8057-8406-c25a9f54affd" class="">Detector部分没有什么特别，除了训练的时候用6层，推理的时候用4层来加速减参数之外。</p></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-803e-b2c0-d1181a360582" class="numbered-list" start="3"><li>其他：<div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-801f-ac00-fdc6139d2a6d" class="numbered-list" start="1"><li>Insight还是有的，即一个共识 backbone is all you need</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="313a9512-614c-803b-aa92-d4af7b1a8d76" class="numbered-list" start="2"><li>有一些好奇，例如：6层训练4层推理，会不会比4层训练4层推理更好？训练的hyperparameters有没有必要进行一些调整？backbone的variants实验中使用top1 acc/top5 acc并没有详细说明是什么acc，默认是分类的acc的话，分类acc上的结论在detection上也work吗？</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80e2-96be-c598074c1a54" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="312a9512-614c-8042-a656-d913f689a320" class="">b. RaCo: Ranking and Covariance for Practical Learned Keypoints <a href="https://arxiv.org/pdf/2602.15755">https://arxiv.org/pdf/2602.15755</a></h3></div><div style="display:contents" dir="auto"><p id="312a9512-614c-80ec-ba80-d93b5463ba35" class="">机构：ETH，Google，Microsoft</p></div><div style="display:contents" dir="auto"><p id="312a9512-614c-8040-8d3c-febb255842c4" class=""><strong>TLDR</strong>：RaCo 是一个轻量级神经网络，集成了可重复关键点检测器、可微分排序器和协方差估计器，旨在学习稳健且多功能的关键点。该模型通过广泛的数据增强实现了强大的旋转鲁棒性，无需昂贵的等变网络，并能有效学习关键点排序以最大限度地提高匹配度，同时预测度量空间不确定性。实验结果表明，RaCo在关键点重复性和双视图匹配方面达到了 SOTA，尤其是在大平面旋转下，其协方差估计也显著提高了3D三角测量任务的准确性。</p></div><div style="display:contents" dir="ltr"><figure id="312a9512-614c-806a-a656-fa7d5581ebf1" class="image"><a href="2%2015-2%2026/image%203.png"><img style="width:331.9886169433594px" src="2%2015-2%2026/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="312a9512-614c-80a1-a08d-c883f3355572" class=""><strong>方法：</strong></p></div><div style="display:contents" dir="auto"><p id="312a9512-614c-80ed-8be5-f58e984060e2" class=""><strong>RaCo</strong> = a <strong>Detector</strong> to find repeatable keypoints + a differentiable <strong>Ranker</strong> to maximize repeatability at smaller keypoint budgets + a <strong>Covariance estimator</strong> to quantify their spatial uncertainty</p></div><div style="display:contents" dir="auto"><ol type="1" id="312a9512-614c-8066-bea1-d013e9696c7d" class="numbered-list" start="1"><li><strong>Keypoint Detector：旨在识别在多视角和不同外观条件下可以可靠、准确地检测到的关键点，通常位于角点或斑点区域。</strong><div style="display:contents" dir="auto"><ol type="a" id="312a9512-614c-809a-87d3-cb2aa35c0e17" class="numbered-list" start="1"><li>具体地，接收归一化的 RGB 图像 I，输出一个关键点分数图 S \in R^{H \times W}。通过对  进行全局 softmax 操作，得到像素作为关键点的概率图 P \in R^{H \times W}。关键点 x_v \in R^{N \times 2} 通过在概率图上应用非极大值抑制 (NMS) 和 Top-N 选择来提取。</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="312a9512-614c-8059-827d-e47a1de69ab1" class="numbered-list" start="2"><li>旋转鲁棒性来自训练中广泛的数据增强，具体地，训练对是通过合成单应性变换和强光度变换生成，包含完整的 360 度旋转。</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="312a9512-614c-805e-bda7-defd0d8187d0" class="numbered-list" start="3"><li>训练：policy-gradient 。对于视图A中的关键点x，如果其在视图B上重投影的关键点，与视图B中最近邻关键点的距离，小于一个值，则是正奖励，否则为负奖励，奖励记为 \rho，这个奖励会在损失计算的时候，进行归一化。训练的损失，是最小化采样关键点的负对数似然。其中，p 是从概率图 P 中采样的 sampling probability of keypoint x。</li></ol></div><div style="display:contents" dir="auto"><figure id="312a9512-614c-8059-a992-fe164b56cffa" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="script">L</mi><mtext>detector</mtext></msub><mo>=</mo><mo>−</mo><munder><mo>∑</mo><mrow><mi>v</mi><mo>∈</mo><mo stretchy="false">{</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo stretchy="false">}</mo></mrow></munder><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>K</mi></munderover><msup><mi>ρ</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">(</mo><msubsup><mi mathvariant="bold">x</mi><mi>v</mi><mi>i</mi></msubsup><mo stretchy="false">)</mo><mi>log</mi><mo>⁡</mo><msubsup><mi>p</mi><mi>v</mi><mi>i</mi></msubsup></mrow><annotation encoding="application/x-tex">\mathcal{L}_{\text{detector}} = - \sum_{v \in \{A,B\}} \sum_{i=1}^{K} \rho&#x27;(\mathbf{x}_v^i) \log p_v^i </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathcal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">detector</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.3443em;vertical-align:-1.516em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.809em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span><span class="mrel mtight">∈</span><span class="mopen mtight">{</span><span class="mord mathnormal mtight">A</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mclose mtight">}</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.516em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8019em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathbf">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8747em;"><span style="top:-2.453em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8747em;"><span style="top:-2.453em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span></span></div></figure></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="312a9512-614c-8052-a02c-ca7848be96f1" class="numbered-list" start="2"><li><strong>可微分排序器 (Differentiable Ranker)：提供一种替代的排序方式，专门设计用于在不同关键点总数下最大化匹配的点数。</strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="312a9512-614c-8010-b074-f2b24c6679c8" class="image"><a href="2%2015-2%2026/image%204.png"><img style="width:459.9928894042969px" src="2%2015-2%2026/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="312a9512-614c-8044-842c-eb3df250940c" class="">具体来说，就是找到一个很好的排序分数 r 的表示器或排序图 R，让 M 越大越好（其中 n 是 n 个检测到的关键点，k 是 k 个匹配上的点）。但是上面的 M 不可微，所以我们需要学一个排序图 R \in R^{H*W}: h 是一个 ranking operator （n→n），将ranking scores r 转为可微的 r_soft</p></div><div style="display:contents" dir="auto"><figure id="312a9512-614c-805c-a49d-d70fb8d82e87" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="script">L</mi><mtext>spearman</mtext></msub><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><mo>∑</mo><msup><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msup><msup><mrow><mo fence="true">(</mo><msub><mi>h</mi><mtext>soft</mtext></msub><mo stretchy="false">(</mo><msubsup><mi mathvariant="bold">r</mi><mrow><mi>A</mi><mo separator="true">,</mo><mi>i</mi></mrow><mtext>matched</mtext></msubsup><mo stretchy="false">)</mo><mo>−</mo><msub><mi>h</mi><mtext>soft</mtext></msub><mo stretchy="false">(</mo><msubsup><mi mathvariant="bold">r</mi><mrow><mi>B</mi><mo separator="true">,</mo><mi>i</mi></mrow><mtext>matched</mtext></msubsup><mo stretchy="false">)</mo><mo fence="true">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+\mathcal{L}_{\text{spearman}} = \frac{1}{N} \sum{i=1}^{N} \left( h_{\text{soft}}(\mathbf{r}_{A,i}^{\text{matched}}) - h_{\text{soft}}(\mathbf{r}_{B,i}^{\text{matched}}) \right)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathcal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">spearman</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">1</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">soft</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathbf">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-2.453em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">matched</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3831em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">soft</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathbf">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-2.453em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">matched</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3831em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.1031em;"><span style="top:-3.352em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></div></figure></div><div style="display:contents" dir="auto"><figure id="312a9512-614c-802f-9f89-d01e61577e43" class="equation"><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi mathvariant="script">L</mi><mtext>pull</mtext><mi>i</mi></msubsup><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">∣</mi><msub><mi>h</mi><mtext>soft</mtext></msub><mo stretchy="false">(</mo><msubsup><mi>r</mi><mi>v</mi><mi>i</mi></msubsup><mo stretchy="false">)</mo><mo>−</mo><mn>1</mn><mi mathvariant="normal">∣</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>if </mtext><msubsup><mi>x</mi><mi>v</mi><mi>i</mi></msubsup><mtext> is matched</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">∣</mi><msub><mi>h</mi><mtext>soft</mtext></msub><mo stretchy="false">(</mo><msubsup><mi>r</mi><mi>v</mi><mi>i</mi></msubsup><mo stretchy="false">)</mo><mo>−</mo><mi>N</mi><mi mathvariant="normal">∣</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mtext>otherwise</mtext></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+\mathcal{L}_{\text{pull}}^i = \begin{cases}
+|h_{\text{soft}}(r_v^i) - 1| &amp; \text{if } x_v^i \text{ is matched} \\
+|h_{\text{soft}}(r_v^i) - N| &amp; \text{otherwise}
+\end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2578em;vertical-align:-0.3831em;"></span><span class="mord"><span class="mord mathcal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8747em;"><span style="top:-2.453em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">pull</span></span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3831em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">∣</span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">soft</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-2.453em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1∣</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">∣</span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">soft</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-2.453em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">∣</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">if </span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-2.453em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord"> is matched</span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">otherwise</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div></figure></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-803f-8f2a-d901802e8f33" class="numbered-list" start="3"><li><strong>Covariance estimator</strong>  <strong>协方差估计器：协方差头预测的是每个特征点的 2D 像素级不确定性。</strong></li></ol></div><div style="display:contents" dir="auto"><p id="313a9512-614c-809b-9fb8-d77efb914050" class="">实际上就是用 NLL 对重投影误差进行拟合：</p></div><div style="display:contents" dir="ltr"><figure id="313a9512-614c-800b-9d72-cbe611e262d7" class="image"><a href="2%2015-2%2026/image%205.png"><img style="width:385.97357177734375px" src="2%2015-2%2026/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80ad-8b07-f3962af1f604" class="">RaCo模型在通过合成图像对进行训练，这些合成图像对是从 Oxford-Paris 1M distractors dataset 中采样生成的。它通过从现有图像中采样两个裁剪区域，并应用合成单应性变换（2D-2D变换 x2=Hx1）以及强光度增强来模拟双视角匹配，从而进行自监督训练。</p></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80d2-b7aa-f6cf39281c6a" class="">从结果上看，角点在旋转的情况下的检测“重复率”，即能够重复被检测出来的比例是最高的，优于 SIFT。同时在使用较少角点budget的情况下的结果也是相当好的。同时在其他的定量指标上也基本上都是 SOTA。 </p></div><div style="display:contents" dir="auto"><div id="313a9512-614c-80a3-be21-c0ee9ce5cc53" class="column-list"><div style="display:contents" dir="auto"><div id="313a9512-614c-802e-b699-d6f8051369ea" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="312a9512-614c-80ee-a851-f612b196bbb0" class="image"><a href="2%2015-2%2026/image%206.png"><img style="width:432px" src="2%2015-2%2026/image%206.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="313a9512-614c-802d-bea1-fac1597befd2" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="313a9512-614c-8021-819e-ff9e83533abf" class="image"><a href="2%2015-2%2026/image%207.png"><img style="width:668.9904174804688px" src="2%2015-2%2026/image%207.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h3 id="312a9512-614c-80a8-bf45-feb4963a0c98" class="">c. Magma - On Surprising Effectiveness of Masking Updates in Adaptive Optimizers <a href="https://arxiv.org/pdf/2602.15322v1">https://arxiv.org/pdf/2602.15322v1</a></h3></div><div style="display:contents" dir="auto"><p id="312a9512-614c-8033-acd9-c26d618f9c16" class="">机构：Google</p></div><div style="display:contents" dir="auto"><p id="312a9512-614c-8045-985d-cc035962fb5c" class=""><strong>TLDR</strong>：训练大模型时随机跳过50%的参数更新（SkipUpdate） + 动量-梯度对齐分数 = Magma。Magma 在 1B 模型上比 Adam 降低19% 困惑度，比 Muon 降低9% 困惑度。</p></div><div style="display:contents" dir="ltr"><figure id="312a9512-614c-804b-8997-d4b2e65b7622" class="image"><a href="2%2015-2%2026/image%208.png"><img style="width:440.9872131347656px" src="2%2015-2%2026/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><div id="312a9512-614c-80a6-bd7c-fe821907c1fe" class="column-list"><div style="display:contents" dir="auto"><div id="312a9512-614c-804d-87d2-f3458c71c64a" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="312a9512-614c-80e7-9646-cdf5058e1025" class="image"><a href="2%2015-2%2026/image%209.png"><img style="width:432px" src="2%2015-2%2026/image%209.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="312a9512-614c-80a4-ab40-dc7c1c2c77ad" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="312a9512-614c-80ce-9ac9-d01948dc9c63" class="image"><a href="2%2015-2%2026/image%2010.png"><img style="width:1338px" src="2%2015-2%2026/image%2010.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="312a9512-614c-80d9-bb56-fde38454f98d" class=""><strong>发现：</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="312a9512-614c-80c6-8281-df0625434547" class="numbered-list" start="1"><li>SkipUpdate，这是一种在每个迭代中随机 block-wise masking 的策略，遵循伯努利分布。SkipUpdate 在期望损失中隐式引入了一项曲率相关的正则项，优化轨迹被推向损失landscape 平坦区域，类似 SAM 。当一个块被mask的时候，其参数更新被跳过，但是动量估计会被更新。未被mask的部分的参数更新会进行重新缩放（类似dropout）。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="312a9512-614c-80a0-8cab-c7851ad5057d" class="numbered-list" start="2"><li>Magma（Momentum-aligned gradient masking），通过利用随机梯度与一阶动量估计之间的余弦相似度（cosine similarity）来调制掩蔽更新。如果当前梯度和历史动量方向一致（cosine similarity 高），说明这是一个可靠的优化信号；如果方向矛盾，大概率是噪声在捣乱。</li></ol></div><div style="display:contents" dir="auto"><p id="312a9512-614c-809b-b5d3-d6bc0546da7b" class=""><strong>实验结果： </strong>实验涵盖了Llama模型在C4数据集上的预训练（模型规模从60M到1B）、Nano MoE模型在OpenWebText上的预训练，以及在受控重尾梯度噪声和异构二次函数上的基准测试。实验表明，训练更加稳定，同时取得了最低的困惑度。</p></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8093-af3f-e6ab377fed07" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="313a9512-614c-80d0-be27-f255bd243465" class="">d. <strong>Taming SAM3 in the Wild: A Concept Bank for Open-Vocabulary Segmentation</strong> <a href="https://arxiv.org/pdf/2602.06333">https://arxiv.org/pdf/2602.06333</a></h3></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8036-83a5-cd6e0eb814f4" class="">机构：一堆</p></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80e4-a97c-d25144a8fa4d" class=""><strong>TLDR：</strong>针对 SAM3 在跨域推理时因 distribution shift 导致的对齐失效问题，提出了一种无参数的概念库（ConceptBank）校准框架，动态重构目标域的文本锚点以恢复视觉与文本的匹配。结果看上去很不错，同时 <em><span style="border-bottom:0.05em solid">这个工作和 </span></em><em><span style="border-bottom:0.05em solid"><a href="https://intellindust-ai-lab.github.io/projects/FSOD-VFM/">https://intellindust-ai-lab.github.io/projects/FSOD-VFM/</a></span></em><em><span style="border-bottom:0.05em solid"> 有相似之处。</span></em></p></div><div style="display:contents" dir="ltr"><figure id="313a9512-614c-80bc-b654-cc9aa8c643db" class="image"><a href="2%2015-2%2026/image%2011.png"><img style="width:709.9921875px" src="2%2015-2%2026/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80aa-8dc7-d8d031a0a0c4" class=""><strong>方法：</strong></p></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8066-b610-d2afe356e522" class="">以一个类为例：</p></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-8089-b57e-d6e365eef89f" class="numbered-list" start="1"><li>根据 support set gt 得到 object  的 prototype feature</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-8090-abc4-d0160e8bbe85" class="numbered-list" start="2"><li>利用 prototype 与 object feature 做比对，筛出最具代表性的 support set 中的样本（crops+label pairs）</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-80c1-bde4-fa95f47278fa" class="numbered-list" start="3"><li>利用 LLM 对 这个类别的 text 进行增强</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-80a2-908b-de530a9c949b" class="numbered-list" start="4"><li>利用 这个类别增强的 text + 代表性 support set 中的样本，通过sam3进行 segmentation，得到不同 text 的 Dice score</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-80ea-a4df-f212806d290b" class="numbered-list" start="5"><li>对 Dice score 进行归一化，分配给 text embedding 再进行求和（一个对于 多个 text embedding的加权和），得到这个类别的 增强版本 text representation，即为 Concept Bank B中概类别的表征</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="313a9512-614c-80fd-96c7-f9bd906388ea" class="numbered-list" start="6"><li>在推理的时候，使用 B 中的 text embedding 进行推理。</li></ol></div><div style="display:contents" dir="auto"><p id="313a9512-614c-8029-a580-ff5dc44e2477" class="">从结果上来看，基于 SAM3 的提升是很明显的。</p></div><div style="display:contents" dir="ltr"><figure id="313a9512-614c-8086-8ee9-ff831fd21c41" class="image"><a href="2%2015-2%2026/image%2012.png"><img src="2%2015-2%2026/image%2012.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="313a9512-614c-80e3-8266-e87d2f0f8553" class="">这算是利用 few-shot 进行 prompt engineering 的工作，也有很多此前一些见过工作的影子，尤其是利用 llm 进行 enhance，以及加权和等操作。</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
