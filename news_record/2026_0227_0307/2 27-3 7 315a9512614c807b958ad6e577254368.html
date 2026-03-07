@@ -1,0 +1,716 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2.27-3.7</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="315a9512-614c-807b-958a-d6e577254368" class="page sans"><header><h1 class="page-title" dir="auto">2.27-3.7</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="31aa9512-614c-80de-8498-cdbeb8c931bb" class="">目录：</h1></div><div style="display:contents" dir="auto"><ol type="1" id="31aa9512-614c-806f-b830-ecf768e03a4b" class="numbered-list" start="1"><li><strong>BaseCV</strong><div style="display:contents" dir="auto"><ol type="a" id="31aa9512-614c-80de-b339-dae2ae5beb6d" class="numbered-list" start="1"><li>Accurate Planar Tracking With Robust Re-Detection  <a href="https://cmp.felk.cvut.cz/~serycjon/WOFTSAM/">https://cmp.felk.cvut.cz/~serycjon/WOFTSAM/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31aa9512-614c-807a-8bf5-c49b593c4b8a" class="numbered-list" start="2"><li>Synthetic Visual Genome 2: Extracting Large-scale Spatio-Temporal Scene Graphs from Videos <a href="https://arxiv.org/pdf/2602.23543">https://arxiv.org/pdf/2602.23543</a></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31aa9512-614c-8073-9c21-f3af133bf408" class="numbered-list" start="2"><li><strong>VLM / LLM / GenAI</strong><div style="display:contents" dir="auto"><ol type="a" id="31ba9512-614c-8081-88e4-c759bfd95cdc" class="numbered-list" start="1"><li>Beyond Language Modeling: An Exploration of Multimodal Pretraining <a href="https://beyond-llms.github.io/">https://beyond-llms.github.io/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31aa9512-614c-8096-be26-f72de53ee740" class="numbered-list" start="2"><li>CoPE-VideoLM: Codec Primitives For Efficient Video Language Models <a href="https://sayands.github.io/cope/">https://sayands.github.io/cope/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31aa9512-614c-800d-b889-f417dfdd2505" class="numbered-list" start="3"><li>SpatialLM: Training Large Language Models for Structured Indoor Modeling <a href="https://manycore-research.github.io/SpatialLM/">https://manycore-research.github.io/SpatialLM/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31aa9512-614c-8046-adba-d31267143bbe" class="numbered-list" start="4"><li>BeautyGRPO: Aesthetic Alignment for Face Retouching via Dynamic Path Guidance and Fine-Grained Preference Modeling <a href="https://beautygrpo.github.io/">https://beautygrpo.github.io/</a></li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31ca9512-614c-8020-86c2-f78471914801" class="numbered-list" start="5"><li>Toward One Encoder for All Point Clouds <a href="https://pointcept.github.io/Utonia/">https://pointcept.github.io/Utonia/</a></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31aa9512-614c-807c-abdb-ed13c80efbd6" class="numbered-list" start="3"><li><strong>Other things (won’t provide any comments but just an announcement)</strong><div style="display:contents" dir="auto"><ol type="a" id="31aa9512-614c-8017-968a-e1e79ada7219" class="numbered-list" start="1"><li>Qwen-Image-2.0-pro-260303 + Qwen-Image-2.0-260303 上线。（使用了后者，发现一股很浓的 seedream4.5 味（仅个人感受））</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31ba9512-614c-8026-bf7f-c873f18697e5" class="numbered-list" start="2"><li>LumaAI 提出 UNI-1 <a href="https://lumalabs.ai/uni-1">https://lumalabs.ai/uni-1</a> 很牛很牛，去看网页里的demo吧！！</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31ca9512-614c-8068-9f91-c919f4377f01" class="numbered-list" start="3"><li>Autoresearch by Andrej Karpathy: AutoML but in 2026 <a href="https://github.com/karpathy/autoresearch">https://github.com/karpathy/autoresearch</a></li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8092-b137-eead8d392c14" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="31ca9512-614c-8082-9f23-c5b6ec93c77a" class="">a. Accurate Planar Tracking With Robust Re-Detection  <a href="https://cmp.felk.cvut.cz/~serycjon/WOFTSAM/">https://cmp.felk.cvut.cz/~serycjon/WOFTSAM/</a></h3></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80e7-bd0d-c617f6f8d8a2" class="">机构：Czech Technical University in Prague（Jiri Matas）</p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-80f6-800c-fd648582fa1c" class="image"><a href="2%2027-3%207/image.png"><img style="width:584.9819946289062px" src="2%2027-3%207/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8086-9a2d-db0c7a2e809b" class="">以下大部分内容由 NoteBookLLM 生成</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-806d-a1a9-c7e920663323" class=""><strong>TLDR: </strong></p></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8077-a922-f40e7c81de87" class="bulleted-list"><li style="list-style-type:disc"><strong>动机 / 发现</strong>：在过去，平面跟踪高度依赖物体的“纹理”，但是传统平面跟踪在模糊、遮挡和无纹理表面（如镜子）下极易失效。</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8063-a099-f400c229e4f9" class="bulleted-list"><li style="list-style-type:disc"><strong>改进 / 方法</strong>：结合 SAM 2 的分割能力，提出 SAM-H 几何重检测机制，并与基于光流的 WOFT 算法融合形成 WOFTSAM。</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-809a-9379-c77186fdb019" class="bulleted-list"><li style="list-style-type:disc"><strong>结果</strong>：在 POT-210 和 PlanarTrack 两个顶级测试集上刷新了纪录，尤其在复杂场景下性能提升巨大（+12.4~15.2%）。</li></ul></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8035-817a-c4662237f798" class=""><strong>方法：</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-80c2-8a17-e4da70318612" class="numbered-list" start="1"><li>SAM 2 擅长分割，但它只提供一个模糊的遮挡块（Mask），并不懂精确的几何姿态。于是，<strong>SAM-H</strong> 应运而生：<div style="display:contents" dir="auto"><ol type="a" id="31ca9512-614c-80ab-bd73-cb213bbfa468" class="numbered-list" start="1"><li><strong>从掩码到线条</strong>：利用 <strong>Hough 变换</strong>，从 SAM 2 生成的不规则掩码边缘中提取出四条最稳健的直线。</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31ca9512-614c-8047-9ac3-e511d641a04a" class="numbered-list" start="2"><li><strong>从线条到交点</strong>：通过这四条线的交点，重新找回物体的四个顶点。</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="31ca9512-614c-80db-a2a4-dbc92ef9bb77" class="numbered-list" start="3"><li><strong>身份识别（DINOv2）</strong>：因为矩形具有对称性，算法必须搞清楚哪个点是左上角。研究者引入了 DINOv2 特征匹配，通过对比当前裁剪图与原始模板的特征，在 0.2 秒内就能锁定正确的旋转角度。</li></ol></div></li></ol></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-807b-8169-e147febdd7d3" class="image"><a href="2%2027-3%207/image%201.png"><img style="width:584.9759521484375px" src="2%2027-3%207/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8076-b36f-cd4d49ef8a91" class="numbered-list" start="2"><li>WOFTSAM</li></ol></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8069-95e7-d2ee3b548c6e" class="">单纯靠分割（SAM-H）虽然稳健，但在细节精度上不如基于光流（WOFT）的算法。WOFTSAM 的策略非常务实：它采用了一种双重尝试机制：</p></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8042-a6f6-fed98f879923" class="bulleted-list"><li style="list-style-type:disc"><strong>第一步（快速追踪）</strong>：首先尝试用上一帧的姿态进行光流估计。如果成功（内点比例高），则皆大欢喜。</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80ae-a586-d4ce4ff03689" class="bulleted-list"><li style="list-style-type:disc"><strong>第二步（重检测）</strong>：如果光流法失败（例如被遮挡后重新出现），则立刻启动 SAM-H 进行“全图搜索”和重检测。</li></ul></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8013-aa22-c222216d3f93" class="">这种互补性让它在面对极端情况时表现惊人。例如，在面对一面镜子时，光流法可能会被镜子里反射的墙壁纹理带偏，而 SAM-H 却能死死咬住镜框本身。</p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-8097-871b-c6dcc9992773" class="image"><a href="2%2027-3%207/image%202.png"><img style="width:584.9819946289062px" src="2%2027-3%207/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80e0-b808-e3788384ff14" class="">
+</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80e0-a1ec-c0e527434b48" class=""><strong>实施指南：</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-80b6-b26c-c00d896d4cc5" class="numbered-list" start="1"><li><strong>初始化</strong>：在视频第一帧手动标注目标的四个控制点 <em>X</em>0。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8055-a09e-d0d6529e2208" class="numbered-list" start="2"><li><strong>分割启动</strong>：将 <em>X</em>0 作为提示（Prompt）输入 <strong>SAM 2.1</strong>，获取每一帧的掩码 <em>St</em>。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8006-bc0c-e330412df960" class="numbered-list" start="3"><li><strong>几何提取</strong>：<div style="display:contents" dir="auto"><ul id="31ca9512-614c-8026-9b97-d3d7a8dbc994" class="bulleted-list"><li style="list-style-type:disc">丢弃长度小于 20px 的噪点轮廓。</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-805a-987f-dce0ae313364" class="bulleted-list"><li style="list-style-type:disc">对掩码边缘进行 Hough 投票，寻找 4 条峰值直线。</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-805c-8147-f5447ab7866b" class="bulleted-list"><li style="list-style-type:disc">通过最小二乘法精修直线参数，并计算四个顶点交点。</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-80db-aed2-d229e51a498f" class="numbered-list" start="4"><li><strong>姿态消歧</strong>：如果目标丢失后重现，提取当前区域的 DINOv2 特征，与初始模板进行四个角度的相似度比对，连续 5 帧一致则判定为重定位成功。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-80c6-b6b6-e785b59f893b" class="numbered-list" start="5"><li><strong>单点降级处理</strong>：如果只能看到两个点，退化为 4 自由度的相似变换；如果只剩一个点，则仅执行 2 自由度的平移跟踪。</li></ol></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8067-a88d-d1397ba45ab6" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="31ca9512-614c-8050-9ac2-d9fcd2ec2fb0" class="">b. Synthetic Visual Genome 2: Extracting Large-scale Spatio-Temporal Scene Graphs from Videos <a href="https://arxiv.org/pdf/2602.23543">https://arxiv.org/pdf/2602.23543</a></h3></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80e5-b3ed-c9709f322ac0" class="">机构：Allen Institute for AI（华盛顿大学），丰田，微软</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-801d-a2a2-fa6140535999" class=""><strong>TLDR: SVG2（Synthetic Visual Genome 2）</strong>，这是一个用于训练和评估大规模<strong>视频场景图生成</strong>任务的合成数据集。该研究通过一种<strong>全自动流水线</strong>处理了超过63.6万段视频，提取出数百万个物体实例、属性以及复杂的<strong>时空关系</strong>。为了利用这些数据，作者开发了名为 <strong>TraSeR</strong> 的视觉语言模型，该模型通过<strong>双重重采样模块</strong>（物体轨迹和时间窗口）来捕捉视频中的全局背景与局部动态。实验证明，TraSeR 在物体识别和关系预测方面显著优于 <strong>GPT-5</strong> 等现有模型，展现了结构化表示对<strong>视频问答</strong>任务的增强作用。此外，文中还探讨了<strong>数字孪生</strong>在基础模型中的必要性，并提供了详细的消融实验以验证系统设计的有效性。</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8038-b9c4-efd21cd907f6" class=""><strong>方法：</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8032-88f3-d74a7130f585" class="numbered-list" start="1"><li><strong>Data and Data pipeline</strong></li></ol></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-807d-808e-e01b213f0940" class="">从 SA-V 中采样了<strong>43K 个视频，从 PVD 中采样了593K 个</strong>视频，得到了<strong>660 万个</strong>对象实例、<strong>5200 万个</strong>属性和<strong>670 万个</strong>时空关系</p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-8030-9c2d-c3c955eb1cef" class="image"><a href="2%2027-3%207/image%203.png"><img style="width:2562px" src="2%2027-3%207/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-801f-acf7-c47f8eba864a" class="">全自动化的流程集成了 SAM2、DAM (describe anything) 和 GPT-5，以生成密集的、具有时间相关性的 video scene graphs ：</p></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-807c-b69c-fedcd6f7857c" class="bulleted-list"><li style="list-style-type:disc"><strong>第一阶段：全景轨迹生成</strong><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80eb-aea8-ebffb0f5a659" class="bulleted-list"><li style="list-style-type:circle">两阶段在线-离线跟踪框架利用 SAM2 和多尺度网格提示实现动态目标发现和全局时间一致性。</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80e9-bf63-d6401be7c535" class="bulleted-list"><li style="list-style-type:disc"><strong>第二阶段：对象描述与解析</strong><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8017-a73a-f46886bc03ea" class="bulleted-list"><li style="list-style-type:circle">DAM-3B-Video 为每个轨道生成详细描述，然后 GPT-4-nano 提取对象名称和属性。基于 SAM3 的验证机制过滤掉不可靠的标签。</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8050-93b7-f79c3e2b141f" class="bulleted-list"><li style="list-style-type:disc"><strong>第三阶段：时空关系抽取</strong><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80c6-ac98-c5aa01dc60fe" class="bulleted-list"><li style="list-style-type:circle">GPT-5 推断对象间的关系，包括空间、功能、状态、运动、社交、注意力和事件级交互。</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8089-b494-c8931e7f0b01" class="">对 100 个抽样视频进行人工验证，结果显示对象标签的准确率为93.8% ，属性的准确率为88.3%，关系的准确率为 85.4% 。</p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-8087-8e25-e21129c2f187" class="image"><a href="2%2027-3%207/image%204.png"><img style="width:2950px" src="2%2027-3%207/image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-80e5-8c9d-e0f6ff7acbba" class="numbered-list" start="2"><li><strong>TRASER Model</strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-80bf-93db-cba25447ba72" class="image"><a href="2%2027-3%207/image%205.png"><img style="width:2474px" src="2%2027-3%207/image%205.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8047-91b0-fe8f07d8e6c5" class=""><strong>TRASER </strong>VLM，通过一次前向传播，从原始视频和全景物体轨迹生成 structured video scene graphs （VSG）</p></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-809d-9d8d-ca39de4ba532" class="bulleted-list"><li style="list-style-type:disc"><strong>Trajectory-Aligned Token Arrangement:</strong> Binds ViT tokens to object trajectories based on segmentation coverage, producing <strong>identity-preserving token streams with explicit trajectory boundaries.</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8043-9e25-f798402bd2b3" class="bulleted-list"><li style="list-style-type:disc"><strong>Object-Trajectory Resampler:</strong> Aggregates global semantics over each object&#x27;s entire temporal span using Perceiver-Resampler with learnable latent queries.</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80a0-b5ca-f8a3fd9597eb" class="bulleted-list"><li style="list-style-type:disc"><strong>Temporal-Window Resampler:</strong> Partitions video into temporal windows and resamples each window independently, preserving fine-grained motion and temporal dynamics crucial for relation detection.</li></ul></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80d7-bfc8-d8d02b53cf71" class=""><strong>结果</strong></p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80a5-88a7-eef7c4187789" class="">从 <a href="https://huggingface.co/UWGZQ/TRASER">https://huggingface.co/UWGZQ/TRASER</a> 来看，应该是基于 Qwen2.5VL 3B 的一个模型，所以对比的模型基本都是类似大小的模型：</p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-808e-9650-da7262f5bc8b" class="image"><a href="2%2027-3%207/image%206.png"><img style="width:584.9879760742188px" src="2%2027-3%207/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80c5-9ef6-c7af14655fb4" class=""><strong>相关补充：</strong></p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-804a-87b8-dddf495eb823" class="">Video Scene Graph（VSG）一般指 <strong>视频场景图</strong>，也常见于任务 <strong>Video Scene Graph Generation (VSGG)</strong>。</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80b3-b08d-c6d7f36fadf2" class="">把一段视频表示成一个<strong>动态关系图</strong>：</p></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-804c-9a22-f82c33682bfb" class="bulleted-list"><li style="list-style-type:disc"><strong>节点（Nodes）</strong>：视频中的对象<div style="display:contents" dir="auto"><ul id="31ca9512-614c-80c5-afbd-ce27efed2aa7" class="bulleted-list"><li style="list-style-type:circle">person</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80d3-99d1-feee0831b2c3" class="bulleted-list"><li style="list-style-type:circle">car</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80e5-a044-ee19ba42c97d" class="bulleted-list"><li style="list-style-type:circle">dog</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80e1-88de-f30120590782" class="bulleted-list"><li style="list-style-type:disc"><strong>边（Edges）</strong>：对象之间的关系<div style="display:contents" dir="auto"><ul id="31ca9512-614c-8034-8cf6-c359bfa8c771" class="bulleted-list"><li style="list-style-type:circle">person <strong>ride</strong> bike</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8001-9438-cc0ab68fb7f9" class="bulleted-list"><li style="list-style-type:circle">dog <strong>chase</strong> cat</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-80c1-bfc4-c3d9c2fe3e4a" class="bulleted-list"><li style="list-style-type:disc"><strong>时间维度（Temporal dimension）</strong><div style="display:contents" dir="auto"><ul id="31ca9512-614c-807c-824a-dc7e1fac7f44" class="bulleted-list"><li style="list-style-type:circle">关系会随着时间变化</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80d9-913d-eccee95ac4be" class="">例如：</p></div><div style="display:contents" dir="ltr"><table id="31ca9512-614c-8079-9324-d549b26379ec" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-803a-adb9-d6960e7eade3"><th id="Sirc" class="simple-table-header-color simple-table-header">时间</th><th id="&gt;NaP" class="simple-table-header-color simple-table-header">关系</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-80e7-b8f8-f344720f8736"><td id="Sirc" class="">t1</td><td id="&gt;NaP" class="">person – holding → cup</td></tr></div><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-801e-8929-fc09b93206c1"><td id="Sirc" class="">t2</td><td id="&gt;NaP" class="">person – drinking → cup</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8084-985f-d82bb8d234d3" class="">Panoptic Video Scene Graph（PVSG）是 VSG 的一个 <strong>更强、更完整的版本</strong>。<br/>它在 VSG 的基础上加入：<strong>Panoptic-level segmentation</strong></p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-809a-8d3d-e4ca50429c17" class="">即：不仅检测对象，还要给出 <strong>像素级 mask</strong>。</p></div><div style="display:contents" dir="ltr"><table id="31ca9512-614c-8051-bd4b-ffac0a205419" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-8090-9cff-f85663234f3e"><th id="gk\:" class="simple-table-header-color simple-table-header">信息</th><th id="fQ=p" class="simple-table-header-color simple-table-header">VSG</th><th id="{qQC" class="simple-table-header-color simple-table-header">PVSG</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-80c7-aea8-d6281e642d20"><td id="gk\:" class="">object</td><td id="fQ=p" class="">✅</td><td id="{qQC" class="">✅</td></tr></div><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-8073-8114-cc202bb9cc1c"><td id="gk\:" class="">relation</td><td id="fQ=p" class="">✅</td><td id="{qQC" class="">✅</td></tr></div><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-80fb-b8cb-d83c9237fb5e"><td id="gk\:" class="">time</td><td id="fQ=p" class="">✅</td><td id="{qQC" class="">✅</td></tr></div><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-80c9-9ba2-d12c9c1f40b6"><td id="gk\:" class="">bounding box</td><td id="fQ=p" class="">✅</td><td id="{qQC" class="">❌（通常不用）</td></tr></div><div style="display:contents" dir="ltr"><tr id="31ca9512-614c-80d5-b7b3-c4e63a30a325"><td id="gk\:" class="">segmentation mask</td><td id="fQ=p" class="">❌</td><td id="{qQC" class="">✅</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="31ca9512-614c-800b-b612-d999939722cc" class=""><strong>c. CoPE-VideoLM  </strong><a href="https://sayands.github.io/cope/">https://sayands.github.io/cope/</a></h3></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80ec-996c-da0e1a9cd51a" class="">机构：微软，斯坦福，ETH</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80ec-9256-f8c4eca14c39" class=""><strong>TLDR：CoPE-VideoLM</strong> 是一种创新的视频语言模型架构，旨在通过利用<strong>视频编解码器原语（video codec primitives）</strong>（如运动矢量和残差）来提升处理效率。传统模型通常将视频视为冗余的 RGB 图像序列，而 <strong>CoPE-VideoLM</strong> 仅对关键的 <strong>I 帧</strong>进行深度视觉编码，并对 <strong>P 帧</strong>采用轻量级的 Δ<strong>-Encoder</strong>。这种设计充分利用了视频压缩标准中的<strong>稀疏性</strong>，大幅减少了计算开销。实验表明，该方法在保持甚至超越主流模型性能的同时，最高可缩减 <strong>93% 的 Token 使用量</strong>。此外，它将生成首个 Token 的时间（TTFT）缩短了 <strong>86%</strong>，为<strong>实时机器人交互</strong>和<strong>超长视频理解</strong>提供了高效的解决方案。该研究展示了将底层图像压缩技术与高层语义推理结合的巨大潜力。</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-801b-ac45-f626b5984b10" class=""><strong>动机：</strong></p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80a9-91fb-df9249bf7626" class="">当你观看一段视频时，你的大脑并不会每秒钟重新解析 30 张完整的高清图片。相反，你会下意识地关注滑板的轨迹和人物的动作。然而，目前的视频大模型却极其低效：它们要么强行压缩帧数导致丢失细节，要么试图处理每一帧的全部像素，这不仅消耗了海量的计算资源，还受限于极短的上下文窗口。</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8008-892c-db685182e1b0" class="">研究人员发现，我们其实一直坐在一座被忽视的金矿上——<strong>视频压缩技术（Video Compression）</strong>。在 H.264 或 HEVC 等标准格式中，视频早已被精简为“帧间变化”的集合。为什么不让 AI 直接读取这些已经压缩好的信息呢？</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8087-805f-ded01648095a" class="">传统模型处理的是冗余的 RGB 像素，而 CoPE-VideoLM 提取的是<strong>编解码原语（Codec Primitives）</strong>。</p></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8019-a8f1-d0b2d0e4024e" class="bulleted-list"><li style="list-style-type:disc"><strong>运动矢量（Motion Vectors, </strong><em>τ</em><strong>）</strong>：描述了图像块随时间的位移，类似于粗糙的光流。</li></ul></div><div style="display:contents" dir="auto"><ul id="31ca9512-614c-8017-a89a-f39036040702" class="bulleted-list"><li style="list-style-type:disc"><strong>残差（Residuals, </strong><em>δ</em><strong>）</strong>：捕捉了运动补偿后剩下的微小像素修正。</li></ul></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8080-8794-f2f276589745" class="">通过这种方式，模型只需要偶尔看一眼完整的“关键帧”（I-frame），其余时间只需通过以下公式追踪变化： <em><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>F</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>t</mi><msub><mo stretchy="false">)</mo><mi>i</mi></msub><mo>=</mo><mover accent="true"><mi>F</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><msub><mo stretchy="false">)</mo><mrow><mi>i</mi><mo>−</mo><mi>τ</mi><mo stretchy="false">(</mo><mi>t</mi><msub><mo stretchy="false">)</mo><mi>i</mi></msub></mrow></msub><mo>+</mo><mi>δ</mi><mo stretchy="false">(</mo><mi>t</mi><msub><mo stretchy="false">)</mo><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\hat{F}(t)_i=\hat{F}(t−1)_{i−τ(t)_i}+δ(t)_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1968em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1968em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1052em;vertical-align:-0.3552em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.1132em;">τ</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></em></p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-800f-bd6a-fa789fe11fa1" class=""><strong>方法：</strong></p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-8053-bc51-e57e1c05df78" class="image"><a href="2%2027-3%207/image%207.png"><img style="width:584.9879760742188px" src="2%2027-3%207/image%207.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-805c-8d1b-e04c7e9b1761" class="image"><a href="2%2027-3%207/image%208.png"><img style="width:584.9819946289062px" src="2%2027-3%207/image%208.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80d5-9530-de10d151296b" class="">CoPE-VideoLM 的核心在于一套轻量级的 Δ<strong>-Encoder</strong>，它将复杂的像素对比转换成了简洁的 Token 序列。以下是其实现的具体步骤：</p></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8054-b3c4-c302829f327e" class="numbered-list" start="1"><li><strong>识别 GOP 结构</strong><div style="display:contents" dir="auto"><p id="31ca9512-614c-80be-bcff-df5706bd43a4" class="">模型首先解析视频的<strong>图片组（Group of Pictures - GOP）结构</strong>。它将视频分为独立的 <strong>I 帧</strong>（完整图像）和预测性的 <strong>P 帧</strong>（仅包含变化）。I 帧通过标准的视觉编码器处理，而 P 帧则进入专有的高效通道。</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8093-a474-db44cce1c951" class="numbered-list" start="2"><li><strong>Δ-Encoder 并行处理</strong><div style="display:contents" dir="auto"><p id="31ca9512-614c-808e-b140-e9df174afc79" class="">Δ-Encoder 包含两个专门的分支来提取 P 帧中的特征：</p></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-805a-bf97-f2792f874b67" class="numbered-list" start="1"><li><strong>运动分支</strong>：使用MLP处理运动矢量，并通过运动 Transformer 聚合为极少量的“运动 Token”。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8025-98dc-e67e079fc06b" class="numbered-list" start="2"><li><strong>残差分支</strong>：使用轻量级的 ResNet-18 提取残差中的视觉修正，再通过残差 Transformer 压缩为“残差 Token”。 这两个分支最终生成的 Δ<strong>tokens</strong> 仅包含 8 个 Token，远少于传统图像所需的 196 个 Token。</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8081-82a3-eaefd0631c8d" class="numbered-list" start="3"><li><strong>两阶段训练对齐</strong><div style="display:contents" dir="auto"><p id="31ca9512-614c-80f2-8603-ddcbac7f5843" class="">为了让语言模型能理解这些“变化 Token”，研究人员设计了精妙的训练策略：</p></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8036-a476-f9b80a2ce8f5" class="numbered-list" start="1"><li><strong>预训练阶段</strong>：通过模拟视频解码过程，强迫 Δ-tokens 在嵌入空间中与真实的 RGB 图像特征对齐。其核心目标是最小化预测 Token 与真实图像 Token 之间的回归损失（LMSE）。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="31ca9512-614c-8044-b8a6-c95c6abd85c2" class="numbered-list" start="2"><li><strong>端到端微调</strong>：将预训练好的编码器接入视频大模型（如 LLaVA-Video），在海量问答数据上进行微调，让模型学会如何交替处理完整图像和这些“增量信息”。</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-807d-b89f-dd07ad2cb0cd" class=""><strong>结果</strong></p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8017-9122-d9c47eb89114" class="">与 LLaVA-Video 对比，在 token 需求量（budge）和推理速度上都是明显更优</p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-800b-becf-c109adfcc47b" class="image"><a href="2%2027-3%207/image%209.png"><img style="width:584.9879760742188px" src="2%2027-3%207/image%209.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-802d-808b-f4eb14a30e79" class="image"><a href="2%2027-3%207/image%2010.png"><img style="width:584.9879760742188px" src="2%2027-3%207/image%2010.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="31ca9512-614c-80cc-a02c-f467f87dba45" class="">d. Beyond Language Modeling: An Exploration of Multimodal Pretraining <a href="https://beyond-llms.github.io/">https://beyond-llms.github.io/</a></h3></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8036-b030-cb875a781d7f" class="">机构：Meta，NYU</p></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-8038-bdf5-d4bbcaebd1b5" class="">TLDR：多模态预训练中 MoE 和 RAE 是两个 work 的东西。主要做了以下实验：</p></div><div style="display:contents" dir="ltr"><figure id="31ca9512-614c-808b-b9dd-e001c8ea16e2" class="image"><a href="2%2027-3%207/image%2011.png"><img style="width:584.9879760742188px" src="2%2027-3%207/image%2011.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="31ca9512-614c-80bf-8686-da3b67480f9f" class="">github io 上比较完整（而且原文有点太长了），可以移步网页进行浏览</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
