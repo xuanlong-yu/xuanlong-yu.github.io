@@ -25,7 +25,8 @@ Previously, he completed his Ph.D. in 2023 at Université Paris-Saclay and ENSTA
 <div class="recent-news-window">
   <div class="recent-news-window-title">Recent News</div>
   <div class="recent-news-window-content">
-    <p><code>02/2026</code> <strong>Revisit FSOD</strong> for training-required few-shot object detection is accepted at <strong>CVPR 2026</strong>, thanks to all the co-authors! Code and paper will be released in few weeks.</p>
+    <p><code>03/2026</code> We release <a href="https://arxiv.org/abs/2603.18739"><strong>EdgeCrafter</strong>, a new series of state-of-the-art models for object detection, humain pose estimation and instance segmentation. Check the  <a href="https://github.com/Intellindust-AI-Lab/EdgeCrafter"><strong>code</strong>!</p>
+    <p><code>02/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FT-FSOD/"><strong>FT-FSOD</strong> for training-required few-shot object detection is accepted at <strong>CVPR 2026</strong>, thanks to all the co-authors! Code and paper will be released in few weeks.</p>
     <p><code>02/2026</code> <strong>MoVie</strong> for human action detection is accepted at <strong>CVPR 2026</strong>, thanks to all the co-authors! Code and paper will be released in few weeks.</p>
     <p><code>01/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FSOD-VFM"><strong>FSOD-VFM</strong></a> for training-free few-shot object detection is accepted at <strong>ICLR 2026</strong>, thanks to all the co-authors!</p>
     <p><code>07/2025</code> We took 2nd place 🥈 in the NTIRE Joint Denoising and Demosaicing Challenge, 2nd place 🥈 in the SoccerNet Ball Action Spotting Challenge, and received an honorable mention in the CVPR 2025 Foundation Few-shot Object Detection Challenge.</p>
