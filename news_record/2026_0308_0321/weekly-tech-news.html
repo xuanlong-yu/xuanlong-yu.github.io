@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技论文周报 3.8-3.21</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1e293b;
+            --bg-card-hover: #263548;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-cyan: #22d3ee;
+            --accent-purple: #a78bfa;
+            --accent-gradient: linear-gradient(135deg, #38bdf8, #22d3ee, #a78bfa);
+            --border-color: #334155;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .subtitle { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.3rem; }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .sidebar h3 {
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .toc-list { list-style: none; }
+        .toc-item { margin-bottom: 0.4rem; }
+        .toc-link {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+        .toc-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+            border-left-color: var(--accent-blue);
+        }
+        .toc-num {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-right: 0.4rem;
+        }
+        .main-content { flex: 1; min-width: 0; }
+        .paper-card {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .paper-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-blue);
+        }
+        .paper-toc {
+            position: sticky;
+            top: 90px;
+            float: right;
+            width: 150px;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.6rem;
+            font-size: 0.65rem;
+            opacity: 0.65;
+            transition: opacity 0.2s;
+            z-index: 10;
+        }
+        .paper-toc:hover { opacity: 1; }
+        .paper-toc-title {
+            color: var(--accent-cyan);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .paper-toc-list { list-style: none; }
+        .paper-toc-list li { margin-bottom: 0.2rem; }
+        .paper-toc-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            padding: 0.15rem 0.35rem;
+            border-radius: 3px;
+            transition: all 0.15s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .paper-toc-list a:hover { color: var(--text-primary); background: var(--bg-card); }
+        .paper-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        .paper-num {
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        .paper-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .paper-content { color: var(--text-secondary); font-size: 0.88rem; }
+        .paper-content h2 {
+            color: var(--text-primary);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 1.8rem 0 0.8rem;
+            padding: 0.5rem 0.8rem;
+            padding-left: 0.8rem;
+            border-left: 4px solid var(--accent-cyan);
+            background: linear-gradient(90deg, rgba(34,211,238,0.08), transparent);
+            border-radius: 0 6px 6px 0;
+        }
+        .paper-content h3 {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1.3rem 0 0.6rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid var(--accent-blue);
+        }
+        .paper-content p { margin-bottom: 0.7rem; }
+        .paper-content ul, .paper-content ol { margin-left: 1.2rem; margin-bottom: 0.7rem; }
+        .paper-content li { margin-bottom: 0.25rem; }
+        .paper-content strong { color: var(--text-primary); }
+        .paper-content code {
+            background: var(--bg-primary);
+            padding: 0.12rem 0.35rem;
+            border-radius: 3px;
+            font-size: 0.82em;
+            color: var(--accent-cyan);
+        }
+        .paper-content pre {
+            background: var(--bg-primary);
+            padding: 0.8rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 0.8rem 0;
+        }
+        .paper-content pre code { background: none; padding: 0; }
+        .paper-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.8rem 0;
+            font-size: 0.82rem;
+        }
+        .paper-content th, .paper-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+        .paper-content th { background: var(--bg-primary); color: var(--accent-blue); }
+        .paper-content img {
+            max-width: 100%;
+            border-radius: 6px;
+            margin: 0.8rem 0;
+            border: 1px solid var(--border-color);
+        }
+        .paper-content em { color: var(--text-secondary); font-style: italic; }
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; position: static; max-height: none; }
+            .toc-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+            .toc-item { margin: 0; }
+            .toc-link { padding: 0.35rem 0.6rem; font-size: 0.7rem; }
+            .paper-toc { position: static; width: 100%; opacity: 1; margin-bottom: 0.8rem; }
+            .paper-toc-list { display: flex; flex-wrap: wrap; gap: 0.2rem; }
+            .paper-toc-list li { margin: 0; }
+            .paper-toc-list a { padding: 0.25rem 0.5rem; font-size: 0.6rem; }
+            .paper-title { padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>科技论文周报</h1>
+        <p class="subtitle">2026.03.08 - 2026.03.21 | 9 Papers</p>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <h3>目录</h3>
+            <ul class="toc-list">
+                <li class="toc-item"><a class="toc-link" href="#paper-1"><span class="toc-num">01</span>AutoGaze</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-2"><span class="toc-num">02</span>Attention Residuals</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-3"><span class="toc-num">03</span>Bootleg</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-4"><span class="toc-num">04</span>V-JEPA 2.1</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-5"><span class="toc-num">05</span>Kimodo</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-6"><span class="toc-num">06</span>OmniStream</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-7"><span class="toc-num">07</span>Holi-Spatial</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-8"><span class="toc-num">08</span>PF-RPN</a></li>
+                <li class="toc-item"><a class="toc-link" href="#paper-9"><span class="toc-num">09</span>EdgeCrafter</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+
+<!-- Paper 1: AutoGaze -->
+<article class="paper-card" id="paper-1">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p1-tldr">TLDR</a></li>
+            <li><a href="#p1-motivation">动机与发现</a></li>
+            <li><a href="#p1-method">方法</a></li>
+            <li><a href="#p1-results">实验结果</a></li>
+            <li><a href="#p1-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">01</span>Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.12254</span>
+        <span>UC Berkeley, MIT, NVIDIA</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p1-tldr">TLDR</h2>
+        <p>提出AutoGaze，一个仅3M参数的轻量级模块，在ViT处理之前自回归地选择多尺度patch以去除视频冗余。视觉token减少4×-100×，ViT加速最高19×，MLLM加速最高10×，实现1K帧4K分辨率视频理解，VideoMME达67.0%。</p>
+
+        <h2 id="p1-motivation">动机与发现</h2>
+        <h3>问题：如何高效处理长视频和高分辨率视频</h3>
+        <p>现有MLLM对视频每一帧的每个像素都同等处理，但视频存在大量时空冗余。现有token压缩方法通常只在LLM层面裁剪token，ViT仍需处理全部像素，形成效率瓶颈。</p>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>运动是主要信息源</strong>：AutoGaze优先选择光流大的运动区域patch</li>
+            <li><strong>尺度与细节匹配</strong>：细节丰富区域使用更细粒度尺度，平坦区域用粗粒度尺度</li>
+            <li><strong>高FPS/高分辨率更高效</strong>：30FPS 4K视频仅需约1%的patch即可达到0.7重建损失</li>
+        </ul>
+
+        <h2 id="p1-method">方法</h2>
+        <p><img src="Attend Before Attention - Efficient and Scalable Video Understanding via Autoregressive Gazing/images/fig2.png" alt="AutoGaze架构"><br><em>图2: AutoGaze架构与训练流程</em></p>
+        <p>AutoGaze是一个3M参数的轻量模型，包含卷积编码器和自回归transformer解码器。它逐帧处理视频，自回归地选择最小的多尺度patch集合，使重建损失低于用户指定阈值。</p>
+        <h3>关键创新点</h3>
+        <ul>
+            <li>在ViT之前去除冗余patch（而非ViT之后），从源头减少计算</li>
+            <li>多尺度patch选择，适配不同细节程度区域</li>
+            <li>两阶段训练：NTP预训练 + RL后训练</li>
+        </ul>
+
+        <h2 id="p1-results">实验结果</h2>
+        <table>
+            <tr><th>模型</th><th>VideoMME</th><th>MVBench</th><th>HLVid</th></tr>
+            <tr><td>NVILA-8B-Video</td><td>64.2</td><td>68.1</td><td>42.5</td></tr>
+            <tr><td><strong>NVILA + AutoGaze</strong></td><td><strong>67.0</strong></td><td><strong>69.7</strong></td><td><strong>52.6</strong></td></tr>
+        </table>
+
+        <h2 id="p1-conclusion">结论</h2>
+        <p>AutoGaze证明视频理解无需处理全部像素，选择性注视可达同等甚至更好效果。轻量级（3M参数）可无缝集成到现有ViT和MLLM中。</p>
+    </div>
+</article>
+
+<!-- Paper 2: Attention Residuals -->
+<article class="paper-card" id="paper-2">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p2-tldr">TLDR</a></li>
+            <li><a href="#p2-motivation">动机与发现</a></li>
+            <li><a href="#p2-method">方法</a></li>
+            <li><a href="#p2-results">实验结果</a></li>
+            <li><a href="#p2-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">02</span>Attention Residuals</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.15031</span>
+        <span>Moonshot AI（月之暗面）</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p2-tldr">TLDR</h2>
+        <p>现代LLM的标准残差连接（PreNorm）以固定权重累积所有层输出，导致隐藏状态稀释。本文提出Attention Residuals（AttnRes），用softmax attention替代固定累积，使每层能有选择性地聚合先前表示。在Kimi Linear架构（48B/3B）上预训练1.4T tokens验证有效。</p>
+
+        <h2 id="p2-motivation">动机与发现</h2>
+        <h3>问题：PreNorm残差连接的隐藏状态稀释</h3>
+        <ul>
+            <li>隐藏状态幅值随深度增长为O(L)</li>
+            <li>每层贡献被稀释，早期层信息被埋没</li>
+            <li>梯度分布不均匀</li>
+        </ul>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>深度与时间的对偶性</strong>：残差连接在深度维度上类似于RNN在时间维度上的压缩</li>
+            <li><strong>内容依赖的深度选择有益</strong>：让模型根据输入内容决定聚合哪些层</li>
+            <li><strong>Scaling Law一致性</strong>：Block AttnRes用1.25×更少计算达到相同loss</li>
+        </ul>
+
+        <h2 id="p2-method">方法</h2>
+        <p><img src="Attention Residuals/images/fig1.png" alt="Attention Residuals概览"><br><em>图1: Attention Residuals概览。(a)标准残差 (b)Full AttnRes (c)Block AttnRes</em></p>
+        <h3>Full AttnRes</h3>
+        <p>用softmax attention替代残差连接中的简单求和：$h_l = \sum \alpha_{i \to l} \cdot v_i$，其中$\alpha_{i \to l}$是softmax attention权重。</p>
+        <h3>Block AttnRes</h3>
+        <p>将L层分为N个块，块内标准残差求和，块间进行full attention。内存和通信从O(Ld)降至O(Nd)。实验发现N≈8即可恢复大部分收益。</p>
+
+        <h2 id="p2-results">实验结果</h2>
+        <ul>
+            <li>Scaling Law实验：Block AttnRes在所有计算预算下均优于基线</li>
+            <li>Kimi Linear（48B模型）：所有评估任务上均提升下游性能</li>
+            <li>训练开销<4%，推理延迟增加<2%</li>
+        </ul>
+
+        <h2 id="p2-conclusion">结论</h2>
+        <p>AttnRes首次发现深度与时间的对偶性，将残差连接统一到attention框架。Block AttnRes成为可直接替换的实用方案，在Kimi等实际产品中得到验证。</p>
+    </div>
+</article>
+
+<!-- Paper 3: Bootleg -->
+<article class="paper-card" id="paper-3">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p3-tldr">TLDR</a></li>
+            <li><a href="#p3-motivation">动机与发现</a></li>
+            <li><a href="#p3-method">方法</a></li>
+            <li><a href="#p3-results">实验结果</a></li>
+            <li><a href="#p3-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">03</span>Self-Distillation of Hidden Layers for Self-Supervised Representation Learning (Bootleg)</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.15553</span>
+        <span>Vector Institute, UBC</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p3-tldr">TLDR</h2>
+        <p>提出Bootleg方法，通过预测教师网络中<strong>多个隐藏层</strong>的潜在表示来进行自监督学习，桥接了MAE（像素级）和I-JEPA（嵌入级）之间的鸿沟。在ImageNet-1K上比I-JEPA高出10%以上的准确率。</p>
+
+        <h2 id="p3-motivation">动机与发现</h2>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>隐藏层目标优于最终层</strong>：预测教师网络中间层的表示比仅预测最终层效果更好</li>
+            <li><strong>多层目标组合更优</strong>：同时预测多个隐藏层的组合优于单个隐藏层</li>
+            <li><strong>掩码策略决定稳定性</strong>：结构化掩码（矩形掩码）能稳定训练</li>
+        </ul>
+
+        <h2 id="p3-method">方法</h2>
+        <p><img src="Self-Distillation of Hidden Layers for Self-Supervised Representation Learning/images/fig1.png" alt="Bootleg方法"><br><em>图1: Bootleg多层自蒸馏方法</em></p>
+        <p>Bootleg通过预测教师网络中多个隐藏层的表示来学习多层次的抽象特征。目标层均匀分布在编码器深度上，每4个块取一个。</p>
+
+        <h2 id="p3-results">实验结果</h2>
+        <table>
+            <tr><th>方法</th><th>ViT-S</th><th>ViT-B</th><th>ViT-L</th></tr>
+            <tr><td>MAE</td><td>66.4%</td><td>76.0%</td><td>79.5%</td></tr>
+            <tr><td>I-JEPA</td><td>61.9%</td><td>72.4%</td><td>72.3%</td></tr>
+            <tr><td><strong>Bootleg</strong></td><td><strong>75.3%</strong></td><td><strong>79.2%</strong></td><td><strong>80.6%</strong></td></tr>
+        </table>
+        <p>ADE20K语义分割上，Bootleg从I-JEPA的11.8%提升至26.6%（ViT-S）。</p>
+
+        <h2 id="p3-conclusion">结论</h2>
+        <p>Bootleg验证了"最深层不一定最好"的假设，中间层的特征对许多下游任务更有用。单视角方法，不需要大批量训练，在消费级GPU上即可预训练。</p>
+    </div>
+</article>
+
+<!-- Paper 4: V-JEPA 2.1 -->
+<article class="paper-card" id="paper-4">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p4-tldr">TLDR</a></li>
+            <li><a href="#p4-motivation">动机与发现</a></li>
+            <li><a href="#p4-method">方法</a></li>
+            <li><a href="#p4-results">实验结果</a></li>
+            <li><a href="#p4-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">04</span>V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.14482</span>
+        <span>FAIR at Meta</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p4-tldr">TLDR</h2>
+        <p>V-JEPA 2.1通过将预测损失扩展到所有token（包括可见和被遮蔽的patch），解决了视频SSL中密集特征质量差的问题。在ADE20K达到47.9 mIoU，SSv2达到77.7%准确率，机器人抓取成功率提升20%。</p>
+
+        <h2 id="p4-motivation">动机与发现</h2>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>监督缺失假说</strong>：仅对被遮蔽token应用预测损失，上下文token缺乏监督</li>
+            <li><strong>上下文监督有效性</strong>：引入监督后ADE20K从22.2提升至33.9 mIoU</li>
+            <li><strong>深度自监督平衡</strong>：在编码器中间层应用自监督目标，同时提升密集和全局任务</li>
+        </ul>
+
+        <h2 id="p4-method">方法</h2>
+        <p><img src="V-JEPA 2.1_ Unlocking Dense Features in Video Self-Supervised Learning/images/fig2_architecture.jpg" alt="V-JEPA 2.1架构"><br><em>图2: V-JEPA 2.1详细架构</em></p>
+        <p>提出$\mathcal{L}_{dense} = \mathcal{L}_{predict} + \mathcal{L}_{ctx}$，对所有token应用自监督损失。$\mathcal{L}_{ctx}$采用距离加权方案，强调靠近掩码区域的patch。</p>
+
+        <h2 id="p4-results">实验结果</h2>
+        <table>
+            <tr><th>任务</th><th>数据集</th><th>V-JEPA 2.1</th><th>前代SOTA</th></tr>
+            <tr><td>深度估计</td><td>NYUv2</td><td><strong>0.307</strong></td><td>DINOv3</td></tr>
+            <tr><td>语义分割</td><td>ADE20K</td><td><strong>47.9</strong></td><td>DINOv3</td></tr>
+            <tr><td>动作识别</td><td>SSv2</td><td><strong>77.7%</strong></td><td>DINOv3</td></tr>
+        </table>
+
+        <h2 id="p4-conclusion">结论</h2>
+        <p>V-JEPA 2.1揭示了视频SSL中密集特征质量与监督范围的关系。提供从2B模型蒸馏到80M/300M小型模型的实用方案。</p>
+    </div>
+</article>
+
+<!-- Paper 5: Kimodo -->
+<article class="paper-card" id="paper-5">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p5-tldr">TLDR</a></li>
+            <li><a href="#p5-motivation">动机与发现</a></li>
+            <li><a href="#p5-method">方法</a></li>
+            <li><a href="#p5-results">实验结果</a></li>
+            <li><a href="#p5-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">05</span>Kimodo: Scaling Controllable Human Motion Generation</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.15546</span>
+        <span>NVIDIA</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p5-tldr">TLDR</h2>
+        <p>NVIDIA提出的可控人体运动生成扩散模型，在700小时专业动捕数据上训练。两阶段去噪器架构将根运动与身体运动分解预测，全身关键帧误差2.67cm，末端执行器3.09cm，可直接用于机器人演示数据生成。</p>
+
+        <h2 id="p5-motivation">动机与发现</h2>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>数据规模至关重要</strong>：700小时训练显著提升约束跟随能力</li>
+            <li><strong>两阶段分解架构有效</strong>：脚部滑动从7.59降至3.87 cm/s</li>
+            <li><strong>规模定律成立</strong>：数据/模型/批大小三维度扩展均提升性能</li>
+        </ul>
+
+        <h2 id="p5-method">方法</h2>
+        <p><img src="Kimodo_Scaling_Controllable_Human_Motion_Generation/images/fig9.png" alt="Kimodo去噪器架构"><br><em>图9: 两阶段去噪器架构</em></p>
+        <p>采用显式运动扩散模型，通过全局运动表示和两阶段Transformer去噪器实现精确控制。约束通过直接植入（imputation）覆盖噪声运动输入。</p>
+
+        <h2 id="p5-results">实验结果</h2>
+        <table>
+            <tr><th>方法</th><th>R@3↑</th><th>FID↓</th><th>滑动(cm/s)↓</th><th>全身Pos(cm)↓</th></tr>
+            <tr><td><strong>完整模型</strong></td><td><strong>71.9</strong></td><td><strong>1.85</strong></td><td><strong>3.87</strong></td><td><strong>2.67</strong></td></tr>
+            <tr><td>单阶段架构</td><td>71.5</td><td>1.65</td><td>7.59</td><td>8.37</td></tr>
+        </table>
+
+        <h2 id="p5-conclusion">结论</h2>
+        <p>Kimodo证明了运动生成领域的规模定律，提供开源模型（SOMA人体骨架和Unitree G1机器人版本），可快速生成机器人演示数据。</p>
+    </div>
+</article>
+
+<!-- Paper 6: OmniStream -->
+<article class="paper-card" id="paper-6">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p6-tldr">TLDR</a></li>
+            <li><a href="#p6-motivation">动机与发现</a></li>
+            <li><a href="#p6-method">方法</a></li>
+            <li><a href="#p6-results">实验结果</a></li>
+            <li><a href="#p6-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">06</span>OmniStream: Mastering Perception, Reconstruction and Action in Continuous Streams</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.12265</span>
+        <span>上海交通大学、牛津大学</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p6-tldr">TLDR</h2>
+        <p>统一的流式视觉骨干网络，通过因果时空注意力和3D-RoPE将预训练图像ViT转化为在线流式模型。在29个数据集上预训练，骨干冻结时在感知、推理、机器人操作任务上均取得竞争性能。</p>
+
+        <h2 id="p6-motivation">动机与发现</h2>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>因果视频建模至关重要</strong>：移除视频SSL导致SSv2下降6.3%</li>
+            <li><strong>显式几何预训练是具身AI前提</strong>：禁用3D重建导致VSI-Bench下降4.8%</li>
+            <li><strong>早期视觉语言对齐防止灾难性失败</strong>：移除字幕任务导致VideoMME下降9.1%</li>
+        </ul>
+
+        <h2 id="p6-method">方法</h2>
+        <p><img src="OmniStream/images/fig2.png" alt="OmniStream框架"><br><em>图2: OmniStream整体框架</em></p>
+        <p>将DINOv3图像ViT转化为流式视觉骨干：因果时空注意力实现严格时序因果性，3D-RoPE将2D RoPE扩展到时空域（t:y:x = 2:3:3）。</p>
+
+        <h2 id="p6-results">实验结果</h2>
+        <table>
+            <tr><th>任务</th><th>基准</th><th>OmniStream</th><th>DINOv3-L</th></tr>
+            <tr><td>动作识别</td><td>SSv2</td><td><strong>68.5%</strong></td><td>54.0%</td></tr>
+            <tr><td>动作识别</td><td>K400</td><td><strong>85.7%</strong></td><td>83.6%</td></tr>
+            <tr><td>机器人操作</td><td>CALVIN</td><td><strong>3.885</strong></td><td>-</td></tr>
+        </table>
+
+        <h2 id="p6-conclusion">结论</h2>
+        <p>证明单一视觉骨干可同时支持语义、空间和时序推理。KV-cache实现O(T)时序复杂度，支持110帧零样本长度外推。</p>
+    </div>
+</article>
+
+<!-- Paper 7: Holi-Spatial -->
+<article class="paper-card" id="paper-7">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p7-tldr">TLDR</a></li>
+            <li><a href="#p7-motivation">动机与发现</a></li>
+            <li><a href="#p7-method">方法</a></li>
+            <li><a href="#p7-results">实验结果</a></li>
+            <li><a href="#p7-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">07</span>Holi-Spatial: Evolving Video Streams into Holistic 3D Spatial Intelligence</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.07660</span>
+        <span>上海AI Lab、清华、北大等</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p7-tldr">TLDR</h2>
+        <p>首个全自动视频流到3D空间标注管道，包含几何优化、图像级感知、场景级精炼三阶段。构建Holi-Spatial-4M数据集（12K场景、400万+标注），微调Qwen3-VL后3D定位AP50提升15%，MMSI-Bench准确率提升7.9%。</p>
+
+        <h2 id="p7-motivation">动机与发现</h2>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>AI工具组合潜力</strong>：系统组合Depth-Anything-V3、SAM3、VLM可构建超越人工标注的引擎</li>
+            <li><strong>多视图一致性</strong>：3DGS优化后的深度图能有效消除浮点噪声</li>
+            <li><strong>VLM Agent验证</strong>：恢复被错误过滤的低置信度真阳性</li>
+        </ul>
+
+        <h2 id="p7-method">方法</h2>
+        <p><img src="Holi-Spatial/images/fig3.png" alt="Holi-Spatial管道"><br><em>图3: Holi-Spatial管道概览</em></p>
+        <p>三阶段流水线：(1)几何优化通过3DGS提炼高保真3D结构；(2)图像级感知将2D VLM和SAM3预测提升为初始3D提议；(3)场景级精炼采用粗到细策略生成高质量标注。</p>
+
+        <h2 id="p7-results">实验结果</h2>
+        <table>
+            <tr><th>指标</th><th>Holi-Spatial</th><th>M3-Spatial</th><th>提升</th></tr>
+            <tr><td>ScanNet++ Depth F1</td><td><strong>0.89</strong></td><td>0.39</td><td>+128%</td></tr>
+            <tr><td>ScanNet++ 3D Det AP50</td><td><strong>70.05</strong></td><td>4.80</td><td>+1360%</td></tr>
+            <tr><td>Qwen3-VL 3D定位 AP50</td><td><strong>27.98</strong></td><td>13.50</td><td>+107%</td></tr>
+        </table>
+
+        <h2 id="p7-conclusion">结论</h2>
+        <p>证明了通过系统组合现有AI工具可以构建超越人工标注的自动化数据引擎。为机器人操作、导航、AR等应用提供数据基础。</p>
+    </div>
+</article>
+
+<!-- Paper 8: PF-RPN -->
+<article class="paper-card" id="paper-8">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p8-tldr">TLDR</a></li>
+            <li><a href="#p8-motivation">动机与发现</a></li>
+            <li><a href="#p8-method">方法</a></li>
+            <li><a href="#p8-results">实验结果</a></li>
+            <li><a href="#p8-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">08</span>Prompt-Free Universal Region Proposal Network (PF-RPN)</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.17554</span>
+        <span>南京大学、中国科学技术大学</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p8-tldr">TLDR</h2>
+        <p>无需外部提示的通用区域建议网络，可在跨域场景中零样本识别任意潜在物体。核心创新包括稀疏图像感知适配器、级联自提示机制和中心性引导查询选择，仅需5% COCO数据训练，在19个跨域数据集上比GDINO提升6.0-7.5 AR。</p>
+
+        <h2 id="p8-motivation">动机与发现</h2>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>视觉特征比文本更适合定位</strong>：用可学习嵌入替代文本嵌入</li>
+            <li><strong>物体内部特征优于可学习嵌入</strong>：可用于迭代检索其他物体</li>
+            <li><strong>中心查询生成更精确的边界框</strong></li>
+        </ul>
+
+        <h2 id="p8-method">方法</h2>
+        <p><img src="Prompt-Free Universal Region Proposal Network/images/fig2.png" alt="PF-RPN架构"><br><em>图2: PF-RPN整体架构</em></p>
+        <h3>三个核心组件</h3>
+        <ul>
+            <li><strong>稀疏图像感知适配器(SIA)</strong>：MoE路由器稀疏选择特征级别</li>
+            <li><strong>级联自提示(CSP)</strong>：用已发现物体的特征迭代检索其他物体</li>
+            <li><strong>中心性引导查询选择(CG-QS)</strong>：优先选择高质量查询</li>
+        </ul>
+
+        <h2 id="p8-results">实验结果</h2>
+        <table>
+            <tr><th>方法</th><th>CD-FSOD AR100</th><th>CD-FSOD AR900</th><th>ODinW13 AR100</th></tr>
+            <tr><td>GDINO</td><td>52.9</td><td>54.7</td><td>72.1</td></tr>
+            <tr><td><strong>PF-RPN</strong></td><td><strong>60.7</strong></td><td><strong>68.2</strong></td><td><strong>76.5</strong></td></tr>
+        </table>
+
+        <h2 id="p8-conclusion">结论</h2>
+        <p>首次提出无需任何外部提示的区域建议网络，仅需5%标注数据，推理速度比GDINO更快（4.6 vs 3.3 FPS），可无缝集成到现有检测器。</p>
+    </div>
+</article>
+
+<!-- Paper 9: EdgeCrafter -->
+<article class="paper-card" id="paper-9">
+    <nav class="paper-toc">
+        <div class="paper-toc-title">本篇目录</div>
+        <ul class="paper-toc-list">
+            <li><a href="#p9-tldr">TLDR</a></li>
+            <li><a href="#p9-motivation">动机与发现</a></li>
+            <li><a href="#p9-method">方法</a></li>
+            <li><a href="#p9-results">实验结果</a></li>
+            <li><a href="#p9-conclusion">结论</a></li>
+        </ul>
+    </nav>
+    <h2 class="paper-title"><span class="paper-num">09</span>EdgeCrafter: Compact ViTs for Edge Dense Prediction via Task-Specialized Distillation</h2>
+    <div class="paper-meta">
+        <span>arXiv: 2603.18739</span>
+        <span>Intellindust AI Lab</span>
+    </div>
+    <div class="paper-content">
+        <h2 id="p9-tldr">TLDR</h2>
+        <p>面向边缘部署的紧凑ViT框架，通过任务特化蒸馏解决小型ViT在密集预测中表征不足的问题。ECDet-S以10M参数达到51.7 AP，ECPose-X以74.8 AP超越YOLO26Pose-X（71.6 AP）。</p>
+
+        <h2 id="p9-motivation">动机与发现</h2>
+        <h3>关键发现</h3>
+        <ul>
+            <li><strong>通用预训练对紧凑ViT不够用</strong>：ImageNet-21K预训练甚至比从头训练效果更差</li>
+            <li><strong>任务特化蒸馏显著提升下游性能</strong>：将DINOv3适配到检测再蒸馏</li>
+            <li><strong>检测表征可直接迁移到其他任务</strong>：同一backbone支持检测、分割、姿态估计</li>
+        </ul>
+
+        <h2 id="p9-method">方法</h2>
+        <p><img src="EdgeCrafter/images/fig2.png" alt="EdgeCrafter流水线"><br><em>图2: EdgeCrafter流水线概览</em></p>
+        <p>三阶段流水线：(1)将DINOv3适配为检测特化教师；(2)通过特征对齐蒸馏到紧凑ECViT学生；(3)复用到密集预测多个下游任务。</p>
+
+        <h2 id="p9-results">实验结果</h2>
+        <table>
+            <tr><th>模型</th><th>参数量</th><th>AP</th><th>AP50</th></tr>
+            <tr><td>YOLOv9-S</td><td>7M</td><td>46.8</td><td>61.8</td></tr>
+            <tr><td>DEIMv2-S</td><td>10M</td><td>50.9</td><td>68.4</td></tr>
+            <tr><td><strong>ECDet-S</strong></td><td><strong>10M</strong></td><td><strong>51.7</strong></td><td><strong>69.4</strong></td></tr>
+        </table>
+        <p>ECPose-X达到<strong>74.8 AP</strong>，超越YOLO26Pose-X（71.6 AP，还使用了Objects365预训练）。</p>
+
+        <h2 id="p9-conclusion">结论</h2>
+        <p>为边缘部署提供了比YOLO更具竞争力的ViT替代方案，无需Objects365等大规模额外预训练数据，仅用COCO标注即可达到SOTA级别性能。</p>
+    </div>
+</article>
+
+        </main>
+    </div>
+    <footer class="footer">
+        <p>Generated by weekly-tech-news skill | 2026.03.21</p>
+    </footer>
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('.toc-link, .paper-toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        // 滚动高亮全局TOC
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    document.querySelectorAll('.toc-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.paper-card').forEach(card => observer.observe(card));
+        // 滚动高亮论文内mini-TOC
+        document.querySelectorAll('.paper-card').forEach(card => {
+            const tocLinks = card.querySelectorAll('.paper-toc-list a');
+            const sections = card.querySelectorAll('h2[id]');
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        tocLinks.forEach(link => {
+                            link.style.color = '';
+                            link.style.background = '';
+                            if (link.getAttribute('href') === '#' + id) {
+                                link.style.color = 'var(--accent-cyan)';
+                                link.style.background = 'var(--bg-card)';
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5, rootMargin: '-80px 0px -60% 0px' });
+            sections.forEach(section => sectionObserver.observe(section));
+        });
+    </script>
+</body>
+</html>
