@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>科技论文周报 3.8-3.21</title>
+    <title>科技论文周报 | 2026年3月8日-21日</title>
     <script>
         MathJax = {
             tex: {
-                inlineMath: [['$', '$']],
-                displayMath: [['$$', '$$']]
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
             }
         };
     </script>
@@ -17,41 +17,60 @@
         :root {
             --bg-primary: #0a0e1a;
             --bg-secondary: #111827;
-            --bg-card: #1e293b;
-            --bg-card-hover: #263548;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
             --accent-blue: #38bdf8;
             --accent-cyan: #22d3ee;
             --accent-purple: #a78bfa;
             --accent-gradient: linear-gradient(135deg, #38bdf8, #22d3ee, #a78bfa);
-            --border-color: #334155;
+            --border-color: #e2e8f0;
+            --shadow-glow: 0 4px 20px rgba(56, 189, 248, 0.15);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
+            min-height: 100vh;
         }
+
         .header {
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 1.2rem 2rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
         }
+
         .header h1 {
             font-size: 1.8rem;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
         }
-        .header .subtitle { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.3rem; }
+
+        .header .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -59,677 +78,2963 @@
             gap: 2rem;
             padding: 2rem;
         }
+
         .sidebar {
-            width: 260px;
+            width: 280px;
             flex-shrink: 0;
             position: sticky;
-            top: 100px;
+            top: 120px;
             height: fit-content;
-            max-height: calc(100vh - 120px);
+            max-height: calc(100vh - 140px);
             overflow-y: auto;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
+
         .sidebar h3 {
             color: var(--accent-cyan);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.8rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 1px solid var(--border-color);
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
         }
-        .toc-list { list-style: none; }
-        .toc-item { margin-bottom: 0.4rem; }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            margin-bottom: 0.5rem;
+        }
+
         .toc-link {
             display: block;
-            color: var(--text-secondary);
+            color: #94a3b8;
             text-decoration: none;
-            padding: 0.5rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.78rem;
-            transition: all 0.2s;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
             border-left: 2px solid transparent;
         }
+
         .toc-link:hover {
-            color: var(--text-primary);
-            background: var(--bg-card);
+            color: #f1f5f9;
+            background: rgba(56, 189, 248, 0.1);
             border-left-color: var(--accent-blue);
         }
-        .toc-num {
+
+        .toc-link.active {
+            color: var(--accent-cyan);
+            background: rgba(56, 189, 248, 0.15);
+            border-left-color: var(--accent-cyan);
+        }
+
+        .toc-number {
             color: var(--accent-blue);
             font-weight: 600;
-            margin-right: 0.4rem;
+            margin-right: 0.5rem;
         }
-        .main-content { flex: 1; min-width: 0; }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
         .paper-card {
             background: var(--bg-card);
-            border-radius: 14px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             margin-bottom: 2rem;
             border: 1px solid var(--border-color);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: visible;
         }
+
         .paper-card:hover {
-            background: var(--bg-card-hover);
+            box-shadow: var(--shadow-glow);
             border-color: var(--accent-blue);
         }
+
         .paper-toc {
             position: sticky;
-            top: 90px;
+            top: 110px;
             float: right;
-            width: 150px;
-            margin-left: 1rem;
-            margin-bottom: 1rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 0.6rem;
-            font-size: 0.65rem;
-            opacity: 0.65;
-            transition: opacity 0.2s;
+            width: 180px;
+            margin-left: 1.5rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 10px;
+            padding: 0.8rem;
+            font-size: 0.7rem;
             z-index: 10;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
         }
-        .paper-toc:hover { opacity: 1; }
+
+        .paper-toc:hover {
+            opacity: 1;
+        }
+
+        .paper-toc:hover {
+            opacity: 1;
+        }
+
         .paper-toc-title {
             color: var(--accent-cyan);
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.4rem;
-            padding-bottom: 0.25rem;
-            border-bottom: 1px solid var(--border-color);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
         }
-        .paper-toc-list { list-style: none; }
-        .paper-toc-list li { margin-bottom: 0.2rem; }
+
+        .paper-toc-list {
+            list-style: none;
+        }
+
+        .paper-toc-list li {
+            margin-bottom: 0.3rem;
+        }
+
         .paper-toc-list a {
-            color: var(--text-secondary);
+            color: #94a3b8;
             text-decoration: none;
             display: block;
-            padding: 0.15rem 0.35rem;
-            border-radius: 3px;
+            padding: 0.25rem 0.4rem;
+            border-radius: 4px;
             transition: all 0.15s;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: 0.7rem;
+            word-wrap: break-word;
+            line-height: 1.4;
         }
-        .paper-toc-list a:hover { color: var(--text-primary); background: var(--bg-card); }
+
+        .paper-toc-list a:hover {
+            color: #f1f5f9;
+            background: rgba(56, 189, 248, 0.15);
+        }
+
         .paper-title {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--text-primary);
-            margin-bottom: 0.6rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: flex-start;
-            gap: 0.8rem;
+            gap: 1rem;
+            line-height: 1.4;
         }
-        .paper-num {
+
+        .paper-number {
             background: var(--accent-gradient);
-            color: var(--bg-primary);
-            font-size: 0.7rem;
+            color: #ffffff;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 0.2rem 0.5rem;
-            border-radius: 5px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
             flex-shrink: 0;
+            min-width: 28px;
+            text-align: center;
         }
+
         .paper-meta {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             color: var(--text-secondary);
-            font-size: 0.75rem;
-            margin-bottom: 1.2rem;
+            font-size: 0.82rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
         }
-        .paper-content { color: var(--text-secondary); font-size: 0.88rem; }
+
+        .paper-meta span {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3rem;
+        }
+
+        .paper-content {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
         .paper-content h2 {
             color: var(--text-primary);
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin: 1.8rem 0 0.8rem;
-            padding: 0.5rem 0.8rem;
-            padding-left: 0.8rem;
+            margin: 2.5rem 0 1.2rem;
+            padding: 0.7rem 1rem;
+            padding-left: 1rem;
             border-left: 4px solid var(--accent-cyan);
-            background: linear-gradient(90deg, rgba(34,211,238,0.08), transparent);
-            border-radius: 0 6px 6px 0;
+            background: linear-gradient(90deg, rgba(34, 211, 238, 0.08), transparent);
+            border-radius: 0 8px 8px 0;
         }
+
         .paper-content h3 {
             color: var(--accent-blue);
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            margin: 1.3rem 0 0.6rem;
-            padding-left: 0.5rem;
-            border-left: 2px solid var(--accent-blue);
+            margin: 1.8rem 0 0.8rem;
+            padding-left: 0.8rem;
+            border-left: 3px solid var(--accent-blue);
         }
-        .paper-content p { margin-bottom: 0.7rem; }
-        .paper-content ul, .paper-content ol { margin-left: 1.2rem; margin-bottom: 0.7rem; }
-        .paper-content li { margin-bottom: 0.25rem; }
-        .paper-content strong { color: var(--text-primary); }
+
+        .paper-content h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        .paper-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .paper-content ul, .paper-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .paper-content li {
+            margin-bottom: 0.4rem;
+            line-height: 1.7;
+        }
+
+        .paper-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
         .paper-content code {
-            background: var(--bg-primary);
-            padding: 0.12rem 0.35rem;
-            border-radius: 3px;
-            font-size: 0.82em;
-            color: var(--accent-cyan);
+            background: #f1f5f9;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #0ea5e9;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
         }
+
         .paper-content pre {
-            background: var(--bg-primary);
-            padding: 0.8rem;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 1.2rem;
+            border-radius: 10px;
             overflow-x: auto;
-            margin: 0.8rem 0;
+            margin: 1.2rem 0;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
-        .paper-content pre code { background: none; padding: 0; }
+
+        .paper-content pre code {
+            background: none;
+            padding: 0;
+            color: #e2e8f0;
+        }
+
         .paper-content table {
             width: 100%;
             border-collapse: collapse;
-            margin: 0.8rem 0;
-            font-size: 0.82rem;
+            margin: 1.2rem 0;
+            font-size: 0.85rem;
         }
+
         .paper-content th, .paper-content td {
-            padding: 0.5rem;
+            padding: 0.7rem 0.9rem;
             border: 1px solid var(--border-color);
             text-align: left;
         }
-        .paper-content th { background: var(--bg-primary); color: var(--accent-blue); }
+
+        .paper-content th {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .paper-content td {
+            background: #ffffff;
+        }
+
         .paper-content img {
             max-width: 100%;
-            border-radius: 6px;
-            margin: 0.8rem 0;
+            border-radius: 10px;
+            margin: 1.5rem 0;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
-        .paper-content em { color: var(--text-secondary); font-style: italic; }
+
+        .paper-content em {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .paper-content hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 2rem 0;
+        }
+
+        .paper-content a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .paper-content a:hover {
+            border-bottom-color: var(--accent-blue);
+        }
+
         .footer {
             text-align: center;
-            padding: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(56, 189, 248, 0.1);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         }
+
         @media (max-width: 900px) {
-            .container { flex-direction: column; }
-            .sidebar { width: 100%; position: static; max-height: none; }
-            .toc-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-            .toc-item { margin: 0; }
-            .toc-link { padding: 0.35rem 0.6rem; font-size: 0.7rem; }
-            .paper-toc { position: static; width: 100%; opacity: 1; margin-bottom: 0.8rem; }
-            .paper-toc-list { display: flex; flex-wrap: wrap; gap: 0.2rem; }
-            .paper-toc-list li { margin: 0; }
-            .paper-toc-list a { padding: 0.25rem 0.5rem; font-size: 0.6rem; }
-            .paper-title { padding-right: 0; }
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .sidebar {
+                width: 100%;
+                position: static;
+                max-height: none;
+            }
+            .toc-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .toc-item {
+                margin: 0;
+            }
+            .toc-link {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.75rem;
+            }
+            .paper-toc {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                margin-bottom: 1rem;
+                float: none;
+            }
+            .paper-toc-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.3rem;
+            }
+            .paper-toc-list li {
+                margin: 0;
+            }
+            .paper-toc-list a {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.65rem;
+            }
+            .paper-title {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .paper-card {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <h1>科技论文周报</h1>
-        <p class="subtitle">2026.03.08 - 2026.03.21 | 9 Papers</p>
+        <p class="subtitle">Weekly Tech Paper Digest | 2026年3月8日-21日</p>
     </header>
+
     <div class="container">
         <nav class="sidebar">
-            <h3>目录</h3>
+            <h3>目录导航</h3>
             <ul class="toc-list">
-                <li class="toc-item"><a class="toc-link" href="#paper-1"><span class="toc-num">01</span>AutoGaze</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-2"><span class="toc-num">02</span>Attention Residuals</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-3"><span class="toc-num">03</span>Bootleg</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-4"><span class="toc-num">04</span>V-JEPA 2.1</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-5"><span class="toc-num">05</span>Kimodo</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-6"><span class="toc-num">06</span>OmniStream</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-7"><span class="toc-num">07</span>Holi-Spatial</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-8"><span class="toc-num">08</span>PF-RPN</a></li>
-                <li class="toc-item"><a class="toc-link" href="#paper-9"><span class="toc-num">09</span>EdgeCrafter</a></li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-1">
+                        <span class="toc-number">1</span>Attend Before Attention
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-2">
+                        <span class="toc-number">2</span>Attention Residuals
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-3">
+                        <span class="toc-number">3</span>EdgeCrafter
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-4">
+                        <span class="toc-number">4</span>Holi-Spatial
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-5">
+                        <span class="toc-number">5</span>Kimodo
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-6">
+                        <span class="toc-number">6</span>OmniStream
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-7">
+                        <span class="toc-number">7</span>PF-RPN
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-8">
+                        <span class="toc-number">8</span>Self-Distillation
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a class="toc-link" href="#paper-9">
+                        <span class="toc-number">9</span>V-JEPA 2.1
+                    </a>
+                </li>
             </ul>
         </nav>
+
         <main class="main-content">
+            
+            <article class="paper-card" id="paper-1">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-1-tldr">TLDR</a></li>
+<li><a href="#paper-1-motivation">动机与发现</a></li>
+<li><a href="#paper-1-method">方法</a></li>
+<li><a href="#paper-1-results">实验设定与结果</a></li>
+<li><a href="#paper-1-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">1</span>
+                    Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Baifeng Shi, Stephanie Fu, Long Lian, Hanrong Ye, David Eigen, Aaron Reite, Boyi Li, Jan Kautz, Song Han, David M. Chan, Pavlo Molchanov, Trevor Darrell, Hongxu Yin</span><span> 机构：UC Berkeley, MIT, Clarifai, NVIDIA</span><span> arXiv：2603.12254 | **日期**：2026年3月12日</span><span>️ 日期：2026年3月12日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Baifeng Shi, Stephanie Fu, Long Lian, Hanrong Ye, David Eigen, Aaron Reite, Boyi Li, Jan Kautz, Song Han, David M. Chan, Pavlo Molchanov, Trevor Darrell, Hongxu Yin</p>
+<p><strong>机构</strong>：UC Berkeley, MIT, Clarifai, NVIDIA</p>
+<p><strong>arXiv</strong>：2603.12254 | <strong>日期</strong>：2026年3月12日</p>
 
-<!-- Paper 1: AutoGaze -->
-<article class="paper-card" id="paper-1">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p1-tldr">TLDR</a></li>
-            <li><a href="#p1-motivation">动机与发现</a></li>
-            <li><a href="#p1-method">方法</a></li>
-            <li><a href="#p1-results">实验结果</a></li>
-            <li><a href="#p1-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">01</span>Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.12254</span>
-        <span>UC Berkeley, MIT, NVIDIA</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p1-tldr">TLDR</h2>
-        <p>提出AutoGaze，一个仅3M参数的轻量级模块，在ViT处理之前自回归地选择多尺度patch以去除视频冗余。视觉token减少4×-100×，ViT加速最高19×，MLLM加速最高10×，实现1K帧4K分辨率视频理解，VideoMME达67.0%。</p>
+<hr>
 
-        <h2 id="p1-motivation">动机与发现</h2>
-        <h3>问题：如何高效处理长视频和高分辨率视频</h3>
-        <p>现有MLLM对视频每一帧的每个像素都同等处理，但视频存在大量时空冗余。现有token压缩方法通常只在LLM层面裁剪token，ViT仍需处理全部像素，形成效率瓶颈。</p>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>运动是主要信息源</strong>：AutoGaze优先选择光流大的运动区域patch</li>
-            <li><strong>尺度与细节匹配</strong>：细节丰富区域使用更细粒度尺度，平坦区域用粗粒度尺度</li>
-            <li><strong>高FPS/高分辨率更高效</strong>：30FPS 4K视频仅需约1%的patch即可达到0.7重建损失</li>
-        </ul>
+<h2 id="paper-1-tldr">TLDR</h2>
 
-        <h2 id="p1-method">方法</h2>
-        <p><img src="Attend Before Attention - Efficient and Scalable Video Understanding via Autoregressive Gazing/images/fig2.png" alt="AutoGaze架构"><br><em>图2: AutoGaze架构与训练流程</em></p>
-        <p>AutoGaze是一个3M参数的轻量模型，包含卷积编码器和自回归transformer解码器。它逐帧处理视频，自回归地选择最小的多尺度patch集合，使重建损失低于用户指定阈值。</p>
-        <h3>关键创新点</h3>
-        <ul>
-            <li>在ViT之前去除冗余patch（而非ViT之后），从源头减少计算</li>
-            <li>多尺度patch选择，适配不同细节程度区域</li>
-            <li>两阶段训练：NTP预训练 + RL后训练</li>
-        </ul>
+<p>提出AutoGaze，一个仅3M参数的轻量级模块，在ViT处理之前自回归地选择多尺度patch以去除视频冗余。视觉token减少4×-100×，ViT加速最高19×，MLLM加速最高10×，实现1K帧4K分辨率视频理解，VideoMME达67.0%。同时提出首个高分辨率长视频QA基准HLVid（5分钟4K视频），AutoGaze比基线提升10.1%，比之前最佳MLLM高4.5%。</p>
 
-        <h2 id="p1-results">实验结果</h2>
-        <table>
-            <tr><th>模型</th><th>VideoMME</th><th>MVBench</th><th>HLVid</th></tr>
-            <tr><td>NVILA-8B-Video</td><td>64.2</td><td>68.1</td><td>42.5</td></tr>
-            <tr><td><strong>NVILA + AutoGaze</strong></td><td><strong>67.0</strong></td><td><strong>69.7</strong></td><td><strong>52.6</strong></td></tr>
-        </table>
+<hr>
 
-        <h2 id="p1-conclusion">结论</h2>
-        <p>AutoGaze证明视频理解无需处理全部像素，选择性注视可达同等甚至更好效果。轻量级（3M参数）可无缝集成到现有ViT和MLLM中。</p>
-    </div>
-</article>
+<h2 id="paper-1-motivation">动机与发现</h2>
 
-<!-- Paper 2: Attention Residuals -->
-<article class="paper-card" id="paper-2">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p2-tldr">TLDR</a></li>
-            <li><a href="#p2-motivation">动机与发现</a></li>
-            <li><a href="#p2-method">方法</a></li>
-            <li><a href="#p2-results">实验结果</a></li>
-            <li><a href="#p2-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">02</span>Attention Residuals</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.15031</span>
-        <span>Moonshot AI（月之暗面）</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p2-tldr">TLDR</h2>
-        <p>现代LLM的标准残差连接（PreNorm）以固定权重累积所有层输出，导致隐藏状态稀释。本文提出Attention Residuals（AttnRes），用softmax attention替代固定累积，使每层能有选择性地聚合先前表示。在Kimi Linear架构（48B/3B）上预训练1.4T tokens验证有效。</p>
+<h3>问题：如何高效处理长视频和高分辨率视频</h3>
 
-        <h2 id="p2-motivation">动机与发现</h2>
-        <h3>问题：PreNorm残差连接的隐藏状态稀释</h3>
-        <ul>
-            <li>隐藏状态幅值随深度增长为O(L)</li>
-            <li>每层贡献被稀释，早期层信息被埋没</li>
-            <li>梯度分布不均匀</li>
-        </ul>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>深度与时间的对偶性</strong>：残差连接在深度维度上类似于RNN在时间维度上的压缩</li>
-            <li><strong>内容依赖的深度选择有益</strong>：让模型根据输入内容决定聚合哪些层</li>
-            <li><strong>Scaling Law一致性</strong>：Block AttnRes用1.25×更少计算达到相同loss</li>
-        </ul>
+<p>现有MLLM对视频每一帧的每个像素都同等处理，但视频存在大量时空冗余（静态背景、重复区域）。现有token压缩方法通常只在LLM层面裁剪token，ViT仍需处理全部像素，形成效率瓶颈。</p>
 
-        <h2 id="p2-method">方法</h2>
-        <p><img src="Attention Residuals/images/fig1.png" alt="Attention Residuals概览"><br><em>图1: Attention Residuals概览。(a)标准残差 (b)Full AttnRes (c)Block AttnRes</em></p>
-        <h3>Full AttnRes</h3>
-        <p>用softmax attention替代残差连接中的简单求和：$h_l = \sum \alpha_{i \to l} \cdot v_i$，其中$\alpha_{i \to l}$是softmax attention权重。</p>
-        <h3>Block AttnRes</h3>
-        <p>将L层分为N个块，块内标准残差求和，块间进行full attention。内存和通信从O(Ld)降至O(Nd)。实验发现N≈8即可恢复大部分收益。</p>
+<h3>关键发现</h3>
 
-        <h2 id="p2-results">实验结果</h2>
-        <ul>
-            <li>Scaling Law实验：Block AttnRes在所有计算预算下均优于基线</li>
-            <li>Kimi Linear（48B模型）：所有评估任务上均提升下游性能</li>
-            <li>训练开销<4%，推理延迟增加<2%</li>
-        </ul>
+<ol>
+<li><strong>运动是主要信息源</strong>：AutoGaze优先选择光流大的运动区域patch</li>
+<li><strong>尺度与细节匹配</strong>：细节丰富区域使用更细粒度尺度，平坦区域用粗粒度尺度</li>
+<li><strong>OOD泛化能力强</strong>：在未见过的视频风格和语义上仍能正确追踪变化区域</li>
+<li><strong>高FPS/高分辨率更高效</strong>：30FPS 4K视频仅需约1%的patch即可达到0.7重建损失</li>
 
-        <h2 id="p2-conclusion">结论</h2>
-        <p>AttnRes首次发现深度与时间的对偶性，将残差连接统一到attention框架。Block AttnRes成为可直接替换的实用方案，在Kimi等实际产品中得到验证。</p>
-    </div>
-</article>
+</ol>
+<hr>
 
-<!-- Paper 3: Bootleg -->
-<article class="paper-card" id="paper-3">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p3-tldr">TLDR</a></li>
-            <li><a href="#p3-motivation">动机与发现</a></li>
-            <li><a href="#p3-method">方法</a></li>
-            <li><a href="#p3-results">实验结果</a></li>
-            <li><a href="#p3-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">03</span>Self-Distillation of Hidden Layers for Self-Supervised Representation Learning (Bootleg)</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.15553</span>
-        <span>Vector Institute, UBC</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p3-tldr">TLDR</h2>
-        <p>提出Bootleg方法，通过预测教师网络中<strong>多个隐藏层</strong>的潜在表示来进行自监督学习，桥接了MAE（像素级）和I-JEPA（嵌入级）之间的鸿沟。在ImageNet-1K上比I-JEPA高出10%以上的准确率。</p>
+<h2 id="paper-1-method">方法</h2>
 
-        <h2 id="p3-motivation">动机与发现</h2>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>隐藏层目标优于最终层</strong>：预测教师网络中间层的表示比仅预测最终层效果更好</li>
-            <li><strong>多层目标组合更优</strong>：同时预测多个隐藏层的组合优于单个隐藏层</li>
-            <li><strong>掩码策略决定稳定性</strong>：结构化掩码（矩形掩码）能稳定训练</li>
-        </ul>
+<img src="Attend Before Attention - Efficient and Scalable Video Understanding via Autoregressive Gazing/images/fig2.png" alt="图2: AutoGaze架构和训练流程">
+<p><em>图2: AutoGaze架构与训练流程。左中：自回归地解码多尺度patch索引；右：两阶段训练：NTP预训练 + RL后训练</em></p>
 
-        <h2 id="p3-method">方法</h2>
-        <p><img src="Self-Distillation of Hidden Layers for Self-Supervised Representation Learning/images/fig1.png" alt="Bootleg方法"><br><em>图1: Bootleg多层自蒸馏方法</em></p>
-        <p>Bootleg通过预测教师网络中多个隐藏层的表示来学习多层次的抽象特征。目标层均匀分布在编码器深度上，每4个块取一个。</p>
+<p><strong>核心思想</strong></p>
 
-        <h2 id="p3-results">实验结果</h2>
-        <table>
-            <tr><th>方法</th><th>ViT-S</th><th>ViT-B</th><th>ViT-L</th></tr>
-            <tr><td>MAE</td><td>66.4%</td><td>76.0%</td><td>79.5%</td></tr>
-            <tr><td>I-JEPA</td><td>61.9%</td><td>72.4%</td><td>72.3%</td></tr>
-            <tr><td><strong>Bootleg</strong></td><td><strong>75.3%</strong></td><td><strong>79.2%</strong></td><td><strong>80.6%</strong></td></tr>
-        </table>
-        <p>ADE20K语义分割上，Bootleg从I-JEPA的11.8%提升至26.6%（ViT-S）。</p>
+<p>AutoGaze是一个3M参数的轻量模型，包含卷积编码器和自回归transformer解码器。它逐帧处理视频，自回归地选择最小的多尺度patch集合，使重建损失低于用户指定阈值。</p>
 
-        <h2 id="p3-conclusion">结论</h2>
-        <p>Bootleg验证了"最深层不一定最好"的假设，中间层的特征对许多下游任务更有用。单视角方法，不需要大批量训练，在消费级GPU上即可预训练。</p>
-    </div>
-</article>
+<h3>自回归注视机制</h3>
 
-<!-- Paper 4: V-JEPA 2.1 -->
-<article class="paper-card" id="paper-4">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p4-tldr">TLDR</a></li>
-            <li><a href="#p4-motivation">动机与发现</a></li>
-            <li><a href="#p4-method">方法</a></li>
-            <li><a href="#p4-results">实验结果</a></li>
-            <li><a href="#p4-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">04</span>V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.14482</span>
-        <span>FAIR at Meta</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p4-tldr">TLDR</h2>
-        <p>V-JEPA 2.1通过将预测损失扩展到所有token（包括可见和被遮蔽的patch），解决了视频SSL中密集特征质量差的问题。在ADE20K达到47.9 mIoU，SSv2达到77.7%准确率，机器人抓取成功率提升20%。</p>
+<p>AutoGaze交替进行帧编码和patch选择。对第一帧编码后解码patch索引，第二帧基于两帧特征和第一帧的注视历史来解码patch索引，从而避免选择冗余patch。解码过程类似LLM，但词汇表是patch索引{1,...,V}而非词语。</p>
 
-        <h2 id="p4-motivation">动机与发现</h2>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>监督缺失假说</strong>：仅对被遮蔽token应用预测损失，上下文token缺乏监督</li>
-            <li><strong>上下文监督有效性</strong>：引入监督后ADE20K从22.2提升至33.9 mIoU</li>
-            <li><strong>深度自监督平衡</strong>：在编码器中间层应用自监督目标，同时提升密集和全局任务</li>
-        </ul>
+<h3>自动决定注视长度</h3>
 
-        <h2 id="p4-method">方法</h2>
-        <p><img src="V-JEPA 2.1_ Unlocking Dense Features in Video Self-Supervised Learning/images/fig2_architecture.jpg" alt="V-JEPA 2.1架构"><br><em>图2: V-JEPA 2.1详细架构</em></p>
-        <p>提出$\mathcal{L}_{dense} = \mathcal{L}_{predict} + \mathcal{L}_{ctx}$，对所有token应用自监督损失。$\mathcal{L}_{ctx}$采用距离加权方案，强调靠近掩码区域的patch。</p>
+<p>解码器增加一个预测头，在每步解码时预测当前已选patch的重建损失。一旦预测损失低于阈值，自动停止对该帧的注视。</p>
 
-        <h2 id="p4-results">实验结果</h2>
-        <table>
-            <tr><th>任务</th><th>数据集</th><th>V-JEPA 2.1</th><th>前代SOTA</th></tr>
-            <tr><td>深度估计</td><td>NYUv2</td><td><strong>0.307</strong></td><td>DINOv3</td></tr>
-            <tr><td>语义分割</td><td>ADE20K</td><td><strong>47.9</strong></td><td>DINOv3</td></tr>
-            <tr><td>动作识别</td><td>SSv2</td><td><strong>77.7%</strong></td><td>DINOv3</td></tr>
-        </table>
+<h3>多尺度注视</h3>
 
-        <h2 id="p4-conclusion">结论</h2>
-        <p>V-JEPA 2.1揭示了视频SSL中密集特征质量与监督范围的关系。提供从2B模型蒸馏到80M/300M小型模型的实用方案。</p>
-    </div>
-</article>
+<p>词汇表包含多尺度patch（如1×1、2×2、4×4、8×8），解码器可根据区域细节程度选择不同尺度。平坦区域用粗粒度patch覆盖大面积，细节区域用细粒度patch捕获精细信息。</p>
 
-<!-- Paper 5: Kimodo -->
-<article class="paper-card" id="paper-5">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p5-tldr">TLDR</a></li>
-            <li><a href="#p5-motivation">动机与发现</a></li>
-            <li><a href="#p5-method">方法</a></li>
-            <li><a href="#p5-results">实验结果</a></li>
-            <li><a href="#p5-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">05</span>Kimodo: Scaling Controllable Human Motion Generation</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.15546</span>
-        <span>NVIDIA</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p5-tldr">TLDR</h2>
-        <p>NVIDIA提出的可控人体运动生成扩散模型，在700小时专业动捕数据上训练。两阶段去噪器架构将根运动与身体运动分解预测，全身关键帧误差2.67cm，末端执行器3.09cm，可直接用于机器人演示数据生成。</p>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>在ViT之前去除冗余patch（而非ViT之后），从源头减少计算</li>
+<li>多尺度patch选择，适配不同细节程度区域</li>
+<li>多token预测，一次输出多个patch索引，加速解码</li>
 
-        <h2 id="p5-motivation">动机与发现</h2>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>数据规模至关重要</strong>：700小时训练显著提升约束跟随能力</li>
-            <li><strong>两阶段分解架构有效</strong>：脚部滑动从7.59降至3.87 cm/s</li>
-            <li><strong>规模定律成立</strong>：数据/模型/批大小三维度扩展均提升性能</li>
-        </ul>
+</ul>
+<h3>两阶段训练</h3>
 
-        <h2 id="p5-method">方法</h2>
-        <p><img src="Kimodo_Scaling_Controllable_Human_Motion_Generation/images/fig9.png" alt="Kimodo去噪器架构"><br><em>图9: 两阶段去噪器架构</em></p>
-        <p>采用显式运动扩散模型，通过全局运动表示和两阶段Transformer去噪器实现精确控制。约束通过直接植入（imputation）覆盖噪声运动输入。</p>
+<p><strong>NTP预训练</strong>：在800K视频中用贪心搜索收集250K视频的准最优注视序列，用next-token prediction损失训练模型学习子最优注视策略。</p>
 
-        <h2 id="p5-results">实验结果</h2>
-        <table>
-            <tr><th>方法</th><th>R@3↑</th><th>FID↓</th><th>滑动(cm/s)↓</th><th>全身Pos(cm)↓</th></tr>
-            <tr><td><strong>完整模型</strong></td><td><strong>71.9</strong></td><td><strong>1.85</strong></td><td><strong>3.87</strong></td><td><strong>2.67</strong></td></tr>
-            <tr><td>单阶段架构</td><td>71.5</td><td>1.65</td><td>7.59</td><td>8.37</td></tr>
-        </table>
+<p><strong>RL后训练</strong>：用简化GRPO算法，以重建损失为奖励，发现更优的注视序列。奖励为未来帧负重建损失的折扣累积。</p>
 
-        <h2 id="p5-conclusion">结论</h2>
-        <p>Kimodo证明了运动生成领域的规模定律，提供开源模型（SOMA人体骨架和Unitree G1机器人版本），可快速生成机器人演示数据。</p>
-    </div>
-</article>
+<h3>下游应用</h3>
 
-<!-- Paper 6: OmniStream -->
-<article class="paper-card" id="paper-6">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p6-tldr">TLDR</a></li>
-            <li><a href="#p6-motivation">动机与发现</a></li>
-            <li><a href="#p6-method">方法</a></li>
-            <li><a href="#p6-results">实验结果</a></li>
-            <li><a href="#p6-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">06</span>OmniStream: Mastering Perception, Reconstruction and Action in Continuous Streams</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.12265</span>
-        <span>上海交通大学、牛津大学</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p6-tldr">TLDR</h2>
-        <p>统一的流式视觉骨干网络，通过因果时空注意力和3D-RoPE将预训练图像ViT转化为在线流式模型。在29个数据集上预训练，骨干冻结时在感知、推理、机器人操作任务上均取得竞争性能。</p>
+<p>尽管训练在16帧224×224视频上，AutoGaze可处理任意分辨率和时长视频。将视频分割为16×224×224时空tile，在每个tile上运行AutoGaze后合并结果。ViT通过插值支持多尺度patch输入，将图像ViT改造为视频ViT。</p>
 
-        <h2 id="p6-motivation">动机与发现</h2>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>因果视频建模至关重要</strong>：移除视频SSL导致SSv2下降6.3%</li>
-            <li><strong>显式几何预训练是具身AI前提</strong>：禁用3D重建导致VSI-Bench下降4.8%</li>
-            <li><strong>早期视觉语言对齐防止灾难性失败</strong>：移除字幕任务导致VideoMME下降9.1%</li>
-        </ul>
+<hr>
 
-        <h2 id="p6-method">方法</h2>
-        <p><img src="OmniStream/images/fig2.png" alt="OmniStream框架"><br><em>图2: OmniStream整体框架</em></p>
-        <p>将DINOv3图像ViT转化为流式视觉骨干：因果时空注意力实现严格时序因果性，3D-RoPE将2D RoPE扩展到时空域（t:y:x = 2:3:3）。</p>
+<h2 id="paper-1-results">实验设定与结果</h2>
 
-        <h2 id="p6-results">实验结果</h2>
-        <table>
-            <tr><th>任务</th><th>基准</th><th>OmniStream</th><th>DINOv3-L</th></tr>
-            <tr><td>动作识别</td><td>SSv2</td><td><strong>68.5%</strong></td><td>54.0%</td></tr>
-            <tr><td>动作识别</td><td>K400</td><td><strong>85.7%</strong></td><td>83.6%</td></tr>
-            <tr><td>机器人操作</td><td>CALVIN</td><td><strong>3.885</strong></td><td>-</td></tr>
-        </table>
+<img src="Attend Before Attention - Efficient and Scalable Video Understanding via Autoregressive Gazing/images/fig7.png" alt="图7: ViT和MLLM效率增益">
+<p><em>图7: AutoGaze在ViT和MLLM上的效率增益。使用重建损失0.7所需的注视比例时，ViT加速最高19×，MLLM加速最高10×</em></p>
 
-        <h2 id="p6-conclusion">结论</h2>
-        <p>证明单一视觉骨干可同时支持语义、空间和时序推理。KV-cache实现O(T)时序复杂度，支持110帧零样本长度外推。</p>
-    </div>
-</article>
+<h3>实验配置</h3>
 
-<!-- Paper 7: Holi-Spatial -->
-<article class="paper-card" id="paper-7">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p7-tldr">TLDR</a></li>
-            <li><a href="#p7-motivation">动机与发现</a></li>
-            <li><a href="#p7-method">方法</a></li>
-            <li><a href="#p7-results">实验结果</a></li>
-            <li><a href="#p7-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">07</span>Holi-Spatial: Evolving Video Streams into Holistic 3D Spatial Intelligence</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.07660</span>
-        <span>上海AI Lab、清华、北大等</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p7-tldr">TLDR</h2>
-        <p>首个全自动视频流到3D空间标注管道，包含几何优化、图像级感知、场景级精炼三阶段。构建Holi-Spatial-4M数据集（12K场景、400万+标注），微调Qwen3-VL后3D定位AP50提升15%，MMSI-Bench准确率提升7.9%。</p>
+<ul>
+<li><strong>ViT</strong>：SigLIP2-SO400M</li>
+<li><strong>MLLM</strong>：NVILA-8B-Video</li>
+<li><strong>重建损失阈值</strong>：0.7（性能下降<0.5%）</li>
+<li><strong>数据集</strong>：VideoMME, MVBench, NExT-QA, L-VidBench, EgoSchema, MLVU, HLVid</li>
 
-        <h2 id="p7-motivation">动机与发现</h2>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>AI工具组合潜力</strong>：系统组合Depth-Anything-V3、SAM3、VLM可构建超越人工标注的引擎</li>
-            <li><strong>多视图一致性</strong>：3DGS优化后的深度图能有效消除浮点噪声</li>
-            <li><strong>VLM Agent验证</strong>：恢复被错误过滤的低置信度真阳性</li>
-        </ul>
+</ul>
+<h3>核心结果</h3>
 
-        <h2 id="p7-method">方法</h2>
-        <p><img src="Holi-Spatial/images/fig3.png" alt="Holi-Spatial管道"><br><em>图3: Holi-Spatial管道概览</em></p>
-        <p>三阶段流水线：(1)几何优化通过3DGS提炼高保真3D结构；(2)图像级感知将2D VLM和SAM3预测提升为初始3D提议；(3)场景级精炼采用粗到细策略生成高质量标注。</p>
+<p><strong>效率提升</strong>：</p>
+<ul>
+<li>视觉token减少4×-100×（30FPS 4K视频仅需~1% patch）</li>
+<li>ViT加速最高19×，MLLM加速最高10×</li>
+<li>可扩展至1024帧、3584分辨率</li>
 
-        <h2 id="p7-results">实验结果</h2>
-        <table>
-            <tr><th>指标</th><th>Holi-Spatial</th><th>M3-Spatial</th><th>提升</th></tr>
-            <tr><td>ScanNet++ Depth F1</td><td><strong>0.89</strong></td><td>0.39</td><td>+128%</td></tr>
-            <tr><td>ScanNet++ 3D Det AP50</td><td><strong>70.05</strong></td><td>4.80</td><td>+1360%</td></tr>
-            <tr><td>Qwen3-VL 3D定位 AP50</td><td><strong>27.98</strong></td><td>13.50</td><td>+107%</td></tr>
-        </table>
+</ul>
+<p><strong>性能对比</strong>：</p>
 
-        <h2 id="p7-conclusion">结论</h2>
-        <p>证明了通过系统组合现有AI工具可以构建超越人工标注的自动化数据引擎。为机器人操作、导航、AR等应用提供数据基础。</p>
-    </div>
-</article>
+<table>
+<tr>
+<th>模型</th>
+<th>VideoMME</th>
+<th>MVBench</th>
+<th>HLVid</th>
+</tr>
+<tr>
+<td>NVILA-8B-Video</td>
+<td>64.2</td>
+<td>68.1</td>
+<td>42.5</td>
+</tr>
+<tr>
+<td><strong>NVILA + AutoGaze</strong></td>
+<td><strong>67.0</strong></td>
+<td><strong>69.7</strong></td>
+<td><strong>52.6</strong></td>
+</tr>
+<tr>
+<td>Qwen2.5-VL-7B</td>
+<td>65.1</td>
+<td>69.6</td>
+<td>48.1</td>
+</tr>
+<tr>
+<td>GPT-4o</td>
+<td>71.9</td>
+<td>64.6</td>
+<td>49.3</td>
+</tr>
+</table>
 
-<!-- Paper 8: PF-RPN -->
-<article class="paper-card" id="paper-8">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p8-tldr">TLDR</a></li>
-            <li><a href="#p8-motivation">动机与发现</a></li>
-            <li><a href="#p8-method">方法</a></li>
-            <li><a href="#p8-results">实验结果</a></li>
-            <li><a href="#p8-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">08</span>Prompt-Free Universal Region Proposal Network (PF-RPN)</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.17554</span>
-        <span>南京大学、中国科学技术大学</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p8-tldr">TLDR</h2>
-        <p>无需外部提示的通用区域建议网络，可在跨域场景中零样本识别任意潜在物体。核心创新包括稀疏图像感知适配器、级联自提示机制和中心性引导查询选择，仅需5% COCO数据训练，在19个跨域数据集上比GDINO提升6.0-7.5 AR。</p>
+<p>AutoGaze在HLVid上比基线提升10.1%，比之前最佳模型VideoChat-Flash高4.5%。</p>
 
-        <h2 id="p8-motivation">动机与发现</h2>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>视觉特征比文本更适合定位</strong>：用可学习嵌入替代文本嵌入</li>
-            <li><strong>物体内部特征优于可学习嵌入</strong>：可用于迭代检索其他物体</li>
-            <li><strong>中心查询生成更精确的边界框</strong></li>
-        </ul>
+<p><strong>与token裁剪方法对比</strong>：</p>
+<p>AutoGaze将ViT延迟从2.20s降至0.55s（4×加速），而其他方法仅加速LLM，ViT延迟不变。性能与无裁剪基线持平。</p>
 
-        <h2 id="p8-method">方法</h2>
-        <p><img src="Prompt-Free Universal Region Proposal Network/images/fig2.png" alt="PF-RPN架构"><br><em>图2: PF-RPN整体架构</em></p>
-        <h3>三个核心组件</h3>
-        <ul>
-            <li><strong>稀疏图像感知适配器(SIA)</strong>：MoE路由器稀疏选择特征级别</li>
-            <li><strong>级联自提示(CSP)</strong>：用已发现物体的特征迭代检索其他物体</li>
-            <li><strong>中心性引导查询选择(CG-QS)</strong>：优先选择高质量查询</li>
-        </ul>
+<hr>
 
-        <h2 id="p8-results">实验结果</h2>
-        <table>
-            <tr><th>方法</th><th>CD-FSOD AR100</th><th>CD-FSOD AR900</th><th>ODinW13 AR100</th></tr>
-            <tr><td>GDINO</td><td>52.9</td><td>54.7</td><td>72.1</td></tr>
-            <tr><td><strong>PF-RPN</strong></td><td><strong>60.7</strong></td><td><strong>68.2</strong></td><td><strong>76.5</strong></td></tr>
-        </table>
+<h2 id="paper-1-conclusion">启示和结论</h2>
 
-        <h2 id="p8-conclusion">结论</h2>
-        <p>首次提出无需任何外部提示的区域建议网络，仅需5%标注数据，推理速度比GDINO更快（4.6 vs 3.3 FPS），可无缝集成到现有检测器。</p>
-    </div>
-</article>
+<h3>主要贡献</h3>
 
-<!-- Paper 9: EdgeCrafter -->
-<article class="paper-card" id="paper-9">
-    <nav class="paper-toc">
-        <div class="paper-toc-title">本篇目录</div>
-        <ul class="paper-toc-list">
-            <li><a href="#p9-tldr">TLDR</a></li>
-            <li><a href="#p9-motivation">动机与发现</a></li>
-            <li><a href="#p9-method">方法</a></li>
-            <li><a href="#p9-results">实验结果</a></li>
-            <li><a href="#p9-conclusion">结论</a></li>
-        </ul>
-    </nav>
-    <h2 class="paper-title"><span class="paper-num">09</span>EdgeCrafter: Compact ViTs for Edge Dense Prediction via Task-Specialized Distillation</h2>
-    <div class="paper-meta">
-        <span>arXiv: 2603.18739</span>
-        <span>Intellindust AI Lab</span>
-    </div>
-    <div class="paper-content">
-        <h2 id="p9-tldr">TLDR</h2>
-        <p>面向边缘部署的紧凑ViT框架，通过任务特化蒸馏解决小型ViT在密集预测中表征不足的问题。ECDet-S以10M参数达到51.7 AP，ECPose-X以74.8 AP超越YOLO26Pose-X（71.6 AP）。</p>
+<ol>
+<li>提出AutoGaze，在ViT之前去除视频冗余patch，从源头提升效率</li>
+<li>两阶段训练（NTP预训练+RL后训练）学习高效注视策略</li>
+<li>首个高分辨率长视频基准HLVid，推动该方向研究</li>
 
-        <h2 id="p9-motivation">动机与发现</h2>
-        <h3>关键发现</h3>
-        <ul>
-            <li><strong>通用预训练对紧凑ViT不够用</strong>：ImageNet-21K预训练甚至比从头训练效果更差</li>
-            <li><strong>任务特化蒸馏显著提升下游性能</strong>：将DINOv3适配到检测再蒸馏</li>
-            <li><strong>检测表征可直接迁移到其他任务</strong>：同一backbone支持检测、分割、姿态估计</li>
-        </ul>
+</ol>
+<h3>理论意义</h3>
 
-        <h2 id="p9-method">方法</h2>
-        <p><img src="EdgeCrafter/images/fig2.png" alt="EdgeCrafter流水线"><br><em>图2: EdgeCrafter流水线概览</em></p>
-        <p>三阶段流水线：(1)将DINOv3适配为检测特化教师；(2)通过特征对齐蒸馏到紧凑ECViT学生；(3)复用到密集预测多个下游任务。</p>
+<ul>
+<li>证明视频理解无需处理全部像素，选择性注视可达同等甚至更好效果</li>
+<li>将LLM的自回归思想应用于视觉token选择</li>
 
-        <h2 id="p9-results">实验结果</h2>
-        <table>
-            <tr><th>模型</th><th>参数量</th><th>AP</th><th>AP50</th></tr>
-            <tr><td>YOLOv9-S</td><td>7M</td><td>46.8</td><td>61.8</td></tr>
-            <tr><td>DEIMv2-S</td><td>10M</td><td>50.9</td><td>68.4</td></tr>
-            <tr><td><strong>ECDet-S</strong></td><td><strong>10M</strong></td><td><strong>51.7</strong></td><td><strong>69.4</strong></td></tr>
-        </table>
-        <p>ECPose-X达到<strong>74.8 AP</strong>，超越YOLO26Pose-X（71.6 AP，还使用了Objects365预训练）。</p>
+</ul>
+<h3>实践价值</h3>
 
-        <h2 id="p9-conclusion">结论</h2>
-        <p>为边缘部署提供了比YOLO更具竞争力的ViT替代方案，无需Objects365等大规模额外预训练数据，仅用COCO标注即可达到SOTA级别性能。</p>
-    </div>
-</article>
+<ul>
+<li>使4K长视频理解成为可能，无需巨额算力</li>
+<li>轻量级（3M参数）可无缝集成到现有ViT和MLLM中</li>
 
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>训练数据以16帧224×224为主，对极端长视频或超高清视频的泛化有待验证</li>
+<li>重建损失阈值需人工设定，不同场景可能需调整</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://autogaze.github.io/</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-2">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-2-tldr">TLDR</a></li>
+<li><a href="#paper-2-motivation">动机与发现</a></li>
+<li><a href="#paper-2-method">方法</a></li>
+<li><a href="#paper-2-results">实验设定与结果</a></li>
+<li><a href="#paper-2-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">2</span>
+                    Attention Residuals
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Kimi Team: Guangyu Chen, Yu Zhang, Jianlin Su, Weixin Xu, Siyuan Pan 等36位作者</span><span> 机构：Moonshot AI（月之暗面）</span><span> arXiv：2603.15031 | **日期**：2026年3月16日</span><span>️ 日期：2026年3月16日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Kimi Team: Guangyu Chen, Yu Zhang, Jianlin Su, Weixin Xu, Siyuan Pan 等36位作者</p>
+<p><strong>机构</strong>：Moonshot AI（月之暗面）</p>
+<p><strong>arXiv</strong>：2603.15031 | <strong>日期</strong>：2026年3月16日</p>
+
+<hr>
+
+<h2 id="paper-2-tldr">TLDR</h2>
+
+<p>现代 LLM 的标准残差连接（PreNorm）以固定权重累积所有层输出，导致隐藏状态随深度增长而稀释各层贡献。本文提出 Attention Residuals（AttnRes），用 softmax attention 替代固定累积，使每层能有选择性地聚合先前表示。Block AttnRes 通过分块将内存从 O(Ld) 降至 O(Nd)，成为实用的 drop-in replacement。在 Kimi Linear 架构（48B/3B）上预训练 1.4T tokens 的实验表明，AttnRes 在所有评估任务上均提升下游性能。</p>
+
+
+
+<hr>
+
+<h2 id="paper-2-motivation">动机与发现</h2>
+
+<h3>问题：PreNorm 残差连接的隐藏状态稀释</h3>
+
+<p>标准残差连接将各层输出简单相加（固定单位权重），这种均匀聚合导致：</p>
+<ol>
+<li><strong>隐藏状态幅值膨胀</strong>：随深度增长为 O(L)</li>
+<li><strong>每层贡献被稀释</strong>：早期层信息被埋没，无法选择性检索</li>
+<li><strong>梯度分布不均匀</strong>：深层梯度衰减</li>
+
+</ol>
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>深度与时间的对偶性</strong>：残差连接在深度维度上类似于 RNN 在时间维度上的压缩，都可以用 attention 机制替代</li>
+<li><strong>内容依赖的深度选择有益</strong>：让模型根据输入内容决定聚合哪些层的输出，比固定权重更有效</li>
+<li><strong>Scaling Law 一致性</strong>：AttnRes 的改进在不同模型规模下保持一致，Block AttnRes 用 1.25× 更少计算达到相同 loss</li>
+
+</ol>
+<hr>
+
+<h2 id="paper-2-method">方法</h2>
+
+<p><strong>核心思想</strong></p>
+
+<p>用 softmax attention 替代残差连接中的简单求和。每层的输出不再直接加到累积状态上，而是通过 attention 机制有选择性地从先前层的表示中聚合信息。</p>
+
+<h3>Full AttnRes</h3>
+
+<p>标准残差连接：</p>
+<pre><code>
+h_l = h_{l-1} + f_l(h_{l-1})
+</code></pre>
+
+<p>AttnRes 改为：</p>
+<pre><code>
+h_l = Σ α_{i→l} · v_i
+</code></pre>
+<p>其中 α_{i→l} 是 softmax attention 权重，v_i 是各层输出。</p>
+
+<p><strong>查询和键的设计：</strong></p>
+<ul>
+<li>查询 q_l = w_l：每层一个学习的 d 维向量</li>
+<li>键 k_i：各层输出的 RMSNorm</li>
+<li>注意力：α_{i→l} = exp(q_l^T · k_i) / Σ exp(q_l^T · k_j)</li>
+
+</ul>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li><strong>内容依赖的深度选择</strong>：用 softmax attention 替代固定权重</li>
+<li><strong>轻量级查询</strong>：每层只需一个 d 维向量，而非依赖输入</li>
+<li><strong>Block 分块</strong>：将 L 层分成 N 个块，块内求和，块间 attention</li>
+
+</ul>
+<h3>Block AttnRes</h3>
+
+<p><strong>动机</strong>：Full AttnRes 在大规模训练中面临 O(Ld) 的内存和通信开销。</p>
+
+<p><strong>解决方案</strong>：</p>
+<ol>
+<li>将 L 层分为 N 个块，每块 S = L/N 层</li>
+<li>块内：标准残差求和</li>
+<li>块间：对 N 个块表示进行 full attention</li>
+<li>内存和通信从 O(Ld) 降至 O(Nd)</li>
+
+</ol>
+<p><strong>效率对比</strong>：</p>
+<ul>
+<li>N = L：恢复 Full AttnRes</li>
+<li>N = 1：恢复标准残差</li>
+<li>实验发现 N ≈ 8 即可恢复大部分收益</li>
+
+</ul>
+<h3>基础设施优化</h3>
+
+<p><strong>训练优化（跨阶段缓存）</strong>：</p>
+<ul>
+<li>在流水线并行中，缓存已传输的块表示</li>
+<li>只传输增量块，消除冗余通信</li>
+<li>通信开销从 O(C) 降至 O(P)</li>
+
+</ul>
+<p><strong>推理优化（两阶段计算）</strong>：</p>
+<ul>
+<li><strong>阶段1</strong>：批量计算所有 S 层的块间 attention（并行）</li>
+<li><strong>阶段2</strong>：逐层计算块内 attention，用 online softmax 合并</li>
+<li>推理延迟开销 < 2%</li>
+
+</ul>
+<hr>
+
+<h2 id="paper-2-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>模型架构</strong>：Kimi Linear（MoE 架构，48B 总参数 / 3B 激活参数）</li>
+<li><strong>预训练数据</strong>：1.4T tokens</li>
+<li><strong>评估任务</strong>：多项下游任务</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<p><strong>Scaling Law 实验</strong>：</p>
+<ul>
+<li>Block AttnRes 在所有计算预算下均优于基线</li>
+<li>用 1.25× 更少计算达到相同 loss</li>
+
+</ul>
+<p><strong>Kimi Linear 集成效果（48B 模型）</strong>：</p>
+<ul>
+<li>缓解 PreNorm 稀释：输出幅度在各层更均匀</li>
+<li>梯度分布改善：各层梯度分布更均衡</li>
+<li><strong>所有评估任务上均提升下游性能</strong></li>
+
+</ul>
+<p><strong>消融实验</strong>：</p>
+<ul>
+<li>Full AttnRes > Block AttnRes > 标准残差</li>
+<li>块大小 N=8 时达到性能与效率的最佳平衡</li>
+
+</ul>
+<hr>
+
+<h2 id="paper-2-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>理论洞察</strong>：首次发现深度与时间的对偶性，将残差连接统一到 attention 框架</li>
+<li><strong>方法创新</strong>：提出 AttnRes 和 Block AttnRes，用 attention 替代固定权重聚合</li>
+<li><strong>工程实践</strong>：跨阶段缓存和两阶段计算使 Block AttnRes 成为可直接替换的实用方案</li>
+<li><strong>大规模验证</strong>：在 48B 参数模型上验证有效性，跨规模一致的改进</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li>揭示了残差连接的深层问题：固定权重聚合导致表示质量随深度下降</li>
+<li>证明了内容依赖的层选择比固定聚合更优</li>
+<li>统一了残差连接与 attention 机制的理论框架</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li>作为 drop-in replacement，可直接应用于现有 LLM 架构</li>
+<li>训练开销极小（<4%），推理延迟增加 <2%</li>
+<li>在 Kimi 等实际产品中得到验证</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>是 tech report，部分实验细节和消融研究可能不够完整</li>
+<li>块大小的选择对性能有影响，需要根据具体场景调优</li>
+<li>对于非常深的网络（如 100+ 层），最佳分块策略仍需研究</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://github.com/MoonshotAI/Attention-Residuals</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-3">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-3-tldr">TLDR</a></li>
+<li><a href="#paper-3-motivation">动机与发现</a></li>
+<li><a href="#paper-3-method">方法</a></li>
+<li><a href="#paper-3-results">实验设定与结果</a></li>
+<li><a href="#paper-3-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">3</span>
+                    EdgeCrafter: Compact ViTs for Edge Dense Prediction via Task-Specialized Distillation
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Longfei Liu, Yongjie Hou, Yang Li, Qirui Wang, Youyang Sha, Yongjun Yu, Yinzhi Wang, Peizhe Ru, Xuanlong Yu, Xi Shen</span><span> 机构：Intellindust AI Lab</span><span> arXiv：2603.18739 | **日期**：2026年3月19日</span><span>️ 日期：2026年3月19日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Longfei Liu, Yongjie Hou, Yang Li, Qirui Wang, Youyang Sha, Yongjun Yu, Yinzhi Wang, Peizhe Ru, Xuanlong Yu, Xi Shen</p>
+<p><strong>机构</strong>：Intellindust AI Lab</p>
+<p><strong>arXiv</strong>：2603.18739 | <strong>日期</strong>：2026年3月19日</p>
+
+<hr>
+
+<h2 id="paper-3-tldr">TLDR</h2>
+
+<p>EdgeCrafter 提出了一套面向边缘部署的紧凑 ViT 框架，通过任务特化蒸馏（task-specialized distillation）解决小型 ViT 在密集预测任务中表征不足的核心问题。在 COCO 数据集上，仅需 10M 参数的 ECDet-S 即可达到 51.7 AP 的检测精度；ECPose-X 以 74.8 AP 显著超越依赖 Objects365 预训练的 YOLO26Pose-X（71.6 AP），展示了紧凑 ViT 在边缘密集预测中的竞争力。</p>
+
+<hr>
+
+<h2 id="paper-3-motivation">动机与发现</h2>
+
+<h3>问题：紧凑 ViT 在边缘密集预测中的性能瓶颈</h3>
+
+<p>边缘设备部署密集预测模型（目标检测、实例分割、人体姿态估计）时，受计算和内存的严格限制。当前实践中，轻量级系统仍以 YOLO 等 CNN 架构为主，而紧凑 ViT 通常难以获得同等精度-效率权衡，即使使用大规模预训练也是如此。</p>
+
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>通用预训练对紧凑 ViT 不够用</strong>：实验发现，使用 ImageNet-21K 监督预训练初始化 ViT-Tiny，在密集预测任务上甚至比从头训练效果更差。这与 Ghiasi 等人（2021）和 Zoph 等人（2020）的观察一致。</li>
+<li><strong>任务特化蒸馏显著提升下游性能</strong>：将大型 DINOv3 预训练 ViT 先适配到目标检测，再作为教师进行特征对齐蒸馏，能将紧凑学生的下游性能提升到远超通用预训练的水平。</li>
+<li><strong>检测蒸馏表征可直接迁移到其他任务</strong>：同一个检测蒸馏后的 backbone 和 encoder，只需换轻量级任务头即可支持实例分割和姿态估计。</li>
+
+</ol>
+<hr>
+
+<h2 id="paper-3-method">方法</h2>
+
+<img src="EdgeCrafter/images/fig2.png" alt="图2: EdgeCrafter 流水线概览">
+<p><em>图2: EdgeCrafter 流水线概览。阶段一：将预训练 DINOv3 backbone 适配到目标检测，构建任务特化教师。阶段二：通过特征对齐将检测导向的表征蒸馏到紧凑 ECViT 学生 backbone。阶段三：蒸馏后的学生用于实例化不同尺度的 ECDet 模型家族，并复用到实例分割和人体姿态估计。</em></p>
+
+<p><strong>核心思想</strong></p>
+
+<p>EdgeCrafter 以 ECDet 为核心检测模型，采用三阶段流水线：先将大模型适配为检测特化教师，再通过特征对齐蒸馏到紧凑学生 backbone，最后将同一 backbone 复用到密集预测的多个下游任务。</p>
+
+<h3>ECDet 架构</h3>
+
+<img src="EdgeCrafter/images/fig3.png" alt="图3: ECDet 架构">
+<p><em>图3: ECDet 架构。ECDet 由三个组件组成：蒸馏后的 ECViT backbone、编码器和解码器。backbone 将标准的大步长 patch embedding 替换为四层卷积 stem，输出单分辨率 token 表征。轻量级多尺度特征生成器聚合最后两个 transformer 块，通过插值和 1x1 投影生成 stride 8/16/32 的特征图。编码器精炼并融合这些特征，解码器执行基于集合的目标预测。</em></p>
+
+<p><strong>Backbone 设计（ECViT）</strong></p>
+
+<p>标准 ViT 的 patch embedding 使用单次大步长投影，会丢失对密集定位关键的精细空间信息。ECDet 用四层 3×3 卷积（stride 2）替代，逐步扩大感受野后再送入 transformer 块。这符合有效感受野分析中卷积堆叠保留中心集中感受野的特性。</p>
+
+<p><strong>多尺度特征生成</strong></p>
+
+<p>ViT 不自然产生层级特征金字塔。ECDet 取最后两个 transformer 块的输出 token，平均后 reshape 为 stride 16 的空间特征图，再通过双线性插值和 1×1 卷积投影生成 stride 8/16/32 的三级金字塔。该设计几乎不引入额外参数。</p>
+
+<p><strong>编码器</strong></p>
+
+<p>遵循 RT-DETR 的设计：先用 AIFI（注意力内尺度特征交互）精炼最低分辨率特征图扩大感受野，再用 CCFF（CNN 跨尺度特征融合）将高层语义传播到更细粒度尺度。</p>
+
+<p><strong>解码器</strong></p>
+
+<p>采用 DETR 集合预测范式，使用 4 层堆叠的自注意力 + 可变形交叉注意力 + FFN，操作 300 个学习到的对象查询。</p>
+
+<p><strong>训练目标</strong></p>
+
+<p>标准 DETR 风格的二部图匹配损失，包含分类损失（Varifocal Loss）和框回归损失（L1 + GIoU + DDF + FGL）。</p>
+
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>用轻量卷积 stem 替代标准 patch embedding，更适合密集定位</li>
+<li>通过简单插值 + 线性投影构建多尺度特征，避免昂贵的 FPN 模块</li>
+
+</ul>
+<h3>任务特化蒸馏</h3>
+
+<p><strong>检测特化教师</strong></p>
+
+<p>将预训练 DINOv3 ViT（通过添加与 ECDet 相同的检测头）适配为目标检测，使其表征与下游学生任务直接对齐。使用两个教师尺度：ECTeacher-S（来自 DINOv3-S）和 ECTeacher-B（来自 DINOv3-B）。</p>
+
+<p><strong>特征对齐蒸馏</strong></p>
+
+<p>学生 backbone 最后一个 transformer 块的 token 特征，通过单层线性适配器映射到教师特征维度，同时匹配教师最后两个块的特征：</p>
+
+<p>$$\mathcal{L}_{\mathrm{distill}} = \sum_{l \in \{L-1, L\}} \|\phi(\mathbf{X}^S_L) - \mathbf{X}^T_l\|_2^2$$</p>
+
+<p>使用最小化适配器将表征学习的负担放在学生 backbone 本身，而非允许高容量投影头吸收差异。</p>
+
+<p><strong>蒸馏设置</strong></p>
+
+<p>在下游任务适配之前先进行蒸馏。S 检测器从 ECTeacher-S 蒸馏，M/L/X 从 ECTeacher-B 蒸馏。蒸馏数据混合 ImageNet-1K 和 COCO 训练集图片，且教师先在 COCO 检测上微调以更贴近任务。</p>
+
+<h3>ECPose 与 ECInsSeg</h3>
+
+<p><strong>ECPose</strong>：复用 ECDet 的蒸馏 backbone 和 encoder，将检测头替换为轻量姿态头。遵循 DETRpose 的结构化查询设计，每个人体实例使用 1 个 instance token + K 个关键点 token。训练损失为 Varifocal 分类 + 关键点回归 + OKS 损失。</p>
+
+<p><strong>ECInsSeg</strong>：在 ECDet 检测头基础上增加轻量级 mask head。每个检测框的 RoI 特征经过 mask 解码器生成分割掩码。</p>
+
+<hr>
+
+<h2 id="paper-3-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>数据集</strong>：COCO 2017</li>
+<li><strong>评估指标</strong>：AP, AP50, AP75, APS, APM, APL</li>
+<li><strong>模型家族</strong>：ECDet-S/M/L/X，输入分辨率统一 640×640</li>
+<li><strong>蒸馏数据</strong>：ImageNet-1K + COCO 训练集</li>
+<li><strong>下游训练</strong>：仅使用 COCO 任务标注，无需 Objects365 等额外预训练数据</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<p><strong>目标检测</strong></p>
+
+<table>
+<tr>
+<th>模型</th>
+<th>参数量</th>
+<th>GFLOPs</th>
+<th>AP</th>
+<th>AP50</th>
+<th>AP75</th>
+</tr>
+<tr>
+<td>YOLOv9-S</td>
+<td>7M</td>
+<td>26</td>
+<td>46.8</td>
+<td>61.8</td>
+<td>48.6</td>
+</tr>
+<tr>
+<td>YOLO11-S</td>
+<td>9M</td>
+<td>22</td>
+<td>46.6</td>
+<td>63.4</td>
+<td>50.3</td>
+</tr>
+<tr>
+<td>D-FINE-S</td>
+<td>10M</td>
+<td>25</td>
+<td>48.5</td>
+<td>65.6</td>
+<td>52.6</td>
+</tr>
+<tr>
+<td>DEIMv2-S</td>
+<td>10M</td>
+<td>26</td>
+<td>50.9</td>
+<td>68.4</td>
+<td>55.1</td>
+</tr>
+<tr>
+<td><strong>ECDet-S</strong></td>
+<td><strong>10M</strong></td>
+<td><strong>26</strong></td>
+<td><strong>51.7</strong></td>
+<td><strong>69.4</strong></td>
+<td><strong>55.8</strong></td>
+</tr>
+<tr>
+<td>YOLOv9-M</td>
+<td>20M</td>
+<td>76</td>
+<td>51.4</td>
+<td>67.2</td>
+<td>54.6</td>
+</tr>
+<tr>
+<td>YOLO26-M</td>
+<td>20M</td>
+<td>68</td>
+<td>52.5</td>
+<td>69.8</td>
+<td>57.2</td>
+</tr>
+<tr>
+<td><strong>ECDet-M</strong></td>
+<td><strong>18M</strong></td>
+<td><strong>53</strong></td>
+<td><strong>54.3</strong></td>
+<td><strong>72.2</strong></td>
+<td><strong>58.7</strong></td>
+</tr>
+<tr>
+<td>D-FINE-L*</td>
+<td>31M</td>
+<td>91</td>
+<td>54.0</td>
+<td>71.6</td>
+<td>58.4</td>
+</tr>
+<tr>
+<td>DEIMv2-L</td>
+<td>32M</td>
+<td>97</td>
+<td>56.0</td>
+<td>73.5</td>
+<td>61.1</td>
+</tr>
+<tr>
+<td><strong>ECDet-L</strong></td>
+<td><strong>31M</strong></td>
+<td><strong>101</strong></td>
+<td><strong>57.0</strong></td>
+<td><strong>75.1</strong></td>
+<td><strong>61.7</strong></td>
+</tr>
+<tr>
+<td>RF-DETR-X*</td>
+<td>126M</td>
+<td>300</td>
+<td>58.6</td>
+<td>77.4</td>
+<td>63.8</td>
+</tr>
+<tr>
+<td>YOLO26-X</td>
+<td>55M</td>
+<td>194</td>
+<td>56.9</td>
+<td>74.1</td>
+<td>62.1</td>
+</tr>
+<tr>
+<td><strong>ECDet-X</strong></td>
+<td><strong>49M</strong></td>
+<td><strong>151</strong></td>
+<td><strong>57.9</strong></td>
+<td><strong>76.0</strong></td>
+<td><strong>62.9</strong></td>
+</tr>
+</table>
+
+<p>ECDet-S 在同等参数量下 AP 比 DEIMv2-S 高 0.8，比 YOLOv9-S 高 4.9。ECDet-X 以 49M 参数达到 RF-DETR-X（126M）近似的性能。</p>
+
+<p><strong>人体姿态估计</strong></p>
+
+<p>ECPose-X 达到 <strong>74.8 AP</strong>，显著超越 YOLO26Pose-X（71.6 AP）后者还使用了 Objects365 预训练。</p>
+
+<p><strong>实例分割</strong></p>
+
+<p>ECInsSeg 在参数量远少于 RF-DETR-Seg 的情况下达到可比性能。</p>
+
+<hr>
+
+<h2 id="paper-3-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>识别了紧凑 ViT 在边缘密集预测中的关键瓶颈</strong>：通用监督预训练对小型模型往往不够，任务特化表征学习才是核心问题。</li>
+<li><strong>提出面向边缘的紧凑 ViT 设计</strong>：结合任务特化蒸馏、轻量卷积 stem 和简单多尺度特征构建，使 ViT backbone 在严格参数和 FLOP 预算下适合密集预测。</li>
+<li><strong>引入统一框架 EdgeCrafter</strong>：以 ECDet 为核心的检测蒸馏表征可有效迁移到实例分割和人体姿态估计，保持跨任务的精度-效率权衡。</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li>大模型的通用预训练表征并不能自动传递到紧凑模型，任务特化蒸馏桥接了这一差距。</li>
+<li>检测作为表征学习阶段，学到的 backbone 可直接服务于其他密集预测任务，验证了检测在密集预测中的核心地位。</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li>为边缘部署提供了比 YOLO 更具竞争力的 ViT 替代方案</li>
+<li>无需 Objects365 等大规模额外预训练数据，仅用 COCO 标注即可达到 SOTA 级别性能</li>
+<li>统一框架降低了同时部署检测、分割、姿态估计系统的工程复杂度</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>延迟方面，ECDet-S 的 TensorRT 推理延迟（5.41ms）略高于 YOLOv10-S（2.52ms）和 YOLO26-S（2.59ms），CNN 方案在纯推理速度上仍有优势</li>
+<li>蒸馏阶段需要先训练大型教师模型，增加了整体训练成本</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://intellindust-ai-lab.github.io/projects/EdgeCrafter/</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-4">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-4-tldr">TLDR</a></li>
+<li><a href="#paper-4-motivation">动机与发现</a></li>
+<li><a href="#paper-4-method">方法</a></li>
+<li><a href="#paper-4-results">实验设定与结果</a></li>
+<li><a href="#paper-4-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">4</span>
+                    Holi-Spatial: Evolving Video Streams into Holistic 3D Spatial Intelligence
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Yuanyuan Gao, Hao Li, Yifei Liu, Xinhao Ji, Yuning Gong, Yuanjun Liao, Fangfu Liu, Manyuan Zhang, Yuchen Yang, Dan Xu, Xue Yang, Huaxi Huang, Hongjie Zhang, Ziwei Liu, Xiao Sun, Dingwen Zhang, Zhihang Zhong</span><span> 机构：上海AI Lab、西北工业大学、上海交通大学、北京大学、南洋理工大学、北京航空航天大学、四川大学、清华大学、香港中文大学、复旦大学、香港科技大学</span><span> arXiv：2603.07660 | **日期**：2026年3月8日</span><span>️ 日期：2026年3月8日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Yuanyuan Gao, Hao Li, Yifei Liu, Xinhao Ji, Yuning Gong, Yuanjun Liao, Fangfu Liu, Manyuan Zhang, Yuchen Yang, Dan Xu, Xue Yang, Huaxi Huang, Hongjie Zhang, Ziwei Liu, Xiao Sun, Dingwen Zhang, Zhihang Zhong</p>
+
+<p><strong>机构</strong>：上海AI Lab、西北工业大学、上海交通大学、北京大学、南洋理工大学、北京航空航天大学、四川大学、清华大学、香港中文大学、复旦大学、香港科技大学</p>
+
+<p><strong>arXiv</strong>：2603.07660 | <strong>日期</strong>：2026年3月8日</p>
+
+<hr>
+
+<h2 id="paper-4-tldr">TLDR</h2>
+
+<p>Holi-Spatial是首个全自动、大规模、空间感知的多模态数据集构建管道，能将原始视频流转换为高保真3D几何结构和全面的空间标注，无需人工干预。基于此管道构建的Holi-Spatial-4M数据集包含12K优化的3DGS场景、130万2D掩码、32万3D边界框、120万3D定位实例和120万空间问答对。在ScanNet++上，微调Qwen3-VL后3D定位AP50提升15%，MMSI-Bench准确率提升7.9%。</p>
+
+<img src="Holi-Spatial/images/fig1.png" alt="图1: Holi-Spatial概览">
+<p><em>图1: Holi-Spatial是首个全自动管道，能够将原始视频流转换为全面的3D空间标注，无需人工干预。相比现有方法，Holi-Spatial在ScanNet上多视图深度估计提升0.5 F1，3D检测AP50提升64%。基于此构建的Holi-Spatial-4M数据集有效赋能视觉语言模型，微调Qwen3-VL后在ScanNet++上3D定位AP50提升15%，MMSI-Bench准确率提升7.9%。</em></p>
+
+<hr>
+
+<h2 id="paper-4-motivation">动机与发现</h2>
+
+<h3>问题：空间智能数据的稀缺与不平衡</h3>
+
+<p>空间智能是让大模型理解真实3D世界的基础，但现有方法面临关键瓶颈：</p>
+<ul>
+<li><strong>数据稀缺</strong>：现有空间数据集主要依赖少量人工标注的3D数据集（如ScanNet、ScanNet++），难以规模化扩展</li>
+<li><strong>语义覆盖有限</strong>：ScanNet仅标注50个类别，无法覆盖真实世界的丰富语义</li>
+<li><strong>领域偏差</strong>：窄范围数据集导致模型泛化能力受限</li>
+
+</ul>
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>AI工具组合潜力</strong>：通过系统组合Depth-Anything-V3、SAM3、VLM等AI工具，可以构建自动化的空间标注引擎，甚至超越人工标注质量</li>
+<li><strong>多视图一致性</strong>：3DGS优化后的深度图比单目深度估计更具多视图一致性，能有效消除浮点噪声</li>
+<li><strong>2D到3D提升的挑战</strong>：直接从2D掩码反投影到3D会产生边界误差和深度不连续噪声，需要几何感知过滤策略</li>
+<li><strong>置信度与召回率的权衡</strong>：高置信度过滤提升精度但降低召回率，VLM Agent验证可恢复低置信度真阳性</li>
+
+</ol>
+<hr>
+
+<h2 id="paper-4-method">方法</h2>
+
+<p><strong>核心思想</strong></p>
+
+<p>Holi-Spatial采用三阶段流水线：几何优化→图像级感知→场景级精炼，将原始视频流转换为高质量3D标注。</p>
+
+<img src="Holi-Spatial/images/fig3.png" alt="图3: Holi-Spatial数据构建管道概览">
+<p><em>图3: Holi-Spatial管道概览。框架分三阶段：(1)几何优化通过3DGS从视频流中提炼高保真3D结构；(2)图像级感知将2D VLM和SAM3预测提升为初始3D提议；(3)场景级精炼采用粗到细策略合并、验证和标注实例，生成密集高质量空间标注。最后基于Holi-Spatial-4M数据集直接微调Qwen-VL系列用于下游任务。</em></p>
+
+<h3>阶段1：几何优化</h3>
+
+<p><strong>目标</strong>：从原始视频流中提炼高保真几何结构，作为空间标注的基础。</p>
+
+<p><strong>流程</strong>：</p>
+<ol>
+<li>使用Structure-from-Motion恢复精确的相机内参和外参</li>
+<li>利用Depth-Anything-V3初始化密集点云</li>
+<li>通过3DGS进行逐场景优化，集成几何正则化以确保多视图深度一致性</li>
+<li>消除大尺度浮点噪声，产生干净一致的场景表示</li>
+
+</ol>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>结合表面重建3DGS方法的几何正则化，强制多视图深度一致性</li>
+<li>优化后的深度图可渲染出物理表面一致的高质量深度</li>
+
+</ul>
+<h3>阶段2：图像级感知</h3>
+
+<p><strong>目标</strong>：从关键帧中提取空间一致的对象标签和高质量2D掩码。</p>
+
+<p><strong>流程</strong>：</p>
+<ol>
+<li>从视频流中均匀采样关键帧</li>
+<li>使用Gemini3-Pro为每帧生成描述</li>
+<li>维护动态类别标签内存，确保语义一致性</li>
+<li>基于内存中的标签，使用SAM3进行开放词汇实例分割</li>
+<li>将2D掩码反投影到3D空间，生成初始3D边界框提议</li>
+
+</ol>
+<p><strong>2D到3D提升的几何感知过滤：</strong></p>
+<ul>
+<li><strong>掩码腐蚀</strong>：缓解SAM3在物体轮廓附近的边界误差</li>
+<li><strong>网格引导深度过滤</strong>：消除深度不连续导致的3D离群点</li>
+<li><strong>地板对齐后处理</strong>：估计全局上轴，重新定向每个实例的垂直轴</li>
+
+</ul>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>动态类别标签内存确保跨帧语义一致性</li>
+<li>几何感知过滤策略同时处理2D边界误差和3D深度噪声</li>
+
+</ul>
+<h3>阶段3：场景级精炼</h3>
+
+<p><strong>目标</strong>：通过粗到细策略从噪声初始提议中提炼高保真标注。</p>
+
+<p><strong>核心组件：</strong></p>
+
+<ol>
+<li><strong>多视图合并与后处理</strong></li>
+<li>空间聚类合并冗余检测（IoU3D > 0.2）</li>
+<li>保留最高置信度的源图像用于后续VLM标注</li>
+<li>全局地板对齐，确保几何一致性</li>
+
+<li><strong>置信度过滤与精炼</strong></li>
+<li>三级决策规则：高置信度(≥0.9)保留，低置信度(<0.8)丢弃，中间带(0.8-0.9)交由VLM Agent验证</li>
+<li>VLM Agent配备图像放大和SAM3重新分割工具</li>
+<li>平衡精度与召回率</li>
+
+<li><strong>语义标注生成</strong></li>
+<li>使用Qwen3-VL-30B为每个验证实例生成细粒度描述</li>
+<li>基于预定义模板程序化生成空间QA对，覆盖3D定位、空间推理、属性识别等任务</li>
+
+</ol>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>VLM Agent验证机制恢复被错误过滤的低置信度真阳性</li>
+<li>结合置信度过滤和Agent验证实现最佳精度-召回率平衡</li>
+
+</ul>
+<hr>
+
+<h2 id="paper-4-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>数据集</strong>：ScanNet、ScanNet++、DL3DV-10K</li>
+<li><strong>评估指标</strong>：</li>
+<li>深度估计：F1-score</li>
+<li>2D分割：IoU</li>
+<li>3D检测：AP@25、AP@50</li>
+<li>3D定位：AP@15、AP@25、AP@50</li>
+<li>空间推理：准确率</li>
+<li><strong>微调设置</strong>：使用120万空间QA对微调Qwen3-VL系列，1个epoch，batch size 1024，32块H800 GPU</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<h4>数据构建质量评估</h4>
+
+<table>
+<tr>
+<th>方法</th>
+<th>ScanNet</th>
+<th>ScanNet++</th>
+<th>DL3DV</th>
+</tr>
+<tr>
+<td></td>
+<td>Depth F1</td>
+<td>2D Seg IoU</td>
+<td>3D Det AP50</td>
+<td>Depth F1</td>
+<td>2D Seg IoU</td>
+<td>3D Det AP50</td>
+<td>Depth F1</td>
+<td>2D Seg IoU</td>
+<td>3D Det AP50</td>
+</tr>
+<tr>
+<td>SAM3</td>
+<td>-</td>
+<td>0.63</td>
+<td>-</td>
+<td>-</td>
+<td>0.50</td>
+<td>-</td>
+<td>-</td>
+<td>0.66</td>
+<td>-</td>
+</tr>
+<tr>
+<td>M3-Spatial</td>
+<td>0.32</td>
+<td>0.22</td>
+<td>-</td>
+<td>0.39</td>
+<td>0.11</td>
+<td>-</td>
+<td>0.23</td>
+<td>0.13</td>
+<td>-</td>
+</tr>
+<tr>
+<td>LLaVA-3D</td>
+<td>-</td>
+<td>-</td>
+<td>6.86</td>
+<td>-</td>
+<td>-</td>
+<td>4.80</td>
+<td>-</td>
+<td>-</td>
+<td>4.11</td>
+</tr>
+<tr>
+<td><strong>Holi-Spatial</strong></td>
+<td><strong>0.98</strong></td>
+<td><strong>0.66</strong></td>
+<td><strong>67.00</strong></td>
+<td><strong>0.89</strong></td>
+<td><strong>0.64</strong></td>
+<td><strong>70.05</strong></td>
+<td><strong>0.78</strong></td>
+<td><strong>0.71</strong></td>
+<td><strong>52.67</strong></td>
+</tr>
+</table>
+
+<p>Holi-Spatial在所有数据集和指标上均显著优于基线方法：</p>
+<ul>
+<li>ScanNet++深度F1：0.89 vs M3-Spatial 0.39（提升128%）</li>
+<li>ScanNet++ 3D检测AP50：70.05 vs LLaVA-3D 4.80（提升1360%）</li>
+
+</ul>
+<h4>VLM微调效果</h4>
+
+<p><strong>空间推理（MMSI-Bench / MindCube）：</strong></p>
+<ul>
+<li>Qwen3-VL-2B：26.1 / 33.5 → 27.6 / 44.0（+1.5 / +10.5）</li>
+<li>Qwen3-VL-8B：31.1 / 29.4 → 32.6 / 49.1（+1.5 / +19.7）</li>
+
+</ul>
+<p><strong>3D定位（ScanNet++）：</strong></p>
+<ul>
+<li>Qwen3-VL-8B：AP50 13.50 → 27.98（+14.48，提升107%）</li>
+
+</ul>
+<img src="Holi-Spatial/images/fig6.png" alt="图6: Holi-Spatial-4M数据集统计">
+<p><em>图6: Holi-Spatial-4M综合统计。(1)对象多样性：开放词汇类别的长尾分布词云。(2)数据集组成：内环显示来源场景（ScanNet、ScanNet++、DL3DV），外环详细说明超过400万生成的空间标注。(3)空间QA分类：125万空间QA对的分布，分为相机中心任务（如旋转、移动）和对象中心任务（如距离、方向）。</em></p>
+
+<hr>
+
+<h2 id="paper-4-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>首个全自动空间标注管道</strong>：Holi-Spatial无需人工干预，将原始视频转换为高质量3D几何和全面的空间标注</li>
+<li><strong>大规模高质量数据集</strong>：Holi-Spatial-4M包含12K 3DGS场景、400万+标注，覆盖开放词汇语义</li>
+<li><strong>显著的下游任务提升</strong>：微调VLM后在3D定位和空间推理任务上取得大幅改进</li>
+<li><strong>统一的多任务框架</strong>：同时支持深度估计、2D分割、3D检测、3D定位、空间QA等多种空间任务</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li>证明了通过系统组合现有AI工具可以构建超越人工标注的自动化数据引擎</li>
+<li>多视图几何一致性是高质量3D标注的关键</li>
+<li>几何与语义先验的协同作用可补偿单图像观察的不完整性</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li>管道完全自动化，可随资源增加进一步扩展</li>
+<li>开放词汇标注覆盖真实世界的丰富语义</li>
+<li>为机器人操作、导航、场景编辑、增强现实等应用提供数据基础</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>管道依赖多个上游组件和逐场景优化，计算成本较高</li>
+<li>在挑战性视频下（有限视角、运动模糊、严重遮挡、动态物体）可能退化</li>
+<li>开放词汇语义标注可能继承基础模型的偏差或错误</li>
+<li>需要进一步改进效率（如自适应早停、更好的置信度验证）</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://github.com/Visionary-Laboratory/Holi-Spatial</p>
+
+<p><strong>项目主页</strong>：https://visionary-laboratory.github.io/holi-spatial/</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-5">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-5-tldr">TLDR</a></li>
+<li><a href="#paper-5-motivation">动机与发现</a></li>
+<li><a href="#paper-5-method">方法</a></li>
+<li><a href="#paper-5-results">实验设定与结果</a></li>
+<li><a href="#paper-5-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">5</span>
+                    Kimodo: Scaling Controllable Human Motion Generation
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Davis Rempe*, Mathis Petrovich*, Ye Yuan, Haotian Zhang, Xue Bin Peng, Yifeng Jiang, Tingwu Wang, Umar Iqbal, David Minor, Michael de Ruyter, Jiefeng Li, Chen Tessler, Edy Lim, Eugene Jeong, Sam Wu, Ehsan Hassani, Michael Huang, Jin-Bey Yu, Chaeyeon Chung, Lina Song, Olivier Dionne, Jan Kautz, Simon Yuen, Sanja Fidler</span><span> 机构：NVIDIA</span><span> arXiv：2603.15546 | **日期**：2026年3月16日</span><span>️ 日期：2026年3月16日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Davis Rempe<em>, Mathis Petrovich</em>, Ye Yuan, Haotian Zhang, Xue Bin Peng, Yifeng Jiang, Tingwu Wang, Umar Iqbal, David Minor, Michael de Ruyter, Jiefeng Li, Chen Tessler, Edy Lim, Eugene Jeong, Sam Wu, Ehsan Hassani, Michael Huang, Jin-Bey Yu, Chaeyeon Chung, Lina Song, Olivier Dionne, Jan Kautz, Simon Yuen, Sanja Fidler</p>
+<p><strong>机构</strong>：NVIDIA</p>
+<p><strong>arXiv</strong>：2603.15546 | <strong>日期</strong>：2026年3月16日</p>
+
+<hr>
+
+<h2 id="paper-5-tldr">TLDR</h2>
+
+<p>Kimodo 是 NVIDIA 提出的可控人体运动生成扩散模型，在 700 小时专业光学动作捕捉数据上训练，支持文本提示和多种运动学约束（全身关键帧、稀疏关节位置/旋转、2D 路径点、密集路径）。其两阶段去噪器架构将根运动与身体运动分解预测，在控制精度上达到全身关键帧 2.67cm 误差、末端执行器 3.09cm 位置误差，可直接用于机器人演示数据生成。</p>
+
+<img src="Kimodo_Scaling_Controllable_Human_Motion_Generation/images/fig1.png" alt="图1: 可控运动生成">
+<p><em>图1: 可控运动生成。Kimodo 通过文本提示结合广泛的运动学约束套件支持灵活直观的运动生成。通过在 700 小时光学动作捕捉数据上训练，模型在大量行为上实现了精确的控制精度。</em></p>
+
+<hr>
+
+<h2 id="paper-5-motivation">动机与发现</h2>
+
+<h3>问题：高质量可控人体运动数据获取困难</h3>
+
+<p>机器人、仿真和娱乐领域对高质量人体运动数据需求日益增长。传统方法（手动动画、光学动捕、遥操作、视频重建）各有缺陷：手动动画耗时且需专业知识，光学动捕昂贵且设备要求高，遥操作生成动作不自然，视频重建精度不足。现有生成模型受限于公开数据集规模小（如 HumanML3D 仅 30 小时），导致运动生成质量、控制精度和泛化能力受限。</p>
+
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>数据规模至关重要</strong>：使用 700 小时专业动捕数据训练，显著提升约束跟随能力和运动质量。当数据量降至 10%（约 70 小时，与常见数据集规模相当）时，脚部滑动和约束误差明显增加。</li>
+
+<li><strong>两阶段分解架构有效</strong>：将根运动和身体运动分开预测（两阶段 Transformer），比单阶段架构显著减少脚部滑动（从 7.59 cm/s 降至 3.87 cm/s）。</li>
+
+<li><strong>平滑根表示优于直接骨盆投影</strong>：使用平滑根轨迹而非直接骨盆投影，能更好地模拟动画工具中的平滑曲线，减少脚部滑动。</li>
+
+<li><strong>规模定律成立</strong>：数据规模、模型规模和批大小三个维度的扩展均能提升性能，其中数据规模主要改善约束跟随，模型规模和批大小主要改善文本跟随和运动质量。</li>
+
+</ol>
+<hr>
+
+<h2 id="paper-5-method">方法</h2>
+
+<p><strong>核心思想</strong></p>
+
+<p>Kimodo 采用显式运动扩散模型，通过精心设计的运动表示和两阶段 Transformer 去噪器，在保持运动生成质量的同时实现精确的运动学约束控制。</p>
+
+<h3>运动表示</h3>
+
+<p>每个姿态由以下特征向量表示：</p>
+<ul>
+<li><strong>平滑全局根位置</strong> 𝐫ᵖ：对骨盆位置的水平分量(x,z)进行强平滑，保持 y 高度不变</li>
+<li><strong>全局根朝向</strong> 𝐫ᵃ：使用 [cos(ψ), sin(ψ)] 表示</li>
+<li><strong>关节位置</strong> 𝐣ᵖ：水平分量相对于平滑根位置，y 高度为全局值（不相对于根朝向规范化）</li>
+<li><strong>全局关节速度</strong> 𝐣ᵛ：从全局关节位置计算</li>
+<li><strong>全局关节角度</strong> 𝐣ᵃ：使用 6D 旋转表示</li>
+<li><strong>脚部接触标志</strong> 𝐟：4 个布尔值</li>
+
+</ul>
+<p><strong>设计要点：</strong></p>
+<ul>
+<li>采用全局表示，支持稀疏约束的直接植入（imputation）</li>
+<li>关节位置不相对于根朝向规范化，避免翻转动作导致的表示不连续</li>
+<li>全局关节旋转表示支持世界空间中的旋转约束</li>
+<li>平滑根轨迹模拟动画工具中的平滑曲线</li>
+
+</ul>
+<h3>两阶段 Transformer 去噪器</h3>
+
+<img src="Kimodo_Scaling_Controllable_Human_Motion_Generation/images/fig9.png" alt="图9: 去噪器架构">
+<p><em>图9: 去噪器架构。(左) Kimodo 根据噪声运动、姿态约束和文本嵌入预测干净运动。(右) 两阶段去噪器将根运动和身体运动分解预测。</em></p>
+
+<p><strong>架构设计：</strong></p>
+<ol>
+<li><strong>根去噪器</strong>（第一阶段）：预测全局根运动 𝐫̂⁰ᵍˡᵒᵇ，输入为完整噪声运动</li>
+<li><strong>身体去噪器</strong>（第二阶段）：预测身体运动 𝐛̂⁰，输入为局部根表示 + 身体特征</li>
+
+</ol>
+<p><strong>约束条件处理：</strong></p>
+<ul>
+<li>约束通过直接植入（imputation）覆盖噪声运动输入</li>
+<li>控制掩码与运动特征拼接作为最终输入</li>
+
+</ul>
+<p><strong>条件信号：</strong></p>
+<ul>
+<li>文本嵌入：使用 LLM2Vec（4096维），优于 CLIP 和 T5</li>
+<li>初始朝向 token 𝐜ᵈⁱʳ</li>
+<li>额外的 "register" token（49 个全零 token）增强表示能力</li>
+
+</ul>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li><strong>两阶段交错去噪</strong>：每步去噪同时预测根和身体运动（不同于先前方法的完全顺序处理）</li>
+<li><strong>局部根表示用于第二阶段</strong>：使用根角速度、平面平移速度和绝对高度，提供更好的不变性</li>
+<li><strong>全局旋转表示</strong>：支持世界空间旋转约束，训练时随机化初始朝向</li>
+<li><strong>额外 register token</strong>：增强模型表示能力，改善文本跟随和运动质量</li>
+
+</ul>
+<h3>训练策略</h3>
+
+<p><strong>双阶段训练课程：</strong></p>
+<ul>
+<li><strong>阶段 1</strong>（前 500k 步）：纯文本到运动生成训练</li>
+<li><strong>阶段 2</strong>（后 500k 步）：混合文本和运动学约束训练，约束模式包括全身关键帧、末端执行器、2D 路径等</li>
+
+</ul>
+<p><strong>数据增强：</strong></p>
+<ul>
+<li>文本：使用 Qwen3-32B 进行释义，生成一致的提示结构</li>
+<li>运动：随机拼接运动片段，使用扩散模型生成过渡动作</li>
+
+</ul>
+<p><strong>训练细节：</strong></p>
+<ul>
+<li>DDPM 框架，1000 扩散步</li>
+<li>Adam-atan2 优化器，学习率 2e-5</li>
+<li>EMA 衰减 0.995</li>
+<li>最佳配置：2048 批大小，16×A100 GPU</li>
+
+</ul>
+<h3>运动生成</h3>
+
+<ul>
+<li>使用 DDIM 推理，默认 100 去噪步</li>
+<li>分解式无分类器指导：分别控制文本和约束条件的影响权重</li>
+<li>多提示序列：通过重叠区域添加全身关键帧约束实现平滑过渡</li>
+<li>后处理：脚部锁定 + IK 清理滑动，优化确保精确命中约束</li>
+
+</ul>
+<hr>
+
+<h2 id="paper-5-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>数据集</strong>：Bones Rigplay（700 小时专业动捕数据，170 名受试者，27 关节骨架）</li>
+<li><strong>评估指标</strong>：</li>
+<li>文本跟随：Top-3 R-precision（R@3），使用 TMR 嵌入模型</li>
+<li>运动质量：FID（基于 TMR）</li>
+<li>脚部滑动：静态接触帧中脚关节平均速度</li>
+<li>约束精度：约束帧处关节位置/旋转误差</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<p><strong>完整模型 vs 基线对比：</strong></p>
+
+<table>
+<tr>
+<th>方法</th>
+<th>R@3↑</th>
+<th>FID↓</th>
+<th>滑动(cm/s)↓</th>
+<th>全身Pos(cm)↓</th>
+<th>末端Pos(cm)↓</th>
+<th>末端Rot(deg)↓</th>
+<th>2D根Pos(cm)↓</th>
+</tr>
+<tr>
+<td>Ground Truth</td>
+<td>75.6</td>
+<td>0.0</td>
+<td>2.21</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>完整模型</strong></td>
+<td><strong>71.9</strong></td>
+<td><strong>1.85</strong></td>
+<td><strong>3.87</strong></td>
+<td><strong>2.67</strong></td>
+<td><strong>3.09</strong></td>
+<td><strong>4.18</strong></td>
+<td><strong>2.90</strong></td>
+</tr>
+<tr>
+<td>单阶段架构</td>
+<td>71.5</td>
+<td>1.65</td>
+<td>7.59</td>
+<td>8.37</td>
+<td>10.19</td>
+<td>5.19</td>
+<td>7.74</td>
+</tr>
+<tr>
+<td>第二阶段全局</td>
+<td>70.3</td>
+<td>1.87</td>
+<td>4.17</td>
+<td>2.97</td>
+<td>3.39</td>
+<td>5.67</td>
+<td>3.25</td>
+</tr>
+<tr>
+<td>无平滑根</td>
+<td>71.6</td>
+<td>1.75</td>
+<td>4.39</td>
+<td>2.68</td>
+<td>3.19</td>
+<td>3.93</td>
+<td>3.21</td>
+</tr>
+<tr>
+<td>无额外token</td>
+<td>70.9</td>
+<td>1.95</td>
+<td>4.28</td>
+<td>2.40</td>
+<td>2.59</td>
+<td>5.55</td>
+<td>2.85</td>
+</tr>
+<tr>
+<td>无训练课程</td>
+<td>71.3</td>
+<td>1.84</td>
+<td>3.92</td>
+<td>5.80</td>
+<td>6.59</td>
+<td>4.34</td>
+<td>5.71</td>
+</tr>
+</table>
+
+<p><strong>缩放分析：</strong></p>
+<ul>
+<li><strong>数据规模</strong>：从 10% 到 100% 数据，脚部滑动从 5.28 降至 4.23 cm/s，全身约束误差从 4.60 降至 2.77 cm</li>
+<li><strong>模型规模</strong>：从 S(56M) 到 L(282M)，R@3 从 64.0 提升至 71.9，FID 从 3.10 降至 1.85</li>
+<li><strong>批大小</strong>：从 4 GPU 到 16 GPU，R@3 从 69.4 提升至 73.6，FID 从 2.01 降至 1.61</li>
+
+</ul>
+<hr>
+
+<h2 id="paper-5-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>大规模高质量数据训练</strong>：首次在 700 小时专业光学动捕数据上训练运动扩散模型，证明数据规模对控制精度的关键作用</li>
+
+<li><strong>两阶段分解去噪器</strong>：将根运动与身体运动分开预测，交错去噪，显著减少脚部滑动等常见伪影</li>
+
+<li><strong>全面的运动学约束支持</strong>：通过全局运动表示和直接植入，支持全身关键帧、稀疏关节位置/旋转、2D 路径等多种约束，无需额外 ControlNet 微调或测试时优化</li>
+
+<li><strong>机器人应用验证</strong>：成功应用于 Unitree G1 机器人演示数据生成，通过重定向可直接用于人形机器人控制</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li>证明了运动生成领域的规模定律：数据规模、模型规模和计算规模均能提升性能</li>
+<li>全局运动表示相比局部表示在稀疏约束控制上具有优势</li>
+<li>两阶段交错去噪优于完全顺序去噪</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li>提供了开源模型（SOMA 人体骨架和 Unitree G1 机器人版本）</li>
+<li>交互式运动编辑界面，降低动画制作门槛</li>
+<li>可快速生成机器人演示数据（几秒内完成），替代昂贵的遥操作</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>模型为"离线"设计，单次生成需 2-5 秒，不适合实时控制</li>
+<li>仅训练在动捕数据上，未利用互联网视频数据进行扩展</li>
+<li>缺乏场景和物体交互能力</li>
+<li>训练序列最大长度限制为 10 秒</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://github.com/nv-tlabs/kimodo</p>
+<p><strong>项目页面</strong>：https://research.nvidia.com/labs/sil/projects/kimodo/</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-6">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-6-tldr">TLDR</a></li>
+<li><a href="#paper-6-motivation">动机与发现</a></li>
+<li><a href="#paper-6-method">方法</a></li>
+<li><a href="#paper-6-results">实验设定与结果</a></li>
+<li><a href="#paper-6-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">6</span>
+                    OmniStream: Mastering Perception, Reconstruction and Action in Continuous Streams
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Yibin Yan, Jilan Xu, Shangzhe Di, Haoning Wu, Weidi Xie</span><span> 机构：上海交通大学人工智能学院、上海创新研究院、牛津大学VGG</span><span> arXiv：2603.12265 | **日期**：2026年3月12日</span><span>️ 日期：2026年3月12日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Yibin Yan, Jilan Xu, Shangzhe Di, Haoning Wu, Weidi Xie</p>
+<p><strong>机构</strong>：上海交通大学人工智能学院、上海创新研究院、牛津大学VGG</p>
+<p><strong>arXiv</strong>：2603.12265 | <strong>日期</strong>：2026年3月12日</p>
+
+<hr>
+
+<h2 id="paper-6-tldr">TLDR</h2>
+
+<p>OmniStream提出了一种统一的流式视觉骨干网络，通过引入因果时空注意力和3D旋转位置编码（3D-RoPE），将预训练的图像ViT转化为在线流式模型。该模型在29个数据集上进行多任务预训练，即使骨干网络完全冻结，也能在图像/视频感知、流式几何重建、视频空间推理和机器人操作等任务上取得与专门专家模型相当的性能。</p>
+
+<img src="OmniStream/images/fig1.png" alt="图1: OmniStream支持的任务范围和性能对比">
+<p><em>图1: 左：OmniStream支持广泛的任务，包括2D/3D感知、视觉语言理解和具身机器人操作。右：冻结的单骨干网络特征与领先的领域专家模型相比，实现了高度竞争或更优的性能。</em></p>
+
+<hr>
+
+<h2 id="paper-6-motivation">动机与发现</h2>
+
+<h3>问题：如何构建通用流式视觉表示？</h3>
+
+<p>当前视觉基础模型呈现碎片化状态：</p>
+<ul>
+<li>图像编码器（DINO、SigLIP）专注于静态语义</li>
+<li>视频模型（V-JEPA、VideoMAE）处理离线时序</li>
+<li>几何专家（DepthAnything、VGGT）关注空间结构</li>
+
+</ul>
+<p>这些模型难以在单一骨干网络中统一静态语义、时序动态和3D结构，尤其是在在线因果场景下。</p>
+
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>因果视频建模对捕捉动态运动至关重要</strong>：移除视频SSL导致SSv2下降6.3%，CALVIN下降0.38</li>
+<li><strong>显式几何预训练是具身AI的前提</strong>：禁用3D重建导致VSI-Bench下降4.8%，CALVIN下降0.46</li>
+<li><strong>早期视觉语言对齐防止VLM集成时的灾难性失败</strong>：移除字幕任务导致VideoMME下降9.1%，VSI-Bench下降12.4%</li>
+<li><strong>多任务协同效应远超简单叠加</strong>：语义、动态和几何目标相互增强，形成鲁棒表示</li>
+
+</ol>
+<hr>
+
+<h2 id="paper-6-method">方法</h2>
+
+<img src="OmniStream/images/fig2.png" alt="图2: OmniStream整体框架">
+<p><em>图2: OmniStream整体框架。配备3D-RoPE和因果时空注意力，通过多任务框架训练统一骨干网络，耦合静态和时序表示学习、流式几何重建和视觉语言对齐。</em></p>
+
+<p><strong>核心思想</strong></p>
+
+<p>将DINOv3图像ViT转化为流式视觉骨干网络：</p>
+<ol>
+<li><strong>因果时空注意力</strong>：实现严格时序因果性，支持KV-cache逐帧在线推理</li>
+<li><strong>3D旋转位置编码（3D-RoPE）</strong>：将2D RoPE扩展到时空域，采用2:3:3的(t,y,x)分配策略</li>
+
+</ol>
+<h3>1. 问题形式化</h3>
+
+<p>给定连续视频流 V^T = {I_1, I_2, ..., I_T}，骨干网络在时间步t处理当前帧和历史上下文，产生复合输出状态O_t，严格约束O_t不依赖未来帧。</p>
+
+<h3>2. 流式视觉骨干网络</h3>
+
+<p><strong>架构修改：</strong></p>
+<ul>
+<li>输入：每帧分割为p×p不重叠patch，添加特殊token（[CLS]、[vision_registers]、[CAM]）</li>
+<li>因果时空注意力：应用因果时序掩码，token在时间t只能关注时间≤t的token</li>
+<li>KV-cache机制：增量推理，复用缓存的K/V，避免重复计算</li>
+
+</ul>
+<p><strong>3D-RoPE设计：</strong></p>
+<ul>
+<li>维度分配：时间:高度:宽度 = 2:3:3</li>
+<li>时序分量交错到原始2D RoPE中</li>
+<li>应用RoPE-box jittering提高鲁棒性</li>
+
+</ul>
+<h3>3. 统一多任务学习目标</h3>
+
+<p><strong>总损失函数：</strong></p>
+<pre><code>
+L_total = λ_ssl·L_ssl + λ_geo·L_geo + λ_cap·L_cap
+</code></pre>
+<p>其中 λ_ssl=0.1, λ_geo=λ_cap=1</p>
+
+<p><strong>目标组成：</strong></p>
+
+<ol>
+<li><strong>静态和时序表示学习（L_ssl）</strong></li>
+<li>DINO损失：全局语义一致性</li>
+<li>iBOT损失：patch级判别特征</li>
+<li>KoLeo正则化：特征空间均匀分布</li>
+<li>Gram锚定：训练过程中patch级特征一致性</li>
+
+<li><strong>流式几何重建（L_geo）</strong></li>
+<li>深度头（dual-DPT）：预测深度图D̂和光线图R̂</li>
+<li>相机头（轻量MLP）：预测相机姿态ĝ</li>
+<li>损失组成：L_depth + L_ray + L_points + L_camera</li>
+<li>深度预测使用置信度加权的L1回归</li>
+
+<li><strong>视觉语言对齐（L_cap）</strong></li>
+<li>附加MLP投影器和轻量自回归语言解码器（Qwen3-0.6B）</li>
+<li>在字幕、OCR、视觉接地任务上训练</li>
+<li>梯度回传到视觉骨干，注入细粒度语义监督</li>
+
+</ol>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>将图像视为T=1的退化流，统一图像和视频目标</li>
+<li>200M帧数据预训练（29个数据集），包括图像、视频、3D/4D场景和字幕</li>
+<li>因果掩码设计使每个样本提供1到T帧的不同时序上下文监督</li>
+
+</ul>
+<h3>4. 下游应用统一表示</h3>
+
+<p><strong>评估范式：骨干网络严格冻结，仅训练任务特定模块</strong></p>
+
+<ul>
+<li><strong>感知（图像/视频）</strong>：在冻结特征上训练线性/注意力探针</li>
+<li><strong>推理（VLM）</strong>：MLP投影器将视觉token映射到语言嵌入空间，LLM生成文本</li>
+<li><strong>动作（VLA）</strong>：在LLM输出上附加MLP动作专家，预测机器人动作</li>
+
+</ul>
+<hr>
+
+<h2 id="paper-6-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>骨干网络</strong>：DINOv3 ViT-L（400M参数）</li>
+<li><strong>训练数据</strong>：约200M帧，29个数据集</li>
+<li><strong>训练设置</strong>：</li>
+<li>64× NVIDIA H200 GPU</li>
+<li>两阶段训练：Stage-1（224×224，60K步）、Stage-2（512×512，120K步）</li>
+<li>Adam优化器，峰值学习率1×10^-4，4K步warmup+余弦退火</li>
+<li>多帧序列长度T=16</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<p><strong>图像和视频感知（骨干冻结）：</strong></p>
+
+<table>
+<tr>
+<th>基准</th>
+<th>OmniStream</th>
+<th>DINOv3-L</th>
+<th>V-JEPA2-L</th>
+</tr>
+<tr>
+<td>ImageNet（分类）</td>
+<td>84.7%</td>
+<td>86.7%</td>
+<td>-</td>
+</tr>
+<tr>
+<td>NYUv2（深度）</td>
+<td>0.377</td>
+<td>0.377</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ADE20K（分割）</td>
+<td>49.1%</td>
+<td>51.5%</td>
+<td>-</td>
+</tr>
+<tr>
+<td>SSv2（动作）</td>
+<td><strong>68.5%</strong></td>
+<td>54.0%</td>
+<td>73.7%</td>
+</tr>
+<tr>
+<td>K400（动作）</td>
+<td><strong>85.7%</strong></td>
+<td>83.6%</td>
+<td>85.1%</td>
+</tr>
+<tr>
+<td>DAVIS'17（VOS）</td>
+<td>71.6</td>
+<td>73.2</td>
+<td>44.2</td>
+</tr>
+</table>
+
+<p><strong>流式几何重建（vs CUT3R）：</strong></p>
+
+<table>
+<tr>
+<th>方法</th>
+<th>参数</th>
+<th>Sintel深度↓</th>
+<th>BONN深度↓</th>
+<th>KITTI深度↓</th>
+<th>ScanNet姿态↓</th>
+</tr>
+<tr>
+<td>CUT3R</td>
+<td>600M</td>
+<td>0.421</td>
+<td>0.078</td>
+<td>0.118</td>
+<td>0.099</td>
+</tr>
+<tr>
+<td>OmniStream</td>
+<td>400M</td>
+<td><strong>0.314</strong></td>
+<td><strong>0.072</strong></td>
+<td>0.136</td>
+<td><strong>0.076</strong></td>
+</tr>
+</table>
+
+<p><strong>VLM空间推理（VSI-Bench）：</strong></p>
+
+<table>
+<tr>
+<th>方法</th>
+<th>平均分</th>
+<th>绝对距离</th>
+<th>相对距离</th>
+<th>路线规划</th>
+</tr>
+<tr>
+<td>LLaVA-Video-7B</td>
+<td>35.6</td>
+<td>14.0</td>
+<td>42.4</td>
+<td>34.0</td>
+</tr>
+<tr>
+<td>SpaceMind</td>
+<td>69.6</td>
+<td>61.4</td>
+<td>88.4</td>
+<td>44.3</td>
+</tr>
+<tr>
+<td><strong>OmniStream-7B</strong></td>
+<td><strong>70.6</strong></td>
+<td><strong>55.7</strong></td>
+<td><strong>82.1</strong></td>
+<td><strong>45.4</strong></td>
+</tr>
+</table>
+
+<p><strong>VLA机器人操作（冻结视觉）：</strong></p>
+
+<table>
+<tr>
+<th>方法</th>
+<th>CALVIN↑</th>
+<th>Simpler-Bridge↑</th>
+</tr>
+<tr>
+<td>Qwen2.5VL-7B</td>
+<td>2.905</td>
+<td>18.5%</td>
+</tr>
+<tr>
+<td>LLaVA-Video-7B</td>
+<td>2.898</td>
+<td>30.2%</td>
+</tr>
+<tr>
+<td><strong>OmniStream-7B</strong></td>
+<td><strong>3.885</strong></td>
+<td><strong>45.8%</strong></td>
+</tr>
+</table>
+
+<h3>消融研究</h3>
+
+<table>
+<tr>
+<th>配置</th>
+<th>SSv2</th>
+<th>DAVIS'17</th>
+<th>ImageNet</th>
+<th>NYUv2</th>
+<th>VSI-Bench</th>
+<th>CALVIN</th>
+</tr>
+<tr>
+<td>完整模型</td>
+<td>69.3%</td>
+<td>71.6</td>
+<td>85.2%</td>
+<td>0.379</td>
+<td>57.3%</td>
+<td>3.80</td>
+</tr>
+<tr>
+<td>w/o VideoSSL</td>
+<td>63.0%</td>
+<td>67.7</td>
+<td>85.4%</td>
+<td>0.420</td>
+<td>57.9%</td>
+<td>3.42</td>
+</tr>
+<tr>
+<td>w/o 3D Geometry</td>
+<td>68.4%</td>
+<td>69.7</td>
+<td>85.0%</td>
+<td>0.471</td>
+<td>52.5%</td>
+<td>3.34</td>
+</tr>
+<tr>
+<td>w/o Captioning</td>
+<td>67.4%</td>
+<td>71.0</td>
+<td>84.4%</td>
+<td>0.395</td>
+<td>44.9%</td>
+<td>2.38</td>
+</tr>
+</table>
+
+<p><strong>计算效率（KV-cache vs 全重计算）：</strong></p>
+
+<table>
+<tr>
+<th>上下文长度T</th>
+<th>16</th>
+<th>32</th>
+<th>64</th>
+<th>128</th>
+<th>256</th>
+<th>512</th>
+</tr>
+<tr>
+<td>全重计算延迟</td>
+<td>0.125s</td>
+<td>0.329s</td>
+<td>0.998s</td>
+<td>OOM</td>
+<td>OOM</td>
+<td>OOM</td>
+</tr>
+<tr>
+<td>OmniStream延迟</td>
+<td>0.042s</td>
+<td>0.057s</td>
+<td>0.067s</td>
+<td>0.115s</td>
+<td>0.216s</td>
+<td>0.414s</td>
+</tr>
+</table>
+
+<img src="OmniStream/images/fig3.png" alt="图3: Sintel视频深度重建的定性结果">
+<p><em>图3: Sintel视频深度重建的定性结果。我们的模型在长序列上保持时序一致性。</em></p>
+
+<hr>
+
+<h2 id="paper-6-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>统一流式视觉骨干</strong>：首次将因果时空注意力和3D-RoPE结合，在单一骨干中统一静态语义、时序动态和3D几何</li>
+<li><strong>多任务协同预训练</strong>：在29个数据集上耦合SSL、几何重建和语言对齐，证明多目标协同效应远超简单叠加</li>
+<li><strong>严格冻结的通用性</strong>：骨干冻结时在感知、推理、动作任务上均取得竞争性性能</li>
+<li><strong>高效流式推理</strong>：KV-cache实现O(T)时序复杂度，支持110帧零样本长度外推</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li>证明了单一视觉骨干可同时支持语义、空间和时序推理</li>
+<li>早期视觉语言对齐对VLM集成至关重要</li>
+<li>显式几何编码是具身AI的必要条件</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li>降低多任务部署的计算和存储开销</li>
+<li>支持实时流式处理，适用于机器人、AR/VR等场景</li>
+<li>统一表示简化下游任务集成</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>未在所有基准上超越专门的最先进方法</li>
+<li>模型规模扩展作为未来方向</li>
+<li>几何重建性能在某些数据集上略逊于专门3D专家</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://github.com/Go2Heart/OmniStream</p>
+<p><strong>项目页面</strong>：https://go2heart.github.io/omnistream</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-7">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-7-tldr">TLDR</a></li>
+<li><a href="#paper-7-motivation">动机与发现</a></li>
+<li><a href="#paper-7-method">方法</a></li>
+<li><a href="#paper-7-results">实验设定与结果</a></li>
+<li><a href="#paper-7-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">7</span>
+                    Prompt-Free Universal Region Proposal Network
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Qihong Tang, Changhan Liu, Shaofeng Zhang, Wenbin Li, Qi Fan, Yang Gao</span><span> 机构：南京大学，中国科学技术大学</span><span> arXiv：2603.17554 | **日期**：2026年3月18日</span><span>️ 日期：2026年3月18日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Qihong Tang, Changhan Liu, Shaofeng Zhang, Wenbin Li, Qi Fan, Yang Gao</p>
+<p><strong>机构</strong>：南京大学，中国科学技术大学</p>
+<p><strong>arXiv</strong>：2603.17554 | <strong>日期</strong>：2026年3月18日</p>
+
+<hr>
+
+<h2 id="paper-7-tldr">TLDR</h2>
+
+<p>本文提出了一种无需外部提示的通用区域建议网络（PF-RPN），可在跨域场景中零样本识别任意潜在物体。核心创新包括稀疏图像感知适配器、级联自提示机制和中心性引导查询选择，仅需5% COCO数据训练，在19个跨域数据集上比现有方法提升6.0-7.5 AR。</p>
+
+<img src="Prompt-Free Universal Region Proposal Network/images/fig1.png" alt="图1: 现有方法与PF-RPN的对比">
+<p><em>图1: 现有视觉/文本提示方法通常依赖预定义类别或示例图像来定位物体，而无提示方法需要生成文本描述，带来较大延迟。本文PF-RPN无需任何外部提示，仅利用视觉特征生成高质量建议框。</em></p>
+
+<hr>
+
+<h2 id="paper-7-motivation">动机与发现</h2>
+
+<h3>问题：如何在无外部提示下识别任意物体？</h3>
+
+<p>现有方法存在明显局限：</p>
+<ul>
+<li><strong>依赖文本/视觉提示</strong>：需要预定义类别或示例图像，在工业缺陷检测、水下目标检测等实际场景中难以获取</li>
+<li><strong>计算成本高</strong>：基于生成式VLM的无提示方法引入巨大内存和延迟开销</li>
+<li><strong>泛化能力受限</strong>：现有RPN方法在未见域上表现不佳</li>
+
+</ul>
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>视觉特征比文本更适合定位</strong>：用可学习嵌入替代文本嵌入，能更好地捕获物体视觉特征</li>
+<li><strong>物体内部特征优于可学习嵌入</strong>：物体内部特征具有更强的定位能力，可用于迭代检索其他物体</li>
+<li><strong>中心查询生成更精确的边界框</strong>：靠近物体中心的查询比边界查询产生更准确的建议框</li>
+
+</ol>
+<hr>
+
+<h2 id="paper-7-method">方法</h2>
+
+<p><strong>核心思想</strong></p>
+
+<p>PF-RPN构建在强大的OVD模型基础上，通过可学习视觉嵌入聚合信息，消除手动提示需求。核心是让模型"自问自答"：先用初始嵌入定位显著物体，再用已定位物体的特征检索剩余物体。</p>
+
+<img src="Prompt-Free Universal Region Proposal Network/images/fig2.png" alt="图2: PF-RPN整体架构">
+<p><em>图2: PF-RPN整体架构，包含三个核心组件：(1)稀疏图像感知适配器(SIA)通过路由机制和交叉注意力自适应整合多级特征；(2)级联自提示(CSP)通过多级视觉特征迭代精炼嵌入；(3)中心性引导查询选择(CG-QS)基于中心性分数解码最终预测。</em></p>
+
+<h3>稀疏图像感知适配器（SIA）</h3>
+
+<p><strong>设计原理</strong>：不同尺度的物体对应不同的特征级别，浅层特征利于小物体，深层特征利于大物体。</p>
+
+<p><strong>工作机制</strong>：</p>
+<ol>
+<li>对多级特征图进行全局平均池化，得到紧凑特征 $\bar{F}^i_I$</li>
+<li>MoE路由器预测各特征级别的重要性权重 $w_i = \text{Router}(\bar{F}^i_I)$</li>
+<li>选择权重最高的top-k个特征级别（k=2）</li>
+<li>可学习嵌入 $F_T$ 作为查询，选中的特征作为键值对进行交叉注意力</li>
+
+</ol>
+<p><strong>公式</strong>：</p>
+<p>$$\tilde{F}^T = \sum_{j=1}^{k} \tilde{w}_{\sigma(j)} \cdot \text{Attn}(F_T, [\bar{F}^I_{\sigma(j)}, F^I_{\sigma(j)}])$$</p>
+
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>使用MoE路由器稀疏选择特征级别，避免冗余信息</li>
+<li>同时利用全局和局部特征，融合粗粒度和细粒度信息</li>
+<li>将文本嵌入替换为图像派生表示，桥接模态差异</li>
+
+</ul>
+<h3>级联自提示（CSP）</h3>
+
+<p><strong>设计原理</strong>：单步适配不足，物体内部特征能更好地定位其他物体。</p>
+
+<p><strong>工作机制</strong>：</p>
+<ol>
+<li>从深层到浅层迭代：先聚合高层语义，再整合细节结构</li>
+<li>在每个级别生成相似性掩码：$M_i = \mathbb{1}(\cos(\tilde{F}^T_{i-1}, F^I_i) > \delta)$（δ=0.3）</li>
+<li>通过掩码平均池化更新嵌入：$\tilde{F}^T_i = \tilde{F}^T_{i-1} + \text{MAP}(M_i, F^I_i)$</li>
+<li>设置迭代次数为3次，在精度和效率间取得平衡</li>
+
+</ol>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>自提示机制：无需外部提示，用已激活的视觉特征指导嵌入精炼</li>
+<li>深层到浅层级联：先获取语义一致性，再保留结构细节</li>
+<li>渐进式检索：逐步扩展物体一致激活，抑制背景噪声</li>
+
+</ul>
+<img src="Prompt-Free Universal Region Proposal Network/images/fig3.png" alt="图3: CSP迭代效果">
+<p><em>图3: 级联自提示模块不同迭代次数的区域选择可视化。绿色点表示当前迭代选中的物体区域。随着迭代次数增加，模型逐步选择更多物体区域。</em></p>
+
+<h3>中心性引导查询选择（CG-QS）</h3>
+
+<p><strong>设计原理</strong>：靠近物体中心的查询产生更准确的边界框。</p>
+
+<p><strong>工作机制</strong>：</p>
+<ol>
+<li>轻量级MLP预测每个查询的中心性分数 $g_i$</li>
+<li>计算查询到边界框四边的距离，推导中心性监督：$c_i = \sqrt{\frac{\min(l,r)}{\max(l,r)} \times \frac{\min(t,b)}{\max(t,b)}}$</li>
+<li>训练预测分数匹配监督，使用L1损失：$\mathcal{L}_{ctr} = \sum_{i=1}^{N} \|g_i - c_i\|_1$</li>
+<li>训练和推理时，组合中心性分数与分类分数进行查询选择</li>
+
+</ol>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>中心性先验：显式建模查询位置与边界框质量的关系</li>
+<li>双重评分：结合分类置信度和空间位置信息</li>
+<li>降低误检：优先选择中心区域查询，减少边界误差</li>
+
+</ul>
+<img src="Prompt-Free Universal Region Proposal Network/images/fig4.png" alt="图4: SIA更新效果">
+<p><em>图4: 稀疏图像感知适配器效果。每组热力图（上：更新前，下：更新后）对应同一图像。更新后，可学习嵌入在语义相关区域响应更强。</em></p>
+
+<hr>
+
+<h2 id="paper-7-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>基础检测器</strong>：Grounding DINO + Swin-B骨干网络</li>
+<li><strong>训练数据</strong>：5% COCO（80类）+ 5% ImageNet（1000类）</li>
+<li><strong>评估基准</strong>：CD-FSOD（6个跨域数据集）+ ODinW13（13个数据集）</li>
+<li><strong>评估指标</strong>：平均召回率AR@100/300/900</li>
+<li><strong>硬件</strong>：4块NVIDIA RTX 4090 GPU</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<p><strong>与OVD、RPN和MLLM的对比</strong></p>
+
+<table>
+<tr>
+<th>方法</th>
+<th>无提示</th>
+<th>CD-FSOD AR100</th>
+<th>CD-FSOD AR900</th>
+<th>ODinW13 AR100</th>
+<th>ODinW13 AR900</th>
+</tr>
+<tr>
+<td>GDINO†</td>
+<td>✗</td>
+<td>52.9</td>
+<td>54.7</td>
+<td>72.1</td>
+<td>74.0</td>
+</tr>
+<tr>
+<td>GDINO‡</td>
+<td>✓</td>
+<td>54.7</td>
+<td>61.6</td>
+<td>69.1</td>
+<td>72.4</td>
+</tr>
+<tr>
+<td>YOLOE-v8-L†</td>
+<td>✗</td>
+<td>44.4</td>
+<td>47.1</td>
+<td>66.6</td>
+<td>68.3</td>
+</tr>
+<tr>
+<td>GenerateU</td>
+<td>✓</td>
+<td>47.7</td>
+<td>55.7</td>
+<td>67.3</td>
+<td>72.2</td>
+</tr>
+<tr>
+<td>Cascade RPN</td>
+<td>✓</td>
+<td>45.8</td>
+<td>56.9</td>
+<td>60.9</td>
+<td>70.2</td>
+</tr>
+<tr>
+<td><strong>PF-RPN</strong></td>
+<td>✓</td>
+<td><strong>60.7</strong></td>
+<td><strong>68.2</strong></td>
+<td><strong>76.5</strong></td>
+<td><strong>79.8</strong></td>
+</tr>
+</table>
+
+<p><strong>关键数据</strong>：</p>
+<ul>
+<li>CD-FSOD：比GDINO提升7.8/11.8/13.5 AR@100/300/900</li>
+<li>ODinW13：比GDINO提升4.4/5.2/5.8 AR@100/300/900</li>
+<li>比YOLOE提升16.3/19.1/21.1 AR</li>
+<li>比Qwen2.5-VL-7B提升40.6/45.2/48.1 AR</li>
+
+</ul>
+<p><strong>模块消融实验</strong></p>
+
+<table>
+<tr>
+<th>SIA</th>
+<th>CSP</th>
+<th>CG-QS</th>
+<th>AR100</th>
+<th>AR900</th>
+</tr>
+<tr>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>52.9</td>
+<td>54.7</td>
+</tr>
+<tr>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>57.8</td>
+<td>66.7</td>
+</tr>
+<tr>
+<td>✗</td>
+<td>✓</td>
+<td>✗</td>
+<td>58.1</td>
+<td>65.8</td>
+</tr>
+<tr>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+<td>54.4</td>
+<td>60.2</td>
+</tr>
+<tr>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
+<td><strong>60.7</strong></td>
+<td><strong>68.2</strong></td>
+</tr>
+</table>
+
+<p>所有模块组合达到最佳性能，验证了模块间的互补性。</p>
+
+<p><strong>数据消融实验</strong>：从1%到5% COCO数据带来显著提升（+3.6 AR100），5%到10%提升有限（+0.2），加入ImageNet分类数据进一步提升泛化能力。</p>
+
+<p><strong>延迟分析</strong>：CSP迭代从1次增加到3次，性能持续提升，推理时间仅增加约4.6ms。</p>
+
+<img src="Prompt-Free Universal Region Proposal Network/images/fig5.png" alt="图5: CG-QS效果">
+<p><em>图5: 中心性引导查询选择效果。应用CG-QS后，模型倾向于选择靠近物体中心的查询，生成更准确的建议框。</em></p>
+
+<hr>
+
+<h2 id="paper-7-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>无提示通用RPN</strong>：首次提出无需任何外部提示的区域建议网络，可在任意未见域上识别潜在物体</li>
+<li><strong>视觉驱动的物体发现</strong>：用可学习视觉嵌入替代文本嵌入，解决传统RPN的泛化瓶颈</li>
+<li><strong>高效自迭代检索</strong>：级联自提示机制用已发现物体的特征迭代检索其他物体，形成正向循环</li>
+<li><strong>中心性先验</strong>：引入中心性评分网络，优先选择高质量查询，减少边界误检</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li><strong>模态解耦</strong>：证明视觉特征可以独立于文本进行物体发现，为多模态模型提供新思路</li>
+<li><strong>稀疏特征选择</strong>：MoE机制在特征级别实现自适应选择，避免冗余信息干扰</li>
+<li><strong>自提示范式</strong>：迭代精炼机制为无监督/弱监督物体发现提供可扩展方案</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li><strong>低数据训练</strong>：仅需5%标注数据即可训练，大幅降低数据收集成本</li>
+<li><strong>即插即用</strong>：可无缝集成到DE-ViT、CD-ViTO等现有检测器，提升3.7-5.5 AP</li>
+<li><strong>低延迟部署</strong>：移除文本编码器，推理速度比GDINO更快（4.6 vs 3.3 FPS），VRAM仅0.5G</li>
+<li><strong>跨域泛化</strong>：无需微调即可应用于水下检测、工业缺陷、遥感等19个数据集</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>仍依赖一定量的检测数据训练，完全无监督场景未验证</li>
+<li>CSP迭代次数固定为3次，动态迭代策略有待探索</li>
+<li>对极度模糊或遮挡的物体，自提示机制可能失效</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://github.com/tangqh03/PF-RPN</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-8">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-8-tldr">TLDR</a></li>
+<li><a href="#paper-8-motivation">动机与发现</a></li>
+<li><a href="#paper-8-method">方法</a></li>
+<li><a href="#paper-8-results">实验设定与结果</a></li>
+<li><a href="#paper-8-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">8</span>
+                    Self-Distillation of Hidden Layers for Self-Supervised Representation Learning
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Scott C. Lowe, Anthony Fuller, Sageev Oore, Evan Shelhamer, Graham W. Taylor</span><span> 机构：Vector Institute, Carleton University, Dalhousie University, University of British Columbia, University of Guelph</span><span> arXiv：2603.15553 | **日期**：2026年3月16日</span><span>️ 日期：2026年3月16日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Scott C. Lowe, Anthony Fuller, Sageev Oore, Evan Shelhamer, Graham W. Taylor</p>
+<p><strong>机构</strong>：Vector Institute, Carleton University, Dalhousie University, University of British Columbia, University of Guelph</p>
+<p><strong>arXiv</strong>：2603.15553 | <strong>日期</strong>：2026年3月16日</p>
+
+<hr>
+
+<h2 id="paper-8-tldr">TLDR</h2>
+
+<p>本文提出 Bootleg 方法，通过预测教师网络中<strong>多个隐藏层</strong>的潜在表示来进行自监督学习，桥接了生成式方法（MAE）和预测式方法（I-JEPA）之间的鸿沟。在 ImageNet-1K 分类任务上，Bootleg 比 I-JEPA 高出 10% 以上的准确率，在语义分割任务上也取得了显著提升。</p>
+
+<hr>
+
+<h2 id="paper-8-motivation">动机与发现</h2>
+
+<h3>问题：</h3>
+<p>当前自监督学习方法存在两难选择：</p>
+<ul>
+<li><strong>生成式方法</strong>（如 MAE）：重建原始像素，计算效率低，且不优先学习高层语义特征</li>
+<li><strong>预测式方法</strong>（如 I-JEPA）：预测最终层嵌入，但依赖非平稳目标导致训练不稳定</li>
+
+</ul>
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>隐藏层目标优于最终层</strong>：预测教师网络中间层的表示比仅预测最终层效果更好</li>
+<li><strong>多层目标组合更优</strong>：同时预测多个隐藏层的组合优于单个隐藏层</li>
+<li><strong>掩码策略决定稳定性</strong>：随机掩码会导致训练崩溃，而结构化掩码（如 I-JEPA 的矩形掩码）能稳定训练</li>
+<li><strong>空间连续性很重要</strong>：较大的连续掩码区域比小块随机掩码效果更好</li>
+
+</ol>
+<img src="Self-Distillation of Hidden Layers for Self-Supervised Representation Learning/images/fig1.png" alt="图1: Bootleg 多层自蒸馏方法">
+<p><em>图1: Bootleg 多层自蒸馏方法。教师编码器（蓝色）、学生编码器（绿色）和预测器（橙色）都是 ViT。教师编码器是学生编码器的 EMA，处理完整图像。学生编码器只看到图像的子集，预测器需要预测教师编码器中多个层的表示。</em></p>
+
+<hr>
+
+<h2 id="paper-8-method">方法</h2>
+
+<p><strong>核心思想</strong></p>
+
+<p>Bootleg 通过预测教师网络中多个隐藏层的表示来学习多层次的抽象特征。与 I-JEPA 仅预测最终层不同，Bootleg 同时预测早期、中期和深层的表示，迫使模型捕获不同抽象级别的特征。</p>
+
+<h3>掩码策略</h3>
+
+<p>基于 I-JEPA 的改进实现：</p>
+<ul>
+<li>将图像分割成 P×P 的补丁</li>
+<li>随机选择 4 个矩形区域进行掩码</li>
+<li>掩码区域可以重叠</li>
+<li>未掩码的补丁作为学生编码器的输入</li>
+
+</ul>
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>使用结构化矩形掩码而非随机掩码，提高训练稳定性</li>
+<li>掩码区域之间通过自注意力交互，但不同掩码区域之间无交互</li>
+
+</ul>
+<h3>目标层选择</h3>
+
+<p>从教师编码器的多个层提取目标：</p>
+<ul>
+<li><strong>目标层分布</strong>：均匀分布在编码器深度上，每 4 个块取一个（如第 1、4、8、12 块）</li>
+<li><strong>标准化</strong>：对每个目标位置的嵌入进行 z-score 标准化</li>
+<li><strong>拼接</strong>：将所有目标层的表示拼接成单一目标向量（长度为 |L|×D）</li>
+
+</ul>
+<p><strong>实现细节：</strong></p>
+<ul>
+<li>使用 EMA 教师-学生架构，教师权重是学生权重的指数移动平均</li>
+<li>教师编码器处理完整图像</li>
+<li>学生编码器处理未掩码的补丁，外加 5 个全局令牌（1 个 CLS + 4 个 register）</li>
+
+</ul>
+<h3>预测器架构</h3>
+
+<ul>
+<li>使用与 MAE 相同的 ViT 预测器架构</li>
+<li>最终线性层更宽，以投影到增加的目标元素数量</li>
+<li>4 个预测器 register 令牌用于全局处理</li>
+<li>四个掩码区域并行处理，各自内部有自注意力交互</li>
+
+</ul>
+<hr>
+
+<h2 id="paper-8-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>预训练数据</strong>：ImageNet-1K（IN-1k）</li>
+<li><strong>模型架构</strong>：ViT-S/16、ViT-B/16、ViT-L/16</li>
+<li><strong>图像尺寸</strong>：224×224，补丁大小 16×16</li>
+<li><strong>训练轮数</strong>：600 epochs（基线方法使用 600-1600 epochs）</li>
+<li><strong>评估方法</strong>：冻结编码器 + 探针（线性探针、注意力探针）</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<h4>ImageNet-1K 分类（冻结探针）</h4>
+
+<table>
+<tr>
+<th>方法</th>
+<th>ViT-S (X-Blk)</th>
+<th>ViT-B (X-Blk)</th>
+<th>ViT-L (X-Blk)</th>
+</tr>
+<tr>
+<td>MAE</td>
+<td>66.4%</td>
+<td>76.0%</td>
+<td>79.5%</td>
+</tr>
+<tr>
+<td>I-JEPA</td>
+<td>61.9%</td>
+<td>72.4%</td>
+<td>72.3%</td>
+</tr>
+<tr>
+<td>data2vec 2.0</td>
+<td>62.2%</td>
+<td>73.7%</td>
+<td>80.0%</td>
+</tr>
+<tr>
+<td><strong>Bootleg</strong></td>
+<td><strong>75.3%</strong></td>
+<td><strong>79.2%</strong></td>
+<td><strong>80.6%</strong></td>
+</tr>
+</table>
+
+<h4>iNaturalist-21 分类（冻结探针）</h4>
+
+<table>
+<tr>
+<th>方法</th>
+<th>ViT-S (X-Blk)</th>
+<th>ViT-B (X-Blk)</th>
+<th>ViT-L (X-Blk)</th>
+</tr>
+<tr>
+<td>I-JEPA</td>
+<td>48.4%</td>
+<td>63.0%</td>
+<td>61.3%</td>
+</tr>
+<tr>
+<td><strong>Bootleg</strong></td>
+<td><strong>67.4%</strong></td>
+<td><strong>74.2%</strong></td>
+<td><strong>77.1%</strong></td>
+</tr>
+</table>
+
+<h4>ADE20K 语义分割（冻结编码器）</h4>
+
+<table>
+<tr>
+<th>方法</th>
+<th>ViT-S (Lin)</th>
+<th>ViT-B (Lin)</th>
+<th>ViT-L (Lin)</th>
+</tr>
+<tr>
+<td>I-JEPA</td>
+<td>11.8%</td>
+<td>19.3%</td>
+<td>21.8%</td>
+</tr>
+<tr>
+<td><strong>Bootleg</strong></td>
+<td><strong>26.6%</strong></td>
+<td><strong>30.9%</strong></td>
+<td><strong>34.7%</strong></td>
+</tr>
+</table>
+
+<h4>Cityscapes 语义分割（冻结编码器）</h4>
+
+<table>
+<tr>
+<th>方法</th>
+<th>ViT-S (Lin)</th>
+<th>ViT-B (Lin)</th>
+<th>ViT-L (Lin)</th>
+</tr>
+<tr>
+<td>I-JEPA</td>
+<td>19.8%</td>
+<td>24.3%</td>
+<td>25.5%</td>
+</tr>
+<tr>
+<td><strong>Bootleg</strong></td>
+<td><strong>32.1%</strong></td>
+<td><strong>35.9%</strong></td>
+<td><strong>39.1%</strong></td>
+</tr>
+</table>
+
+<hr>
+
+<h2 id="paper-8-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>提出隐藏层自蒸馏方法</strong>：首次系统性地探索预测多个隐藏层表示的自监督学习，发现中间层目标比最终层更有效</li>
+<li><strong>改进训练稳定性</strong>：通过结构化掩码和多层次目标解决了自蒸馏方法的训练不稳定问题</li>
+<li><strong>统一生成式与预测式方法</strong>：Bootleg 桥接了 MAE（像素级）和 I-JEPA（嵌入级）之间的差距</li>
+<li><strong>显著的性能提升</strong>：在所有评估任务上大幅超越现有方法，特别是在小模型上提升超过 10%</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li>验证了"最深层不一定最好"的假设：中间层的特征对许多下游任务更有用</li>
+<li>信息瓶颈视角：通过增加目标层数量提高压缩比，迫使模型更好地理解输入</li>
+<li>与大脑预测编码模型的类比：多层次预测类似于大脑中不同层级的视觉处理</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li><strong>计算效率</strong>：单视角方法，不需要大批量训练，在单个消费级 GPU 上即可预训练</li>
+<li><strong>通用性强</strong>：不需要特定的数据增强策略，易于迁移到其他领域（视频、音频、医学图像等）</li>
+<li><strong>即插即用</strong>：隐藏层自蒸馏可以与其他掩码方法（MAE、CrossMAE、data2vec）结合使用</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>在合成图像（如 Clevr、dSprites）上的表现不如自然图像</li>
+<li>预测器需要更宽的最终层来处理多个目标，增加了少量计算开销</li>
+<li>最佳目标层选择仍需要一定的经验（论文建议每 4 个块取一个）</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：论文中提到代码将通过 GitHub 发布，但目前尚未公开</p>
+
+                </div>
+            </article>
+            <article class="paper-card" id="paper-9">
+                
+                <nav class="paper-toc">
+                    <div class="paper-toc-title">本篇目录</div>
+                    <ul class="paper-toc-list">
+                        <li><a href="#paper-9-tldr">TLDR</a></li>
+<li><a href="#paper-9-motivation">动机与发现</a></li>
+<li><a href="#paper-9-method">方法</a></li>
+<li><a href="#paper-9-results">实验设定与结果</a></li>
+<li><a href="#paper-9-conclusion">启示和结论</a></li>
+                    </ul>
+                </nav>
+                <h2 class="paper-title">
+                    <span class="paper-number">9</span>
+                    V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning
+                </h2>
+                <div class="paper-meta">
+                    <span> 作者：Lorenzo Mur-Labadia, Matthew Muckley, Amir Bar, Mido Assran, Koustuv Sinha, Mike Rabbat, Yann LeCun, Nicolas Ballas, Adrien Bardes</span><span> 机构：FAIR at Meta, Universidad de Zaragoza</span><span> arXiv：2603.14482 | **日期**：2026年3月17日</span><span>️ 日期：2026年3月17日</span>
+                </div>
+                <div class="paper-content">
+                    
+<p><strong>作者</strong>：Lorenzo Mur-Labadia, Matthew Muckley, Amir Bar, Mido Assran, Koustuv Sinha, Mike Rabbat, Yann LeCun, Nicolas Ballas, Adrien Bardes</p>
+<p><strong>机构</strong>：FAIR at Meta, Universidad de Zaragoza</p>
+<p><strong>arXiv</strong>：2603.14482 | <strong>日期</strong>：2026年3月17日</p>
+
+<hr>
+
+<h2 id="paper-9-tldr">TLDR</h2>
+
+<p>V-JEPA 2.1 是一种自监督视频表征学习方法，通过四个关键改进解决了视频自监督学习中密集特征质量差的问题。核心创新在于将预测损失扩展到所有token（包括可见和被遮蔽的patch），而非仅监督被遮蔽区域。该方法在多个基准测试中取得了SOTA结果：Ego4D短期物体交互预测达7.71 mAP，EPIC-KITCHENS动作预测达40.8 Recall@5，机器人抓取成功率比V-JEPA 2 AC提升20%。</p>
+
+<img src="V-JEPA 2.1_ Unlocking Dense Features in Video Self-Supervised Learning/images/fig1_performance.png" alt="图1: V-JEPA 2.1在密集和全局预测任务上的性能">
+<p><em>图1: V-JEPA 2.1 ViT-G在密集和全局预测任务上的性能。显示了V-JEPA 2.1相对于前代V-JEPA 2 ViT-g模型的相对改进。</em></p>
+
+<hr>
+
+<h2 id="paper-9-motivation">动机与发现</h2>
+
+<h3>问题：视频自监督学习中的密集特征质量问题</h3>
+
+<p>V-JEPA系列模型在全局视频理解、动作预测和规划方面表现出色，但其学习到的表征在密集视觉任务（如语义分割、深度估计）上表现有限。PCA可视化显示特征图存在噪声且局部空间结构破碎，ADE20K语义分割仅22.2 mIoU，NYUv2深度估计RMSE为0.682。</p>
+
+<h3>关键发现</h3>
+
+<ol>
+<li><strong>监督缺失假说</strong>：V-JEPA 2仅对被遮蔽token应用预测损失，未遮蔽的上下文token缺乏监督，导致模型将计算资源用于聚合全局信息而非编码局部结构。</li>
+<li><strong>上下文监督有效性</strong>：对上下文token引入监督损失ℒctx后，特征图显示出清晰的局部结构，ADE20K性能从22.2提升至33.9 mIoU。</li>
+<li><strong>权衡问题</strong>：简单的上下文监督会损害全局理解能力（SSv2从72.8降至62.5），需要精细的权重设计。</li>
+
+</ol>
+<hr>
+
+<h2 id="paper-9-method">方法</h2>
+
+<p><strong>核心思想</strong></p>
+
+<p>V-JEPA 2.1通过四个关键组件学习同时具备高质量密集局部特征和全局语义理解的表征：密集预测损失、深度自监督、多模态tokenizer以及数据和模型扩展。</p>
+
+<img src="V-JEPA 2.1_ Unlocking Dense Features in Video Self-Supervised Learning/images/fig2_architecture.jpg" alt="图2: V-JEPA 2.1详细架构">
+<p><em>图2: V-JEPA 2.1详细架构。图像和视频分别通过2D或3D卷积patch嵌入处理，添加3D旋转位置编码和可学习模态嵌入。x编码器处理可见token并输出多层嵌入，MLP融合多层表示并降维。这些上下文token与携带时空位置信息的可学习掩码token拼接，预测器处理组合序列并为掩码token生成多层预测。</em></p>
+
+<h3>密集预测损失</h3>
+
+<p>提出ℒdense = ℒpredict + ℒctx，对所有token（被遮蔽和可见patch）应用自监督损失。ℒctx采用距离加权方案：λi = λ / √(d_min(i,M))，其中d_min是上下文token到最近掩码token的距离。这种加权强调靠近掩码区域的patch，通过强制局部连续性来平衡分割和动作识别性能。</p>
+
+<h3>深度自监督</h3>
+
+<p>在编码器中间层应用自监督目标：将三个中间层输出与最终输出拼接，通过轻量级MLP融合降维。预测器生成四个输出对应四个编码器层，两个损失在每层都应用。深度自监督恢复了全局理解能力（SSv2 72.0，IN1K 80.8），同时提升了密集任务性能（ADE20K 38.6 mIoU）。</p>
+
+<p><strong>关键创新点：</strong></p>
+<ul>
+<li>将预测损失扩展到所有token，防止可见token充当全局聚合器</li>
+<li>距离加权的上下文监督，平衡局部结构学习和全局理解</li>
+
+</ul>
+<h3>数据和模型扩展</h3>
+
+<p>构建VisionMix-163M数据集：将V-JEPA 2的1M图像替换为LVD-142M，调整视频采样策略（SSv2权重从0.056增至0.170，YT-1B从0.188增至0.720）。模型从ViT-g（300M）扩展到ViT-G（2B），配合高分辨率冷却阶段（视频64帧384×384，图像512×512）。</p>
+
+<img src="V-JEPA 2.1_ Unlocking Dense Features in Video Self-Supervised Learning/images/fig3_ablation.png" alt="图3: V-JEPA 2.1训练配方各组件的影响">
+<p><em>图3: V-JEPA 2.1训练配方各组件的影响。消融实验从ViT-L架构开始，在ADE20k单图像语义分割和SSv2动作分类上进行。引入加权上下文自监督显著提升分割但损害分类，深度自监督恢复并进一步提升分割性能。</em></p>
+
+<hr>
+
+<h2 id="paper-9-results">实验设定与结果</h2>
+
+<h3>实验配置</h3>
+
+<ul>
+<li><strong>数据集</strong>：VisionMix-163M（142M图像 + 21M视频）</li>
+<li><strong>评估协议</strong>：密集任务使用线性探测，全局任务使用注意力探测</li>
+<li><strong>密集任务</strong>：ADE20K语义分割、NYUv2深度估计、YouTube-VOS视频目标分割</li>
+<li><strong>全局任务</strong>：SSv2动作识别、ImageNet图像分类、Ego4D/EPIC-KITCHENS预测任务</li>
+
+</ul>
+<h3>核心结果</h3>
+
+<p>V-JEPA 2.1 ViT-G在冻结骨干网络评估中达到SOTA：</p>
+
+<table>
+<tr>
+<th>任务</th>
+<th>数据集</th>
+<th>指标</th>
+<th>V-JEPA 2.1</th>
+<th>前代SOTA</th>
+</tr>
+<tr>
+<td>深度估计</td>
+<td>NYUv2</td>
+<td>RMSE ↓</td>
+<td><strong>0.307</strong></td>
+<td>DINOv3</td>
+</tr>
+<tr>
+<td>语义分割</td>
+<td>ADE20K</td>
+<td>mIoU</td>
+<td><strong>47.9</strong></td>
+<td>DINOv3</td>
+</tr>
+<tr>
+<td>动作识别</td>
+<td>SSv2</td>
+<td>Acc.</td>
+<td><strong>77.7%</strong></td>
+<td>DINOv3</td>
+</tr>
+<tr>
+<td>物体交互预测</td>
+<td>Ego4D</td>
+<td>mAP</td>
+<td><strong>7.71</strong></td>
+<td>STAformer</td>
+</tr>
+<tr>
+<td>动作预测</td>
+<td>EPIC-KITCHENS</td>
+<td>Recall@5</td>
+<td><strong>40.8</strong></td>
+<td>PlausiVL</td>
+</tr>
+<tr>
+<td>机器人抓取</td>
+<td>Franka臂</td>
+<td>成功率</td>
+<td><strong>+20%</strong></td>
+<td>V-JEPA 2 AC</td>
+</tr>
+<tr>
+<td>机器人导航</td>
+<td>Tartan Drive</td>
+<td>ATE ↓</td>
+<td><strong>5.687</strong></td>
+<td>前代工作</td>
+</tr>
+</table>
+
+<hr>
+
+<h2 id="paper-9-conclusion">启示和结论</h2>
+
+<h3>主要贡献</h3>
+
+<ol>
+<li><strong>密集预测损失</strong>：发现仅监督被遮蔽token导致密集特征质量差，提出对所有token应用自监督损失</li>
+<li><strong>深度自监督</strong>：在编码器中间层应用自监督目标，平衡密集和全局任务性能</li>
+<li><strong>数据和模型扩展</strong>：构建VisionMix-163M数据集，扩展到ViT-G（2B参数）并引入高分辨率冷却</li>
+
+</ol>
+<h3>理论意义</h3>
+
+<ul>
+<li>揭示了视频自监督学习中密集特征质量与监督范围的关系</li>
+<li>证明了深度自监督在平衡局部和全局表征中的有效性</li>
+
+</ul>
+<h3>实践价值</h3>
+
+<ul>
+<li>为机器人感知和规划提供了更强的视觉表征</li>
+<li>提供了从2B模型蒸馏到80M/300M小型模型的实用方案</li>
+<li>代码和预训练模型已开源，促进后续研究和应用</li>
+
+</ul>
+<h3>局限性</h3>
+
+<ul>
+<li>计算资源需求大：ViT-G训练需要大量GPU资源</li>
+<li>视频长度限制：当前处理16-64帧，长视频处理需要进一步研究</li>
+<li>多模态扩展：当前主要关注视觉，与语言等模态的融合未深入探索</li>
+
+</ul>
+<hr>
+
+<p><strong>代码</strong>：https://github.com/facebookresearch/vjepa2</p>
+                </div>
+            </article>
         </main>
     </div>
+
     <footer class="footer">
-        <p>Generated by weekly-tech-news skill | 2026.03.21</p>
+        <p>Generated by weekly-tech-news skill © 2026 Intellindust AI Team - Xuanlong Yu | 9 papers</p>
     </footer>
+
     <script>
         // 平滑滚动
         document.querySelectorAll('.toc-link, .paper-toc-list a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
+                const href = link.getAttribute('href');
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-        // 滚动高亮全局TOC
+
+        // 滚动时高亮当前目录项
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -742,12 +3047,17 @@
                     });
                 }
             });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.paper-card').forEach(card => observer.observe(card));
-        // 滚动高亮论文内mini-TOC
+        }, { threshold: 0.01, rootMargin: '0px 0px -70% 0px' });
+
+        document.querySelectorAll('.paper-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // 论文内 mini-TOC 高亮
         document.querySelectorAll('.paper-card').forEach(card => {
             const tocLinks = card.querySelectorAll('.paper-toc-list a');
             const sections = card.querySelectorAll('h2[id]');
+
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -757,12 +3067,13 @@
                             link.style.background = '';
                             if (link.getAttribute('href') === '#' + id) {
                                 link.style.color = 'var(--accent-cyan)';
-                                link.style.background = 'var(--bg-card)';
+                                link.style.background = 'rgba(56, 189, 248, 0.15)';
                             }
                         });
                     }
                 });
             }, { threshold: 0.5, rootMargin: '-80px 0px -60% 0px' });
+
             sections.forEach(section => sectionObserver.observe(section));
         });
     </script>
