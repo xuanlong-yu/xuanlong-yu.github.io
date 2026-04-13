@@ -29,3 +29,7 @@ entries:
   - folder: "2026_0308_0321"
     label: "2026/03/08 - 2026/03/21"
     html: "weekly-tech-news.html"
+
+  - folder: "2026_0321_0413"
+    label: "2026/03/21 - 2026/04/13"
+    html: "weekly-tech-news.html"
