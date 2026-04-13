@@ -160,6 +160,19 @@ body {
   .meta-grid { grid-template-columns: 1fr; }
   .section-main .figure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }</style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head><body>
   <header class="header"><h1>科技论文周报</h1>
     <p>Weekly Tech Paper Digest | 2026年3月21日-2026年4月13日</p>
@@ -1747,5 +1760,9 @@ body {
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetPromise();
+  }
 })();</script>
 </body></html>
