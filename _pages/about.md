@@ -9,7 +9,10 @@ redirect_from:
 ---
 
 Xuanlong Yu joined [Intellindust](https://intellindust-ai-lab.github.io/) in Aug 2024 as a member of technical staff working with Dr. [Xi Shen](https://xishen0220.github.io/). 
-He completed his Ph.D. in 2023 at Université Paris-Saclay + ENSTA Paris (Institut Polytechnique de Paris) in France, under the supervision of Prof. [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and Prof. [Gianni Franchi](https://giannifranchi.github.io/). His research interests lie in stochastic daydreaming.
+
+He completed his Ph.D. in 2023 at Université Paris-Saclay + ENSTA Paris (Institut Polytechnique de Paris) in France, under the supervision of Prof. [Emanuel Aldea](https://hebergement.universite-paris-saclay.fr/emi/) and Prof. [Gianni Franchi](https://giannifranchi.github.io/). 
+
+His interests include stochastic daydreaming, evidential rumination, chronic insomnia, shallow learning, Chiikawa, residual academic research, and vibe labor.
 
 <style>
 .recent-news-window { margin: 1em 0; border: 1px solid #d0d7de; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); background: #fff; }
@@ -25,18 +28,18 @@ He completed his Ph.D. in 2023 at Université Paris-Saclay + ENSTA Paris (Instit
 <div class="recent-news-window">
   <div class="recent-news-window-title">Recent News</div>
   <div class="recent-news-window-content">
-    <p><code>03/2026</code> <a href="https://arxiv.org/abs/2603.18739"><strong>EdgeCrafter</strong></a>, a new series of SOTA models for object detection, humain pose estimation and instance segmentation. <a href="https://github.com/Intellindust-AI-Lab/EdgeCrafter"><strong>code</strong></a>!</p>
-    <p><code>02/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FT-FSOD/"><strong>FT-FSOD</strong></a> for training-required few-shot object detection is accepted at <strong>CVPR 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/FT-FSOD"><strong>code</strong></a> and the <a href="https://arxiv.org/abs/2603.28182"><strong>paper</strong></a>!</p>
-    <p><code>02/2026</code> <a href="https://walker1126.github.io/MoVie-project/"><strong>MoVie</strong></a> for human action detection is accepted at <strong>CVPR 2026</strong>. <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_MoVie_Broaden_Your_Views_with_Human_Motion_for_Action_Detection_CVPR_2026_paper.pdf"><strong>paper</strong></a>!</p>
+    <p><code>03/2026</code> <a href="https://arxiv.org/abs/2603.18739"><strong>EdgeCrafter</strong></a>, a new series of SOTA models for object detection, humain pose estimation and instance segmentation. <a href="https://github.com/Intellindust-AI-Lab/EdgeCrafter"> <strong>[code]</strong></a></p>
+    <p><code>02/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FT-FSOD/"><strong>FT-FSOD</strong></a> for training-required few-shot object detection is accepted at <strong>CVPR 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/FT-FSOD"><strong>[code]</strong></a></p>
+    <p><code>02/2026</code> <a href="https://walker1126.github.io/MoVie-project/"><strong>MoVie</strong></a> for human action detection is accepted at <strong>CVPR 2026</strong>.</p>
     <p><code>01/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FSOD-VFM"><strong>FSOD-VFM</strong></a> for training-free few-shot object detection is accepted at <strong>ICLR 2026</strong>.</p>
     <p><code>07/2025</code> 2nd place 🥈 in the NTIRE Joint Denoising and Demosaicing Challenge, 2nd place 🥈 in the SoccerNet Ball Action Spotting Challenge, an honorable mention Foundation Few-shot Object Detection Challenge, at CVPR 2025.</p>
     <p><code>10/2024</code> 1st place 🏅 in the Open-set Recognition challenge at the Out Of Distribution Generalization in Computer Vision Workshop, at ECCV 2024.</p>
     <p><code>06/2024</code> <a href="https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf"><strong>CCNet</strong></a> for human pose calibration is accepted at <strong>ICML 2024</strong>.</p>
     <p><code>03/2024</code> <a href="https://arxiv.org/abs/2403.00543"><strong>SURE</strong></a> for robust image classification is accepted at <strong>CVPR 2024</strong>.</p>
-    <p><code>12/2023</code> Defend my Ph.D. dissertation "Uncertainty quantification for vision regression tasks" <a href="https://xuanlong-yu.github.io/files/phd_defense.pdf">PDF</a>. <strong>Thank all the members of the jury, my dear supervisors, colleagues, friends and my parents.</strong></p>
+    <p><code>12/2023</code> Defend my Ph.D. dissertation "Uncertainty quantification for vision regression tasks" <a href="https://xuanlong-yu.github.io/files/phd_defense.pdf">[PDF]</a>. <strong>Thank all the members of the jury, my dear supervisors, colleagues, friends and my parents.</strong></p>
     <p><code>12/2023</code> <a href="https://arxiv.org/abs/2308.09065"><strong>DIDO</strong></a> for uncertainty estimation in vision regression is accepted at <strong>AAAI 2024</strong>.</p>
     <p><code>10/2023</code> <a href="https://arxiv.org/abs/2309.15751"><strong>InfraParis</strong></a> is accepted as <strong>Oral</strong> at <strong>WACV 2024</strong>. The dataset contains RGB, Depth and Infrared images captured in the Paris area with manual semantic segmentation annotations. You may find more details from our <a href="https://ensta-u2is-ai.github.io/infraParis/">website</a>.</p>
-    <p><code>05/2023</code> Happy to announce that the <a href="https://codalab.lisn.upsaclay.fr/competitions/8007">MUAD challenge</a> is now on board at <a href="https://uncv2023.github.io/">UNCV Workshop</a>, <a href="https://iccv2023.thecvf.com/">ICCV 2023</a>.</p>
+    <p><code>05/2023</code> Happy to organize the <a href="https://codalab.lisn.upsaclay.fr/competitions/8007">MUAD challenge</a> at <a href="https://iccv2023.thecvf.com/">ICCV 2023</a>. The challenge is now on board at <a href="https://uncv2023.github.io/">UNCV Workshop</a>.</p>
     <p><code>05/2023</code> Honored to give a talk at SCAI, Sorbonne Université on "Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation" <a href="https://xuanlong-yu.github.io/files/sorbonne_talk.pdf">PDF</a>.</p>
     <p><code>03/2023 - 04/2023</code> One-month pleasant visit at Leiden University.</p>
   </div>
@@ -61,22 +64,7 @@ Education
 .home-publications-content { padding: 1rem; border-top: 1px solid #eaecef; background: #fff; }
 </style>
 
-<!-- <details class="home-publications-details">
-<summary class="home-publications-summary">Publications <a href="/publications/" onclick="event.stopPropagation()" class="home-publications-more">查看全部</a></summary>
-<div class="home-publications-content">
-<p><strong>Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression</strong> [<a href="https://arxiv.org/abs/2308.09065">PDF</a>] [<a href="https://github.com/ENSTA-U2IS/DIDO">github</a>]<br><strong>Xuanlong Yu</strong>, Gianni Franchi, Jindong Gu, Emanuel Aldea<br><em>The 38th Annual AAAI Conference on Artificial Intelligence (AAAI), 2024</em></p>
-<p><strong>InfraParis: A multi-modal and multi-task autonomous driving dataset</strong> [<a href="https://arxiv.org/abs/2309.15751">PDF</a>] [<a href="https://ensta-u2is.github.io/infraParis/">website</a>]<br>Gianni Franchi, Marwane Hariat, <strong>Xuanlong Yu</strong>, Nacim Belkhir, Antoine Manzanera, David Filliat<br><em>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024</em> (Oral)</p>
-<p><strong>The Robust Semantic Segmentation UNCV2023 Challenge Results</strong> [<a href="https://arxiv.org/abs/2309.15478">PDF</a>]<br><strong>Xuanlong Yu</strong>, et al. (full author list is provided in the <a href="/publications/">publications</a> page)<br><em>International Conference on Computer Vision Workshop (ICCVW), 2023</em></p>
-<p><strong>MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks</strong> [<a href="https://arxiv.org/abs/2203.01437">PDF</a>] [<a href="https://muad-dataset.github.io/">website</a>]<br>Gianni Franchi*, <strong>Xuanlong Yu</strong>*, Andrei Bursuc, Angel Tena, Rémi Kazmierczak, Séverine Dubuisson, Emanuel Aldea, David Filliat<br><em>British Machine Vision Conference (BMVC), 2022</em></p>
-<p><strong>Latent Discriminant deterministic Uncertainty</strong> [<a href="https://link.springer.com/chapter/10.1007/978-3-031-19775-8_15">PDF</a>] [<a href="https://github.com/ENSTA-U2IS/LDU">github</a>]<br>Gianni Franchi*, <strong>Xuanlong Yu</strong>*, Andrei Bursuc, Emanuel Aldea, Severine Dubuisson, David Filliat<br><em>European Conference on Computer Vision (ECCV), 2022</em></p>
-<p><strong>On Monocular Depth Estimation and Uncertainty Quantification using Classification Approaches for Regression</strong> [<a href="https://arxiv.org/abs/2202.12369">PDF</a>]<br><strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea<br><em>IEEE International Conference on Image Processing (ICIP), 2022</em> (Oral)</p>
-<p><strong>SLURP: Side Learning Uncertainty for Regression Problems</strong> [<a href="https://arxiv.org/abs/2110.11182">PDF</a>] [<a href="https://github.com/xuanlongORZ/SLURP_uncertainty_estimate">github</a>]<br><strong>Xuanlong Yu</strong>, Gianni Franchi, Emanuel Aldea<br><em>British Machine Vision Conference (BMVC), 2021</em></p>
-<p>*equal contribution</p>
-</div>
-</details> -->
-
 Academic services
 ======
 Reviewer: ECCV, AAAI (since 2026), CVPR (since 2025), ICCVW, IEEE TPAMI, IEEE TMM\\
 Organizer: MUAD challenge at UNCV workshop, ICCV 2023.
-
