@@ -121,31 +121,4 @@
     </ul>
   </div>
 
-  <div class="author__visitor-map">
-    <div class="author__visitor-map-embed">
-      <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=Jd8iWi_z94JFMPpcMlDGvWu2v_3F0ehKaSB1ic1paXE" onerror="this.parentNode.className += ' is-fallback';"></script>
-      <div class="author__visitor-map-fallback" aria-label="Visitor globe" role="img">
-        <span class="author__visitor-globe">
-          <span class="author__visitor-globe-axis author__visitor-globe-axis--vertical"></span>
-          <span class="author__visitor-globe-axis author__visitor-globe-axis--horizontal"></span>
-          <span class="author__visitor-globe-axis author__visitor-globe-axis--tilt-left"></span>
-          <span class="author__visitor-globe-axis author__visitor-globe-axis--tilt-right"></span>
-        </span>
-      </div>
-      <script>
-        (function () {
-          var embed = document.currentScript.parentNode;
-
-          window.setTimeout(function () {
-            var fallback = embed.querySelector(".author__visitor-map-fallback");
-            var rendered = embed.querySelector("canvas, iframe, object, embed, img, a");
-
-            if (!rendered || fallback.contains(rendered)) {
-              embed.className += " is-fallback";
-            }
-          }, 4000);
-        }());
-      </script>
-    </div>
-  </div>
 </div>
