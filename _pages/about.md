@@ -28,7 +28,7 @@ His interests include stochastic daydreaming, evidential rumination, chronic ins
 <div class="recent-news-window">
   <div class="recent-news-window-title">Recent News</div>
   <div class="recent-news-window-content">
-    <p><code>06/2026</code> <a href="https://arxiv.org/abs/2511.20157"><strong>EdgeCrafter</strong></a> for human mesh and biomechanical skeleton recovery is accepted at <strong>ECCV 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/SKEL-CF"> <strong>[code]</strong></a></p>
+    <p><code>06/2026</code> <a href="https://arxiv.org/abs/2511.20157"><strong>SKEL-CF</strong></a> for human mesh and biomechanical skeleton recovery is accepted at <strong>ECCV 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/SKEL-CF"> <strong>[code]</strong></a></p>
     <p><code>03/2026</code> <a href="https://arxiv.org/abs/2603.18739"><strong>EdgeCrafter</strong></a>, a new series of SOTA models for object detection, humain pose estimation and instance segmentation. <a href="https://github.com/Intellindust-AI-Lab/EdgeCrafter"> <strong>[code]</strong></a></p>
     <p><code>02/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FT-FSOD/"><strong>FT-FSOD</strong></a> for training-required few-shot object detection is accepted at <strong>CVPR 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/FT-FSOD"><strong>[code]</strong></a></p>
     <p><code>02/2026</code> <a href="https://walker1126.github.io/MoVie-project/"><strong>MoVie</strong></a> for human action detection is accepted at <strong>CVPR 2026</strong>.</p>
