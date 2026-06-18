@@ -235,3 +235,22 @@
     }
   }
 }
+
+.author__visitor-globe {
+  display: none;
+
+  @include breakpoint($large) {
+    display: block;
+    margin-top: 1.25em;
+    max-width: 175px;
+    overflow: hidden;
+  }
+
+  iframe,
+  canvas,
+  img,
+  object,
+  embed {
+    max-width: 100%;
+  }
+}
