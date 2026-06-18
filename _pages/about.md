@@ -28,10 +28,11 @@ His interests include stochastic daydreaming, evidential rumination, chronic ins
 <div class="recent-news-window">
   <div class="recent-news-window-title">Recent News</div>
   <div class="recent-news-window-content">
+    <p><code>06/2026</code> <a href="https://arxiv.org/abs/2511.20157"><strong>EdgeCrafter</strong></a> for human mesh and biomechanical skeleton recovery is accepted at <strong>ECCV 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/SKEL-CF"> <strong>[code]</strong></a></p>
     <p><code>03/2026</code> <a href="https://arxiv.org/abs/2603.18739"><strong>EdgeCrafter</strong></a>, a new series of SOTA models for object detection, humain pose estimation and instance segmentation. <a href="https://github.com/Intellindust-AI-Lab/EdgeCrafter"> <strong>[code]</strong></a></p>
     <p><code>02/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FT-FSOD/"><strong>FT-FSOD</strong></a> for training-required few-shot object detection is accepted at <strong>CVPR 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/FT-FSOD"><strong>[code]</strong></a></p>
     <p><code>02/2026</code> <a href="https://walker1126.github.io/MoVie-project/"><strong>MoVie</strong></a> for human action detection is accepted at <strong>CVPR 2026</strong>.</p>
-    <p><code>01/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FSOD-VFM"><strong>FSOD-VFM</strong></a> for training-free few-shot object detection is accepted at <strong>ICLR 2026</strong>.</p>
+    <p><code>01/2026</code> <a href="https://intellindust-ai-lab.github.io/projects/FSOD-VFM"><strong>FSOD-VFM</strong></a> for training-free few-shot object detection is accepted at <strong>ICLR 2026</strong>. <a href="https://github.com/Intellindust-AI-Lab/FSOD-VFM"><strong>[code]</strong></a></p>
     <p><code>07/2025</code> 2nd place 🥈 in the NTIRE Joint Denoising and Demosaicing Challenge, 2nd place 🥈 in the SoccerNet Ball Action Spotting Challenge, an honorable mention Foundation Few-shot Object Detection Challenge, at CVPR 2025.</p>
     <p><code>10/2024</code> 1st place 🏅 in the Open-set Recognition challenge at the Out Of Distribution Generalization in Computer Vision Workshop, at ECCV 2024.</p>
     <p><code>06/2024</code> <a href="https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf"><strong>CCNet</strong></a> for human pose calibration is accepted at <strong>ICML 2024</strong>.</p>
