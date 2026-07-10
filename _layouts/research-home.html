@@ -624,7 +624,7 @@ layout: compress
               <div class="bio-lines">
                 <span>{{ tree.profile.role.prefix }} <a href="{{ tree.profile.role.url }}" target="_blank" rel="noopener noreferrer">{{ tree.profile.role.label }}</a></span>
                 <span>{{ tree.profile.alumni }}</span>
-                <span>Learning from <span class="mentor-links">{% for mentor in tree.profile.mentors %}<a href="{{ mentor.url }}" target="_blank" rel="noopener noreferrer">{{ mentor.label }}</a>{% unless forloop.last %} / {% endunless %}{% endfor %}</span></span>
+                <span>Working / Worked with <span class="mentor-links">{% for mentor in tree.profile.mentors %}<a href="{{ mentor.url }}" target="_blank" rel="noopener noreferrer">{{ mentor.label }}</a>{% unless forloop.last %} / {% endunless %}{% endfor %}</span></span>
                 <span>{{ tree.profile.interests }}</span>
               </div>
               <p class="bio-weather">{{ tree.profile.inner_weather }}</p>
