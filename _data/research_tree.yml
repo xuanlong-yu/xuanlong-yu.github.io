@@ -1,0 +1,355 @@
+themes:
+  - id: night
+    label: Night
+  - id: dawn
+    label: Dawn
+  - id: day
+    label: Day
+
+profile:
+  name: Xuanlong Yu
+  role:
+    prefix: "2024 - now Member of technical staff @"
+    label: "Intellindust AI Lab"
+    url: "https://intellindust-ai-lab.github.io/"
+  alumni: "Alumni @ Xidian / Paris-Saclay / ENSTA Paris"
+  mentors:
+    - label: "Xi Shen"
+      url: "https://xishen0220.github.io/"
+    - label: "Emanuel Aldea"
+      url: "https://hebergement.universite-paris-saclay.fr/emi/"
+    - label: "Gianni Franchi"
+      url: "https://giannifranchi.github.io/"
+  interests: Computer vision / AI Safety / Multimodality / Few-shot
+  inner_weather: Stochastic daydreaming / Evidential rumination / Chronic insomnia / Shallow learning / Chiikawa / Residual academic research / Vibe labor / Working for buying tokens
+  links:
+    - label: Google Scholar
+      url: https://scholar.google.com/citations?user=o3Q56qsAAAAJ&hl=en
+    - label: GitHub
+      url: https://github.com/xuanlongORZ
+    - label: Email
+      url: mailto:yu.xuanlong1996@gmail.com
+
+branches:
+  - id: edge-detectors
+    label: Edge Object Detectors
+    caption: Compact detectors, dense prediction, deployment-shaped ViTs.
+    position: "node-a"
+  - id: few-shot-detection
+    label: Few-Shot Object Detection
+    caption: Training-free and fine-tuned detectors under low-shot settings.
+    position: "node-b"
+  - id: robustness-uncertainty
+    label: Model Robustness and Uncertainty
+    caption: Reliability, calibration, OOD behavior, and deterministic uncertainty.
+    position: "node-c"
+  - id: video-action
+    label: Video and Human Action Understanding
+    caption: Human motion and action detection from video cues.
+    position: "node-d"
+  - id: reconstruction-3d
+    label: Human Skeleton and Mesh
+    caption: Human mesh, skeleton, and pose calibration.
+    position: "node-e"
+
+publications:
+  - id: edgecrafter
+    branch: edge-detectors
+    title: "EdgeCrafter: Compact ViTs for Edge Dense Prediction via Task-Specialized Distillation"
+    authors: "Longfei Liu*, Yongjie Hou*, Yang Li*, Qirui Wang*, Youyang Sha, Yongjun Yu, Yinzhi Wang, Peizhe Ru, Xuanlong Yu†, Xi Shen†"
+    venue: "arXiv"
+    year: "2026"
+    image: "/images/research/edgecrafter.png"
+    links:
+      - label: Project
+        url: "https://intellindust-ai-lab.github.io/projects/EdgeCrafter/"
+      - label: Paper
+        url: "https://arxiv.org/abs/2603.18739"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/EdgeCrafter"
+    abstract: >-
+      Deploying high-performance dense prediction models on resource-constrained edge devices remains challenging due to strict limits on computation and memory. In practice, lightweight systems for object detection, instance segmentation, and pose estimation are still dominated by CNN-based architectures such as YOLO, while compact Vision Transformers (ViTs) often struggle to achieve similarly strong accuracy efficiency tradeoff, even with large scale pretraining. We argue that this gap is largely due to insufficient task specific representation learning in small scale ViTs, rather than an inherent mismatch between ViTs and edge dense prediction. To address this issue, we introduce EdgeCrafter, a unified compact ViT framework for edge dense prediction centered on ECDet, a detection model built from a distilled compact backbone and an edge-friendly encoder decoder design. On the COCO dataset, ECDet-S achieves 51.7 AP with fewer than 10M parameters using only COCO annotations. For instance segmentation, ECInsSeg achieves performance comparable to RF-DETR while using substantially fewer parameters. For pose estimation, ECPose-X reaches 74.8 AP, significantly outperforming YOLO26Pose-X (71.6 AP). These results show that compact ViTs, when paired with task-specialized distillation and edge-aware design, can be a practical and competitive option for edge dense prediction.
+  - id: deimv2
+    branch: edge-detectors
+    title: "Real-Time Object Detection Meets DINOv3"
+    authors: "Shihua Huang*, Yongjie Hou*, Longfei Liu*, Xuanlong Yu, Xi Shen†"
+    venue: "arXiv"
+    year: "2025"
+    image: "/images/research/deimv2.png"
+    links:
+      - label: Project
+        url: "https://intellindust-ai-lab.github.io/projects/DEIMv2/"
+      - label: Paper
+        url: "https://arxiv.org/pdf/2509.20787"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/DEIMv2"
+    abstract: >-
+      Driven by the simple and effective Dense O2O, DEIM demonstrates faster convergence and enhanced performance. In this work, we extend it with DINOv3 features, resulting in DEIMv2. DEIMv2 spans eight model sizes from X to Atto, covering GPU, edge, and mobile deployment. For the X, L, M, and S variants, we adopt DINOv3-pretrained or distilled backbones and introduce a Spatial Tuning Adapter (STA), which efficiently converts DINOv3's single-scale output into multi-scale features and complements strong semantics with fine-grained details to enhance detection. For ultra-lightweight models (Nano, Pico, Femto, and Atto), we employ HGNetv2 with depth and width pruning to meet strict resource budgets. Together with a simplified decoder and an upgraded Dense O2O, this unified design enables DEIMv2 to achieve a superior performance-cost trade-off across diverse scenarios, establishing new state-of-the-art results. Notably, our largest model, DEIMv2-X, achieves 57.8 AP with only 50.3 million parameters, surpassing prior X-scale models that require over 60 million parameters for just 56.5 AP. On the compact side, DEIMv2-S is the first sub-10 million model (9.71 million) to exceed the 50 AP milestone on COCO, reaching 50.9 AP. Even the ultra-lightweight DEIMv2-Pico, with just 1.5 million parameters, delivers 38.5 AP, matching YOLOv10-Nano (2.3 million) with around 50 percent fewer parameters.
+  - id: ov-deim
+    branch: edge-detectors
+    title: "OV-DEIM: Real-time DETR-Style Open-Vocabulary Object Detection with GridSynthetic Augmentation"
+    authors: "Leilei Wang, Longfei Liu, Xi Shen, Xuanlong Yu, Ying Tiffany He, Fei Richard Yu†, Yingyi Chen†"
+    venue: "arXiv"
+    year: "2026"
+    image: "/images/research/deimv2.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2603.07022"
+      - label: Code
+        url: "https://github.com/wleilei/OV-DEIM"
+    abstract: >-
+      Real-time open-vocabulary object detection (OVOD) is essential for practical deployment in dynamic environments, where models must recognize a large and evolving set of categories under strict latency constraints. Current real-time OVOD methods are predominantly built upon YOLO-style models. In contrast, real-time DETR-based methods still lag behind in terms of inference latency, model lightweightness, and overall performance. In this work, we present OV-DEIM, an end-to-end DETR-style open-vocabulary detector built upon the recent DEIMv2 framework with integrated vision-language modeling for efficient open-vocabulary inference. We further introduce a simple query supplement strategy that improves Fixed AP without compromising inference speed. Beyond architectural improvements, we introduce GridSynthetic, a simple yet effective data augmentation strategy that composes multiple training samples into structured image grids. By exposing the model to richer object co-occurrence patterns and spatial layouts within a single forward pass, GridSynthetic mitigates the negative impact of noisy localization signals on the classification loss and improves semantic discrimination, particularly for rare categories. Extensive experiments demonstrate that OV-DEIM achieves state-of-the-art performance on open-vocabulary detection benchmarks, delivering superior efficiency and notable improvements on challenging rare categories.
+  - id: ft-fsod
+    branch: few-shot-detection
+    title: "A Closer Look at Cross-Domain Few-Shot Object Detection: Fine-Tuning Matters and Parallel Decoder Helps"
+    authors: "Xuanlong Yu, Youyang Sha, Longfei Liu, Xi Shen†, Di Yang†"
+    venue: "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+    year: "2026"
+    image: "/images/research/ft-fsod.png"
+    links:
+      - label: Project
+        url: "https://intellindust-ai-lab.github.io/projects/FT-FSOD/"
+      - label: Paper
+        url: "https://arxiv.org/abs/2603.28182"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/FT-FSOD"
+    abstract: >-
+      Few-shot object detection (FSOD) is challenging due to unstable optimization and limited generalization arising from the scarcity of training samples. To address these issues, we propose a hybrid ensemble decoder that enhances generalization during fine-tuning. Inspired by ensemble learning, the decoder comprises a shared hierarchical layer followed by multiple parallel decoder branches, where each branch employs denoising queries either inherited from the shared layer or newly initialized to encourage prediction diversity. This design fully exploits pretrained weights without introducing additional parameters, and the resulting diverse predictions can be effectively ensembled to improve generalization. We further leverage a unified progressive fine-tuning framework with a plateau-aware learning rate schedule, which stabilizes optimization and achieves strong few-shot adaptation without complex data augmentations or extensive hyperparameter tuning. Extensive experiments on CD-FSOD, ODinW-13, and RF100-VL validate the effectiveness of our approach. Notably, on RF100-VL, which includes 100 datasets across diverse domains, our method achieves an average performance of 41.9 in the 10-shot setting, significantly outperforming the recent approach SAM3, which obtains 35.7. We further construct a mixed-domain test set from CD-FSOD to evaluate robustness to out-of-distribution (OOD) samples, showing that our proposed modules lead to clear improvement gains. These results highlight the effectiveness, generalization, and robustness of the proposed method.
+  - id: fsod-vfm
+    branch: few-shot-detection
+    title: "FSOD-VFM: Few-Shot Object Detection with Vision Foundation Models and Graph Diffusion"
+    authors: "Chen-Bin Feng*, Youyang Sha*, Longfei Liu, Yongjun Yu, Chi Man Vong†, Xuanlong Yu†, Xi Shen†"
+    venue: "The 14th International Conference on Learning Representations (ICLR)"
+    year: "2026"
+    image: "/images/research/fsod-vfm.png"
+    links:
+      - label: Project
+        url: "https://intellindust-ai-lab.github.io/projects/FSOD-VFM/"
+      - label: Paper
+        url: "https://arxiv.org/abs/2602.03137"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/FSOD-VFM"
+    abstract: >-
+      In this paper, we present FSOD-VFM: Few-Shot Object Detectors with Vision Foundation Models, a framework that leverages vision foundation models to tackle the challenge of few-shot object detection. FSOD-VFM integrates three key components: a universal proposal network (UPN) for category-agnostic bounding box generation, SAM2 for accurate mask extraction, and DINOv2 features for efficient adaptation to new object categories. Despite the strong generalization capabilities of foundation models, the bounding boxes generated by UPN often suffer from overfragmentation, covering only partial object regions and leading to numerous small, false-positive proposals rather than accurate, complete object detections. To address this issue, we introduce a novel graph-based confidence reweighting method. In our approach, predicted bounding boxes are modeled as nodes in a directed graph, with graph diffusion operations applied to propagate confidence scores across the network. This reweighting process refines the scores of proposals, assigning higher confidence to whole objects and lower confidence to local, fragmented parts. This strategy improves detection granularity and effectively reduces the occurrence of false-positive bounding box proposals. Through extensive experiments on Pascal-5^i, COCO-20^i, and CD-FSOD datasets, we demonstrate that our method substantially outperforms existing approaches, achieving superior performance without requiring additional training. Notably, on the challenging CD-FSOD dataset, which spans multiple datasets and domains, our FSOD-VFM achieves 31.6 AP in the 10-shot setting, substantially outperforming previous training-free methods that reach only 21.4 AP.
+  - id: ntire-cd-fsod
+    branch: few-shot-detection
+    title: "The Second Challenge on Cross-Domain Few-Shot Object Detection at NTIRE 2026: Methods and Results"
+    authors: "Xingyu Qiu, Yuqian Fu, Jiawei Geng, Bin Ren, Jiancheng Pan, Zongwei Wu, Hao Tang, Yanwei Fu, Radu Timofte, Nicu Sebe, Mohamed Elhoseiny, Lingyi Hong, Mingxi Cheng, Xingqi He, Runze Li, Xingdong Sheng, Wenqiang Zhang, Jiacong Liu, Shu Luo, Yikai Qin, Yaze Zhao, Yongwei Jiang, Yixiong Zou, Zhe Zhang, Yang Yang, Kaiyu Li, Bowen Fu, Zixuan Jiang, Ke Li, Hui Qiao, Xiangyong Cao, Xuanlong Yu, Youyang Sha, Longfei Liu, Di Yang, Xi Shen, and challenge participants"
+    venue: "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshop"
+    year: "2026"
+    image: "/images/research/fsod-vfm.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2604.11998"
+    abstract: >-
+      Cross-domain few-shot object detection (CD-FSOD) remains a challenging problem for existing object detectors and few-shot learning approaches, particularly when generalizing across distinct domains. As part of NTIRE 2026, we hosted the second CD-FSOD Challenge to systematically evaluate and promote progress in detecting objects in unseen target domains under limited annotation conditions. The challenge received strong community interest, with 128 registered participants and a total of 696 submissions. Among them, 31 teams actively participated, and 19 teams submitted valid final results. Participants explored a wide range of strategies, introducing innovative methods that push the performance frontier under both open-source and closed-source tracks. This report presents a detailed overview of the NTIRE 2026 CD-FSOD Challenge, including a summary of the submitted approaches and an analysis of the final results across all participating teams.
+  - id: sureplus
+    branch: robustness-uncertainty
+    title: "From Misclassifications to Outliers: Joint Reliability Assessment for Classification"
+    authors: "Yang Li, Youyang Sha, Yinzhi Wang, Timothy Hospedales, Xi Shen, Shell Xu Hu†, Xuanlong Yu†"
+    venue: "arXiv"
+    year: "2026"
+    image: "/images/research/sureplus.png"
+    links:
+      - label: Project
+        url: "https://intellindust-ai-lab.github.io/projects/SUREPlus/"
+      - label: Paper
+        url: "https://arxiv.org/abs/2603.03903"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/SUREPlus"
+    abstract: >-
+      Building reliable classifiers is a fundamental challenge for deploying machine learning in real-world applications. A reliable system should not only detect out-of-distribution (OOD) inputs but also anticipate in-distribution (ID) errors by assigning low confidence to potentially misclassified samples. Yet, most prior work treats OOD detection and failure prediction as separated problems, overlooking their closed connection. We argue that reliability requires evaluating them jointly. To this end, we propose a unified evaluation framework that integrates OOD detection and failure prediction, quantified by our new metrics DS-F1 and DS-AURC, where DS denotes double scoring functions. Experiments on the OpenOOD benchmark show that double scoring functions yield classifiers that are substantially more reliable than traditional single scoring approaches. Our analysis further reveals that OOD-based approaches provide notable gains under simple or far-OOD shifts, but only marginal benefits under more challenging near-OOD conditions. Beyond evaluation, we extend the reliable classifier SURE and introduce SURE+, a new approach that significantly improves reliability across diverse scenarios. Together, our framework, metrics, and method establish a new benchmark for trustworthy classification and offer practical guidance for deploying robust models in real-world settings.
+  - id: sure
+    branch: robustness-uncertainty
+    title: "SURE: SUrvey REcipes for building reliable and robust deep networks"
+    authors: "Yuting Li, Yingyi Chen, Xuanlong Yu, Dexiong Chen, Xi Shen†"
+    venue: "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+    year: "2024"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2403.00543"
+      - label: Code
+        url: "https://github.com/YutingLi0606/SURE"
+    abstract: >-
+      In this paper, we revisit techniques for uncertainty estimation within deep neural networks and consolidate a suite of techniques to enhance their reliability. Our investigation reveals that an integrated application of diverse techniques--spanning model regularization, classifier and optimization--substantially improves the accuracy of uncertainty predictions in image classification tasks. The synergistic effect of these techniques culminates in our novel SURE approach. We rigorously evaluate SURE against the benchmark of failure prediction, a critical testbed for uncertainty estimation efficacy. Our results showcase a consistently better performance than models that individually deploy each technique, across various datasets and model architectures. When applied to real-world challenges, such as data corruption, label noise, and long-tailed class distribution, SURE exhibits remarkable robustness, delivering results that are superior or on par with current state-of-the-art specialized methods. Particularly on Animal-10N and Food-101N for learning with noisy labels, SURE achieves state-of-the-art performance without any task-specific adjustments. This work not only sets a new benchmark for robust uncertainty estimation but also paves the way for its application in diverse, real-world scenarios where reliability is paramount.
+  - id: dido
+    branch: robustness-uncertainty
+    title: "Discretization-Induced Dirichlet Posterior for Robust Uncertainty Quantification on Regression"
+    authors: "Xuanlong Yu, Gianni Franchi, Jindong Gu, Emanuel Aldea†"
+    venue: "The 38th Annual AAAI Conference on Artificial Intelligence (AAAI)"
+    year: "2024"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2308.09065"
+      - label: Code
+        url: "https://github.com/ENSTA-U2IS/DIDO"
+    abstract: >-
+      Uncertainty quantification is critical for deploying deep neural networks (DNNs) in real-world applications. An Auxiliary Uncertainty Estimator (AuxUE) is one of the most effective means to estimate the uncertainty of the main task prediction without modifying the main task model. To be considered robust, an AuxUE must be capable of maintaining its performance and triggering higher uncertainties while encountering Out-of-Distribution (OOD) inputs, i.e., to provide robust aleatoric and epistemic uncertainty. However, for vision regression tasks, current AuxUE designs are mainly adopted for aleatoric uncertainty estimates, and AuxUE robustness has not been explored. In this work, we propose a generalized AuxUE scheme for more robust uncertainty quantification on regression tasks. Concretely, to achieve a more robust aleatoric uncertainty estimation, different distribution assumptions are considered for heteroscedastic noise, and Laplace distribution is finally chosen to approximate the prediction error. For epistemic uncertainty, we propose a novel solution named Discretization-Induced Dirichlet pOsterior (DIDO), which models the Dirichlet posterior on the discretized prediction error. Extensive experiments on age estimation, monocular depth estimation, and super-resolution tasks show that our proposed method can provide robust uncertainty estimates in the face of noisy inputs and that it can be scalable to both image-level and pixel-wise tasks.
+  - id: infraparis
+    branch: robustness-uncertainty
+    title: "InfraParis: A multi-modal and multi-task autonomous driving dataset"
+    authors: "Gianni Franchi, Marwane Hariat, Xuanlong Yu, Nacim Belkhir, Antoine Manzanera, David Filliat†"
+    venue: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), Oral"
+    year: "2024"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2309.15751"
+      - label: Website
+        url: "https://ensta-u2is-ai.github.io/infraParis/"
+    abstract: >-
+      Current deep neural networks (DNNs) for autonomous driving computer vision are typically trained on specific datasets that only involve a single type of data and urban scenes. Consequently, these models struggle to handle new objects, noise, nighttime conditions, and diverse scenarios, which is essential for safety-critical applications. Despite ongoing efforts to enhance the resilience of computer vision DNNs, progress has been sluggish, partly due to the absence of benchmarks featuring multiple modalities. We introduce a novel and versatile dataset named InfraParis that supports multiple tasks across three modalities: RGB, depth, and infrared. We assess various state-of-the-art baseline techniques, encompassing models for the tasks of semantic segmentation, object detection, and depth estimation.
+  - id: muad
+    branch: robustness-uncertainty
+    title: "MUAD: Multiple Uncertainties for Autonomous Driving, a benchmark for multiple uncertainty types and tasks"
+    authors: "Gianni Franchi*, Xuanlong Yu*, Andrei Bursuc, Angel Tena, Remi Kazmierczak, Severine Dubuisson, Emanuel Aldea, David Filliat†"
+    venue: "British Machine Vision Conference (BMVC)"
+    year: "2022"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2203.01437"
+      - label: Website
+        url: "https://muad-dataset.github.io/"
+    abstract: >-
+      Predictive uncertainty estimation is essential for safe deployment of Deep Neural Networks in real-world autonomous systems. However, disentangling the different types and sources of uncertainty is non trivial for most datasets, especially since there is no ground truth for uncertainty. In addition, while adverse weather conditions of varying intensities can disrupt neural network predictions, they are usually under-represented in both training and test sets in public datasets. We attempt to mitigate these setbacks and introduce the MUAD dataset (Multiple Uncertainties for Autonomous Driving), consisting of 10,413 realistic synthetic images with diverse adverse weather conditions (night, fog, rain, snow), out-of-distribution objects, and annotations for semantic segmentation, depth estimation, object, and instance detection. MUAD allows to better assess the impact of different sources of uncertainty on model performance. We conduct a thorough experimental study of this impact on several baseline Deep Neural Networks across multiple tasks, and release our dataset to allow researchers to benchmark their algorithm methodically in adverse conditions.
+  - id: ldu
+    branch: robustness-uncertainty
+    title: "Latent Discriminant deterministic Uncertainty"
+    authors: "Gianni Franchi*, Xuanlong Yu*, Andrei Bursuc, Emanuel Aldea, Severine Dubuisson, David Filliat†"
+    venue: "European Conference on Computer Vision (ECCV)"
+    year: "2022"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2207.10130"
+      - label: Code
+        url: "https://github.com/ENSTA-U2IS/LDU"
+    abstract: >-
+      Predictive uncertainty estimation is essential for deploying Deep Neural Networks in real-world autonomous systems. However, most successful approaches are computationally intensive. In this work, we attempt to address these challenges in the context of autonomous driving perception tasks. Recently proposed Deterministic Uncertainty Methods (DUM) can only partially meet such requirements as their scalability to complex computer vision tasks is not obvious. In this work we advance a scalable and effective DUM for high-resolution semantic segmentation, that relaxes the Lipschitz constraint typically hindering practicality of such architectures. We learn a discriminant latent space by leveraging a distinction maximization layer over an arbitrarily-sized set of trainable prototypes. Our approach achieves competitive results over Deep Ensembles, the state-of-the-art for uncertainty prediction, on image classification, segmentation and monocular depth estimation tasks.
+  - id: monocular-depth-uq
+    branch: robustness-uncertainty
+    title: "On Monocular Depth Estimation and Uncertainty Quantification using Classification Approaches for Regression"
+    authors: "Xuanlong Yu, Gianni Franchi, Emanuel Aldea†"
+    venue: "IEEE International Conference on Image Processing (ICIP), Oral"
+    year: "2022"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2202.12369"
+    abstract: >-
+      Monocular depth is important in many tasks, such as 3D reconstruction and autonomous driving. Deep learning based models achieve state-of-the-art performance in this field. A set of novel approaches for estimating monocular depth consists of transforming the regression task into a classification one. However, there is a lack of detailed descriptions and comparisons for Classification Approaches for Regression (CAR) in the community and no in-depth exploration of their potential for uncertainty estimation. To this end, this paper will introduce a taxonomy and summary of CAR approaches, a new uncertainty estimation solution for CAR, and a set of experiments on depth accuracy and uncertainty quantification for CAR-based models on KITTI dataset. The experiments reflect the differences in the portability of various CAR methods on two backbones. Meanwhile, the newly proposed method for uncertainty estimation can outperform the ensembling method with only one forward propagation.
+  - id: slurp
+    branch: robustness-uncertainty
+    title: "SLURP: Side Learning Uncertainty for Regression Problems"
+    authors: "Xuanlong Yu, Gianni Franchi, Emanuel Aldea†"
+    venue: "British Machine Vision Conference (BMVC)"
+    year: "2021"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2110.11182"
+      - label: Code
+        url: "https://github.com/xuanlongORZ/SLURP_uncertainty_estimate"
+    abstract: >-
+      It has become critical for deep learning algorithms to quantify their output uncertainties to satisfy reliability constraints and provide accurate results. Uncertainty estimation for regression has received less attention than classification due to the more straightforward standardized output of the latter class of tasks and their high importance. However, regression problems are encountered in a wide range of applications in computer vision. We propose SLURP, a generic approach for regression uncertainty estimation via a side learner that exploits the output and the intermediate representations generated by the main task model. We test SLURP on two critical regression tasks in computer vision: monocular depth and optical flow estimation. In addition, we conduct exhaustive benchmarks comprising transfer to different datasets and the addition of aleatoric noise. The results show that our proposal is generic and readily applicable to various regression problems and has a low computational cost with respect to existing solutions.
+  - id: uncv2023
+    branch: robustness-uncertainty
+    title: "The Robust Semantic Segmentation UNCV2023 Challenge Results"
+    authors: "Xuanlong Yu, Yi Zuo, Zitao Wang, Xiaowen Zhang, Jiaxuan Zhao, Yuting Yang, Licheng Jiao, Rui Peng, Xinyi Wang, Junpei Zhang, Kexin Zhang, Fang Liu, Roberto Alcover-Couso, Juan C. SanMiguel, Marcos Escudero-Vinolo, Hanlin Tian, Kenta Matsui, Tianhao Wang, Fahmy Adan, Zhitong Gao, Xuming He, Quentin Bouniot, Hossein Moghaddam, Shyam Nandan Rai, Fabio Cermelli, Carlo Masone, Andrea Pilzer, Elisa Ricci, Andrei Bursuc, Arno Solin, Martin Trapp, Rui Li, Angela Yao, Wenlong Chen, Ivor Simpson, Neill D. F. Campbell, and Gianni Franchi†"
+    venue: "International Conference on Computer Vision (ICCV) Workshop"
+    year: "2023"
+    image: "/images/research/sure.png"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2309.15478"
+    abstract: >-
+      This paper outlines the winning solutions employed in addressing the MUAD uncertainty quantification challenge held at ICCV 2023. The challenge was centered around semantic segmentation in urban environments, with a particular focus on natural adversarial scenarios. The report presents the results of 19 submitted entries, with numerous techniques drawing inspiration from cutting-edge uncertainty quantification methodologies presented at prominent conferences in the fields of computer vision and machine learning and journals over the past few years. Within this document, the challenge is introduced, shedding light on its purpose and objectives, which primarily revolved around enhancing the robustness of semantic segmentation in urban scenes under varying natural adversarial conditions. The report then delves into the top-performing solutions. Moreover, the document aims to provide a comprehensive overview of the diverse solutions deployed by all participants. By doing so, it seeks to offer readers a deeper insight into the array of strategies that can be leveraged to effectively handle the inherent uncertainties associated with autonomous driving and semantic segmentation, especially within urban environments.
+  - id: movie
+    branch: video-action
+    title: "MoVie: Broaden Your Views with Human Motion for Action Detection"
+    authors: "Di Yang, Mahmoud Ali, Xuanlong Yu, Xi Shen, Quan Kong, Gianpiero Francesca, Francois Bremond†"
+    venue: "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+    year: "2026"
+    image: "/images/research/movie.png"
+    links:
+      - label: Project
+        url: "https://walker1126.github.io/MoVie-project/"
+      - label: Paper
+        url: "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_MoVie_Broaden_Your_Views_with_Human_Motion_for_Action_Detection_CVPR_2026_paper.pdf"
+    abstract: >-
+      Human action detection in videos requires both semantic recognition and accurate modeling of motion. While recent video foundation models have advanced visual semantics, they still struggle to capture complex and compositional actions due to the limited representation ability of motion. Human skeleton sequences, which explicitly describe the body structure and movement, provide valuable physical and geometric motions that complement RGB videos. However, combining video and skeleton modalities faces two key challenges: (i) label-driven skeleton features are too coarse to describe fine-grained motion, and (ii) skeleton motion and RGB video lie in heterogeneous feature spaces, so current fusion strategies often cause feature interference. To address these, we propose MoVie, a unified Motion-Video processing framework that uses structured human motion as a bridge between the two signals. We first propose a Structural Motion Projection module that decomposes motion into primitive components using a learnable motion dictionary, to produce fine-grained descriptors. Then, we design a Motion-guided Feature Regularization mechanism that aligns visual features with motion through an orthogonality-based transformation, so that fine-grained motion cues can guide visual representations without collapsing semantic diversity. Extensive evaluations on Toyota Smarthome Untrimmed, Charades, Multi-THUMOS and PKU-MMD datasets demonstrate that MoVie significantly improves state-of-the-art action detection performance.
+  - id: skel-cf
+    branch: reconstruction-3d
+    title: "SKEL-CF: Coarse-to-Fine Biomechanical Skeleton and Surface Mesh Recovery"
+    authors: "Da Li*, Jiping Jin*, Xuanlong Yu, Wei Liu, Xiaodong Cun, Kai Chen, Rui Fan, Jiangang Kong, Xi Shen†"
+    venue: "The 19th European Conference on Computer Vision (ECCV)"
+    year: "2026"
+    image: "/images/research/skel-cf.gif"
+    links:
+      - label: Paper
+        url: "https://arxiv.org/abs/2511.20157"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/SKEL-CF"
+    abstract: >-
+      Parametric 3D human models such as SMPL have driven significant advances in human pose and shape estimation, yet their simplified kinematics limit biomechanical realism. The recently proposed SKEL model addresses this limitation by re-rigging SMPL with an anatomically accurate skeleton. However, estimating SKEL parameters directly remains challenging due to limited training data, perspective ambiguities, and the inherent complexity of human articulation. We introduce SKEL-CF, a coarse-to-fine framework for SKEL parameter estimation. SKEL-CF employs a transformer-based encoder-decoder architecture, where the encoder predicts coarse camera and SKEL parameters, and the decoder progressively refines them in successive layers. To ensure anatomically consistent supervision, we convert the existing SMPL-based dataset 4DHuman into a SKEL-aligned version, 4DHuman-SKEL, providing high-quality training data for SKEL estimation. In addition, to mitigate depth and scale ambiguities, we explicitly incorporate camera modeling into the SKEL-CF pipeline and demonstrate its importance across diverse viewpoints. Extensive experiments validate the effectiveness of the proposed design. On the challenging MOYO dataset, SKEL-CF achieves 85.0 MPJPE / 51.4 PA-MPJPE, significantly outperforming the previous SKEL-based state-of-the-art HSMR (104.5 / 79.6). These results establish SKEL-CF as a scalable and anatomically faithful framework for human motion analysis, facilitating the use of computer vision techniques in biomechanics-related analysis.
+  - id: ccnet
+    branch: reconstruction-3d
+    title: "On the Calibration of Human Pose Estimation"
+    authors: "Kerui Gu*, Rongyu Chen*, Xuanlong Yu, Angela Yao†"
+    venue: "The International Conference on Machine Learning (ICML)"
+    year: "2024"
+    image: "/images/research/skel-cf.gif"
+    links:
+      - label: Paper
+        url: "https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf"
+    abstract: "A calibration study for human pose estimation that asks whether predicted pose confidence is statistically meaningful. The work connects pose quality assessment with uncertainty-aware evaluation."
+
+news:
+  - date: "06/2026"
+    text: "SKEL-CF is accepted at ECCV 2026."
+    url: "https://arxiv.org/abs/2511.20157"
+  - date: "03/2026"
+    text: "EdgeCrafter is released for edge dense prediction."
+    url: "https://intellindust-ai-lab.github.io/projects/EdgeCrafter/"
+  - date: "02/2026"
+    text: "FT-FSOD is accepted at CVPR 2026."
+    url: "https://intellindust-ai-lab.github.io/projects/FT-FSOD/"
+  - date: "02/2026"
+    text: "MoVie is accepted at CVPR 2026."
+    url: "https://walker1126.github.io/MoVie-project/"
+  - date: "01/2026"
+    text: "FSOD-VFM is accepted at ICLR 2026."
+    url: "https://intellindust-ai-lab.github.io/projects/FSOD-VFM"
+  - date: "07/2025"
+    text: "2nd place in the NTIRE Joint Denoising and Demosaicing Challenge, 2nd place in the SoccerNet Ball Action Spotting Challenge, and honorable mention in the Foundation Few-shot Object Detection Challenge at CVPR 2025."
+    url: "https://intellindust-ai-lab.github.io/"
+  - date: "10/2024"
+    text: "1st place in the Open-set Recognition challenge at the Out Of Distribution Generalization in Computer Vision Workshop, ECCV 2024."
+    url: "https://intellindust-ai-lab.github.io/"
+  - date: "06/2024"
+    text: "On the Calibration of Human Pose Estimation is accepted at ICML 2024."
+    url: "https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf"
+  - date: "03/2024"
+    text: "SURE is accepted at CVPR 2024."
+    url: "https://arxiv.org/abs/2403.00543"
+  - date: "12/2023"
+    text: "Defended the Ph.D. dissertation: Uncertainty quantification for vision regression tasks."
+    url: "https://xuanlong-yu.github.io/files/phd_defense.pdf"
+  - date: "12/2023"
+    text: "DIDO is accepted at AAAI 2024."
+    url: "https://arxiv.org/abs/2308.09065"
+  - date: "10/2023"
+    text: "InfraParis is accepted as an oral presentation at WACV 2024."
+    url: "https://ensta-u2is-ai.github.io/infraParis/"
+  - date: "05/2023"
+    text: "Organized the MUAD challenge at the UNCV Workshop, ICCV 2023."
+    url: "https://uncv2023.github.io/"
+  - date: "05/2023"
+    text: "Talk at SCAI, Sorbonne Universite: Towards scalable uncertainty estimation with deterministic methods, and their fair evaluation."
+    url: "https://xuanlong-yu.github.io/files/sorbonne_talk.pdf"
+  - date: "03/2023"
+    text: "One-month research visit at Leiden University."
+    url: "https://www.universiteitleiden.nl/en"

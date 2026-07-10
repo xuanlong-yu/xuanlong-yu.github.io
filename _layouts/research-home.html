@@ -1,0 +1,918 @@
+---
+layout: compress
+---
+
+{% include base_path %}
+{% assign tree = site.data.research_tree %}
+{% assign first_branch = tree.branches | first %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <style>
+      :root {
+        --home-bg: #11100f;
+        --home-soft: #1b1916;
+        --home-text: #eee9df;
+        --home-muted: rgba(238, 233, 223, 0.62);
+        --home-dim: rgba(238, 233, 223, 0.42);
+        --home-line: rgba(238, 233, 223, 0.2);
+        --home-panel: rgba(238, 233, 223, 0.07);
+        --home-accent: #eee9df;
+        --home-font: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--home-bg);
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .research-home {
+        min-height: 100vh;
+        color: var(--home-text);
+        background: var(--home-bg);
+        font-family: var(--home-font);
+        font-weight: 400;
+        letter-spacing: 0;
+      }
+
+      .research-home *,
+      .research-home b {
+        font-weight: 400;
+      }
+
+      .research-home strong {
+        font-weight: 650;
+      }
+
+      .research-home.theme-dawn {
+        --home-bg: #ece3d5;
+        --home-soft: #ddd1bf;
+        --home-text: #211d18;
+        --home-muted: rgba(33, 29, 24, 0.66);
+        --home-dim: rgba(33, 29, 24, 0.43);
+        --home-line: rgba(33, 29, 24, 0.19);
+        --home-panel: rgba(33, 29, 24, 0.06);
+        --home-accent: #211d18;
+      }
+
+      .research-home.theme-day {
+        --home-bg: #eaf0f3;
+        --home-soft: #dce6eb;
+        --home-text: #162027;
+        --home-muted: rgba(22, 32, 39, 0.66);
+        --home-dim: rgba(22, 32, 39, 0.44);
+        --home-line: rgba(22, 32, 39, 0.2);
+        --home-panel: rgba(22, 32, 39, 0.055);
+        --home-accent: #162027;
+      }
+
+      .research-home a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .home-landing {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.86fr) minmax(300px, 1.24fr) minmax(300px, 0.9fr);
+        gap: clamp(36px, 5vw, 92px);
+        min-height: 100vh;
+        padding: clamp(28px, 4.2vw, 70px);
+      }
+
+      .home-profile,
+      .home-right {
+        position: sticky;
+        top: clamp(28px, 4.2vw, 70px);
+        align-self: start;
+      }
+
+      .profile-name {
+        margin: 0 0 26px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .profile-lines {
+        display: grid;
+        gap: 8px;
+        max-width: 295px;
+        margin: 0 0 28px;
+        color: var(--home-muted);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .paper-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .text-link,
+      .theme-button,
+      .paper-link {
+        min-height: 34px;
+        padding: 8px 10px;
+        border: 1px solid var(--home-line);
+        border-radius: 999px;
+        color: var(--home-text);
+        background: transparent;
+        font: 400 11px/1 var(--home-font);
+        cursor: pointer;
+        transition: border-color 160ms ease, background 160ms ease;
+      }
+
+      .text-link:hover,
+      .theme-button:hover,
+      .paper-link:hover,
+      .theme-button.is-active {
+        border-color: var(--home-text);
+        background: var(--home-panel);
+      }
+
+      .theme-switch {
+        position: fixed;
+        top: clamp(28px, 4.2vw, 70px);
+        right: clamp(28px, 4.2vw, 70px);
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+
+      .inline-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 6px;
+        margin-top: 22px;
+        color: var(--home-muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .inline-links a,
+      .bio-panel a {
+        color: var(--home-text);
+        text-decoration: none;
+      }
+
+      .inline-links a:hover,
+      .bio-panel a:hover {
+        color: var(--home-muted);
+      }
+
+      .recent-column {
+        margin-top: clamp(42px, 12vh, 118px);
+        color: var(--home-dim);
+      }
+
+      .recent-window {
+        overflow-y: auto;
+        max-height: clamp(176px, 22vh, 238px);
+        padding-right: 10px;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: var(--home-line) transparent;
+      }
+
+      .recent-window::-webkit-scrollbar {
+        width: 3px;
+      }
+
+      .recent-window::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .recent-window::-webkit-scrollbar-thumb {
+        background: var(--home-line);
+      }
+
+      .meta-title,
+      .preview-kicker,
+      .bio-kicker,
+      .paper-kicker {
+        margin: 0 0 13px;
+        color: var(--home-dim);
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .news-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .news-list a {
+        display: grid;
+        gap: 3px;
+        color: var(--home-dim);
+        font-size: 11px;
+        line-height: 1.34;
+      }
+
+      .news-list time {
+        color: var(--home-muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .home-branches {
+        display: flex;
+        align-items: center;
+        min-height: calc(100vh - clamp(44px, 6vw, 88px));
+      }
+
+      .branch-list {
+        display: grid;
+        gap: clamp(25px, 5.6vh, 58px);
+        width: 100%;
+      }
+
+      .branch-node {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        color: var(--home-muted);
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .branch-node:hover,
+      .branch-node.is-active {
+        color: var(--home-text);
+      }
+
+      .node-label {
+        display: block;
+        overflow-wrap: anywhere;
+        font-size: clamp(17px, 2.15vw, 30px);
+        font-weight: 400;
+        line-height: 0.98;
+      }
+
+      .home-right {
+        position: sticky;
+        top: clamp(28px, 4.2vw, 70px);
+        align-self: start;
+        display: flex;
+        align-items: flex-start;
+        min-height: calc(100vh - clamp(56px, 8.4vw, 140px));
+      }
+
+      .bio-panel {
+        margin-bottom: clamp(44px, 13vh, 118px);
+      }
+
+      .bio-lines {
+        display: grid;
+        gap: 8px;
+        margin: 0 0 22px;
+        color: var(--home-muted);
+        font-size: 12px;
+        line-height: 1.38;
+      }
+
+      .bio-interests,
+      .bio-weather {
+        margin: 0;
+        color: var(--home-muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .bio-weather {
+        margin-top: 9px;
+        color: var(--home-dim);
+      }
+
+      .mentor-links {
+        display: inline;
+      }
+
+      .preview-panel {
+        min-height: 220px;
+        transition: transform 180ms ease;
+      }
+
+      .preview-branch {
+        margin: 0 0 22px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.1;
+      }
+
+      .preview-list {
+        display: grid;
+        gap: 13px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .preview-title {
+        display: block;
+        color: var(--home-text);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .preview-meta {
+        display: block;
+        margin-top: 4px;
+        color: var(--home-muted);
+        font-size: 11px;
+        line-height: 1.35;
+      }
+
+      .paper-section {
+        min-height: 100vh;
+        padding: clamp(36px, 5vw, 82px) clamp(28px, 4.2vw, 70px) clamp(58px, 7vw, 108px);
+        border-top: 1px solid var(--home-line);
+      }
+
+      .paper-section-head {
+        margin-bottom: clamp(38px, 5vw, 74px);
+      }
+
+      .paper-section-title {
+        margin: 0;
+        font-size: clamp(20px, 2.6vw, 36px);
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .paper-section-note {
+        max-width: 520px;
+        margin: 0;
+        color: var(--home-muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .paper-list {
+        display: grid;
+        gap: 1px;
+        background: var(--home-line);
+      }
+
+      .paper-item {
+        display: grid;
+        grid-template-columns: minmax(132px, 0.48fr) minmax(0, 1.55fr) minmax(210px, 0.82fr);
+        gap: clamp(30px, 4.5vw, 80px);
+        padding: clamp(28px, 4vw, 54px) 0;
+        background: var(--home-bg);
+      }
+
+      .paper-item.is-hidden {
+        display: none;
+      }
+
+      .paper-media {
+        align-self: start;
+        overflow: hidden;
+        border: 1px solid var(--home-line);
+        background: var(--home-soft);
+      }
+
+      .paper-media img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1.28;
+        object-fit: contain;
+        background: var(--home-soft);
+      }
+
+      .paper-copy {
+        cursor: pointer;
+      }
+
+      .paper-title {
+        margin: 0 0 14px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.18;
+      }
+
+      .paper-authors,
+      .paper-abstract {
+        margin: 0;
+        color: var(--home-muted);
+        font-size: 12px;
+        line-height: 1.46;
+      }
+
+      .paper-abstract {
+        margin-top: 16px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        max-height: 5.1em;
+      }
+
+      .paper-item.is-expanded .paper-abstract {
+        display: block;
+        max-height: none;
+        -webkit-line-clamp: unset;
+      }
+
+      .paper-toggle {
+        margin: 10px 0 0;
+        padding: 0;
+        border: 0;
+        color: var(--home-dim);
+        background: transparent;
+        font: 400 11px/1.2 var(--home-font);
+        cursor: pointer;
+      }
+
+      .paper-venue {
+        margin: 0 0 18px;
+        color: var(--home-muted);
+        font-size: 11px;
+        line-height: 1.38;
+      }
+
+      .paper-links {
+        margin-top: 0;
+      }
+
+      .home-footer {
+        display: grid;
+        grid-template-columns: minmax(62px, 0.34fr) repeat(3, minmax(0, 1fr));
+        gap: clamp(24px, 4vw, 72px);
+        margin-top: 72px;
+        padding-top: 18px;
+        border-top: 1px solid var(--home-line);
+        color: var(--home-muted);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .home-footer strong {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--home-text);
+        font-weight: 400;
+      }
+
+      .footer-label {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--home-text);
+      }
+
+      .footer-photo {
+        align-self: end;
+        margin: 0;
+      }
+
+      .footer-photo img {
+        display: block;
+        width: 68px;
+        height: 68px;
+        object-fit: cover;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 1040px) {
+        .home-landing {
+          grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
+        }
+
+        .theme-switch {
+          position: static;
+          justify-content: flex-start;
+          margin: 30px 0 0;
+        }
+
+        .home-right {
+          position: relative;
+          top: auto;
+          grid-column: 2;
+        }
+
+        .home-branches {
+          min-height: 58vh;
+        }
+
+        .paper-item {
+          grid-template-columns: minmax(118px, 0.5fr) minmax(0, 1.4fr);
+        }
+
+        .paper-side {
+          grid-column: 2;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .home-landing,
+        .paper-section-head,
+        .paper-item,
+        .home-footer {
+          display: block;
+        }
+
+        .home-landing,
+        .paper-section {
+          padding: 18px;
+        }
+
+        .home-profile,
+        .home-right {
+          position: relative;
+          top: auto;
+        }
+
+        .theme-switch {
+          margin-top: 24px;
+        }
+
+        .recent-column {
+          margin-top: 28px;
+        }
+
+        .home-branches {
+          min-height: auto;
+          margin: 42px 0;
+        }
+
+        .branch-list {
+          gap: 24px;
+        }
+
+        .preview-panel {
+          min-height: 0;
+          padding-top: 24px;
+          border-top: 1px solid var(--home-line);
+        }
+
+        .paper-section-title {
+          margin-bottom: 12px;
+        }
+
+        .paper-item {
+          padding: 22px 0;
+        }
+
+        .paper-media,
+        .paper-copy {
+          margin-bottom: 16px;
+        }
+
+        .home-footer p {
+          margin: 0 0 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="research-home theme-night" data-home-root>
+      <section class="home-landing" aria-label="Home">
+        <aside class="home-profile" aria-label="Profile">
+          <div class="profile-block">
+            <h1 class="profile-name"><strong>{{ tree.profile.name }}</strong></h1>
+            <section class="bio-panel" aria-label="Biography">
+              <p class="bio-kicker">About</p>
+              <div class="bio-lines">
+                <span>{{ tree.profile.role.prefix }} <a href="{{ tree.profile.role.url }}" target="_blank" rel="noopener noreferrer">{{ tree.profile.role.label }}</a></span>
+                <span>{{ tree.profile.alumni }}</span>
+                <span>Learning from <span class="mentor-links">{% for mentor in tree.profile.mentors %}<a href="{{ mentor.url }}" target="_blank" rel="noopener noreferrer">{{ mentor.label }}</a>{% unless forloop.last %} / {% endunless %}{% endfor %}</span></span>
+                <span>{{ tree.profile.interests }}</span>
+              </div>
+              <p class="bio-weather">{{ tree.profile.inner_weather }}</p>
+            </section>
+            <nav class="inline-links" aria-label="Profile links">
+              {% for link in tree.profile.links %}
+                <a href="{{ link.url }}" {% unless link.url contains 'mailto:' %}target="_blank" rel="noopener noreferrer"{% endunless %}>{{ link.label }}</a>{% unless forloop.last %}<span>/</span>{% endunless %}
+              {% endfor %}
+            </nav>
+          </div>
+
+          <section class="recent-column" aria-label="Recent news">
+            <h2 class="meta-title">Recent</h2>
+            <div class="recent-window">
+              <ul class="news-list">
+                {% for item in tree.news %}
+                  <li>
+                    <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+                      <time>{{ item.date }}</time>
+                      <span>{{ item.text }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </section>
+        </aside>
+
+        <section class="home-branches" aria-label="Research themes">
+          <div class="branch-list" role="list">
+            {% for branch in tree.branches %}
+              <button class="branch-node{% if forloop.first %} is-active{% endif %}" type="button" data-branch="{{ branch.id }}" role="listitem">
+                <span class="node-label">{{ branch.label }}</span>
+              </button>
+            {% endfor %}
+          </div>
+        </section>
+
+        <aside class="home-right" aria-label="Profile and work preview">
+          <section class="preview-panel" aria-live="polite">
+            <p class="preview-kicker">Related Works</p>
+            <h2 class="preview-branch" data-preview-branch>{{ first_branch.label }}</h2>
+            <ul class="preview-list" data-preview-list>
+              {% assign first_publications = tree.publications | where: "branch", first_branch.id | sort: "year" | reverse %}
+              {% for pub in first_publications %}
+                  <li>
+                    <span class="preview-title">{{ pub.title }}</span>
+                    <span class="preview-meta">{{ pub.year }} / {{ pub.venue }}</span>
+                  </li>
+              {% endfor %}
+            </ul>
+          </section>
+        </aside>
+      </section>
+
+      <div class="theme-switch" aria-label="Theme switcher">
+        {% for theme in tree.themes %}
+          <button class="theme-button{% if forloop.first %} is-active{% endif %}" type="button" data-theme="{{ theme.id }}">{{ theme.label }}</button>
+        {% endfor %}
+      </div>
+
+      <section class="paper-section" id="papers" aria-label="Paper list">
+        <header class="paper-section-head">
+          <div>
+            <p class="paper-kicker">Paper list</p>
+            <h2 class="paper-section-title" data-paper-heading>{{ first_branch.label }}</h2>
+          </div>
+        </header>
+
+        <div class="paper-list" data-paper-list>
+          {% assign sorted_publications = tree.publications | sort: "year" | reverse %}
+          {% for pub in sorted_publications %}
+            {% assign branch = tree.branches | where: "id", pub.branch | first %}
+            <article class="paper-item{% unless pub.branch == first_branch.id %} is-hidden{% endunless %}" data-publication="{{ pub.id }}" data-branch="{{ pub.branch }}">
+              <figure class="paper-media">
+                <img src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}">
+              </figure>
+              <div class="paper-copy">
+                <h3 class="paper-title">{{ pub.title }}</h3>
+                {% assign highlighted_authors = pub.authors | replace: "Xuanlong Yu", "<strong>Xuanlong Yu</strong>" %}
+                <p class="paper-authors">{{ highlighted_authors }}</p>
+                <p class="paper-abstract">{{ pub.abstract }}</p>
+                <button class="paper-toggle" type="button" aria-expanded="false">More</button>
+              </div>
+              <aside class="paper-side">
+                <p class="paper-venue">{{ pub.year }} / {{ pub.venue }}</p>
+                <div class="paper-links">
+                  {% for link in pub.links %}
+                    <a class="paper-link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                  {% endfor %}
+                </div>
+              </aside>
+            </article>
+          {% endfor %}
+        </div>
+
+        <footer class="home-footer">
+          <figure class="footer-photo">
+            <img src="{{ '/images/profile.png' | relative_url }}" alt="Xuanlong Yu">
+          </figure>
+          <p><span class="footer-label">Education</span>2020-2023 Ph.D., Universite Paris-Saclay / ENSTA Paris<br>2017-2020 M.Eng., Telecom Saint-Etienne<br>2014-2018 B.Eng., Xidian University</p>
+          <p><span class="footer-label">Service</span>Reviewer: ECCV, AAAI, CVPR, ICCVW, IEEE TPAMI, IEEE TMM<br>Organizer: MUAD challenge at UNCV workshop, ICCV 2023.</p>
+          <p><span class="footer-label">Note</span>* equal contribution. † corresponding author.</p>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var root = document.querySelector("[data-home-root]");
+        if (!root) return;
+
+        var branches = {
+          {% for branch in tree.branches %}
+            "{{ branch.id }}": {
+              label: {{ branch.label | jsonify }},
+              caption: {{ branch.caption | jsonify }},
+              publications: [
+                {% assign branch_publications = tree.publications | where: "branch", branch.id %}
+                {% for pub in branch_publications %}
+                  {
+                    id: {{ pub.id | jsonify }},
+                    title: {{ pub.title | jsonify }},
+                    venue: {{ pub.venue | jsonify }},
+                    year: {{ pub.year | jsonify }}
+                  }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+              ]
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        };
+
+        var branchButtons = Array.prototype.slice.call(root.querySelectorAll("[data-branch].branch-node"));
+        var paperItems = Array.prototype.slice.call(root.querySelectorAll(".paper-item"));
+        var themeButtons = Array.prototype.slice.call(root.querySelectorAll("[data-theme]"));
+        var previewBranch = root.querySelector("[data-preview-branch]");
+        var previewList = root.querySelector("[data-preview-list]");
+        var previewPanel = root.querySelector(".preview-panel");
+        var homeRight = root.querySelector(".home-right");
+        var recentWindow = root.querySelector(".recent-window");
+        var paperHeading = root.querySelector("[data-paper-heading]");
+        var papersSection = root.querySelector("#papers");
+        var activeBranch = "{{ first_branch.id }}";
+
+        function renderPreview(branchId) {
+          var branch = branches[branchId];
+          if (!branch) return;
+
+          previewBranch.textContent = branch.label;
+          previewList.innerHTML = "";
+
+          branch.publications
+            .slice()
+            .sort(function (a, b) {
+              return Number(b.year) - Number(a.year);
+            })
+            .forEach(function (pub) {
+            var item = document.createElement("li");
+            var title = document.createElement("span");
+            var meta = document.createElement("span");
+            title.className = "preview-title";
+            meta.className = "preview-meta";
+            title.textContent = pub.title;
+            meta.textContent = pub.year + " / " + pub.venue;
+            item.appendChild(title);
+            item.appendChild(meta);
+            previewList.appendChild(item);
+          });
+        }
+
+        function alignPreviewToButton(button) {
+          if (!button || !previewPanel || !homeRight) return;
+          if (window.matchMedia("(max-width: 1040px)").matches) {
+            previewPanel.style.transform = "";
+            return;
+          }
+
+          var buttonRect = button.getBoundingClientRect();
+          var rightRect = homeRight.getBoundingClientRect();
+          var maxOffset = Math.max(0, homeRight.clientHeight - previewPanel.offsetHeight);
+          var buttonMiddle = buttonRect.top - rightRect.top + buttonRect.height / 2;
+          var offset = Math.max(0, Math.min(buttonMiddle - previewPanel.offsetHeight / 2, maxOffset));
+          previewPanel.style.transform = "translateY(" + offset + "px)";
+        }
+
+        function activeBranchButton() {
+          return branchButtons.filter(function (button) {
+            return button.getAttribute("data-branch") === activeBranch;
+          })[0];
+        }
+
+        function startRecentAutoScroll() {
+          if (!recentWindow || recentWindow.scrollHeight <= recentWindow.clientHeight) return;
+
+          var paused = false;
+          var scrollSpeed = 0.12;
+          var lastFrame = null;
+          recentWindow.addEventListener("mouseenter", function () { paused = true; });
+          recentWindow.addEventListener("mouseleave", function () { paused = false; });
+          recentWindow.addEventListener("focusin", function () { paused = true; });
+          recentWindow.addEventListener("focusout", function () { paused = false; });
+
+          function step(timestamp) {
+            if (lastFrame === null) lastFrame = timestamp;
+            var delta = timestamp - lastFrame;
+            lastFrame = timestamp;
+
+            if (!paused) {
+              var maxScroll = recentWindow.scrollHeight - recentWindow.clientHeight;
+              var nextTop = recentWindow.scrollTop + scrollSpeed * delta;
+              recentWindow.scrollTop = nextTop >= maxScroll ? 0 : nextTop;
+            }
+
+            window.requestAnimationFrame(step);
+          }
+
+          window.requestAnimationFrame(step);
+        }
+
+        function setActiveBranch(branchId) {
+          activeBranch = branchId;
+          branchButtons.forEach(function (button) {
+            button.classList.toggle("is-active", button.getAttribute("data-branch") === branchId);
+          });
+        }
+
+        function setupPaperExpansion() {
+          paperItems.forEach(function (item) {
+            var copy = item.querySelector(".paper-copy");
+            var toggle = item.querySelector(".paper-toggle");
+            if (!copy || !toggle) return;
+
+            copy.addEventListener("click", function () {
+              var expanded = item.classList.toggle("is-expanded");
+              toggle.textContent = expanded ? "Less" : "More";
+              toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+            });
+          });
+        }
+
+        function showPapers(branchId, shouldScroll) {
+          var branch = branches[branchId];
+          if (!branch) return;
+
+          setActiveBranch(branchId);
+          renderPreview(branchId);
+          paperHeading.textContent = branch.label;
+
+          paperItems.forEach(function (item) {
+            item.classList.toggle("is-hidden", item.getAttribute("data-branch") !== branchId);
+          });
+
+          if (shouldScroll && papersSection) {
+            papersSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
+        branchButtons.forEach(function (button) {
+          button.addEventListener("mouseenter", function () {
+            renderPreview(button.getAttribute("data-branch"));
+            alignPreviewToButton(button);
+          });
+
+          button.addEventListener("focus", function () {
+            renderPreview(button.getAttribute("data-branch"));
+            alignPreviewToButton(button);
+          });
+
+          button.addEventListener("mouseleave", function () {
+            renderPreview(activeBranch);
+            alignPreviewToButton(activeBranchButton());
+          });
+
+          button.addEventListener("click", function () {
+            alignPreviewToButton(button);
+            showPapers(button.getAttribute("data-branch"), true);
+          });
+        });
+
+        window.addEventListener("resize", function () {
+          alignPreviewToButton(activeBranchButton());
+        });
+
+        themeButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var theme = button.getAttribute("data-theme");
+            root.classList.remove("theme-night", "theme-dawn", "theme-day");
+            root.classList.add("theme-" + theme);
+            themeButtons.forEach(function (item) {
+              item.classList.toggle("is-active", item === button);
+            });
+          });
+        });
+
+        startRecentAutoScroll();
+        setupPaperExpansion();
+        alignPreviewToButton(activeBranchButton());
+      }());
+    </script>
+  </body>
+</html>
