@@ -21,7 +21,7 @@ profile:
     - label: "Gianni Franchi"
       url: "https://giannifranchi.github.io/"
   interests: Computer vision / AI Safety / Multimodality / Few-shot
-  inner_weather: Stochastic daydreaming / Evidential rumination / Chronic insomnia / Shallow learning / Chiikawa collector / Vibe labor / Token burner / Oil painting learner (since robots are almost incapable of mastering it, I believe)
+  inner_weather: Stochastic daydreaming / Evidential rumination / Chronic insomnia / Shallow learning / Idea semi-whiz / Chiikawa collector / Vibe labor / Token burner / Oil painting learner (since robots are almost incapable of mastering it, I believe)
   links:
     - label: Google Scholar
       url: https://scholar.google.com/citations?user=o3Q56qsAAAAJ&hl=en
@@ -48,7 +48,7 @@ branches:
     caption: Human motion and action detection from video cues.
     position: "node-d"
   - id: reconstruction-3d
-    label: Human Skeleton and Mesh
+    label: Human Skeleton and 3D
     caption: Human mesh, skeleton, and pose calibration.
     position: "node-e"
 
