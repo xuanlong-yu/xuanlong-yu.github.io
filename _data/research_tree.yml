@@ -91,7 +91,7 @@ publications:
     authors: "Leilei Wang, Longfei Liu, Xi Shen, Xuanlong Yu, Ying Tiffany He, Fei Richard Yu†, Yingyi Chen†"
     venue: "arXiv"
     year: "2026"
-    image: "/images/research/deimv2.png"
+    image: "/images/research/ovdeim.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2603.07022"
@@ -137,7 +137,7 @@ publications:
     authors: "Xingyu Qiu, Yuqian Fu, Jiawei Geng, Bin Ren, Jiancheng Pan, Zongwei Wu, Hao Tang, Yanwei Fu, Radu Timofte, Nicu Sebe, Mohamed Elhoseiny, Lingyi Hong, Mingxi Cheng, Xingqi He, Runze Li, Xingdong Sheng, Wenqiang Zhang, Jiacong Liu, Shu Luo, Yikai Qin, Yaze Zhao, Yongwei Jiang, Yixiong Zou, Zhe Zhang, Yang Yang, Kaiyu Li, Bowen Fu, Zixuan Jiang, Ke Li, Hui Qiao, Xiangyong Cao, Xuanlong Yu, Youyang Sha, Longfei Liu, Di Yang, Xi Shen, and challenge participants"
     venue: "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshop"
     year: "2026"
-    image: "/images/research/fsod-vfm.png"
+    image: "/images/research/challenge26.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2604.11998"
@@ -179,7 +179,7 @@ publications:
     authors: "Xuanlong Yu, Gianni Franchi, Jindong Gu, Emanuel Aldea†"
     venue: "The 38th Annual AAAI Conference on Artificial Intelligence (AAAI)"
     year: "2024"
-    image: "/images/research/sure.png"
+    image: "/images/research/dido.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2308.09065"
@@ -193,7 +193,7 @@ publications:
     authors: "Gianni Franchi, Marwane Hariat, Xuanlong Yu, Nacim Belkhir, Antoine Manzanera, David Filliat†"
     venue: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), Oral"
     year: "2024"
-    image: "/images/research/sure.png"
+    image: "/images/research/infraparis.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2309.15751"
@@ -207,7 +207,7 @@ publications:
     authors: "Gianni Franchi*, Xuanlong Yu*, Andrei Bursuc, Angel Tena, Remi Kazmierczak, Severine Dubuisson, Emanuel Aldea, David Filliat†"
     venue: "British Machine Vision Conference (BMVC)"
     year: "2022"
-    image: "/images/research/sure.png"
+    image: "/images/research/muad.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2203.01437"
@@ -221,7 +221,7 @@ publications:
     authors: "Gianni Franchi*, Xuanlong Yu*, Andrei Bursuc, Emanuel Aldea, Severine Dubuisson, David Filliat†"
     venue: "European Conference on Computer Vision (ECCV)"
     year: "2022"
-    image: "/images/research/sure.png"
+    image: "/images/research/ldu.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2207.10130"
@@ -235,7 +235,7 @@ publications:
     authors: "Xuanlong Yu, Gianni Franchi, Emanuel Aldea†"
     venue: "IEEE International Conference on Image Processing (ICIP), Oral"
     year: "2022"
-    image: "/images/research/sure.png"
+    image: "/images/research/car.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2202.12369"
@@ -247,7 +247,7 @@ publications:
     authors: "Xuanlong Yu, Gianni Franchi, Emanuel Aldea†"
     venue: "British Machine Vision Conference (BMVC)"
     year: "2021"
-    image: "/images/research/sure.png"
+    image: "/images/research/slurp.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2110.11182"
@@ -261,7 +261,7 @@ publications:
     authors: "Xuanlong Yu, Yi Zuo, Zitao Wang, Xiaowen Zhang, Jiaxuan Zhao, Yuting Yang, Licheng Jiao, Rui Peng, Xinyi Wang, Junpei Zhang, Kexin Zhang, Fang Liu, Roberto Alcover-Couso, Juan C. SanMiguel, Marcos Escudero-Vinolo, Hanlin Tian, Kenta Matsui, Tianhao Wang, Fahmy Adan, Zhitong Gao, Xuming He, Quentin Bouniot, Hossein Moghaddam, Shyam Nandan Rai, Fabio Cermelli, Carlo Masone, Andrea Pilzer, Elisa Ricci, Andrei Bursuc, Arno Solin, Martin Trapp, Rui Li, Angela Yao, Wenlong Chen, Ivor Simpson, Neill D. F. Campbell, and Gianni Franchi†"
     venue: "International Conference on Computer Vision (ICCV) Workshop"
     year: "2023"
-    image: "/images/research/sure.png"
+    image: "/images/research/challenge2023.png"
     links:
       - label: Paper
         url: "https://arxiv.org/abs/2309.15478"
@@ -301,7 +301,7 @@ publications:
     authors: "Kerui Gu*, Rongyu Chen*, Xuanlong Yu, Angela Yao†"
     venue: "The International Conference on Machine Learning (ICML)"
     year: "2024"
-    image: "/images/research/skel-cf.gif"
+    image: "/images/research/ccnet.png"
     links:
       - label: Paper
         url: "https://openreview.net/pdf/0c3dd7f321945b783da004896972df7b77421476.pdf"

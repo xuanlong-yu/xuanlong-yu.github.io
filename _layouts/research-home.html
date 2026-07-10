@@ -417,6 +417,7 @@ layout: compress
 
       .paper-title {
         margin: 0 0 14px;
+        color: var(--home-paper-ink);
         font-size: 15px;
         font-weight: 400;
         line-height: 1.18;
@@ -425,17 +426,18 @@ layout: compress
       .paper-authors,
       .paper-abstract {
         margin: 0;
-        color: var(--home-paper-ink);
         font-size: 12px;
         line-height: 1.46;
       }
 
+      .paper-authors,
       .paper-authors strong {
         color: var(--home-paper-ink);
       }
 
       .paper-abstract {
         margin-top: 16px;
+        color: var(--home-muted);
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -666,12 +668,16 @@ layout: compress
             <p class="preview-kicker">Paper list</p>
             <h2 class="preview-branch" data-preview-branch>{{ first_branch.label }}</h2>
             <ul class="preview-list" data-preview-list>
-              {% assign first_publications = tree.publications | where: "branch", first_branch.id | sort: "year" | reverse %}
-              {% for pub in first_publications %}
+              {% assign first_publications = tree.publications | where: "branch", first_branch.id %}
+              {% assign first_publication_years = first_publications | map: "year" | uniq | sort | reverse %}
+              {% for publication_year in first_publication_years %}
+                {% assign publications_in_year = first_publications | where: "year", publication_year %}
+                {% for pub in publications_in_year %}
                   <li>
                     <span class="preview-title">{{ pub.title }}</span>
                     <span class="preview-meta">{{ pub.year }} / {{ pub.venue }}</span>
                   </li>
+                {% endfor %}
               {% endfor %}
             </ul>
           </section>
@@ -694,28 +700,32 @@ layout: compress
 
         <div class="paper-list" data-paper-list>
           {% for branch_item in tree.branches %}
-            {% assign branch_publications = tree.publications | where: "branch", branch_item.id | sort: "year" | reverse %}
-            {% for pub in branch_publications %}
-              <article class="paper-item{% unless pub.branch == first_branch.id %} is-hidden{% endunless %}" data-publication="{{ pub.id }}" data-branch="{{ pub.branch }}">
-                <figure class="paper-media">
-                  <img src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}">
-                </figure>
-                <div class="paper-copy">
-                  <h3 class="paper-title">{{ pub.title }}</h3>
-                  {% assign highlighted_authors = pub.authors | replace: "Xuanlong Yu", "<strong>Xuanlong Yu</strong>" %}
-                  <p class="paper-authors">{{ highlighted_authors }}</p>
-                  <p class="paper-abstract"><strong>Abstract:</strong> {{ pub.abstract }}</p>
-                  <button class="paper-toggle" type="button" aria-expanded="false">More</button>
-                </div>
-                <aside class="paper-side">
-                  <p class="paper-venue">{{ pub.year }} / {{ pub.venue }}</p>
-                  <div class="paper-links">
-                    {% for link in pub.links %}
-                      <a class="paper-link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
-                    {% endfor %}
+            {% assign branch_publications = tree.publications | where: "branch", branch_item.id %}
+            {% assign publication_years = branch_publications | map: "year" | uniq | sort | reverse %}
+            {% for publication_year in publication_years %}
+              {% assign publications_in_year = branch_publications | where: "year", publication_year %}
+              {% for pub in publications_in_year %}
+                <article class="paper-item{% unless pub.branch == first_branch.id %} is-hidden{% endunless %}" data-publication="{{ pub.id }}" data-branch="{{ pub.branch }}">
+                  <figure class="paper-media">
+                    <img src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}">
+                  </figure>
+                  <div class="paper-copy">
+                    <h3 class="paper-title">{{ pub.title }}</h3>
+                    {% assign highlighted_authors = pub.authors | replace: "Xuanlong Yu", "<strong>Xuanlong Yu</strong>" %}
+                    <p class="paper-authors">{{ highlighted_authors }}</p>
+                    <p class="paper-abstract"><strong>Abstract:</strong> {{ pub.abstract }}</p>
+                    <button class="paper-toggle" type="button" aria-expanded="false">More</button>
                   </div>
-                </aside>
-              </article>
+                  <aside class="paper-side">
+                    <p class="paper-venue">{{ pub.year }} / {{ pub.venue }}</p>
+                    <div class="paper-links">
+                      {% for link in pub.links %}
+                        <a class="paper-link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                      {% endfor %}
+                    </div>
+                  </aside>
+                </article>
+              {% endfor %}
             {% endfor %}
           {% endfor %}
         </div>
@@ -724,8 +734,8 @@ layout: compress
           <figure class="footer-photo">
             <img src="{{ '/images/profile.png' | relative_url }}" alt="Xuanlong Yu">
           </figure>
-          <p><span class="footer-label">Education</span>2020-2023 Ph.D., Universite Paris-Saclay / ENSTA Paris<br>2017-2020 M.Eng., Telecom Saint-Etienne<br>2014-2018 B.Eng., Xidian University</p>
-          <p><span class="footer-label">Service</span>Reviewer: ECCV, AAAI, CVPR, ICCVW, IEEE TPAMI, IEEE TMM<br>Organizer: MUAD challenge at UNCV workshop, ICCV 2023.</p>
+          <p><span class="footer-label">Education</span>2020-2023 Ph.D., Universite Paris-Saclay / ENSTA Paris, France<br>2017-2020 M.Eng., Telecom Saint-Etienne, France<br>2014-2018 B.Eng., Xidian University, China</p>
+          <p><span class="footer-label">Service</span>Reviewer: ECCV, AAAI, CVPR, CVPRW, ECCVW, ICCVW, IEEE TPAMI, IEEE TMM<br>Organizer: MUAD challenge at UNCV workshop, ICCV 2023.</p>
           <p><span class="footer-label">Note</span>* equal contribution. † corresponding author.</p>
         </footer>
       </section>
@@ -742,7 +752,7 @@ layout: compress
               label: {{ branch.label | jsonify }},
               caption: {{ branch.caption | jsonify }},
               publications: [
-                {% assign branch_publications = tree.publications | where: "branch", branch.id | sort: "year" | reverse %}
+                {% assign branch_publications = tree.publications | where: "branch", branch.id %}
                 {% for pub in branch_publications %}
                   {
                     id: {{ pub.id | jsonify }},
