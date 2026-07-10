@@ -21,6 +21,7 @@ layout: compress
         --home-line: rgba(238, 233, 223, 0.2);
         --home-panel: rgba(238, 233, 223, 0.07);
         --home-accent: #eee9df;
+        --home-paper-ink: #ffffff;
         --home-font: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
 
@@ -70,6 +71,7 @@ layout: compress
         --home-line: rgba(33, 29, 24, 0.19);
         --home-panel: rgba(33, 29, 24, 0.06);
         --home-accent: #211d18;
+        --home-paper-ink: #000000;
       }
 
       .research-home.theme-day {
@@ -81,6 +83,7 @@ layout: compress
         --home-line: rgba(22, 32, 39, 0.2);
         --home-panel: rgba(22, 32, 39, 0.055);
         --home-accent: #162027;
+        --home-paper-ink: #000000;
       }
 
       .research-home a {
@@ -382,9 +385,10 @@ layout: compress
 
       .paper-item {
         display: grid;
-        grid-template-columns: minmax(132px, 0.48fr) minmax(0, 1.55fr) minmax(210px, 0.82fr);
-        gap: clamp(30px, 4.5vw, 80px);
-        padding: clamp(28px, 4vw, 54px) 0;
+        grid-template-columns: minmax(112px, 0.38fr) minmax(0, 1.5fr) minmax(176px, 0.66fr);
+        gap: clamp(22px, 3.2vw, 56px);
+        padding: clamp(22px, 3.2vw, 42px) 0;
+        color: var(--home-paper-ink);
         background: var(--home-bg);
       }
 
@@ -421,9 +425,13 @@ layout: compress
       .paper-authors,
       .paper-abstract {
         margin: 0;
-        color: var(--home-muted);
+        color: var(--home-paper-ink);
         font-size: 12px;
         line-height: 1.46;
+      }
+
+      .paper-authors strong {
+        color: var(--home-paper-ink);
       }
 
       .paper-abstract {
@@ -453,7 +461,7 @@ layout: compress
 
       .paper-venue {
         margin: 0 0 18px;
-        color: var(--home-muted);
+        color: var(--home-paper-ink);
         font-size: 11px;
         line-height: 1.38;
       }
@@ -533,7 +541,7 @@ layout: compress
         }
 
         .paper-item {
-          grid-template-columns: minmax(118px, 0.5fr) minmax(0, 1.4fr);
+          grid-template-columns: minmax(104px, 0.42fr) minmax(0, 1.45fr);
         }
 
         .paper-side {
@@ -655,7 +663,7 @@ layout: compress
 
         <aside class="home-right" aria-label="Profile and work preview">
           <section class="preview-panel" aria-live="polite">
-            <p class="preview-kicker">Related Works</p>
+            <p class="preview-kicker">Paper list</p>
             <h2 class="preview-branch" data-preview-branch>{{ first_branch.label }}</h2>
             <ul class="preview-list" data-preview-list>
               {% assign first_publications = tree.publications | where: "branch", first_branch.id | sort: "year" | reverse %}
@@ -685,29 +693,30 @@ layout: compress
         </header>
 
         <div class="paper-list" data-paper-list>
-          {% assign sorted_publications = tree.publications | sort: "year" | reverse %}
-          {% for pub in sorted_publications %}
-            {% assign branch = tree.branches | where: "id", pub.branch | first %}
-            <article class="paper-item{% unless pub.branch == first_branch.id %} is-hidden{% endunless %}" data-publication="{{ pub.id }}" data-branch="{{ pub.branch }}">
-              <figure class="paper-media">
-                <img src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}">
-              </figure>
-              <div class="paper-copy">
-                <h3 class="paper-title">{{ pub.title }}</h3>
-                {% assign highlighted_authors = pub.authors | replace: "Xuanlong Yu", "<strong>Xuanlong Yu</strong>" %}
-                <p class="paper-authors">{{ highlighted_authors }}</p>
-                <p class="paper-abstract">{{ pub.abstract }}</p>
-                <button class="paper-toggle" type="button" aria-expanded="false">More</button>
-              </div>
-              <aside class="paper-side">
-                <p class="paper-venue">{{ pub.year }} / {{ pub.venue }}</p>
-                <div class="paper-links">
-                  {% for link in pub.links %}
-                    <a class="paper-link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
-                  {% endfor %}
+          {% for branch_item in tree.branches %}
+            {% assign branch_publications = tree.publications | where: "branch", branch_item.id | sort: "year" | reverse %}
+            {% for pub in branch_publications %}
+              <article class="paper-item{% unless pub.branch == first_branch.id %} is-hidden{% endunless %}" data-publication="{{ pub.id }}" data-branch="{{ pub.branch }}">
+                <figure class="paper-media">
+                  <img src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}">
+                </figure>
+                <div class="paper-copy">
+                  <h3 class="paper-title">{{ pub.title }}</h3>
+                  {% assign highlighted_authors = pub.authors | replace: "Xuanlong Yu", "<strong>Xuanlong Yu</strong>" %}
+                  <p class="paper-authors">{{ highlighted_authors }}</p>
+                  <p class="paper-abstract"><strong>Abstract:</strong> {{ pub.abstract }}</p>
+                  <button class="paper-toggle" type="button" aria-expanded="false">More</button>
                 </div>
-              </aside>
-            </article>
+                <aside class="paper-side">
+                  <p class="paper-venue">{{ pub.year }} / {{ pub.venue }}</p>
+                  <div class="paper-links">
+                    {% for link in pub.links %}
+                      <a class="paper-link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                    {% endfor %}
+                  </div>
+                </aside>
+              </article>
+            {% endfor %}
           {% endfor %}
         </div>
 
@@ -733,7 +742,7 @@ layout: compress
               label: {{ branch.label | jsonify }},
               caption: {{ branch.caption | jsonify }},
               publications: [
-                {% assign branch_publications = tree.publications | where: "branch", branch.id %}
+                {% assign branch_publications = tree.publications | where: "branch", branch.id | sort: "year" | reverse %}
                 {% for pub in branch_publications %}
                   {
                     id: {{ pub.id | jsonify }},
