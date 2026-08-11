@@ -534,7 +534,7 @@ layout: compress
         font-family: "Courier New", Courier, monospace;
         opacity: 0;
         transform: scale(0.96);
-        transition: opacity 180ms ease, transform 180ms ease;
+        transition: opacity 180ms ease, transform 180ms ease, left 2.1s linear, top 2.1s linear;
         pointer-events: none;
       }
 
@@ -542,7 +542,7 @@ layout: compress
         opacity: 1;
         transform: scale(1);
         pointer-events: auto;
-        animation: news-float-colors 720ms steps(2, end) infinite;
+        animation: news-float-colors 3.6s steps(2, end) infinite;
       }
 
       .news-float:hover {
@@ -621,6 +621,15 @@ layout: compress
         color: #635d3d;
         font-size: 10px;
         line-height: 1;
+      }
+
+      .news-float__time {
+        display: block;
+        margin: -2px 0 11px;
+        color: var(--news-ink);
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.2;
       }
 
       .news-float__text {
@@ -896,7 +905,8 @@ layout: compress
           <button class="news-float__close" type="button" data-news-dismiss aria-label="Cancel">X</button>
         </div>
         <div class="news-float__body">
-          <p class="news-float__eyebrow">LATEST UPDATE // {{ latest_news.date }}</p>
+          <p class="news-float__eyebrow">LATEST UPDATE</p>
+          <time class="news-float__time">DATE // {{ latest_news.date }}</time>
           <p class="news-float__text">{{ latest_news.text }}</p>
           <div class="news-float__actions">
             <button class="news-float__action" type="button" data-news-dismiss>Cancel</button>
@@ -1079,7 +1089,7 @@ layout: compress
               if (!isDragging && !newsFloat.matches(":hover") && !document.hidden) {
                 moveAcrossViewport();
               }
-            }, 900);
+            }, 2200);
           }
 
           if (dragHandle) {
