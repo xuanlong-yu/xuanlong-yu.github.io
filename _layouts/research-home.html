@@ -525,9 +525,11 @@ layout: compress
         position: fixed;
         z-index: 20;
         width: min(340px, calc(100vw - 32px));
-        color: #111;
-        background: #f4f0d8;
-        border: 2px solid #111;
+        --news-bg: #f4f0d8;
+        --news-ink: #111;
+        color: var(--news-ink);
+        background: var(--news-bg);
+        border: 2px solid var(--news-ink);
         box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.34);
         font-family: "Courier New", Courier, monospace;
         opacity: 0;
@@ -540,41 +542,29 @@ layout: compress
         opacity: 1;
         transform: scale(1);
         pointer-events: auto;
-        animation: news-float-chaos 3.2s steps(7, end) infinite alternate;
+        animation: news-float-colors 720ms steps(2, end) infinite;
       }
 
       .news-float:hover {
         animation-play-state: paused;
       }
 
-      @keyframes news-float-chaos {
+      @keyframes news-float-colors {
         0% {
-          transform: translate(0, 0) scale(1);
-          opacity: 1;
+          --news-bg: #f4f0d8;
+          --news-ink: #111;
         }
-        18% {
-          transform: translate(-38px, 24px) scale(1.03);
-          opacity: 0.42;
+        49% {
+          --news-bg: #ff2a9d;
+          --news-ink: #fff;
         }
-        36% {
-          transform: translate(46px, 58px) scale(0.98);
-          opacity: 1;
-        }
-        54% {
-          transform: translate(74px, -32px) scale(1.02);
-          opacity: 0.52;
-        }
-        72% {
-          transform: translate(-54px, -62px) scale(0.99);
-          opacity: 0.88;
-        }
-        88% {
-          transform: translate(28px, 42px) scale(1.04);
-          opacity: 0.34;
+        50% {
+          --news-bg: #7dff00;
+          --news-ink: #111;
         }
         100% {
-          transform: translate(0, 0) scale(1);
-          opacity: 1;
+          --news-bg: #00e5ff;
+          --news-ink: #111;
         }
       }
 
@@ -585,8 +575,8 @@ layout: compress
         gap: 12px;
         min-height: 29px;
         padding: 5px 7px 5px 9px;
-        color: #fff;
-        background: #111;
+        color: var(--news-bg);
+        background: var(--news-ink);
         cursor: move;
         user-select: none;
       }
@@ -607,8 +597,8 @@ layout: compress
         width: 18px;
         height: 18px;
         padding: 0;
-        border: 1px solid #fff;
-        color: #fff;
+        border: 1px solid var(--news-bg);
+        color: var(--news-bg);
         background: transparent;
         font: 700 13px/1 "Courier New", Courier, monospace;
         cursor: pointer;
@@ -623,6 +613,7 @@ layout: compress
 
       .news-float__body {
         padding: 16px 17px 15px;
+        background: var(--news-bg);
       }
 
       .news-float__eyebrow {
@@ -648,8 +639,8 @@ layout: compress
       .news-float__action {
         min-height: 29px;
         padding: 5px 9px;
-        border: 1px solid #111;
-        color: #111;
+        border: 1px solid var(--news-ink);
+        color: var(--news-ink);
         background: transparent;
         font: 11px/1 "Courier New", Courier, monospace;
         cursor: pointer;
@@ -662,8 +653,8 @@ layout: compress
       }
 
       .news-float__action--primary {
-        color: #f4f0d8;
-        background: #111;
+        color: var(--news-bg);
+        background: var(--news-ink);
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -1047,6 +1038,7 @@ layout: compress
           var dismissButtons = newsFloat.querySelectorAll("[data-news-dismiss]");
           var isDragging = false;
           var dragOffset = { x: 0, y: 0 };
+          var moveTimer;
 
           function clampPosition(x, y) {
             var maxX = Math.max(16, window.innerWidth - newsFloat.offsetWidth - 16);
@@ -1063,7 +1055,14 @@ layout: compress
             newsFloat.style.top = position.y + "px";
           }
 
+          function moveAcrossViewport() {
+            var maxX = Math.max(16, window.innerWidth - newsFloat.offsetWidth - 16);
+            var maxY = Math.max(16, window.innerHeight - newsFloat.offsetHeight - 16);
+            place(16 + Math.random() * (maxX - 16), 16 + Math.random() * (maxY - 16));
+          }
+
           function dismiss() {
+            if (moveTimer) window.clearInterval(moveTimer);
             try { window.sessionStorage.setItem(dismissedKey, "1"); } catch (error) {}
             newsFloat.classList.remove("is-visible");
             newsFloat.setAttribute("aria-hidden", "true");
@@ -1074,6 +1073,14 @@ layout: compress
           });
 
           place(window.innerWidth - newsFloat.offsetWidth - 52, window.innerHeight - newsFloat.offsetHeight - 72);
+
+          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            moveTimer = window.setInterval(function () {
+              if (!isDragging && !newsFloat.matches(":hover") && !document.hidden) {
+                moveAcrossViewport();
+              }
+            }, 900);
+          }
 
           if (dragHandle) {
             dragHandle.addEventListener("pointerdown", function (event) {
@@ -1101,7 +1108,10 @@ layout: compress
           });
 
           try {
-            if (window.sessionStorage.getItem(dismissedKey)) return;
+            if (window.sessionStorage.getItem(dismissedKey)) {
+              if (moveTimer) window.clearInterval(moveTimer);
+              return;
+            }
           } catch (error) {}
           window.setTimeout(function () {
             newsFloat.classList.add("is-visible");
