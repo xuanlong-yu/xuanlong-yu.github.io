@@ -521,6 +521,121 @@ layout: compress
         border: 0;
       }
 
+      .news-float {
+        position: fixed;
+        z-index: 20;
+        width: min(340px, calc(100vw - 32px));
+        color: #111;
+        background: #f4f0d8;
+        border: 2px solid #111;
+        box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.34);
+        font-family: "Courier New", Courier, monospace;
+        opacity: 0;
+        transform: scale(0.96);
+        transition: opacity 180ms ease, transform 180ms ease;
+        pointer-events: none;
+      }
+
+      .news-float.is-visible {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+      }
+
+      .news-float__bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 29px;
+        padding: 5px 7px 5px 9px;
+        color: #fff;
+        background: #111;
+        cursor: move;
+        user-select: none;
+      }
+
+      .news-float__label {
+        overflow: hidden;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0.04em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .news-float__close {
+        display: grid;
+        flex: 0 0 18px;
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        border: 1px solid #fff;
+        color: #fff;
+        background: transparent;
+        font: 700 13px/1 "Courier New", Courier, monospace;
+        cursor: pointer;
+        place-items: center;
+      }
+
+      .news-float__close:hover,
+      .news-float__close:focus-visible {
+        color: #111;
+        background: #fff;
+      }
+
+      .news-float__body {
+        padding: 16px 17px 15px;
+      }
+
+      .news-float__eyebrow {
+        margin: 0 0 10px;
+        color: #635d3d;
+        font-size: 10px;
+        line-height: 1;
+      }
+
+      .news-float__text {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .news-float__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .news-float__action {
+        min-height: 29px;
+        padding: 5px 9px;
+        border: 1px solid #111;
+        color: #111;
+        background: transparent;
+        font: 11px/1 "Courier New", Courier, monospace;
+        cursor: pointer;
+      }
+
+      .news-float__action:hover,
+      .news-float__action:focus-visible {
+        color: #f4f0d8;
+        background: #111;
+      }
+
+      .news-float__action--primary {
+        color: #f4f0d8;
+        background: #111;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .news-float {
+          transition: none;
+        }
+      }
+
       @media (max-width: 1040px) {
         .home-landing {
           grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
@@ -741,6 +856,24 @@ layout: compress
       </section>
     </main>
 
+    {% assign latest_news = tree.news | first %}
+    {% if latest_news %}
+      <aside class="news-float" data-news-float aria-label="Latest news" aria-hidden="true">
+        <div class="news-float__bar" data-news-drag-handle>
+          <span class="news-float__label">NEWS ALERT.EXE</span>
+          <button class="news-float__close" type="button" data-news-dismiss aria-label="Cancel">X</button>
+        </div>
+        <div class="news-float__body">
+          <p class="news-float__eyebrow">LATEST UPDATE // {{ latest_news.date }}</p>
+          <p class="news-float__text">{{ latest_news.text }}</p>
+          <div class="news-float__actions">
+            <button class="news-float__action" type="button" data-news-dismiss>Cancel</button>
+            <a class="news-float__action news-float__action--primary" href="{{ latest_news.url }}" target="_blank" rel="noopener noreferrer">View details</a>
+          </div>
+        </div>
+      </aside>
+    {% endif %}
+
     <script>
       (function () {
         var root = document.querySelector("[data-home-root]");
@@ -777,6 +910,7 @@ layout: compress
         var paperHeading = root.querySelector("[data-paper-heading]");
         var papersSection = root.querySelector("#papers");
         var activeBranch = "{{ first_branch.id }}";
+        var newsFloat = document.querySelector("[data-news-float]");
 
         function renderPreview(branchId) {
           var branch = branches[branchId];
@@ -874,6 +1008,109 @@ layout: compress
           });
         }
 
+        function setupNewsFloat() {
+          if (!newsFloat) return;
+
+          var latestNewsKey = {{ latest_news.text | append: latest_news.date | jsonify }};
+          var dismissedKey = "xuanlong-news-dismissed:" + latestNewsKey;
+          var dragHandle = newsFloat.querySelector("[data-news-drag-handle]");
+          var dismissButtons = newsFloat.querySelectorAll("[data-news-dismiss]");
+          var isDragging = false;
+          var driftFrame;
+          var driftStart;
+          var origin = { x: 0, y: 0 };
+          var dragOffset = { x: 0, y: 0 };
+
+          function clampPosition(x, y) {
+            var maxX = Math.max(16, window.innerWidth - newsFloat.offsetWidth - 16);
+            var maxY = Math.max(16, window.innerHeight - newsFloat.offsetHeight - 16);
+            return {
+              x: Math.max(16, Math.min(x, maxX)),
+              y: Math.max(16, Math.min(y, maxY))
+            };
+          }
+
+          function place(x, y) {
+            var position = clampPosition(x, y);
+            newsFloat.style.left = position.x + "px";
+            newsFloat.style.top = position.y + "px";
+          }
+
+          function stopDrift() {
+            if (driftFrame) window.cancelAnimationFrame(driftFrame);
+            driftFrame = null;
+          }
+
+          function drift(timestamp) {
+            if (!driftStart) driftStart = timestamp;
+            if (!isDragging && !newsFloat.matches(":hover")) {
+              var elapsed = (timestamp - driftStart) / 1000;
+              var x = origin.x + Math.sin(elapsed * 0.48) * 32;
+              var y = origin.y + Math.cos(elapsed * 0.63) * 21;
+              place(x, y);
+            }
+            driftFrame = window.requestAnimationFrame(drift);
+          }
+
+          function dismiss() {
+            stopDrift();
+            try { window.sessionStorage.setItem(dismissedKey, "1"); } catch (error) {}
+            newsFloat.classList.remove("is-visible");
+            newsFloat.setAttribute("aria-hidden", "true");
+          }
+
+          dismissButtons.forEach(function (button) {
+            button.addEventListener("click", dismiss);
+          });
+
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            place(window.innerWidth - newsFloat.offsetWidth - 28, 28);
+          } else {
+            origin.x = Math.max(16, window.innerWidth - newsFloat.offsetWidth - 52);
+            origin.y = Math.max(16, window.innerHeight - newsFloat.offsetHeight - 72);
+            place(origin.x, origin.y);
+            driftFrame = window.requestAnimationFrame(drift);
+          }
+
+          if (dragHandle) {
+            dragHandle.addEventListener("pointerdown", function (event) {
+              if (event.target.closest("button")) return;
+              isDragging = true;
+              stopDrift();
+              var rect = newsFloat.getBoundingClientRect();
+              dragOffset.x = event.clientX - rect.left;
+              dragOffset.y = event.clientY - rect.top;
+              dragHandle.setPointerCapture(event.pointerId);
+            });
+
+            dragHandle.addEventListener("pointermove", function (event) {
+              if (!isDragging) return;
+              place(event.clientX - dragOffset.x, event.clientY - dragOffset.y);
+            });
+
+            dragHandle.addEventListener("pointerup", function () {
+              isDragging = false;
+              origin.x = parseFloat(newsFloat.style.left) || origin.x;
+              origin.y = parseFloat(newsFloat.style.top) || origin.y;
+              driftStart = null;
+              driftFrame = window.requestAnimationFrame(drift);
+            });
+          }
+
+          window.addEventListener("resize", function () {
+            var rect = newsFloat.getBoundingClientRect();
+            place(rect.left, rect.top);
+          });
+
+          try {
+            if (window.sessionStorage.getItem(dismissedKey)) return;
+          } catch (error) {}
+          window.setTimeout(function () {
+            newsFloat.classList.add("is-visible");
+            newsFloat.setAttribute("aria-hidden", "false");
+          }, 450);
+        }
+
         function showPapers(branchId, shouldScroll) {
           var branch = branches[branchId];
           if (!branch) return;
@@ -930,6 +1167,7 @@ layout: compress
 
         startRecentAutoScroll();
         setupPaperExpansion();
+        setupNewsFloat();
         alignPreviewToButton(activeBranchButton());
       }());
     </script>
