@@ -540,6 +540,42 @@ layout: compress
         opacity: 1;
         transform: scale(1);
         pointer-events: auto;
+        animation: news-float-chaos 3.2s steps(7, end) infinite alternate;
+      }
+
+      .news-float:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes news-float-chaos {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+        }
+        18% {
+          transform: translate(-38px, 24px) scale(1.03);
+          opacity: 0.42;
+        }
+        36% {
+          transform: translate(46px, 58px) scale(0.98);
+          opacity: 1;
+        }
+        54% {
+          transform: translate(74px, -32px) scale(1.02);
+          opacity: 0.52;
+        }
+        72% {
+          transform: translate(-54px, -62px) scale(0.99);
+          opacity: 0.88;
+        }
+        88% {
+          transform: translate(28px, 42px) scale(1.04);
+          opacity: 0.34;
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+        }
       }
 
       .news-float__bar {
@@ -633,6 +669,11 @@ layout: compress
       @media (prefers-reduced-motion: reduce) {
         .news-float {
           transition: none;
+        }
+
+        .news-float.is-visible {
+          animation: none;
+          opacity: 1;
         }
       }
 
@@ -963,28 +1004,17 @@ layout: compress
           if (!recentWindow || recentWindow.scrollHeight <= recentWindow.clientHeight) return;
 
           var paused = false;
-          var scrollSpeed = 0.12;
-          var lastFrame = null;
+          var scrollStep = 1;
           recentWindow.addEventListener("mouseenter", function () { paused = true; });
           recentWindow.addEventListener("mouseleave", function () { paused = false; });
           recentWindow.addEventListener("focusin", function () { paused = true; });
           recentWindow.addEventListener("focusout", function () { paused = false; });
-
-          function step(timestamp) {
-            if (lastFrame === null) lastFrame = timestamp;
-            var delta = timestamp - lastFrame;
-            lastFrame = timestamp;
-
-            if (!paused) {
-              var maxScroll = recentWindow.scrollHeight - recentWindow.clientHeight;
-              var nextTop = recentWindow.scrollTop + scrollSpeed * delta;
-              recentWindow.scrollTop = nextTop >= maxScroll ? 0 : nextTop;
-            }
-
-            window.requestAnimationFrame(step);
-          }
-
-          window.requestAnimationFrame(step);
+          window.setInterval(function () {
+            if (paused || document.hidden) return;
+            var maxScroll = recentWindow.scrollHeight - recentWindow.clientHeight;
+            var nextTop = recentWindow.scrollTop + scrollStep;
+            recentWindow.scrollTop = nextTop >= maxScroll ? 0 : nextTop;
+          }, 50);
         }
 
         function setActiveBranch(branchId) {
@@ -1016,9 +1046,6 @@ layout: compress
           var dragHandle = newsFloat.querySelector("[data-news-drag-handle]");
           var dismissButtons = newsFloat.querySelectorAll("[data-news-dismiss]");
           var isDragging = false;
-          var driftFrame;
-          var driftStart;
-          var origin = { x: 0, y: 0 };
           var dragOffset = { x: 0, y: 0 };
 
           function clampPosition(x, y) {
@@ -1036,24 +1063,7 @@ layout: compress
             newsFloat.style.top = position.y + "px";
           }
 
-          function stopDrift() {
-            if (driftFrame) window.cancelAnimationFrame(driftFrame);
-            driftFrame = null;
-          }
-
-          function drift(timestamp) {
-            if (!driftStart) driftStart = timestamp;
-            if (!isDragging && !newsFloat.matches(":hover")) {
-              var elapsed = (timestamp - driftStart) / 1000;
-              var x = origin.x + Math.sin(elapsed * 0.48) * 32;
-              var y = origin.y + Math.cos(elapsed * 0.63) * 21;
-              place(x, y);
-            }
-            driftFrame = window.requestAnimationFrame(drift);
-          }
-
           function dismiss() {
-            stopDrift();
             try { window.sessionStorage.setItem(dismissedKey, "1"); } catch (error) {}
             newsFloat.classList.remove("is-visible");
             newsFloat.setAttribute("aria-hidden", "true");
@@ -1063,20 +1073,12 @@ layout: compress
             button.addEventListener("click", dismiss);
           });
 
-          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            place(window.innerWidth - newsFloat.offsetWidth - 28, 28);
-          } else {
-            origin.x = Math.max(16, window.innerWidth - newsFloat.offsetWidth - 52);
-            origin.y = Math.max(16, window.innerHeight - newsFloat.offsetHeight - 72);
-            place(origin.x, origin.y);
-            driftFrame = window.requestAnimationFrame(drift);
-          }
+          place(window.innerWidth - newsFloat.offsetWidth - 52, window.innerHeight - newsFloat.offsetHeight - 72);
 
           if (dragHandle) {
             dragHandle.addEventListener("pointerdown", function (event) {
               if (event.target.closest("button")) return;
               isDragging = true;
-              stopDrift();
               var rect = newsFloat.getBoundingClientRect();
               dragOffset.x = event.clientX - rect.left;
               dragOffset.y = event.clientY - rect.top;
@@ -1090,10 +1092,6 @@ layout: compress
 
             dragHandle.addEventListener("pointerup", function () {
               isDragging = false;
-              origin.x = parseFloat(newsFloat.style.left) || origin.x;
-              origin.y = parseFloat(newsFloat.style.top) || origin.y;
-              driftStart = null;
-              driftFrame = window.requestAnimationFrame(drift);
             });
           }
 
