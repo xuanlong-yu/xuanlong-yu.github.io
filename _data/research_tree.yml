@@ -1,8 +1,8 @@
 themes:
-  - id: night
-    label: Night
   - id: dawn
     label: Dawn
+  - id: night
+    label: Night
   - id: day
     label: Day
 
@@ -12,7 +12,7 @@ profile:
     prefix: "2024 - now Member of technical staff @"
     label: "Intellindust AI Lab"
     url: "https://intellindust-ai-lab.github.io/"
-  alumni: "Alumni @ Xidian / Paris-Saclay / ENSTA Paris"
+  alumni: "Alumni @ Xidian / Paris-Saclay / ENSTA Paris<br>Living / Lived in Nanjing (18 years) / Xi'an (3.5 years) / France (6.5 years) / Shenzhen (2.5 years)"
   mentors:
     - label: "Xi Shen"
       url: "https://xishen0220.github.io/"
@@ -21,7 +21,7 @@ profile:
     - label: "Gianni Franchi"
       url: "https://giannifranchi.github.io/"
   interests: Computer vision / AI Safety / Multimodality / Few-shot
-  inner_weather: Stochastic daydreaming / Evidential rumination / Chronic insomnia / Shallow learning / Idea semi-whiz / Chiikawa collector / Vibe labor / Token burner / Oil painting learner (since robots are almost incapable of mastering it, I believe)
+  inner_weather: Stochastic daydreaming / Evidential rumination / Chronic insomnia / Shallow learning / Idea semi-whiz / Chiikawa collector / Vibe labor / Token burner / Oil painting and piano learner
   links:
     - label: Google Scholar
       url: https://scholar.google.com/citations?user=o3Q56qsAAAAJ&hl=en
