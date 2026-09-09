@@ -57,7 +57,7 @@ publications:
     branch: edge-detectors
     title: "EdgeCrafter: Compact ViTs for Edge Dense Prediction via Task-Specialized Distillation"
     authors: "Longfei Liu*, Yongjie Hou*, Yang Li*, Qirui Wang*, Youyang Sha, Yongjun Yu, Yinzhi Wang, Peizhe Ru, Xuanlong Yu†, Xi Shen†"
-    venue: "TMLR"
+    venue: "Transactions on Machine Learning Research (TMLR)"
     year: "2026"
     image: "/images/research/edgecrafter.png"
     links:
@@ -309,7 +309,7 @@ publications:
 
 news:
   - date: "08/2026"
-    text: "EdgeCrafter is accepted by TMLR."
+    text: "EdgeCrafter is accepted by Transactions on Machine Learning Research (TMLR)."
     url: "https://intellindust-ai-lab.github.io/projects/EdgeCrafter/"
   - date: "06/2026"
     text: "SKEL-CF is accepted at ECCV 2026."
