@@ -53,6 +53,22 @@ branches:
     position: "node-e"
 
 publications:
+  - id: gtr
+    branch: edge-detectors
+    title: "GTR: Gated Token Recurrence for Efficient Dense Prediction"
+    authors: "Zhe Feng, Longfei Liu, Wei Liu, Kai Chen, Jiangang Kong, Wei Zhou, Yifeng Qian, Dexiong Chen, Xuanlong Yu, Xi Shen†"
+    venue: "arXiv"
+    year: "2026"
+    image: "/images/research/gtr.png"
+    links:
+      - label: Project
+        url: "https://intellindust-ai-lab.github.io/projects/GTR/"
+      - label: Paper
+        url: "https://arxiv.org/abs/2609.26590"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/GTR"
+    abstract: >-
+      GTR introduces a softmax-free recurrent vision backbone for efficient dense prediction at high image resolutions. It combines gated linear attention, alternating spatial scan directions, and spatially enhanced SwiGLU blocks, then distills final-layer patch tokens from a detection-specialized DINOv3 teacher using a single alignment loss. With Objects365 detector pre-training, GTR-L reaches 58.9 box AP on COCO val2017 at 1.908 ms median batch-one forward latency on an RTX 4090 with compiled FP16 execution. The same backbone design supports instance segmentation, human pose estimation, oriented detection, semantic segmentation, and monocular depth estimation. A specialized chunkwise CUDA operator is 4.0 times faster than FLA v0.5.0 at 1,600 tokens in the reported isolated benchmark, while TensorRT deployment on DRIVE AGX Thor records 2.282 to 8.769 ms median batch-one latency across the evaluated task and scale combinations.
   - id: edgecrafter
     branch: edge-detectors
     title: "EdgeCrafter: Compact ViTs for Edge Dense Prediction via Task-Specialized Distillation"
@@ -308,6 +324,9 @@ publications:
     abstract: "Most 2D human pose estimation frameworks estimate keypoint confidence in an ad-hoc manner, using heuristics such as the maximum value of heatmaps. The confidence is part of the evaluation scheme, e.g., AP for the MSCOCO dataset, yet has been largely overlooked in the development of state-of-the-art methods. This paper takes the first steps in addressing miscalibration in pose estimation. From a calibration point of view, the confidence should be aligned with the pose accuracy. In practice, existing methods are poorly calibrated. We show, through theoretical analysis, why a miscalibration gap exists and how to narrow the gap. Simply predicting the instance size and adjusting the confidence function gives considerable AP improvements. Given the black-box nature of deep neural networks, however, it is not possible to fully close this gap with only closed-form adjustments. As such, we go one step further and learn network-specific adjustments by enforcing consistency between confidence and pose accuracy. Our proposed Calibrated ConfidenceNet (CCNet) is a light-weight post-hoc addition that improves AP by up to 1.4% on off-the-shelf pose estimation frameworks. Applied to the downstream task of mesh recovery, CCNet facilitates an additional 1.0mm decrease in 3D keypoint error."
 
 news:
+  - date: "09/2026"
+    text: "GTR: Gated Token Recurrence for Efficient Dense Prediction is released on arXiv."
+    url: "https://intellindust-ai-lab.github.io/projects/GTR/"
   - date: "08/2026"
     text: "EdgeCrafter is accepted by Transactions on Machine Learning Research (TMLR)."
     url: "https://intellindust-ai-lab.github.io/projects/EdgeCrafter/"
