@@ -57,7 +57,7 @@ publications:
     branch: edge-detectors
     title: "LoopDVR: Looped Transformer for Efficient Dense Visual Recognition"
     authors: "Sirui Liang, Xuanlong Yu, Longfei Liu, Xiaodong Cun†, Xi Shen"
-    venue: "Preprint"
+    venue: "arXiv"
     year: "2026"
     image: "/images/research/loopdvr.png"
     links:
