@@ -32,7 +32,7 @@ profile:
 
 branches:
   - id: edge-detectors
-    label: Edge Object Detectors
+    label: Edge Dense Prediction
     caption: Compact detectors, dense prediction, deployment-shaped ViTs.
     position: "node-a"
   - id: few-shot-detection
@@ -53,6 +53,20 @@ branches:
     position: "node-e"
 
 publications:
+  - id: loopdvr
+    branch: edge-detectors
+    title: "LoopDVR: Looped Transformer for Efficient Dense Visual Recognition"
+    authors: "Sirui Liang, Xuanlong Yu, Longfei Liu, Xiaodong Cun†, Xi Shen"
+    venue: "Preprint"
+    year: "2026"
+    image: "/images/research/loopdvr.png"
+    links:
+      - label: Project
+        url: "https://siruuui.github.io/LoopDVR/"
+      - label: Code
+        url: "https://github.com/Intellindust-AI-Lab/LoopDVR"
+    abstract: >-
+      We propose LoopDVR, a framework for converting pretrained Transformer-based dense visual recognition models into parameter-efficient looped networks. Rather than reducing the network’s width or depth directly, LoopDVR shares Transformer blocks across selected layers in both the ViT backbone and query decoder, reducing the number of unique parameters while retaining the original computational structure. However, naively sharing parameters can disrupt the distinct representations and functions learned at different depths. To address this challenge, we use internal representations of the pretrained model to identify suitable sharing groups, initialize shared blocks using the pretrained weights of each group’s terminal layer, and introduce lightweight Loop Adapters to retain depth-specific transformations within shared blocks. We further distill visual representations into the looped backbone, integrate it with a looped query decoder, and train the resulting models for downstream dense recognition tasks. Experiments across four model scales demonstrate that LoopDVR achieves the best accuracy–parameter trade-offs in object detection, instance segmentation, and pose estimation with approximately 28% fewer parameters. Notably, LoopDet-S achieves 50.9 box AP with only 7.0M parameters, highlighting the effectiveness of parameter sharing in compact models.
   - id: gtr
     branch: edge-detectors
     title: "GTR: Gated Token Recurrence for Efficient Dense Prediction"
@@ -324,6 +338,9 @@ publications:
     abstract: "Most 2D human pose estimation frameworks estimate keypoint confidence in an ad-hoc manner, using heuristics such as the maximum value of heatmaps. The confidence is part of the evaluation scheme, e.g., AP for the MSCOCO dataset, yet has been largely overlooked in the development of state-of-the-art methods. This paper takes the first steps in addressing miscalibration in pose estimation. From a calibration point of view, the confidence should be aligned with the pose accuracy. In practice, existing methods are poorly calibrated. We show, through theoretical analysis, why a miscalibration gap exists and how to narrow the gap. Simply predicting the instance size and adjusting the confidence function gives considerable AP improvements. Given the black-box nature of deep neural networks, however, it is not possible to fully close this gap with only closed-form adjustments. As such, we go one step further and learn network-specific adjustments by enforcing consistency between confidence and pose accuracy. Our proposed Calibrated ConfidenceNet (CCNet) is a light-weight post-hoc addition that improves AP by up to 1.4% on off-the-shelf pose estimation frameworks. Applied to the downstream task of mesh recovery, CCNet facilitates an additional 1.0mm decrease in 3D keypoint error."
 
 news:
+  - date: "11/2026"
+    text: "LoopDVR: Looped Transformer for Efficient Dense Visual Recognition is released."
+    url: "https://siruuui.github.io/LoopDVR/"
   - date: "09/2026"
     text: "GTR: Gated Token Recurrence for Efficient Dense Prediction is released on arXiv."
     url: "https://intellindust-ai-lab.github.io/projects/GTR/"
