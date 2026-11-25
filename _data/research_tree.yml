@@ -63,6 +63,8 @@ publications:
     links:
       - label: Project
         url: "https://siruuui.github.io/LoopDVR/"
+      - label: Paper
+        url: "https://arxiv.org/pdf/2611.32067"
       - label: Code
         url: "https://github.com/Intellindust-AI-Lab/LoopDVR"
     abstract: >-
